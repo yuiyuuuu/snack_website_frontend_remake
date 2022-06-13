@@ -1,4 +1,4 @@
-# FS-App-Template
+# Federation-Store
 
 ## Setup
 
