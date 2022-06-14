@@ -13,6 +13,13 @@ const Product = db.define("product", {
     type: Sequelize.DECIMAL,
     allowNull: false,
   },
+  quantity: {
+    type: Sequelize.INTEGER,
+    validate: {
+      isNumeric: true,
+    },
+    defaultValue: 0,
+  },
 });
 
 module.exports = Product;
