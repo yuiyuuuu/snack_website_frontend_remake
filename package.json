@@ -1,7 +1,7 @@
 {
-  "name": "Federation Store",
+  "name": "bullseye",
   "version": "2.0.0",
-  "description": "Some boilerplate code to get you started - get shakin'!",
+  "description": "Federation Grace Shopper Project",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
