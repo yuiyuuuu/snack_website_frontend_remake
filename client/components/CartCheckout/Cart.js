@@ -1,7 +1,9 @@
 import React from "react";
+import useStyles from "./CartStyles";
 
 const Cart = () => {
-  return <div style={{ fontSize: "100px" }}>Cart</div>;
+  const classes = useStyles();
+  return <div className={classes.content}>Cart</div>;
 };
 
 export default Cart;
