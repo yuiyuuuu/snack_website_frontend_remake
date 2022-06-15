@@ -8,7 +8,7 @@ import useStyles from "./styles";
  * COMPONENT
  */
 const AuthForm = ({ formName }) => {
-  const [userName, setUserName] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const { error } = useSelector((state) => state.auth);
@@ -18,7 +18,7 @@ const AuthForm = ({ formName }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authenticate(userName, password, formName));
+    dispatch(authenticate(email, password, formName));
     history.push("/");
   };
 
@@ -27,36 +27,36 @@ const AuthForm = ({ formName }) => {
     <div className={classes.content}>
       <form onSubmit={handleSubmit} name={name}>
         <div>
-          <label htmlFor="username">
-            <small>Username</small>
+          <label htmlFor='email'>
+            <small>Email</small>
           </label>
           <input
-            name="username"
-            type="text"
-            onChange={(e) => setUserName(e.target.value)}
+            name='email'
+            type='text'
+            onChange={(e) => setEmail(e.target.value)}
           />
         </div>
         <div>
-          <label htmlFor="password">
+          <label htmlFor='password'>
             <small>Password</small>
           </label>
           <input
-            name="password"
-            type="password"
+            name='password'
+            type='password'
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
         <div>
-          <button type="submit">{formName}</button>
+          <button type='submit'>{formName}</button>
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
 
       <div>
-        {formName === "login" ? (
-          <Link to="/signup">Create Account</Link>
+        {formName === 'login' ? (
+          <Link to='/signup'>Create Account</Link>
         ) : (
-          <Link to="/login">Login</Link>
+          <Link to='/login'>Login</Link>
         )}
       </div>
     </div>

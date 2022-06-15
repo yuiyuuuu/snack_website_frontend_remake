@@ -18,12 +18,12 @@ async function seed() {
     User.create({
       // first_name: "cody",
       // last_name: "doo",
-      username: 'cody',
-      // email: "cody@doodoo.com",
+      // email: 'cody',
+      email: 'cody@gmail.com',
       password: '123',
       // postal_code: "12345",
     }),
-    // User.create({ username: 'murphy', password: '123' }),
+    User.create({ email: 'murphy@gmail.com', password: '123' }),
   ]);
 
   // Creating Products
@@ -40,7 +40,7 @@ async function seed() {
   return {
     users: {
       cody: users[0],
-      // murphy: users[1]
+      murphy: users[1],
     },
     products: {
       Cheetos: products[0],
