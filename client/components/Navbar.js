@@ -1,47 +1,99 @@
-import React from 'react'
-import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import {logout} from '../store'
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../store';
+import {
+  AppBar,
+  Toolbar,
+  IconButton,
+  MenuItem,
+  Menu,
+  Typography,
+  Avatar,
+  Badge,
+  Button,
+} from '@material-ui/core';
+import { ShoppingCart, Person, Settings } from '@material-ui/icons';
+import Shoppingcart from './CartCheckout/Cart';
 
-const Navbar = ({handleClick, isLoggedIn}) => (
-  <div>
-    <h1>FS-App-Template</h1>
-    <nav>
-      {isLoggedIn ? (
-        <div>
-          {/* The navbar will show these links after you log in */}
-          <Link to="/home">Home</Link>
-          <a href="#" onClick={handleClick}>
-            Logout
-          </a>
-        </div>
-      ) : (
-        <div>
-          {/* The navbar will show these links before you log in */}
-          <Link to="/login">Login</Link>
-          <Link to="/signup">Sign Up</Link>
-        </div>
-      )}
-    </nav>
-    <hr />
-  </div>
-)
+const Navbar = () => {
+  const isLoggedIn = useSelector((state) => !!state.auth.id);
+  const dispatch = useDispatch();
 
-/**
- * CONTAINER
- */
-const mapState = state => {
-  return {
-    isLoggedIn: !!state.auth.id
-  }
-}
+  //remove home and logout when we have functioning components for those, theyre so ugly ;(
+  return (
+    <div>
+      {/* <Typography variant="h3">Federation Store</Typography> */}
+      <AppBar position='fixed' color='white'>
+        <Toolbar>
+          <Avatar
+            src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJAAAACQCAMAAADQmBKKAAAAM1BMVEWJz/D///+EzfB+y+++4/bT7Pno9fz2+/77/f7X7vnv+P3I5/ff8ful2fOX1PLE5fez3/X3rO41AAADNUlEQVR4nO1a2XKrMAx1LLAJYIf//9pCkoLkhUCvRTxzdR760AlwrH2xUgKBQCAQCAQCgUAgEAgEAoHgP4Ne8W0mCxcA76bmMQyPZnIK4Jus5m+7xtjutqKzpnHqS5w0uLa/JWBaD9dT0qqxKTYv9JO6lpKGJikcJKbmSinBtCOdVUoOLqKj1f0znQXtNXoDd0A8FwpJN0fpLJjYZQQH1fWLgVlGejzHZzYkVhnBaT4zI0YZ6bS+rBnvbXsfTdraBzYZQcqe7eD8M8fOgdC7IcVpYpKRdgl9OMAReebl2vhXjklG0envPk7sWvtIsT0LncjhrUunKx2HTg7D1lMonnxiiJMLg9IgOPX+oSGwpL64iMKM0Xz4QuiRTXER0frns1EEMjKF6QQCuh/QQOAEhdMstSAb8U02QeSZslYUxETqMxr8tLRBU1DbBw/5kiLSxCCowrQz70aoM46IiSqtbNonJo3PqhXlioOT9lxmTYXfZr8ZsSVkCwZH6mPoxdp3twAdYkQPUtDPwKD3WmxBEZ+ZEX4QO5op52fkvahK1olSg6gUhtxJ/g1EMZvGYgN6YVMa0VmXfvkfQF5r/fr/MIOuItpE4bFsi1k1qTyQ94YFQEo32PqKWTVxshFpLGHST90gneE2pVjG1w/01i1Mp2rsUDckWD+KEcK+shlIVEMmdEPMrFg/VB+hnMpyNsSusrRRJ/qiF1C5xGTUObc3IZX3T9jdPhMYc26GPswTGHOpg55/Be5TeVJHPrkmReT4k2u2/CAffAN3SFzlR7ZAU/AI6JBgw1ag5UvYmVGX5cNXwu4U+Qo8CjUjnQMTZyjau+62QdoPve062w+eDkQY26DdRnH+Mijvl797DxVtFD+10mkQPRceyPxl2EAL3OIz/dPjGBqiSo9jzg+sgmKp/MDq5EgvCOHlR3onh55hg8QxqT48Flbgwv0n076jssH5kdWCWlYLcaXNtVrYWb7A7/IltazmWr7Ut56qb4FX34qzviVwfWvy+i4S1HfVQlV3GUXVd11HVXeh6UmpritfT0rLpbixmktxb041XRvcWNVzsVIgEAgEAoFAIBAIBAKBQCAQXIsfoRQc9rxAXeoAAAAASUVORK5CYII='
+            component={Link}
+            to='/'
+          />
+          <Typography
+            style={{
+              marginLeft: '10px',
+              color: 'black',
+              fontFamily: 'Bradley Hand',
+              fontSize: '23px',
+            }}
+            component={Link}
+            to='/allsnacks'
+          >
+            SHOP
+          </Typography>
+          <div style={{ flexGrow: 1 }} />
+          <Typography
+            variant='h4'
+            style={{ fontFamily: 'Bradley Hand', color: 'black' }}
+            component={Link}
+            to='/'
+          >
+            BullsEye Store
+          </Typography>
+          <div style={{ flexGrow: 1 }} />
+          {isLoggedIn ? (
+            <div>
+              <IconButton component={Link} to='/myaccount'>
+                <Person />
+              </IconButton>
 
-const mapDispatch = dispatch => {
-  return {
-    handleClick() {
-      dispatch(logout())
-    }
-  }
-}
+              <IconButton>
+                <Shoppingcart />
+              </IconButton>
 
-export default connect(mapState, mapDispatch)(Navbar)
+              <Link to='/managepage'>
+                <IconButton>
+                  <Settings />
+                </IconButton>
+              </Link>
+
+              {/* The navbar will show these links after you log in */}
+            </div>
+          ) : (
+            <div>
+              <IconButton component={Link} to='/login'>
+                <Person />
+              </IconButton>
+
+              <IconButton
+                component={Link}
+                to='/login'
+                style={{ marginRight: '10px' }}
+              >
+                <Badge badgeContent={0} showZero color='primary'>
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+              {/* The navbar will show these links before you log in */}
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+      <hr />
+    </div>
+  );
+};
+
+export default Navbar;
