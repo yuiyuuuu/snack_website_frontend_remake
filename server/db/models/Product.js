@@ -1,7 +1,7 @@
-const Sequelize = require("sequelize");
-const db = require("../db");
+const Sequelize = require('sequelize');
+const db = require('../db');
 
-const Product = db.define("product", {
+const Product = db.define('product', {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -19,6 +19,11 @@ const Product = db.define("product", {
       isNumeric: true,
     },
     defaultValue: 0,
+  },
+  photoURL: {
+    type: Sequelize.STRING,
+    defaultValue:
+      'https://img.freepik.com/free-vector/cartoon-taco-drawing_125371-78.jpg?w=2000',
   },
 });
 
