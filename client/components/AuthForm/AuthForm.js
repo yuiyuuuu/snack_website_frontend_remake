@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate, error } from "../../store";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
+
 import useStyles from "./styles";
 /**
  * COMPONENT
@@ -18,7 +19,7 @@ const AuthForm = ({ formName }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(authenticate(userName, password, formName));
-    history.push("/home");
+    history.push("/");
   };
 
   const classes = useStyles();
@@ -50,6 +51,14 @@ const AuthForm = ({ formName }) => {
         </div>
         {error && error.response && <div> {error.response.data} </div>}
       </form>
+
+      <div>
+        {formName === "login" ? (
+          <Link to="/signup">Create Account</Link>
+        ) : (
+          <Link to="/login">Login</Link>
+        )}
+      </div>
     </div>
   );
 };

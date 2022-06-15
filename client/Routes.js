@@ -34,13 +34,13 @@ class Routes extends Component {
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/myaccount" component={MyAccount} />
             <Route exact path="/managepage" component={ManagePage} />
-            <Route exact path="/home" component={Home} />
+            <Route exact path="/" component={Home} />
           </Switch>
         ) : (
           <Switch>
             <Route exact path="/allsnacks" component={AllSnacks} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/" component={AuthForm} />
+            <Route exact path="/" component={Home} />
+
             <Route exact path="/login">
               <AuthForm formName="login" />
             </Route>
