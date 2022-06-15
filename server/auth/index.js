@@ -14,8 +14,8 @@ router.post('/login', async (req, res, next) => {
 
 router.post('/signup', async (req, res, next) => {
   try {
-    const { username, password } = req.body;
-    const user = await User.create({ username, password });
+    const { email, password } = req.body;
+    const user = await User.create({ email, password });
     await ShoppingSession.create({
       userId: user.id,
     });
