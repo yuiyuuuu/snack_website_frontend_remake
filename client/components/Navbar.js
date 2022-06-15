@@ -14,6 +14,7 @@ import {
   Button,
 } from '@material-ui/core';
 import { ShoppingCart, Person, Settings } from '@material-ui/icons';
+import Shoppingcart from './CartCheckout/Cart';
 
 const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.id);
@@ -58,10 +59,8 @@ const Navbar = () => {
                 <Person />
               </IconButton>
 
-              <IconButton component={Link} to='/cart'>
-                <Badge badgeContent={0} showZero color='primary'>
-                  <ShoppingCart />
-                </Badge>
+              <IconButton>
+                <ShoppingCart />
               </IconButton>
 
               <Link to='/managepage'>
