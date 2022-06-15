@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import { logout } from "../store";
+import React from 'react';
+import { connect, useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logout } from '../store';
 import {
   AppBar,
   Toolbar,
@@ -10,81 +10,69 @@ import {
   Menu,
   Typography,
   Avatar,
-} from "@material-ui/core";
-import { ShoppingCart, Person, Settings } from "@material-ui/icons";
+} from '@material-ui/core';
+import { ShoppingCart, Person, Settings } from '@material-ui/icons';
 
-const Navbar = ({ handleClick, isLoggedIn }) => (
-  <div>
-    {/* <Typography variant="h3">Federation Store</Typography> */}
-    <AppBar>
-      <Toolbar>
-        <Avatar src="https://cdn-icons-png.flaticon.com/512/1160/1160358.png" />
+const Navbar = () => {
+  const isLoggedIn = useSelector((state) => !!state.auth.id);
+  const dispatch = useDispatch();
 
-        {isLoggedIn ? (
-          <div>
-            <IconButton>
-              <Link to="/myaccount">
-                <Person />
+  return (
+    <div>
+      {/* <Typography variant="h3">Federation Store</Typography> */}
+      <AppBar>
+        <Toolbar>
+          <Avatar src='https://cdn-icons-png.flaticon.com/512/1160/1160358.png' />
+
+          {isLoggedIn ? (
+            <div>
+              <IconButton>
+                <Link to='/myaccount'>
+                  <Person />
+                </Link>
+              </IconButton>
+
+              <Link to='/cart'>
+                <IconButton>
+                  <ShoppingCart />
+                </IconButton>
               </Link>
-            </IconButton>
 
-            <Link to="/cart">
-              <IconButton>
-                <ShoppingCart />
-              </IconButton>
-            </Link>
+              <Link to='/managepage'>
+                <IconButton>
+                  <Settings />
+                </IconButton>
+              </Link>
 
-            <Link to="/managepage">
-              <IconButton>
-                <Settings />
-              </IconButton>
-            </Link>
+              {/* The navbar will show these links after you log in */}
+              <Link to='/home'>Home</Link>
+              <a href='#' onClick={() => dispatch(logout())}>
+                Logout
+              </a>
+            </div>
+          ) : (
+            <div>
+              <Link to='/login'>
+                <IconButton>
+                  <Person />
+                </IconButton>
+              </Link>
 
-            {/* The navbar will show these links after you log in */}
-            <Link to="/home">Home</Link>
-            <a href="#" onClick={handleClick}>
-              Logout
-            </a>
-          </div>
-        ) : (
-          <div>
-            <Link to="/login">
-              <IconButton>
-                <Person />
-              </IconButton>
-            </Link>
-
-            <Link to="/login">
-              <IconButton>
-                <ShoppingCart />
-              </IconButton>
-            </Link>
-            {/* The navbar will show these links before you log in */}
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
-          </div>
-        )}
-      </Toolbar>
-    </AppBar>
-    <hr />
-  </div>
-);
-
-/**
- * CONTAINER
- */
-const mapState = (state) => {
-  return {
-    isLoggedIn: !!state.auth.id,
-  };
+              <Link to='/login'>
+                <IconButton>
+                  <ShoppingCart />
+                </IconButton>
+              </Link>
+              {/* The navbar will show these links before you log in */}
+              <Link to='/login'>Login</Link>
+              <Link to='/signup'>Sign Up</Link>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+      <hr />
+    </div>
+  );
 };
 
-const mapDispatch = (dispatch) => {
-  return {
-    handleClick() {
-      dispatch(logout());
-    },
-  };
-};
-
-export default connect(mapState, mapDispatch)(Navbar);
+export default Navbar;

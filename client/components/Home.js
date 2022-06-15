@@ -1,26 +1,14 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { useSelector } from 'react-redux';
 
-/**
- * COMPONENT
- */
-export const Home = (props) => {
-  const { username } = props;
+export const Home = () => {
+  const username = useSelector((state) => state.auth.username);
 
   return (
     <div>
-      <h3 style={{ fontSize: "100px" }}>Welcome, {username}</h3>
+      <h3 style={{ fontSize: '100px' }}>Welcome, {username}</h3>
     </div>
   );
 };
 
-/**
- * CONTAINER
- */
-const mapState = (state) => {
-  return {
-    username: state.auth.username,
-  };
-};
-
-export default connect(mapState)(Home);
+export default Home;
