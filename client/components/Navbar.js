@@ -60,7 +60,7 @@ const Navbar = () => {
               </IconButton>
 
               <IconButton>
-                <ShoppingCart />
+                <Shoppingcart />
               </IconButton>
 
               <Link to='/managepage'>

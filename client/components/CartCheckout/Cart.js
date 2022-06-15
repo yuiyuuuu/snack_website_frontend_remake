@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Button from '@mui/material/Button';
+import { Button } from '@material-ui/core';
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -22,7 +22,7 @@ export default function Shoppingcart() {
 
   return (
     <div>
-      <Badge variant='outlined' onClick={handleClickOpen}>
+      <Badge Content={0} showZero color='primary' onClick={handleClickOpen}>
         <ShoppingCart />
       </Badge>
       <Dialog open={open} onClose={handleClose}>
