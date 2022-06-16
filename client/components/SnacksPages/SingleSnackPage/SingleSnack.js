@@ -1,33 +1,44 @@
-import React, { useState } from 'react';
-import { Button, ButtonGroup, Typography } from '@material-ui/core';
+import React, { useState, useEffect } from 'react';
+import { Button, ButtonGroup, Typography, CardMedia } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchSingleSnack } from '../../../store/singleSnack';
 
 const SingleSnacks = (props) => {
-  console.log('Snack Id from URL', props.match.params.snackId);
+  const snackId = props.match.params.snackId;
+  const { singleSnack } = useSelector((state) => state);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchSingleSnack(snackId));
+  }, []);
+
   const [snackCount, setSnackCount] = useState(1);
+
+  const { name, desc, price, quantity, photoURL } = singleSnack;
   return (
     <div
       style={{
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'center',
-        border: '2px solid blue',
         height: '100vh',
       }}
     >
       <div
         style={{
-          border: '2px solid red',
           borderRadius: '15px',
           padding: '10px',
           margin: '80px 5px 5px 5px',
           flex: '0 1 300px',
         }}
       >
-        <img src="https://target.scene7.com/is/image/Target/GUEST_270b5c8e-cb10-4635-8c6b-a2d4ae94102a?wid=325&hei=325&qlt=80&fmt=pjpeg" />
+        <CardMedia
+          component="img"
+          sx={{ width: 200, objectFit: 'contain' }}
+          image={photoURL}
+        />
       </div>
       <div
         style={{
-          border: '2px solid red',
           borderRadius: '15px',
           padding: '10px',
           margin: '80px 5px 5px 5px',
@@ -35,12 +46,19 @@ const SingleSnacks = (props) => {
         }}
       >
         <div>
-          <Typography variant="h1">Title</Typography>
-          <Typography variant="h2">Price</Typography>
+          <Typography variant="h4" color="text.primary" component="div">
+            {name}
+          </Typography>
+          <Typography variant="h4" color="text.primary">
+            {price}
+          </Typography>
+          <Typography variant="h5" color="text.primary">
+            In Stock: {quantity}
+          </Typography>
         </div>
+
         <hr></hr>
         <div>
-          <Typography variant="h3">Quantity:{snackCount}</Typography>
           <div
             style={{
               display: 'flex',
@@ -50,10 +68,19 @@ const SingleSnacks = (props) => {
           >
             <div>
               <ButtonGroup
+                style={{ border: '2px solid black' }}
                 color="secondary"
+                variant="h6"
                 aria-label="outlined secondary button group"
               >
                 <Button onClick={() => setSnackCount(snackCount - 1)}>-</Button>
+                <Typography
+                  style={{ alignContent: 'center' }}
+                  variant="h6"
+                  color="text.primary"
+                >
+                  {snackCount}
+                </Typography>
                 <Button onClick={() => setSnackCount(snackCount + 1)}>+</Button>
               </ButtonGroup>
             </div>
@@ -65,35 +92,8 @@ const SingleSnacks = (props) => {
 
         <hr></hr>
         <div>
-          <Typography variant="h3">Description:</Typography>
+          <Typography variant="subtitle">Description: {desc}</Typography>
         </div>
-        <div>
-          {/* <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <IconButton>
-            <Remove />
-          </IconButton>
-          Qty : 1
-          <IconButton>
-            <Add />
-          </IconButton>
-          <IconButton>
-            <RemoveShoppingCart />
-          </IconButton>
-        </Box> */}
-        </div>
-
-        {/* <div>
-
-
-
-          <Typography variant="p">Right</Typography>
-          <Typography variant="p">to your</Typography>
-          <Typography variant="p">door.</Typography>
-          <div>
-            <Button>Shop Now</Button>
-          </div>
-          <div />
-        </div> */}
       </div>
     </div>
   );
