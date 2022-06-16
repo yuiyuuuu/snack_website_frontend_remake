@@ -21,7 +21,7 @@ const Product = db.define('product', {
     defaultValue: 0,
   },
   photoURL: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     defaultValue:
       'https://img.freepik.com/free-vector/cartoon-taco-drawing_125371-78.jpg?w=2000',
   },

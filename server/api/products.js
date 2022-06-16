@@ -66,7 +66,7 @@ router.put('/:id', async (req, res, next) => {
 
 // req.body should contain updated cart quantity and session id from useSelector
 // PUT /api/products/:id/cartItem
-router.put('/:id', async (req, res, next) => {
+router.put('/:id/cartItem', async (req, res, next) => {
   try {
     const cartItem = await CartItem.findOrCreate({
       where: {
