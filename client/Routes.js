@@ -10,6 +10,7 @@ import Checkout from './components/CartCheckout/Checkout';
 import ConfirmationPage from './components/CartCheckout/ConfirmationPage';
 import MyAccount from './components/MyAccount/MyAccount';
 import ManagePage from './components/ManagePage/ManagePage';
+import Profile from './components/MyAccount/Profile';
 import AllSnacks from './components/SnacksPages/AllSnacks/AllSnacks';
 import SingleSnack from './components/SnacksPages/SingleSnackPage/SingleSnack';
 import Login from './components/AuthForms/Login/Login';
@@ -27,26 +28,27 @@ class Routes extends Component {
       <div>
         {isLoggedIn ? (
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/allsnacks" component={AllSnacks} />
-            <Route exact path="/allsnacks/:snackId" component={SingleSnack} />
-            <Route exact path="/myaccount" component={MyAccount} />
-            <Route exact path="/managepage" component={ManagePage} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/checkout" component={Checkout} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/allsnacks' component={AllSnacks} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
+            <Route exact path='/myaccount' component={MyAccount} />
+            <Route exact path='/profile/:id' component={Profile} />
+            <Route exact path='/managepage' component={ManagePage} />
+            <Route exact path='/cart' component={Cart} />
+            <Route exact path='/checkout' component={Checkout} />
           </Switch>
         ) : (
           <Switch>
-            <Route exact path="/allsnacks" component={AllSnacks} />
-            <Route exact path="/allsnacks/:snackId" component={SingleSnack} />
+            <Route exact path='/allsnacks' component={AllSnacks} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
 
-            <Route exact path="/" component={Home} />
+            <Route exact path='/' component={Home} />
 
-            <Route exact path="/login">
-              <Login formName="login" />
+            <Route exact path='/login'>
+              <Login formName='login' />
             </Route>
-            <Route exact path="/signup">
-              <Signup formName="signup" />
+            <Route exact path='/signup'>
+              <Signup formName='signup' />
             </Route>
           </Switch>
         )}

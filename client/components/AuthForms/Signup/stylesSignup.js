@@ -1,36 +1,36 @@
-import { makeStyles } from "@material-ui/core";
+import { makeStyles } from '@material-ui/core';
 
 export default makeStyles((theme) => ({
   content: {
-    alignItems: "center",
+    alignItems: 'center',
     marginTop: theme.spacing(12),
-    display: "flex",
-    flexDirection: "column",
+    display: 'flex',
+    flexDirection: 'column',
   },
   form: {
-    width: "100%",
-    marginTop: theme.spacing(3),
+    width: '100%',
+    marginTop: theme.spacing(1),
   },
 
   button: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "deepskyblue",
-    fontWeight: "bolder",
-    color: "white",
+    backgroundColor: 'deepskyblue',
+    fontWeight: 'bolder',
+    color: 'white',
   },
   buttonNoComplete: {
     margin: theme.spacing(3, 0, 2),
-    backgroundColor: "gainsboro",
-    color: "gray",
-    fontWeight: "bolder",
+    backgroundColor: 'gainsboro',
+    color: 'gray',
+    fontWeight: 'bolder',
   },
   signuphook: {
-    textAlign: "center",
-    fontWeight: "bolder",
-    fontSize: "2em",
-    marginTop: "12%",
+    textAlign: 'center',
+    fontWeight: 'bolder',
+    fontSize: '2em',
+    marginTop: '12%',
   },
   underSignUpHook: {
-    marginTop: "5%",
+    marginTop: '5%',
   },
 }));

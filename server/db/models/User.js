@@ -7,11 +7,11 @@ const axios = require('axios');
 const SALT_ROUNDS = 5;
 
 const User = db.define('user', {
-  first_name: {
+  firstName: {
     type: Sequelize.STRING,
     // allowNull: false,
   },
-  last_name: {
+  lastName: {
     type: Sequelize.STRING,
     // allowNull: false,
   },
@@ -44,10 +44,10 @@ const User = db.define('user', {
   },
   postal_code: {
     type: Sequelize.INTEGER,
-    validate: {
-      len: [5, 5],
-      isNumeric: true,
-    },
+    // validate: {
+    //   len: [5, 5],
+    //   isNumeric: true,
+    // },
     allowNull: true,
   },
   country: {
@@ -56,9 +56,9 @@ const User = db.define('user', {
   },
   telephone: {
     type: Sequelize.INTEGER,
-    validate: {
-      isNumeric: true,
-    },
+    // validate: {
+    //   isNumeric: true,
+    // },
     allowNull: true,
   },
 });
@@ -80,7 +80,7 @@ User.prototype.generateToken = function () {
 /**
  * classMethods
  */
-User.authenticate = async function ({ email, password }) {
+User.authenticate = async function ({ firstName, lastName, email, password }) {
   const user = await this.findOne({ where: { email } });
   if (!user || !(await user.correctPassword(password))) {
     const error = Error('Incorrect email/password');
