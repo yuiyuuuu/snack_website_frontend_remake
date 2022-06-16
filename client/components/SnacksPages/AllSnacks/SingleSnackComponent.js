@@ -18,8 +18,7 @@ const SingleSnackComponent = ({ snack }) => {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    const unsubscribe = dispatch(fetchAUser(userId.id));
-    return unsubscribe;
+    dispatch(fetchAUser(userId.id)); //user with shopping id
   }, []);
 
   console.log(user);

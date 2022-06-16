@@ -1,15 +1,15 @@
-const router = require('express').Router();
-const { requireToken, isAdmin } = require('./gatekeepingMiddleware');
+const router = require("express").Router();
+const { requireToken, isAdmin } = require("./gatekeepingMiddleware");
 const {
   models: { User, ShoppingSession },
-} = require('../db');
+} = require("../db");
 module.exports = router;
 
 // GET /api/users/
-router.get('/', requireToken, isAdmin, async (req, res, next) => {
+router.get("/", requireToken, isAdmin, async (req, res, next) => {
   try {
     const users = await User.findAll({
-      attributes: ['first_name', 'last_name', 'email'],
+      attributes: ["first_name", "last_name", "email"],
     });
     res.json(users);
   } catch (err) {
@@ -18,7 +18,7 @@ router.get('/', requireToken, isAdmin, async (req, res, next) => {
 });
 
 // GET /api/users/:id
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const singleUser = await User.findByPk(req.params.id, {
       include: ShoppingSession,
@@ -30,7 +30,7 @@ router.get('/:id', async (req, res, next) => {
 });
 
 // PUT /api/users/:id
-router.put('/:id', async (req, res, next) => {
+router.put("/:id", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
     res.send(await user.update(req.body));
