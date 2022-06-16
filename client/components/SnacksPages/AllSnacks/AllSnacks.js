@@ -1,12 +1,11 @@
-import React, { useEffect } from "react";
-import useStyles from "./AllSnackStyles";
-import { Container, Typography, Grid } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../../store/products";
-import SingleSnackComponent from "./SingleSnackComponent";
-import { fetchAUser } from "../../../store";
+import React, { useEffect, useState } from 'react';
+import useStyles from './AllSnackStyles';
+import { Container, Typography, Grid } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../../../store/products';
+import SingleSnackComponent from './SingleSnackComponent';
+import { fetchAUser } from '../../../store';
 import FilterImg from './FilterImg';
-
 
 const AllSnacks = () => {
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
