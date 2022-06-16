@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import useStyles from './styles';
 import {
   Typography,
@@ -9,26 +10,48 @@ import {
   Button,
   Box,
 } from '@material-ui/core';
+import { updateProfile } from '../../store';
 
 export default function Profile() {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const user = useSelector((state) => state.auth);
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [address1, setAddress1] = useState('');
-  const [address2, setAddress2] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
-  const [postal, setPostal] = useState('');
-  const [telephone, setTelephone] = useState('');
+  const [firstName, setFirstName] = useState(user.firstName);
+  const [lastName, setLastName] = useState(user.lastName);
+  const [email, setEmail] = useState(user.email);
+  const [address1, setAddress1] = useState(user.address_line1);
+  const [address2, setAddress2] = useState(user.address_line2);
+  const [city, setCity] = useState(user.city);
+  const [country, setCountry] = useState(user.country);
+  const [postal, setPostal] = useState(user.postal);
+  const [telephone, setTelephone] = useState(user.telephone);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const prof = {
+      id: user.id,
+      firstName,
+      lastName,
+      email,
+      address_line1: address1,
+      address_line2: address2,
+      city,
+      country,
+      postal_code: postal,
+      telephone,
+    };
+    try {
+      dispatch(updateProfile(prof));
+      history.push('/');
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
-    <Container className={classes.content} maxWidth='s'>
+    <Container className={classes.content} maxWidth='sm'>
       <Box component='form' onSubmit={handleSubmit}>
         <Typography>First Name</Typography>
         <TextField
@@ -36,6 +59,7 @@ export default function Profile() {
           fullWidth
           id='first-name'
           name='first-name'
+          value={firstName}
           onChange={(e) => setFirstName(e.target.value)}
         />
         <Typography>Last Name</Typography>
@@ -44,6 +68,7 @@ export default function Profile() {
           fullWidth
           id='last-name'
           name='last-name'
+          value={lastName}
           onChange={(e) => setLastName(e.target.value)}
         />
         <Typography>Email</Typography>
@@ -52,6 +77,7 @@ export default function Profile() {
           fullWidth
           id='email'
           name='email'
+          value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Typography>Address Line 1</Typography>
@@ -60,6 +86,7 @@ export default function Profile() {
           fullWidth
           id='address1'
           name='address1'
+          value={address1}
           onChange={(e) => setAddress1(e.target.value)}
         />
         <Typography>Address Line 2</Typography>
@@ -67,7 +94,8 @@ export default function Profile() {
           variant='outlined'
           fullWidth
           id='address2'
-          name='faddress2'
+          name='address2'
+          value={address2}
           onChange={(e) => setAddress2(e.target.value)}
         />
         <Typography>City</Typography>
@@ -76,6 +104,7 @@ export default function Profile() {
           fullWidth
           id='city'
           name='city'
+          value={city}
           onChange={(e) => setCity(e.target.value)}
         />
         <Typography>Country</Typography>
@@ -84,6 +113,7 @@ export default function Profile() {
           fullWidth
           id='country'
           name='country'
+          value={country}
           onChange={(e) => setCountry(e.target.value)}
         />
         <Typography>Postal Code</Typography>
@@ -92,6 +122,7 @@ export default function Profile() {
           fullWidth
           id='postal'
           name='postal'
+          value={postal}
           onChange={(e) => setPostal(e.target.value)}
         />
         <Typography>Telephone</Typography>
@@ -100,6 +131,7 @@ export default function Profile() {
           fullWidth
           id='telephone'
           name='telephone'
+          value={telephone}
           onChange={(e) => setTelephone(e.target.value)}
         />
         <Button

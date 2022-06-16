@@ -9,6 +9,7 @@ import { Link } from 'react-router-dom';
 const MyAccount = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.auth);
 
   return (
     <>
@@ -17,7 +18,7 @@ const MyAccount = () => {
           Logout
         </a>
       </div>
-      <Link to='/profile'>Profile</Link>
+      <Link to={`/profile/${user.id}`}>Profile</Link>
     </>
   );
 };

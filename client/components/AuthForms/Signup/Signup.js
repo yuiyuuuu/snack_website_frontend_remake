@@ -8,7 +8,6 @@ import {
   Button,
   Avatar,
   Box,
-  Alert,
 } from '@material-ui/core';
 import { authenticate, error } from '../../../store';
 import { useDispatch, useSelector } from 'react-redux';
@@ -53,7 +52,7 @@ const Signup = ({ formName }) => {
           You sign up. We deliver — fast.
         </Typography>
         <Box component='form' className={classes.form} onSubmit={handleSubmit}>
-          {err && <Alert color='error'>{err}</Alert>}
+          {/* {err && <Alert color='error'>{err}</Alert>} */}
           <Grid container spacing={2}>
             <Grid item xs={12} sm={6}>
               <TextField

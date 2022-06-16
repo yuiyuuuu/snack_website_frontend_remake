@@ -7,24 +7,23 @@ export const editProfile = (user) => ({
   user,
 });
 
-export const updateProfile = (user, history) => {
+export const updateProfile = (user) => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.put(`/api/users/${user.id}}`, user);
+      const { data } = await axios.put(`/api/users/${user.id}`, user);
       dispatch(editProfile(data));
-      history.push(`/myaccount/${user.id}}`);
     } catch (error) {
       console.error(error);
     }
   };
 };
 
-const initialState = [];
+const initialState = {};
 
 export default function profileReducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_PROFILE:
-      return action.products;
+      return action.user;
     default:
       return state;
   }

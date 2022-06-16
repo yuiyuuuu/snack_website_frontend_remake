@@ -9,9 +9,10 @@ import Cart from './components/CartCheckout/Cart';
 import Checkout from './components/CartCheckout/Checkout';
 import ConfirmationPage from './components/CartCheckout/ConfirmationPage';
 import MyAccount from './components/MyAccount/MyAccount';
-import Profile from './components/MyAccount/Profile';
 import ManagePage from './components/ManagePage/ManagePage';
+import Profile from './components/MyAccount/Profile';
 import AllSnacks from './components/SnacksPages/AllSnacks/AllSnacks';
+import SingleSnack from './components/SnacksPages/SingleSnackPage/SingleSnack';
 import Login from './components/AuthForms/Login/Login';
 // import { ErrorPage, MyAccount, ManagePage } from "./components";
 
@@ -29,8 +30,9 @@ class Routes extends Component {
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/allsnacks' component={AllSnacks} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
             <Route exact path='/myaccount' component={MyAccount} />
-            <Route exact path='/myaccount/:id' component={Profile} />
+            <Route exact path='/profile/:id' component={Profile} />
             <Route exact path='/managepage' component={ManagePage} />
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/checkout' component={Checkout} />
@@ -38,6 +40,8 @@ class Routes extends Component {
         ) : (
           <Switch>
             <Route exact path='/allsnacks' component={AllSnacks} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
+
             <Route exact path='/' component={Home} />
 
             <Route exact path='/login'>

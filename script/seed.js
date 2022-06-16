@@ -19,11 +19,11 @@ async function seed() {
         'https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg',
     },
     {
-      name: 'Doritos',
+      name: 'Doritos : Nacho Chesse',
       desc: 'Your favorite bold nacho cheese flavored tortilla chips',
       price: 5.99,
       photoURL:
-        'https://target.scene7.com/is/image/Target/GUEST_3beecac5-3e25-4dcc-b3f5-3cd04c343159?wid=325&hei=325&qlt=80&fmt=pjpeg',
+        'https://images.heb.com/is/image/HEBGrocery/002092535?fit=constrain,1&wid=800&hei=800&fmt=jpg&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0',
     },
     {
       name: "Lay's Potato Chips",

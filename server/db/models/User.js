@@ -44,10 +44,10 @@ const User = db.define('user', {
   },
   postal_code: {
     type: Sequelize.INTEGER,
-    validate: {
-      len: [5, 5],
-      isNumeric: true,
-    },
+    // validate: {
+    //   len: [5, 5],
+    //   isNumeric: true,
+    // },
     allowNull: true,
   },
   country: {
@@ -56,9 +56,9 @@ const User = db.define('user', {
   },
   telephone: {
     type: Sequelize.INTEGER,
-    validate: {
-      isNumeric: true,
-    },
+    // validate: {
+    //   isNumeric: true,
+    // },
     allowNull: true,
   },
 });
