@@ -20,7 +20,10 @@ Product.hasOne(CartItem);
 CartItem.belongsTo(Product);
 
 ProductCategory.hasMany(Product);
-Product.belongsTo(ProductCategory);
+Product.belongsTo(ProductCategory, {
+  as: 'cat',
+  foreignKey: 'productCategoryId',
+});
 
 Product.hasOne(OrderItem);
 OrderItem.belongsTo(Product);

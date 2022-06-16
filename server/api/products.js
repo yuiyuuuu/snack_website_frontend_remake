@@ -9,7 +9,12 @@ module.exports = router;
 // GET /api/products/
 router.get('/', async (req, res, next) => {
   try {
-    const products = await Product.findAll();
+    const products = await Product.findAll({
+      include: {
+        model: ProductCategory,
+        as: 'cat',
+      },
+    });
     res.json(products);
   } catch (err) {
     next(err);
@@ -20,14 +25,19 @@ router.get('/', async (req, res, next) => {
 // GET /api/products/:id
 router.get('/:id', async (req, res, next) => {
   try {
-    const singleProduct = await Product.findByPk(req.params.id);
+    const singleProduct = await Product.findByPk(req.params.id, {
+      include: {
+        model: ProductCategory,
+        as: 'cat',
+      },
+    });
     res.json(singleProduct);
   } catch (err) {
     next(err);
   }
 });
 
-// CREATAE NEW PRODUCT
+// CREATE NEW PRODUCT
 // POST /api/products/
 router.post('/', async (req, res, next) => {
   try {
@@ -66,7 +76,7 @@ router.put('/:id', async (req, res, next) => {
 
 // req.body should contain updated cart quantity and session id from useSelector
 // PUT /api/products/:id/cartItem
-router.put('/:id', async (req, res, next) => {
+router.put('/:id/cartItem', async (req, res, next) => {
   try {
     const cartItem = await CartItem.findOrCreate({
       where: {
