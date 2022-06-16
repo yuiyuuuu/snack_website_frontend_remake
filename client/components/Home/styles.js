@@ -9,9 +9,11 @@ export default makeStyles((theme) => ({
     position: "absolute",
     left: 0,
     top: "-3px",
+    flexWrap: "wrap",
+    width: "100%",
   },
-  home: {
-    height: "50%",
+  m1: {
+    height: "100%",
     padding: 0,
     backgroundColor: "aqua",
     width: "50%",
@@ -28,21 +30,27 @@ export default makeStyles((theme) => ({
   },
   imageDiv: {
     height: "50%",
-    width: "700px",
+    width: "50%",
+    display: "flex",
+    flexDirection: "column",
   },
   media: {
     width: "100%",
+    height: "50%",
   },
   buttonDiv: {
     display: "flex",
-    marginBottom: "20px",
+    marginBottom: "40px",
   },
   shopButton: {
     marginTop: "30px",
     borderRadius: "30px !important", //need !important to round button or else another class is overtaking it
     backgroundColor: "white",
     position: "relative",
-    left: "37%",
+    left: "35%",
   },
-  "@media (min-width: 960px)": {},
+  m2: {
+    display: "flex",
+    justifyContent: "center",
+  },
 }));
