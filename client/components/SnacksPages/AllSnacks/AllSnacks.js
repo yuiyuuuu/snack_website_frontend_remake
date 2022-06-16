@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import useStyles from './AllSnackStyles';
-import { Container, Typography, Grid } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../../store/products';
-import SingleSnackComponent from './SingleSnackComponent';
+import React, { useEffect } from "react";
+import useStyles from "./AllSnackStyles";
+import { Container, Typography, Grid } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts } from "../../../store/products";
+import SingleSnackComponent from "./SingleSnackComponent";
+import { fetchAUser } from "../../../store";
 import FilterImg from './FilterImg';
+
 
 const AllSnacks = () => {
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
@@ -17,6 +19,16 @@ const AllSnacks = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
+
+  // const userId = useSelector((state) => state.auth);
+  // const user = useSelector((state) => state.user);
+  // console.log(userId);
+
+  // useEffect(() => {
+  //   if (userId) dispatch(fetchAUser(userId.id)); //user with shopping id
+
+  //   console.log("function ran");
+  // }, []);
 
   const randomListProducts = shuffle(products);
   const saltyProducts = products.filter(

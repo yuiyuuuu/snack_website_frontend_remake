@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { Button, ButtonGroup, Typography, CardMedia } from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingleSnack } from '../../../store/singleSnack';
+import React, { useState, useEffect } from "react";
+import { Button, ButtonGroup, Typography, CardMedia } from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSingleSnack } from "../../../store/singleSnack";
+import { fetchAUser } from "../../../store";
 
 const SingleSnacks = (props) => {
   const snackId = props.match.params.snackId;
@@ -17,32 +18,32 @@ const SingleSnacks = (props) => {
   return (
     <div
       style={{
-        display: 'flex',
-        flexWrap: 'wrap',
-        justifyContent: 'center',
-        height: '100vh',
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "center",
+        height: "100vh",
       }}
     >
       <div
         style={{
-          borderRadius: '15px',
-          padding: '10px',
-          margin: '80px 5px 5px 5px',
-          flex: '0 1 300px',
+          borderRadius: "15px",
+          padding: "10px",
+          margin: "80px 5px 5px 5px",
+          flex: "0 1 300px",
         }}
       >
         <CardMedia
           component="img"
-          sx={{ width: 200, objectFit: 'contain' }}
+          sx={{ width: 200, objectFit: "contain" }}
           image={photoURL}
         />
       </div>
       <div
         style={{
-          borderRadius: '15px',
-          padding: '10px',
-          margin: '80px 5px 5px 5px',
-          flex: '0 1 500px',
+          borderRadius: "15px",
+          padding: "10px",
+          margin: "80px 5px 5px 5px",
+          flex: "0 1 500px",
         }}
       >
         <div>
@@ -61,21 +62,21 @@ const SingleSnacks = (props) => {
         <div>
           <div
             style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'space-between',
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
             }}
           >
             <div>
               <ButtonGroup
-                style={{ border: '2px solid black' }}
+                style={{ border: "2px solid black" }}
                 color="secondary"
                 variant="h6"
                 aria-label="outlined secondary button group"
               >
                 <Button onClick={() => setSnackCount(snackCount - 1)}>-</Button>
                 <Typography
-                  style={{ alignContent: 'center' }}
+                  style={{ alignContent: "center" }}
                   variant="h6"
                   color="text.primary"
                 >
