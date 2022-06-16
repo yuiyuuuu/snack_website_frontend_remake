@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import useStyles from "./styles";
 import { logout } from "../../store";
 
+//form below is copied from https://codepen.io/shawnc8160/pen/xxRYOWg?editors=0010
+//if you want to try anything, go to codepen and remove elements and see what is different
 const MyAccount = () => {
   const classes = useStyles();
   const dispatch = useDispatch();
