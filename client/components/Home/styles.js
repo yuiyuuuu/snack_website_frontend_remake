@@ -1,16 +1,18 @@
 import { makeStyles } from "@material-ui/core";
 
 export default makeStyles((theme) => ({
-  content: {
+  main: {},
+  root: {
     flexGrow: 1,
     display: "flex",
     paddingTop: theme.spacing(8),
     paddingLeft: 0,
-    position: "absolute",
+    position: "relative",
     left: 0,
     top: "-3px",
     flexWrap: "wrap",
     width: "100%",
+    flexDirection: "row",
   },
   m1: {
     height: "100%",
@@ -52,5 +54,28 @@ export default makeStyles((theme) => ({
   m2: {
     display: "flex",
     justifyContent: "center",
+  },
+  root2: {
+    flexGrow: 1,
+    display: "flex",
+    position: "relative",
+    paddingLeft: 0,
+    justifyContent: "center",
+    marginTop: "20px",
+  },
+  m2Text: {
+    marginTop: "10px",
+    textAlign: "center",
+    width: "30%",
+  },
+  title: {
+    fontWeight: "bolder",
+  },
+  bottomTwoImg: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  media2: {
+    width: "50%",
   },
 }));

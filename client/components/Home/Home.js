@@ -16,8 +16,8 @@ export const Home = () => {
   //css styling names- m + any number = main + number. These are usually container divs
   const classes = useStyles();
   return (
-    <>
-      <div className={classes.content}>
+    <div className={classes.main}>
+      <div className={classes.root}>
         <div className={classes.m1}>
           <Typography
             variant="h1"
@@ -58,13 +58,65 @@ export const Home = () => {
         </div>
         <div className={classes.imageDiv}>
           <img src={iceCream} className={classes.media} />
-          <img src={chips} className={classes.media} />
+          <div className={classes.bottomTwoImg}>
+            <img src={chips} className={classes.media2} />
+            <img src={chips} className={classes.media2} />
+          </div>
         </div>
       </div>
-      {/* <div className={classes.m2}>
-        <Typography variant="h1">HELLLOO</Typography>
-      </div> */}
-    </>
+      <div className={classes.root2}>
+        <div style={{ textAlign: "center" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-between",
+            }}
+          >
+            <div className={classes.m2Text}>
+              <img src="https://gopuff.com/go/Value-Prop-1.svg" />
+              <Typography variant="h4" className={classes.title}>
+                Hundreds of Items
+              </Typography>
+              <Typography variant="body1">
+                From your favorite salty chips &amp; crackers to refreshing
+                electrolyte drinks and sodas and more
+              </Typography>
+            </div>
+            <div className={classes.m2Text}>
+              <img src="https://gopuff.com/go/Value-Prop-2.svg" />
+              <Typography variant="h4" className={classes.title}>
+                Delivered Fast
+              </Typography>
+              <Typography variant="body1">
+                With our fulfillment centers all around the country means we get
+                your order to your door in as little as 30 minutes.
+              </Typography>
+            </div>
+            <div className={classes.m2Text}>
+              <img src="https://gopuff.com/go/Value-Prop-3.svg" />
+              <Typography variant="h4" className={classes.title}>
+                Free Delivery
+              </Typography>
+              <Typography variant="body1">
+                Everything you need... fast and fresh delivered right to your
+                door at no extra cost.
+              </Typography>
+            </div>
+          </div>
+          <Typography
+            style={{
+              fontColor: "gray",
+              fontSize: ".7em",
+              color: "gainsboro",
+            }}
+            variant="caption text"
+          >
+            *Not guarnteed;average delivery time.
+          </Typography>
+        </div>
+      </div>
+    </div>
   );
 };
 
