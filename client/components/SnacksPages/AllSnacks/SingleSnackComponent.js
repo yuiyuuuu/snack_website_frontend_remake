@@ -7,9 +7,9 @@ import {
   IconButton,
   Typography,
 } from '@mui/material';
-import { Remove, Add, RemoveShoppingCart } from '@material-ui/icons';
+import { ShoppingBasket } from '@material-ui/icons';
 
-const CartItem = () => {
+const SingleSnackComponent = ({ snack }) => {
   return (
     <Card
       sx={{
@@ -17,44 +17,44 @@ const CartItem = () => {
         justifyContent: 'space-between',
         padding: '25px',
         margin: '20px',
+        height: '80%',
       }}
     >
+      <CardMedia
+        component='img'
+        sx={{ width: 200, objectFit: 'contain' }}
+        image={snack.photoURL}
+      />
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component='div' variant='h5'>
-            Lays
+          <Typography component='div' variant='h6'>
+            {snack.name}
           </Typography>
           <Typography
             variant='subtitle1'
             color='text.secondary'
             component='div'
           >
-            salty
+            {snack.productCategoryId === 1
+              ? 'salty'
+              : snack.productCategoryId === 2
+              ? 'sweet'
+              : snack.productCategoryId === 3
+              ? 'healthy'
+              : 'refrigerated/frozen'}
           </Typography>
           <Typography component='div' variant='h6'>
-            price : $99
+            $$ : {snack.price}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton>
-            <Remove />
-          </IconButton>
-          Qty : 1
-          <IconButton>
-            <Add />
-          </IconButton>
-          <IconButton>
-            <RemoveShoppingCart />
+            <ShoppingBasket />
           </IconButton>
         </Box>
       </Box>
-      <CardMedia
-        component='img'
-        sx={{ width: 200, objectFit: 'contain' }}
-        image='https://images-na.ssl-images-amazon.com/images/I/81vJyb43URL._SL1500_.jpg'
-      />
     </Card>
   );
 };
 
-export default CartItem;
+export default SingleSnackComponent;
