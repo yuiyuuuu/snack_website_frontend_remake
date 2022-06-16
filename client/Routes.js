@@ -4,14 +4,14 @@ import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 
 import Home from "./components/Home/Home";
 import { me } from "./store";
-import Signup from "./components/MyAccount/Signup";
+import Signup from "./components/AuthForms/Signup/Signup";
 import Cart from "./components/CartCheckout/Cart";
 import Checkout from "./components/CartCheckout/Checkout";
 import ConfirmationPage from "./components/CartCheckout/ConfirmationPage";
 import MyAccount from "./components/MyAccount/MyAccount";
 import ManagePage from "./components/ManagePage/ManagePage";
 import AllSnacks from "./components/SnacksPages/AllSnacks/AllSnacks";
-import Login from "./components/MyAccount/Login";
+import Login from "./components/AuthForms/Login/Login";
 // import { ErrorPage, MyAccount, ManagePage } from "./components";
 
 class Routes extends Component {

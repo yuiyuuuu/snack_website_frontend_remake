@@ -61,9 +61,9 @@ export const Home = () => {
           <img src={chips} className={classes.media} />
         </div>
       </div>
-      <div className={classes.m2}>
+      {/* <div className={classes.m2}>
         <Typography variant="h1">HELLLOO</Typography>
-      </div>
+      </div> */}
     </>
   );
 };
