@@ -1,8 +1,5 @@
 import React, { useState } from "react";
 import useStyles from "./stylesSignup";
-import { useDispatch, useSelector } from "react-redux";
-import { authenticate, error } from "../../store";
-import { useHistory, Link } from "react-router-dom";
 import {
   Typography,
   Grid,
@@ -11,11 +8,13 @@ import {
   Button,
   Avatar,
 } from "@material-ui/core";
+import { authenticate, error } from "../../../store";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, Link } from "react-router-dom";
 
-const Login = ({ formName }) => {
+const Signup = ({ formName }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const classes = useStyles();
 
   const { error } = useSelector((state) => state.auth);
 
@@ -28,27 +27,22 @@ const Login = ({ formName }) => {
     history.push("/");
   };
 
+  const classes = useStyles();
+
   return (
     <Container component="main" maxWidth="xs">
       <div className={classes.content}>
-        <Typography
-          component="h1"
-          variant="h5"
-          style={{ fontWeight: "bolder", fontSize: "2em" }}
-        >
-          Sign In
+        <Typography component="h1" variant="h5" className={classes.signuphook}>
+          Order in seconds, delivered in 30 minutes or less.
         </Typography>
-        <Typography style={{ marginBottom: "-20px" }}>
-          New here?{" "}
-          <Link to="/signup" style={{ color: "deepskyblue" }}>
-            Sign Up
-          </Link>
+        <Typography varaint="subtitle2" className={classes.underSignUpHook}>
+          You sign up. We deliver — fast.
         </Typography>
         <form className={classes.form} onSubmit={handleSubmit}>
-          <Grid container spacing={0.5}>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
-                variant="outlined"
+                variant="filled"
                 required
                 fullWidth
                 id="email"
@@ -77,7 +71,7 @@ const Login = ({ formName }) => {
                 fullWidth
                 variant="contained"
               >
-                Sign In
+                Sign Up
               </Button>
             ) : (
               <Button
@@ -87,7 +81,7 @@ const Login = ({ formName }) => {
                 variant="contained"
                 disabled
               >
-                Sign In
+                Sign Up
               </Button>
             )}
           </Grid>
@@ -97,4 +91,29 @@ const Login = ({ formName }) => {
   );
 };
 
-export default Login;
+export default Signup;
+
+/*  if we need this later. form for first name and last name
+<Grid item xs={12} sm={6}>
+              <TextField
+                name="firstName"
+                variant="outlined"
+                required
+                fullWidth
+                id="firstName"
+                label="First Name"
+                autoFocus
+              />
+            </Grid>
+
+            <Grid item xs={12} sm={6}>
+              <TextField
+                variant="outlined"
+                required
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+              />
+            </Grid>
+            */
