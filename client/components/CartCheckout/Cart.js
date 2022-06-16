@@ -7,17 +7,19 @@ import {
   DialogContentText,
   DialogTitle,
   Slide,
+  Typography,
 } from '@mui/material';
-import { ShoppingCart } from '@material-ui/icons';
+import { ShoppingCart, CreditCard } from '@material-ui/icons';
 import { Badge } from '@material-ui/core';
 import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
+import CartItem from './CartItem';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
 });
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   dialogPaper: {
     height: '100%',
     width: '40%',
@@ -57,7 +59,7 @@ const Shoppingcart = () => {
   return (
     <div>
       <Badge
-        badgeContent={0}
+        badgeContent={4}
         showZero
         color='primary'
         onClick={handleClickOpen('paper')}
@@ -84,12 +86,24 @@ const Shoppingcart = () => {
             tabIndex={-1}
           >
             {/* this is where our products go ! */}
-            Subtotal = $99
+            <CartItem />
+            <CartItem />
+            <CartItem />
+            <CartItem />
           </DialogContentText>
         </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose}>Exit</Button>
-          <Button onClick={handleClick}>Checkout</Button>
+        <DialogActions sx={{ justifyContent: 'space-between' }}>
+          <Typography component='div' variant='h6' sx={{ margin: '10px' }}>
+            Subtotal: $99
+          </Typography>
+          <Button
+            variant='contained'
+            color='success'
+            startIcon={<CreditCard />}
+            onClick={handleClick}
+          >
+            Checkout
+          </Button>
         </DialogActions>
       </Dialog>
     </div>
