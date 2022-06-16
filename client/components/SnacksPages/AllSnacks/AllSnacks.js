@@ -14,8 +14,6 @@ const AllSnacks = () => {
   const dispatch = useDispatch();
   const [flavor, setFlavor] = useState('All');
 
-  console.log(flavor);
-
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
