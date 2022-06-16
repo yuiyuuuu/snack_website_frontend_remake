@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../../store/products";
 import SingleSnackComponent from "./SingleSnackComponent";
 import { fetchAUser } from "../../../store";
+import FilterImg from './FilterImg';
+
 
 const AllSnacks = () => {
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
@@ -12,6 +14,7 @@ const AllSnacks = () => {
   const classes = useStyles();
   const { products } = useSelector((state) => state);
   const dispatch = useDispatch();
+  const [flavor, setFlavor] = useState('All');
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -28,21 +31,150 @@ const AllSnacks = () => {
   // }, []);
 
   const randomListProducts = shuffle(products);
+  const saltyProducts = products.filter(
+    (product) => product.productCategoryId === 1
+  );
+  const sweetProducts = products.filter(
+    (product) => product.productCategoryId === 2
+  );
+  const healthyProducts = products.filter(
+    (product) => product.productCategoryId === 3
+  );
+  const frozenProducts = products.filter(
+    (product) => product.productCategoryId === 4
+  );
 
   return (
     <div>
-      <main className={classes.root}>
-        <div className={classes.toolbar} />
-        <Grid container justifyContent="flex-start" spacing={4}>
-          {randomListProducts.map((product) => {
-            return (
-              <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
-                <SingleSnackComponent snack={product} />
-              </Grid>
-            );
-          })}
-        </Grid>
-      </main>
+      <div>
+        <main className={classes.root}>
+          <div className={classes.toolbar} />
+          <Grid container justifyContent='flex-start' spacing={5}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              onClick={() => {
+                setFlavor('Salty');
+              }}
+            >
+              <FilterImg
+                flavor={'Salty'}
+                img={
+                  'https://m.media-amazon.com/images/I/41DzPGQXiuL._AC_SY350_.jpg'
+                }
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              onClick={() => {
+                setFlavor('Sweet');
+              }}
+            >
+              <FilterImg
+                flavor={'Sweet'}
+                img={
+                  'https://www.sweetflavorfl.com/img/my-sweet-flavor-logo-1618319663.jpg'
+                }
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              onClick={() => {
+                setFlavor('Healthy');
+              }}
+            >
+              <FilterImg
+                flavor={'Healthy'}
+                img={
+                  'https://styles.redditmedia.com/t5_2scbp/styles/communityIcon_8pqszfejizl61.png'
+                }
+              />
+            </Grid>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={4}
+              lg={3}
+              onClick={() => {
+                setFlavor('Refrigerated && Frozen');
+              }}
+            >
+              <FilterImg
+                flavor={'Refrigerated && Frozen'}
+                img={
+                  'https://cdn.shopify.com/s/files/1/0294/2825/2771/collections/Category-Bars-Intro.png?v=1654034576'
+                }
+              />
+            </Grid>
+          </Grid>
+        </main>
+      </div>
+      <Typography
+        component='div'
+        variant='h1'
+        align='center'
+        onClick={() => setFlavor('All')}
+      >
+        BROWSE ALL OF OUR SNACKS !
+      </Typography>
+      <div>
+        <main className={classes.root}>
+          <div className={classes.toolbar} />
+          <Grid container justifyContent='flex-start' spacing={4}>
+            {flavor === 'Salty'
+              ? saltyProducts.map((product) => {
+                  return (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                      <SingleSnackComponent snack={product} />
+                    </Grid>
+                  );
+                })
+              : flavor === 'Sweet'
+              ? sweetProducts.map((product) => {
+                  return (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                      <SingleSnackComponent snack={product} />
+                    </Grid>
+                  );
+                })
+              : flavor === 'Healthy'
+              ? healthyProducts.map((product) => {
+                  return (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                      <SingleSnackComponent snack={product} />
+                    </Grid>
+                  );
+                })
+              : flavor === 'Refrigerated && Frozen'
+              ? frozenProducts.map((product) => {
+                  return (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                      <SingleSnackComponent snack={product} />
+                    </Grid>
+                  );
+                })
+              : randomListProducts.map((product) => {
+                  return (
+                    <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                      <SingleSnackComponent snack={product} />
+                    </Grid>
+                  );
+                })}
+          </Grid>
+        </main>
+      </div>
     </div>
   );
 };
