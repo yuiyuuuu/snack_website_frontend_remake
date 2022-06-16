@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const ALL_PRODUCTS = 'ALL_PRODUCTS';
+const ALL_PRODUCTS = "ALL_PRODUCTS";
 
 export const fetchAllProducts = (products) => ({
   type: ALL_PRODUCTS,
@@ -10,7 +10,7 @@ export const fetchAllProducts = (products) => ({
 export const fetchProducts = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get('/api/products');
+      const { data } = await axios.get("/api/products");
       dispatch(fetchAllProducts(data));
     } catch (error) {
       console.error(error);
