@@ -72,14 +72,13 @@ async function seed() {
       desc: 'Made with tomatoes, onions, garlic and cilantro for homestyle flavor',
       price: 7.99,
       photoURL:
-        'https://www.target.com/p/homestyle-guacamole-10oz-good-gather-8482/-/A-54442245#lnk=sametab',
+        'https://i5.walmartimages.com/asr/67cbf04a-f964-432a-877a-2ca48205ce58_1.9aab8fdc7715f7e51d5d54bd23632f06.jpeg',
     },
     {
       name: 'Tostitos Chunky Salsa',
       desc: "Tostitos salsas are made with real chunks of garden vegetables, and TOSTITOS dips are so creamy, you can't resist either",
       price: 4.99,
-      photoURL:
-        'https://www.target.com/p/homestyle-guacamole-10oz-good-gather-8482/-/A-54442245#lnk=sametab',
+      photoURL: 'https://i5.peapod.com/c/6H/6H4QI.png',
     },
     {
       name: 'Frosted Sugar Cookies',
