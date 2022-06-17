@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import useStyles from "./AllSnackStyles";
-import { Container, Typography, Grid } from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts } from "../../../store/products";
-import SingleSnackComponent from "./SingleSnackComponent";
-import { fetchAUser } from "../../../store";
-import FilterImg from "./FilterImg";
+import React, { useEffect, useState } from 'react';
+import useStyles from './AllSnackStyles';
+import { Container, Typography, Grid } from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../../../store/products';
+import SingleSnackComponent from './SingleSnackComponent';
+import { fetchAUser } from '../../../store';
+import FilterImg from './FilterImg';
 
 const AllSnacks = () => {
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
@@ -18,6 +18,7 @@ const AllSnacks = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
+
 
   // const userId = useSelector((state) => state.auth);
   // const user = useSelector((state) => state.user);
@@ -140,7 +141,7 @@ const AllSnacks = () => {
         align="center"
         onClick={() => setFlavor("All")}
       >
-        BROWSE ALL OF OUR SNACKS !
+        BROWSE ALL OF OUR SNACKS!
       </Typography>
       <div>
         <main className={classes.root}>
