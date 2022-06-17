@@ -34,7 +34,7 @@ const AllSnacks = () => {
   const user = useSelector((state) => state.user);
 
   useEffect(() => {
-    const fetchUser = async () => {
+    const fetchUser = () => {
       console.log("userid", userId);
       if (!userId) return "loading";
       dispatch(fetchAUser(userId.id)); //user with shopping id
