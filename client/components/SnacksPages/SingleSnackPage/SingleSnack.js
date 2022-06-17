@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
   ButtonGroup,
@@ -8,56 +8,76 @@ import {
   Card,
   CardActions,
   CardContent,
-} from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchSingleSnack } from '../../../store/singleSnack';
-import { fetchAUser } from '../../../store';
+} from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchSingleSnack } from "../../../store/singleSnack";
+import { fetchAUser } from "../../../store";
+import { addToCart } from "../../../store/cart";
 // import GroupedButtons from './GroupedButtons';
 
 const useStyles = makeStyles({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    height: '75vh',
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    height: "75vh",
   },
   rightCard: {
-    borderRadius: '15px',
-    padding: '10px',
-    margin: '80px 5px 5px 5px',
-    flex: '0 1 500px',
+    borderRadius: "15px",
+    padding: "10px",
+    margin: "80px 5px 5px 5px",
+    flex: "0 1 500px",
     // border: '2px solid blue',
   },
   leftCard: {
-    borderRadius: '15px',
-    padding: '10px',
-    margin: '80px 5px 5px 5px',
-    flex: '0 1 300px',
+    borderRadius: "15px",
+    padding: "10px",
+    margin: "80px 5px 5px 5px",
+    flex: "0 1 300px",
     // border: '2px red solid',
     width: 200,
-    objectFit: 'contain',
+    objectFit: "contain",
   },
   btnGroup: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
 
 const SingleSnacks = (props) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const userId = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
+  const [counter, setCounter] = useState(0);
+  const [placeHolderStock, setPlaceHolderStock] = useState(10);
 
   const snackId = props.match.params.snackId;
   const { singleSnack } = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const { name, desc, price, quantity, photoURL } = singleSnack;
+
+  useEffect(() => {
+    const fetchUser = () => {
+      if (!userId) return "loading";
+      dispatch(fetchAUser(userId.id)); //user with shopping id
+    };
+    fetchUser();
+  }, [userId]);
+
   useEffect(() => {
     dispatch(fetchSingleSnack(snackId));
   }, []);
 
-  const [counter, setCounter] = useState(0);
-  const [placeHolderStock, setPlaceHolderStock] = useState(10);
-
-  const { name, desc, price, quantity, photoURL } = singleSnack;
+  const atc = () => {
+    const cartItem = {
+      productId: singleSnack.id,
+      quantity: singleSnack.quantity,
+      shoppingSessionId: user.shopping_session.id,
+    };
+    dispatch(addToCart(cartItem));
+  };
   return (
     <div className={classes.root}>
       <div className={classes.leftCard}>
@@ -121,7 +141,7 @@ const SingleSnacks = (props) => {
               </ButtonGroup>
             </div>
             <div>
-              <Button variant="contained" color="primary">
+              <Button variant="contained" color="primary" onClick={() => atc()}>
                 Add to Cart
               </Button>
             </div>
