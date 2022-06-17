@@ -5,8 +5,8 @@ const {
 } = require('../db');
 module.exports = router;
 
-// GET /api/users/
-router.get('/', requireToken, isAdmin, async (req, res, next) => {
+// GET /api/users
+router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll();
     res.json(users);
