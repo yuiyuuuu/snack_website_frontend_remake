@@ -74,8 +74,16 @@ export default makeStyles((theme) => ({
   bottomTwoImg: {
     display: "flex",
     flexDirection: "row",
+    position: "relative",
   },
   media2: {
     width: "50%",
+  },
+  root3: {
+    display: "flex",
+    position: "relative",
+    marginTop: "70px",
+    textAlign: "center",
+    flexDirection: "column",
   },
 }));

@@ -29,6 +29,20 @@ const AllSnacks = () => {
   //   console.log("function ran");
   // }, []);
 
+  const userId = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      console.log("userid", userId);
+      if (!userId) return "loading";
+      dispatch(fetchAUser(userId.id)); //user with shopping id
+    };
+    fetchUser();
+  }, [userId]); //VERY IMPORTANT TO HAVE USER ID HERE. without this, you are making a request to /api/users/undefined
+  //when you have the userid in array , you are only calling this useeffect when userId is changed, aka when it is actually loaded in
+  //WILL ONLY WORK CURRENTLY WHEN LOGGED IN BECAUSE ME() IS BROKEN AND NO LOCALSTORAGE TOKEN
+
   const randomListProducts = shuffle(products);
   const saltyProducts = products.filter(
     (product) => product.productCategoryId === 1

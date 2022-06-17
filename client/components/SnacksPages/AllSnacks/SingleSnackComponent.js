@@ -17,9 +17,14 @@ const SingleSnackComponent = ({ snack }) => {
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
 
-  useEffect(() => {
-    dispatch(fetchAUser(userId.id)); //user with shopping id
-  }, []);
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     console.log("userid", userId);
+  //     if (!userId) return "loading";
+  //     dispatch(fetchAUser(userId.id)); //user with shopping id
+  //   };
+  //   fetchUser();
+  // }, [userId]);
 
   console.log(user);
   const atc = () => {
