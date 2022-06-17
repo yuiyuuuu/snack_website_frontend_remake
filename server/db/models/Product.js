@@ -18,7 +18,7 @@ const Product = db.define('product', {
     validate: {
       isNumeric: true,
     },
-    defaultValue: 0,
+    defaultValue: 100,
   },
   photoURL: {
     type: Sequelize.TEXT,

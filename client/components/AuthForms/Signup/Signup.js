@@ -9,13 +9,12 @@ import {
   Avatar,
   Box,
 } from '@material-ui/core';
+import { Alert } from '@material-ui/lab';
 import { authenticate, error } from '../../../store';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 
 const Signup = ({ formName }) => {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [passwordConfirm, setPasswordConfirm] = useState('');
@@ -33,7 +32,7 @@ const Signup = ({ formName }) => {
     }
     try {
       setErr('');
-      dispatch(authenticate(firstName, lastName, email, password, formName));
+      dispatch(authenticate(email, password, formName));
       history.push('/');
     } catch (e) {
       setErr('Failed to create an account');
@@ -52,33 +51,8 @@ const Signup = ({ formName }) => {
           You sign up. We deliver — fast.
         </Typography>
         <Box component='form' className={classes.form} onSubmit={handleSubmit}>
-          {/* {err && <Alert color='error'>{err}</Alert>} */}
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant='outlined'
-                required
-                fullWidth
-                id='first-name'
-                label='First Name'
-                name='first-name'
-                autoFocus
-                onChange={(e) => setFirstName(e.target.value)}
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant='outlined'
-                required
-                fullWidth
-                id='last-name'
-                label='Last Name'
-                name='last-name'
-                onChange={(e) => setLastName(e.target.value)}
-              />
-            </Grid>
-
+          {err && <Alert color='error'>{err}</Alert>}
+          <Grid>
             <Grid item xs={12}>
               <TextField
                 variant='outlined'
@@ -117,7 +91,7 @@ const Signup = ({ formName }) => {
               />
             </Grid>
 
-            {email && password ? (
+            {email && passwordConfirm ? (
               <Button
                 type='submit'
                 className={classes.button}
@@ -154,28 +128,3 @@ const Signup = ({ formName }) => {
 };
 
 export default Signup;
-
-/*  if we need this later. form for first name and last name
-<Grid item xs={12} sm={6}>
-              <TextField
-                name="firstName"
-                variant="outlined"
-                required
-                fullWidth
-                id="firstName"
-                label="First Name"
-                autoFocus
-              />
-            </Grid>
-
-            <Grid item xs={12} sm={6}>
-              <TextField
-                variant="outlined"
-                required
-                fullWidth
-                id="lastName"
-                label="Last Name"
-                name="lastName"
-              />
-            </Grid>
-            */
