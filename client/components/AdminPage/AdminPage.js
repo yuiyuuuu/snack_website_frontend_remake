@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import useStyles from './AdminPageStyle';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
@@ -8,71 +9,80 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
+import { fetchAllUsers } from '../../store';
 
 const columns = [
-  { id: 'id', label: 'ID', minWidth: 170 },
-  { id: 'firstName', label: 'First name', minWidth: 170 },
-  { id: 'lastName', label: 'Last name', minWidth: 170 },
+  { id: 'id', label: 'ID', minWidth: 30, align: 'center' },
+  { id: 'firstName', label: 'First name', minWidth: 100, align: 'center' },
+  { id: 'lastName', label: 'Last name', minWidth: 100, align: 'center' },
   {
     id: 'isAdmin',
     label: 'isAdmin',
-    minWidth: 170,
-    align: 'right',
+    minWidth: 50,
+    align: 'center',
   },
   {
     id: 'email',
     label: 'Email',
-    minWidth: 170,
-    align: 'right',
+    minWidth: 150,
+    align: 'center',
   },
   {
     id: 'addressline1',
     label: 'Address Line 1',
-    minWidth: 170,
-    align: 'right',
+    minWidth: 480,
+    align: 'center',
   },
   {
     id: 'addressline2',
     label: 'Address Line 2',
     minWidth: 170,
-    align: 'right',
+    align: 'center',
   },
   {
     id: 'city',
     label: 'City',
-    minWidth: 170,
-    align: 'right',
+    minWidth: 100,
+    align: 'center',
   },
   {
     id: 'postalCode',
     label: 'Postal Code',
-    minWidth: 170,
-    align: 'right',
+    minWidth: 100,
+    align: 'center',
   },
   {
     id: 'country',
     label: 'Country',
-    minWidth: 170,
-    align: 'right',
+    minWidth: 100,
+    align: 'center',
   },
   {
     id: 'telephone',
     label: 'Telephone',
     minWidth: 170,
-    align: 'right',
+    align: 'center',
   },
   {
     id: 'createdAt',
     label: 'CreatedAt',
-    minWidth: 170,
-    align: 'right',
+    minWidth: 200,
+    align: 'center',
   },
 ];
 
 const AdminPage = () => {
+  const dispatch = useDispatch();
   const classes = useStyles();
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
+  const { users } = useSelector((state) => state);
+
+  useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, [users]);
+
+  console.log('users:', users);
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -86,7 +96,7 @@ const AdminPage = () => {
   return (
     <div className={classes.root}>
       <div className={classes.toolbar}>
-        <Paper sx={{ width: '100%', overflow: 'hidden' }}>
+        <Paper sx={{ width: '100%', align: 'center' }}>
           <TableContainer sx={{ maxHeight: 600 }}>
             <TableContainer stickyHeader aria-label='sticky table'>
               <TableHead>
@@ -103,7 +113,7 @@ const AdminPage = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows
+                {users
                   .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   .map((row) => {
                     return (
@@ -132,7 +142,7 @@ const AdminPage = () => {
           <TablePagination
             rowsPerPageOptions={[10, 25, 100]}
             component='div'
-            count={rows.length}
+            count={users.length}
             rowsPerPage={rowsPerPage}
             page={page}
             onPageChange={handleChangePage}

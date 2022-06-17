@@ -6,7 +6,7 @@ const {
 module.exports = router;
 
 // GET /api/users/
-router.get('/', requireToken, isAdmin, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const users = await User.findAll();
     res.json(users);
