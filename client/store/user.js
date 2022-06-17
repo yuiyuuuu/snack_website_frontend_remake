@@ -1,6 +1,6 @@
-import axios from "axios";
+import axios from 'axios';
 
-const GET_USER = "GET_USER";
+const GET_USER = 'GET_USER';
 
 export const fetchUser = (user) => ({
   type: GET_USER,
@@ -10,9 +10,7 @@ export const fetchUser = (user) => ({
 export const fetchAUser = (id) => {
   return async (dispatch) => {
     try {
-      console.log("id::::", id);
       const { data } = await axios.get(`/api/users/${id}`);
-      console.log("AAAAA:", data);
       dispatch(fetchUser(data));
     } catch (error) {
       console.error(error);
