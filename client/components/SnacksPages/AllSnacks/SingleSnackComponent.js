@@ -13,6 +13,7 @@ import { addToCart } from '../../../store/cart';
 import { fetchAUser } from '../../../store';
 import { Link } from 'react-router-dom';
 
+
 const SingleSnackComponent = ({ snack }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth);
@@ -81,8 +82,8 @@ const SingleSnackComponent = ({ snack }) => {
             </IconButton>
           </Box>
         </Box>
-      </Card>
-    </Link>
+      </Box>
+    </Card>
   );
 };
 
