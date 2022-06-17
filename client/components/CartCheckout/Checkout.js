@@ -1,35 +1,64 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
+import {
+  Card,
+  CardActions,
+  CardContent,
+  Button,
+  Typography,
+} from '@material-ui/core';
+import EmailIcon from '@material-ui/icons/Email';
+import HomeIcon from '@material-ui/icons/Home';
+import PaymentIcon from '@material-ui/icons/Payment';
+import LockIcon from '@material-ui/icons/Lock';
 
 const useStyles = makeStyles({
   root: {
     marginTop: 80,
-    border: '2px solid red',
     height: '75vh',
     display: 'flex',
     flexDirection: 'row',
+    justifyContent: 'center',
   },
   columnCard: {
     display: 'flex',
     flexDirection: 'column',
-    backgroundColor: 'pink',
+    width: '500px',
   },
-  singleCard: {
-    height: '150px',
-    width: 'auto',
+  leftCard: {
+    height: '20%',
+    width: '100%',
+  },
+  paymentCard: {
+    height: '60%',
+    width: '100%',
+  },
+  rightCard: {
+    height: '100%',
+    width: '100%',
+  },
+  topRight: {
+    height: '90%',
+    width: '100%',
+  },
+  bottomRight: {
+    height: '10%',
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   title: {
-    fontSize: 14,
+    fontSize: 20,
+    color: 'black',
+    alignContent: 'center',
   },
   pos: {
     marginBottom: 12,
   },
 });
+
+const placeHolderSubtotal = 26.94;
 
 export default function Checkout() {
   const classes = useStyles();
@@ -37,8 +66,9 @@ export default function Checkout() {
   return (
     <div className={classes.root}>
       <div className={classes.columnCard}>
-        <Card className={classes.singleCard}>
+        <Card className={classes.leftCard}>
           <CardContent>
+            <EmailIcon color="primary" />
             <Typography
               className={classes.title}
               color="textSecondary"
@@ -46,33 +76,84 @@ export default function Checkout() {
             >
               Your email
             </Typography>
-            <Typography variant="body2" component="p">
-              Some information about the user
+            <Typography color="textSecondary" gutterBottom>
+              EMAIL WILL GO HERE
             </Typography>
           </CardContent>
         </Card>
-        <Card>
+        <Card className={classes.leftCard}>
           <CardContent>
+            <HomeIcon color="primary" />
             <Typography
               className={classes.title}
               color="textSecondary"
               gutterBottom
             >
-              Your email
+              Youre address
             </Typography>
             <Typography variant="body2" component="p">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
+              ADDRESS WILL GO HERE
             </Typography>
           </CardContent>
+        </Card>
+        <Card className={classes.paymentCard}>
+          <CardContent>
+            <PaymentIcon color="primary" />
+            <Typography
+              className={classes.title}
+              color="textSecondary"
+              gutterBottom
+            >
+              Your payment method
+            </Typography>
+
+            <Typography variant="body2" component="p">
+              PAYMENT METHOD WILL GO HERE
+            </Typography>
+          </CardContent>
+          <CardActions>
+            <Button variant="contained" color="primary" size="large">
+              Place Order
+              <LockIcon />
+            </Button>
+          </CardActions>
         </Card>
       </div>
-      <Card>
-        <CardActions>
-          <Button size="small">Checkout</Button>
-        </CardActions>
-      </Card>
+      <div className={classes.columnCard}>
+        <div className={classes.rightCard}>
+          <Card className={classes.topRight}>
+            <CardContent>
+              <Typography
+                className={classes.title}
+                color="textSecondary"
+                gutterBottom
+              >
+                Your cart
+              </Typography>
+              <Typography variant="body2" component="p">
+                CART ITEMS WILL GO HERE
+              </Typography>
+            </CardContent>
+          </Card>
+
+          <Card className={classes.bottomRight}>
+            <CardContent>
+              <Typography
+                className={classes.title}
+                color="textSecondary"
+                gutterBottom
+              >
+                SUBTOTAL:
+              </Typography>
+            </CardContent>
+            <CardContent>
+              <Typography variant="body2" component="p">
+                ${placeHolderSubtotal}
+              </Typography>
+            </CardContent>
+          </Card>
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 const {
   models: { User },
-} = require('../db');
+} = require("../db");
 
 const requireToken = async (req, res, next) => {
   try {
@@ -13,7 +13,7 @@ const requireToken = async (req, res, next) => {
 };
 const isAdmin = (req, res, next) => {
   if (!req.user.isAdmin) {
-    return res.status(403).send('You shall not pass');
+    return res.status(403).send("You shall not pass");
   } else {
     next();
   }
