@@ -314,13 +314,33 @@ async function seed() {
   // Creating Users
   await Promise.all([
     User.create({
-      // first_name: "cody",
-      // last_name: "doo",
-      email: 'cody@gmail.com',
+      firstName: 'Emanuel',
+      lastName: 'Guevara',
+      email: 'emanuel@gmail.com',
       password: '123',
       isAdmin: true,
     }),
-    User.create({ email: 'murphy@gmail.com', password: '123' }),
+    User.create({
+      firstName: 'Kenji',
+      lastName: 'Zhang',
+      email: 'kenji@gmail.com',
+      password: '123',
+      isAdmin: true,
+    }),
+    User.create({
+      firstName: 'Jack',
+      lastName: 'Yu',
+      email: 'jack@gmail.com',
+      password: '123',
+      isAdmin: true,
+    }),
+    User.create({
+      firstName: 'Junbeom',
+      lastName: 'Chun',
+      email: 'jun@gmail.com',
+      password: '123',
+      isAdmin: true,
+    }),
   ]);
 
   // Creating Product Categories

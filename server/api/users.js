@@ -27,12 +27,35 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const deleteUser = await User.findByPk(req.params.id);
+    await deleteUser.destroy();
+    res.json(deleteUser);
+  } catch (err) {
+    next(err);
+  }
+});
+
 // PUT /api/users/:id
 router.put('/:id', async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.id);
     res.send(await user.update(req.body));
-  } catch (error) {
-    next(error);
+  } catch (err) {
+    next(err);
+  }
+});
+
+router.put('/:id/admin', async (req, res, next) => {
+  try {
+    const user = await User.findByPk(req.params.id);
+    await user.update({
+      isAdmin: !user.isAdmin,
+    });
+
+    res.json(user);
+  } catch (err) {
+    next(err);
   }
 });
