@@ -51,8 +51,8 @@ const SingleSnacks = (props) => {
 
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
-  const [counter, setCounter] = useState(0);
   const [placeHolderStock, setPlaceHolderStock] = useState(10);
+  const [counter, setCounter] = useState(placeHolderStock > 0 ? 1 : 0); //default to one, if there are no stock then default to 0, use ternary
 
   const snackId = props.match.params.snackId;
   const { singleSnack } = useSelector((state) => state);
@@ -81,18 +81,18 @@ const SingleSnacks = (props) => {
   return (
     <div className={classes.root}>
       <div className={classes.leftCard}>
-        <CardMedia component="img" image={photoURL} />
+        <CardMedia component='img' image={photoURL} />
       </div>
       <Card className={classes.rightCard}>
         <div>
-          <Typography variant="h4" color="text.primary" component="div">
+          <Typography variant='h4' color='text.primary' component='div'>
             {name}
           </Typography>
-          <Typography variant="h4" color="text.primary">
+          <Typography variant='h4' color='text.primary'>
             {price}
           </Typography>
-          <Typography variant="h5" color="text.primary">
-            In Stock: {quantity}
+          <Typography variant='h5' color='text.primary'>
+            In Stock: {placeHolderStock}
           </Typography>
         </div>
         <hr></hr>
@@ -100,9 +100,9 @@ const SingleSnacks = (props) => {
           <div className={classes.btnGroup}>
             <div>
               <ButtonGroup
-                color="primary"
-                variant="contained"
-                aria-label="outlined secondary button group"
+                color='primary'
+                variant='contained'
+                aria-label='outlined secondary button group'
               >
                 <Button
                   disabled={counter <= 0}
@@ -112,7 +112,9 @@ const SingleSnacks = (props) => {
                 >
                   -
                 </Button>
-                <Button disabled>{counter}</Button>
+                <Button disabled style={{ color: "black" }}>
+                  {counter}
+                </Button>
                 <Button
                   disabled={counter >= placeHolderStock}
                   onClick={() => {
@@ -141,7 +143,7 @@ const SingleSnacks = (props) => {
               </ButtonGroup>
             </div>
             <div>
-              <Button variant="contained" color="primary" onClick={() => atc()}>
+              <Button variant='contained' color='primary' onClick={() => atc()}>
                 Add to Cart
               </Button>
             </div>
@@ -151,7 +153,7 @@ const SingleSnacks = (props) => {
         <hr></hr>
 
         <div>
-          <Typography variant="subtitle">Description: {desc}</Typography>
+          <Typography variant='subtitle'>Description: {desc}</Typography>
         </div>
         <hr></hr>
         <div>HELLO</div>
