@@ -13,7 +13,6 @@ import { addToCart } from '../../../store/cart';
 import { fetchAUser } from '../../../store';
 import { Link } from 'react-router-dom';
 
-
 const SingleSnackComponent = ({ snack }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth);
@@ -28,7 +27,8 @@ const SingleSnackComponent = ({ snack }) => {
   //   fetchUser();
   // }, [userId]);
 
-  console.log(user);
+  // console.log(user);
+
   const atc = () => {
     const cartItem = {
       productId: snack.id,
@@ -82,8 +82,8 @@ const SingleSnackComponent = ({ snack }) => {
             </IconButton>
           </Box>
         </Box>
-      </Box>
-    </Card>
+      </Card>
+    </Link>
   );
 };
 
