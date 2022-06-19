@@ -10,6 +10,30 @@ import {
 import { Link } from 'react-router-dom';
 
 const SingleSnackComponent = ({ snack }) => {
+//   const dispatch = useDispatch();
+//   const userId = useSelector((state) => state.auth);
+//   const user = useSelector((state) => state.user);
+
+  // useEffect(() => {
+  //   const fetchUser = async () => {
+  //     console.log("userid", userId);
+  //     if (!userId) return "loading";
+  //     dispatch(fetchAUser(userId.id)); //user with shopping id
+  //   };
+  //   fetchUser();
+  // }, [userId]);
+
+  // console.log(user);
+
+//   const atc = () => {
+//     const cartItem = {
+//       productId: snack.id,
+//       quantity: snack.quantity,
+//       shoppingSessionId: user.shopping_session.id,
+//     };
+//     dispatch(addToCart(cartItem));
+//   };
+
   return (
     <Link to={`/allsnacks/${snack.id}`}>
       <Card

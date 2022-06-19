@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { requireToken, isAdmin } = require('./gatekeepingMiddleware');
 const {
-  models: { User, ShoppingSession },
+  models: { User, ShoppingSession, CartItem, Product, ProductCategory },
 } = require('../db');
 module.exports = router;
 
@@ -18,9 +18,19 @@ router.get('/', async (req, res, next) => {
 // GET /api/users/:id
 router.get('/:id', async (req, res, next) => {
   try {
+    //Nested eager loading user/shoppingSession/cartItem/product
     const singleUser = await User.findByPk(req.params.id, {
-      include: ShoppingSession,
+      include: [
+        {
+          model: ShoppingSession,
+          include: {
+            model: CartItem,
+            include: { model: Product },
+          },
+        },
+      ],
     });
+    // console.log('IN THE API', singleUser);
     res.json(singleUser);
   } catch (err) {
     next(err);
