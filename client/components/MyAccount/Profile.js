@@ -51,7 +51,7 @@ export default function Profile() {
   };
 
   return (
-    <Container className={classes.content} maxWidth='sm'>
+    <Container maxWidth='sm'>
       <Box component='form' onSubmit={handleSubmit}>
         <Typography>First Name</Typography>
         <TextField

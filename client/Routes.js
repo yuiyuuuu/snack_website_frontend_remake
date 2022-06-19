@@ -10,7 +10,7 @@ import Checkout from './components/CartCheckout/Checkout';
 import ConfirmationPage from './components/CartCheckout/ConfirmationPage';
 import MyAccount from './components/MyAccount/MyAccount';
 import AdminPage from './components/AdminPage/AdminPage';
-import Profile from './components/MyAccount/Profile';
+import Orders from './components/MyAccount/Orders';
 import AllSnacks from './components/SnacksPages/AllSnacks/AllSnacks';
 import SingleSnack from './components/SnacksPages/SingleSnackPage/SingleSnack';
 import Login from './components/AuthForms/Login/Login';
@@ -31,7 +31,7 @@ class Routes extends Component {
             <Route exact path='/allsnacks' component={AllSnacks} />
             <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
             <Route exact path='/myaccount' component={MyAccount} />
-            <Route exact path='/profile/:id' component={Profile} />
+            <Route exact path='/orders' component={Orders} />
             <Route exact path='/adminpage' component={AdminPage} />
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/checkout' component={Checkout} />

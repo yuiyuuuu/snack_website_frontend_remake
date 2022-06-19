@@ -2,7 +2,7 @@
 
 const {
   db,
-  models: { User, Product, ProductCategory },
+  models: { User, Product, ProductCategory, OrderItem, OrderDetails },
 } = require('../server/db');
 
 /**
@@ -307,12 +307,24 @@ async function seed() {
       type: 'Refrigerated/Frozen',
     },
   ];
+  const orderItems = [
+    {
+      quantity: 3,
+    },
+    {
+      quantity: 4,
+    },
+    {
+      quantity: 5,
+    },
+  ];
+  const orders = [{}, {}];
 
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log('db synced!');
 
   // Creating Users
-  await Promise.all([
+  const users = await Promise.all([
     User.create({
       // first_name: "cody",
       // last_name: "doo",
@@ -322,6 +334,8 @@ async function seed() {
     }),
     User.create({ email: 'murphy@gmail.com', password: '123' }),
   ]);
+
+  const [cody, murphy] = users;
 
   // Creating Product Categories
   const allCats = await Promise.all(
@@ -421,6 +435,31 @@ async function seed() {
   await snack38.setCat(cold);
   await snack39.setCat(cold);
   await snack40.setCat(cold);
+
+  // Creating fake order items and orders for Cody
+  const allOrderItems = await Promise.all(
+    orderItems.map((orderItem) => OrderItem.create(orderItem))
+  );
+  const [orderItem1, orderItem2, orderItem3] = allOrderItems;
+
+  await orderItem1.setProduct(snack1);
+  await orderItem2.setProduct(snack2);
+  await orderItem3.setProduct(snack3);
+
+  // when checkout button is pushed, create a new orderDetail for that user, grab cart items from that shopping session and make orderItems for each cart item, associate orderItems with new orderDetail
+  const allOrderDetails = await Promise.all(
+    orders.map((order) => OrderDetails.create(order))
+  );
+
+  const [order1, order2] = allOrderDetails;
+  await orderItem1.setOrder_detail(order1);
+  await orderItem2.setOrder_detail(order2);
+  await orderItem3.setOrder_detail(order2);
+
+  // console.log(Object.keys(cody.__proto__));
+
+  await cody.addOrder_details(order1);
+  await cody.addOrder_details(order2);
 
   console.log(`seeded successfully`);
 }
