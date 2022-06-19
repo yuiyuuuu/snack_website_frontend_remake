@@ -1,18 +1,18 @@
-const router = require("express").Router();
+const router = require('express').Router();
 const {
   models: { Product, ProductCategory, CartItem },
-} = require("../db");
+} = require('../db');
 
 module.exports = router;
 
 // GET ALL PRODUCTS
 // GET /api/products/
-router.get("/", async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const products = await Product.findAll({
       include: {
         model: ProductCategory,
-        as: "cat",
+        as: 'cat',
       },
     });
     res.json(products);
@@ -23,12 +23,12 @@ router.get("/", async (req, res, next) => {
 
 // GET SINGLE PRODUCT
 // GET /api/products/:id
-router.get("/:id", async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const singleProduct = await Product.findByPk(req.params.id, {
       include: {
         model: ProductCategory,
-        as: "cat",
+        as: 'cat',
       },
     });
     res.json(singleProduct);
@@ -39,9 +39,10 @@ router.get("/:id", async (req, res, next) => {
 
 // CREATE NEW PRODUCT
 // POST /api/products/
-router.post("/", async (req, res, next) => {
+router.post('/', async (req, res, next) => {
   try {
-    res.status(201).send(await Product.create(req.body));
+    const product = await Product.create(req.body);
+    res.status(201).send(product);
   } catch (err) {
     next(err);
   }
@@ -49,7 +50,7 @@ router.post("/", async (req, res, next) => {
 
 // DELETE EXISTING PRODUCT
 // DELETE /api/products/:id
-router.delete("/:id", async (req, res, next) => {
+router.delete('/:id', async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
     await product.destroy();
@@ -63,12 +64,16 @@ router.delete("/:id", async (req, res, next) => {
 
 // req.body should contain updated Product Quantity
 // PUT /api/products/:id
-router.put("/:id", async (req, res, next) => {
+router.put('/:id', async (req, res, next) => {
   try {
-    const product = await Product.findByPk(req.params.id, {
-      include: ProductCategory,
+    const product = await Product.findByPk(req.params.id);
+    const updateProduct = await product.update(req.body, {
+      include: {
+        model: ProductCategory,
+        as: 'cat',
+      },
     });
-    res.send(await product.update(req.body));
+    res.send(updateProduct);
   } catch (error) {
     next(error);
   }
@@ -95,7 +100,7 @@ router.put("/:id", async (req, res, next) => {
 //   }
 // });
 
-router.post("/:id/cartItem", async (req, res, next) => {
+router.post('/:id/cartItem', async (req, res, next) => {
   try {
     console.log(req.body);
     const cartItem = await CartItem.create(req.body);

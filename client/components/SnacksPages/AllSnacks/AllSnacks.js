@@ -2,9 +2,8 @@ import React, { useEffect, useState } from 'react';
 import useStyles from './AllSnackStyles';
 import { Container, Typography, Grid } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../../store/products';
+import { fetchProducts } from '../../../store/Snacks';
 import SingleSnackComponent from './SingleSnackComponent';
-import { fetchAUser } from '../../../store';
 import FilterImg from './FilterImg';
 
 const AllSnacks = () => {
@@ -13,49 +12,24 @@ const AllSnacks = () => {
   const classes = useStyles();
   const { products } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [flavor, setFlavor] = useState("All");
+  const [flavor, setFlavor] = useState('All');
 
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
-
-  // const userId = useSelector((state) => state.auth);
-  // const user = useSelector((state) => state.user);
-  // console.log(userId);
-
-  // useEffect(() => {
-  //   if (userId) dispatch(fetchAUser(userId.id)); //user with shopping id
-
-  //   console.log("function ran");
-  // }, []);
-
-  const userId = useSelector((state) => state.auth);
-  const user = useSelector((state) => state.user);
-
-  useEffect(() => {
-    const fetchUser = () => {
-      console.log("userid", userId);
-      if (!userId) return "loading";
-      dispatch(fetchAUser(userId.id)); //user with shopping id
-    };
-    fetchUser();
-  }, [userId]); //VERY IMPORTANT TO HAVE USER ID HERE. without this, you are making a request to /api/users/undefined
-  //when you have the userid in array , you are only calling this useeffect when userId is changed, aka when it is actually loaded in
-  //WILL ONLY WORK CURRENTLY WHEN LOGGED IN BECAUSE ME() IS BROKEN AND NO LOCALSTORAGE TOKEN
-
   const randomListProducts = shuffle(products);
   const saltyProducts = products.filter(
-    (product) => product.productCategoryId === 1
+    (product) => product.cat.type === 'Salty'
   );
   const sweetProducts = products.filter(
-    (product) => product.productCategoryId === 2
+    (product) => product.cat.type === 'Sweet'
   );
   const healthyProducts = products.filter(
-    (product) => product.productCategoryId === 3
+    (product) => product.cat.type === 'Healthy'
   );
   const frozenProducts = products.filter(
-    (product) => product.productCategoryId === 4
+    (product) => product.cat.type === 'Refrigerated/Frozen'
   );
 
   return (
@@ -63,7 +37,7 @@ const AllSnacks = () => {
       <div>
         <main className={classes.root}>
           <div className={classes.toolbar} />
-          <Grid container justifyContent="flex-start" spacing={5}>
+          <Grid container justifyContent='flex-start' spacing={5}>
             <Grid
               item
               xs={12}
@@ -71,13 +45,13 @@ const AllSnacks = () => {
               md={4}
               lg={3}
               onClick={() => {
-                setFlavor("Salty");
+                setFlavor('Salty');
               }}
             >
               <FilterImg
-                flavor={"Salty"}
+                flavor={'Salty'}
                 img={
-                  "https://m.media-amazon.com/images/I/41DzPGQXiuL._AC_SY350_.jpg"
+                  'https://m.media-amazon.com/images/I/41DzPGQXiuL._AC_SY350_.jpg'
                 }
               />
             </Grid>
@@ -88,13 +62,13 @@ const AllSnacks = () => {
               md={4}
               lg={3}
               onClick={() => {
-                setFlavor("Sweet");
+                setFlavor('Sweet');
               }}
             >
               <FilterImg
-                flavor={"Sweet"}
+                flavor={'Sweet'}
                 img={
-                  "https://www.sweetflavorfl.com/img/my-sweet-flavor-logo-1618319663.jpg"
+                  'https://www.sweetflavorfl.com/img/my-sweet-flavor-logo-1618319663.jpg'
                 }
               />
             </Grid>
@@ -105,13 +79,13 @@ const AllSnacks = () => {
               md={4}
               lg={3}
               onClick={() => {
-                setFlavor("Healthy");
+                setFlavor('Healthy');
               }}
             >
               <FilterImg
-                flavor={"Healthy"}
+                flavor={'Healthy'}
                 img={
-                  "https://styles.redditmedia.com/t5_2scbp/styles/communityIcon_8pqszfejizl61.png"
+                  'https://styles.redditmedia.com/t5_2scbp/styles/communityIcon_8pqszfejizl61.png'
                 }
               />
             </Grid>
@@ -122,13 +96,13 @@ const AllSnacks = () => {
               md={4}
               lg={3}
               onClick={() => {
-                setFlavor("Refrigerated && Frozen");
+                setFlavor('Refrigerated && Frozen');
               }}
             >
               <FilterImg
-                flavor={"Refrigerated && Frozen"}
+                flavor={'Refrigerated && Frozen'}
                 img={
-                  "https://cdn.shopify.com/s/files/1/0294/2825/2771/collections/Category-Bars-Intro.png?v=1654034576"
+                  'https://cdn.shopify.com/s/files/1/0294/2825/2771/collections/Category-Bars-Intro.png?v=1654034576'
                 }
               />
             </Grid>
@@ -136,18 +110,18 @@ const AllSnacks = () => {
         </main>
       </div>
       <Typography
-        component="div"
-        variant="h1"
-        align="center"
-        onClick={() => setFlavor("All")}
+        component='div'
+        variant='h1'
+        align='center'
+        onClick={() => setFlavor('All')}
       >
         BROWSE ALL OF OUR SNACKS!
       </Typography>
       <div>
         <main className={classes.root}>
           <div className={classes.toolbar} />
-          <Grid container justifyContent="flex-start" spacing={4}>
-            {flavor === "Salty"
+          <Grid container justifyContent='flex-start' spacing={4}>
+            {flavor === 'Salty'
               ? saltyProducts.map((product) => {
                   return (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
@@ -155,7 +129,7 @@ const AllSnacks = () => {
                     </Grid>
                   );
                 })
-              : flavor === "Sweet"
+              : flavor === 'Sweet'
               ? sweetProducts.map((product) => {
                   return (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
@@ -163,7 +137,7 @@ const AllSnacks = () => {
                     </Grid>
                   );
                 })
-              : flavor === "Healthy"
+              : flavor === 'Healthy'
               ? healthyProducts.map((product) => {
                   return (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
@@ -171,7 +145,7 @@ const AllSnacks = () => {
                     </Grid>
                   );
                 })
-              : flavor === "Refrigerated && Frozen"
+              : flavor === 'Refrigerated && Frozen'
               ? frozenProducts.map((product) => {
                   return (
                     <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>

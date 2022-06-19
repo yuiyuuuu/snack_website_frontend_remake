@@ -20,22 +20,22 @@ const User = db.define('user', {
     defaultValue: false,
   },
   email: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     validate: {
       isEmail: true,
     },
     allowNull: false,
   },
   password: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: false,
   },
   address_line1: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: true,
   },
   address_line2: {
-    type: Sequelize.STRING,
+    type: Sequelize.TEXT,
     allowNull: true,
   },
   city: {
@@ -43,7 +43,7 @@ const User = db.define('user', {
     allowNull: true,
   },
   postal_code: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.STRING,
     // validate: {
     //   len: [5, 5],
     //   isNumeric: true,
@@ -55,7 +55,7 @@ const User = db.define('user', {
     allowNull: true,
   },
   telephone: {
-    type: Sequelize.INTEGER,
+    type: Sequelize.TEXT,
     // validate: {
     //   isNumeric: true,
     // },
