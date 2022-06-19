@@ -2,7 +2,14 @@
 
 const {
   db,
-  models: { User, Product, ProductCategory, OrderItem, OrderDetails },
+  models: {
+    User,
+    Product,
+    ProductCategory,
+    OrderItem,
+    OrderDetails,
+    ShoppingSession,
+  },
 } = require('../server/db');
 
 /**
@@ -319,6 +326,7 @@ async function seed() {
     },
   ];
   const orders = [{}, {}];
+  const shoppingSession = [{}, {}, {}, {}];
 
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log('db synced!');
@@ -355,7 +363,7 @@ async function seed() {
     }),
   ]);
 
-  const [cody, murphy] = users;
+  const [manny, kenji, jack, jun] = users;
 
   // Creating Product Categories
   const allCats = await Promise.all(
@@ -456,6 +464,17 @@ async function seed() {
   await snack39.setCat(cold);
   await snack40.setCat(cold);
 
+  // Creating shopping sessions for everyone
+  const allShoppingSessions = await Promise.all(
+    shoppingSession.map((ss) => ShoppingSession.create(ss))
+  );
+  const [shopping1, shopping2, shopping3, shopping4] = allShoppingSessions;
+
+  await manny.setShopping_session(shopping1);
+  await kenji.setShopping_session(shopping2);
+  await jack.setShopping_session(shopping3);
+  await jun.setShopping_session(shopping4);
+
   // Creating fake order items and orders for Cody
   const allOrderItems = await Promise.all(
     orderItems.map((orderItem) => OrderItem.create(orderItem))
@@ -478,8 +497,8 @@ async function seed() {
 
   // console.log(Object.keys(cody.__proto__));
 
-  await cody.addOrder_details(order1);
-  await cody.addOrder_details(order2);
+  await jun.addOrder_details(order1);
+  await jun.addOrder_details(order2);
 
   console.log(`seeded successfully`);
 }
