@@ -20,16 +20,16 @@ const AllSnacks = () => {
 
   const randomListProducts = shuffle(products);
   const saltyProducts = products.filter(
-    (product) => product.cat.type === 'Salty'
+    (product) => product.productCategoryId === 1
   );
   const sweetProducts = products.filter(
-    (product) => product.cat.type === 'Sweet'
+    (product) => product.productCategoryId === 2
   );
   const healthyProducts = products.filter(
-    (product) => product.cat.type === 'Healthy'
+    (product) => product.productCategoryId === 3
   );
   const frozenProducts = products.filter(
-    (product) => product.cat.type === 'Refrigerated/Frozen'
+    (product) => product.productCategoryId === 4
   );
 
   return (

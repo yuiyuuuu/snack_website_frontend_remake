@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, forwardRef } from "react";
+import React, { useState, useEffect, useRef, forwardRef } from 'react';
 import {
   Button,
   Dialog,
@@ -8,33 +8,40 @@ import {
   DialogTitle,
   Slide,
   Typography,
-} from "@mui/material";
-import { ShoppingCart, CreditCard } from "@material-ui/icons";
-import { Badge } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
-import { makeStyles } from "@material-ui/core/styles";
-import CartItem from "./CartItem";
-import { useDispatch, useSelector } from "react-redux";
+} from '@mui/material';
+import { ShoppingCart, CreditCard } from '@material-ui/icons';
+import { Badge } from '@material-ui/core';
+import { useHistory } from 'react-router-dom';
+import { makeStyles } from '@material-ui/core/styles';
+import CartItem from './CartItem';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Transition = forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />;
+  return <Slide direction='up' ref={ref} {...props} />;
 });
 
 const useStyles = makeStyles(() => ({
   dialogPaper: {
-    height: "100%",
-    width: "40%",
+    height: '100%',
+    width: '40%',
   },
 }));
 
 //TO DO FOR TOMORROW, WE HAVE TO FETCH THE CURRENT ITEMS IN THE CART FROM A CERTAIN SESSION AND PUSH IT TO REDUX.
 const Shoppingcart = () => {
   const [open, setOpen] = useState(false);
-  const [scroll, setScroll] = useState("paper");
+  const [scroll, setScroll] = useState('paper');
   const history = useHistory();
   const classes = useStyles();
-  const cartItems = useSelector((state) => state.cartReducer);
-  console.log("cartITEMS:", cartItems);
+
+  const { shopping_session } = useSelector((state) => state.user);
+
+  //getting cart items from user/shopping_session/cart_items
+  const cartItemsArr =
+    shopping_session !== undefined ? shopping_session.cart_items : [];
+
+  //checking for session to get user/shopping_session/total
+  const activeSession = shopping_session !== undefined ? shopping_session : {};
 
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
@@ -46,7 +53,7 @@ const Shoppingcart = () => {
   };
 
   const handleClick = () => {
-    history.push("/checkout");
+    history.push('/checkout');
     handleClose();
   };
 
@@ -63,10 +70,10 @@ const Shoppingcart = () => {
   return (
     <div>
       <Badge
-        badgeContent={cartItems.length}
+        badgeContent={cartItemsArr.length}
         showZero
-        color="primary"
-        onClick={handleClickOpen("paper")}
+        color='primary'
+        onClick={handleClickOpen('paper')}
       >
         <ShoppingCart />
       </Badge>
@@ -75,34 +82,33 @@ const Shoppingcart = () => {
         onClose={handleClose}
         scroll={scroll}
         TransitionComponent={Transition}
-        aria-labelledby="scroll-dialog-title"
-        aria-describedby="scroll-dialog-description"
-        PaperProps={{ sx: { position: "fixed", right: 20, m: 0 } }}
+        aria-labelledby='scroll-dialog-title'
+        aria-describedby='scroll-dialog-description'
+        PaperProps={{ sx: { position: 'fixed', right: 20, m: 0 } }}
         classes={{ paper: classes.dialogPaper }}
       >
-        <DialogTitle size="lg" id="scroll-dialog-title">
+        <DialogTitle size='lg' id='scroll-dialog-title'>
           Shopping-Cart
         </DialogTitle>
-        <DialogContent dividers={scroll === "paper"}>
+        <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText
-            id="scroll-dialog-description"
+            id='scroll-dialog-description'
             ref={descriptionElementRef}
             tabIndex={-1}
           >
             {/* this is where our products go ! */}
-            <CartItem />
-            <CartItem />
-            <CartItem />
-            <CartItem />
+            {cartItemsArr.map((cartItem) => {
+              return <CartItem itemInfo={cartItem} key={cartItem.id} />;
+            })}
           </DialogContentText>
         </DialogContent>
-        <DialogActions sx={{ justifyContent: "space-between" }}>
-          <Typography component="div" variant="h6" sx={{ margin: "10px" }}>
-            Subtotal: $99
+        <DialogActions sx={{ justifyContent: 'space-between' }}>
+          <Typography component='div' variant='h6' sx={{ margin: '10px' }}>
+            ${activeSession.total}
           </Typography>
           <Button
-            variant="contained"
-            color="success"
+            variant='contained'
+            color='success'
             startIcon={<CreditCard />}
             onClick={handleClick}
           >
