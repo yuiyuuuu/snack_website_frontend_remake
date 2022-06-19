@@ -355,7 +355,7 @@ async function seed() {
     }),
   ]);
 
-  const [cody, murphy] = users;
+  const [manny, kenji, jack, jun] = users;
 
   // Creating Product Categories
   const allCats = await Promise.all(
@@ -478,8 +478,8 @@ async function seed() {
 
   // console.log(Object.keys(cody.__proto__));
 
-  await cody.addOrder_details(order1);
-  await cody.addOrder_details(order2);
+  await jun.addOrder_details(order1);
+  await jun.addOrder_details(order2);
 
   console.log(`seeded successfully`);
 }
