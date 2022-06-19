@@ -12,9 +12,11 @@ import {
   TablePagination,
   TableRow,
   Button,
+  Box,
 } from '@mui/material';
 import { Container, Typography, Grid } from '@material-ui/core';
 import { fetchAllUsers } from '../../store';
+import AdminPageProductCreateForm from './AdminPageProductCreateForm';
 import AdminPageUserEditForm from './AdminPageUserEditForm';
 import { _updateAdminUser } from '../../store';
 import { fetchProducts } from '../../store/Snacks';
@@ -76,7 +78,13 @@ const columns = [
   {
     id: 'createdAt',
     label: 'CreatedAt',
-    minWidth: 200,
+    minWidth: 170,
+    align: 'center',
+  },
+  {
+    id: 'edit',
+    label: 'EDIT',
+    minWidth: 30,
     align: 'center',
   },
 ];
@@ -91,6 +99,7 @@ const AdminPage = () => {
   //for users page
   const [menu, setMenu] = useState('users');
   const { users } = useSelector((state) => state);
+  users.sort();
   useEffect(() => {
     dispatch(fetchAllUsers());
   }, []);
@@ -134,95 +143,103 @@ const AdminPage = () => {
   return (
     <div className={classes.root}>
       <div className={classes.toolbar}>
-        <Button
-          variant='contained'
-          sx={{ margin: '15px' }}
-          onClick={() => {
-            setMenu('users');
-          }}
-        >
-          Users
-        </Button>
-        <Button
-          variant='contained'
-          sx={{ margin: '15px' }}
-          onClick={() => {
-            setMenu('products');
-          }}
-        >
-          Products
-        </Button>
+        <Box textAlign='center'>
+          <Button
+            variant='contained'
+            sx={{ margin: '15px' }}
+            onClick={() => {
+              setMenu('users');
+            }}
+          >
+            Users
+          </Button>
+          <Button
+            variant='contained'
+            sx={{ margin: '15px' }}
+            onClick={() => {
+              setMenu('products');
+            }}
+          >
+            Products
+          </Button>
+        </Box>
         {menu === 'users' ? (
-          <Paper sx={{ width: '100%', align: 'center' }}>
-            <TableContainer sx={{ maxHeight: 600 }}>
-              <TableContainer stickyHeader aria-label='sticky table'>
-                <TableHead>
-                  <TableRow>
-                    {columns.map((column) => (
-                      <TableCell
-                        key={column.id}
-                        align={column.align}
-                        style={{ minWidth: column.minWidth }}
-                      >
-                        {column.label}
-                      </TableCell>
-                    ))}
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {users
-                    .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                    .map((row) => {
-                      return (
-                        <TableRow
-                          hover
-                          role='checkbox'
-                          tabIndex={-1}
-                          key={row.code}
+          <Grid>
+            <Paper sx={{ width: '100%', align: 'center' }}>
+              <TableContainer sx={{ maxHeight: 600 }}>
+                <TableContainer stickyHeader aria-label='sticky table'>
+                  <TableHead>
+                    <TableRow>
+                      {columns.map((column) => (
+                        <TableCell
+                          key={column.id}
+                          align={column.align}
+                          style={{ minWidth: column.minWidth }}
                         >
-                          {columns.map((column) => {
-                            const value = row[column.id];
-                            return (
-                              <TableCell key={column.id} align={column.align}>
-                                {column.id !== 'isAdmin' ? (
-                                  value
-                                ) : value ? (
-                                  <button
-                                    onClick={() => {
-                                      handleToggle(row.id);
-                                    }}
-                                  >
-                                    true
-                                  </button>
-                                ) : (
-                                  <button
-                                    onClick={() => {
-                                      handleToggle(row.id);
-                                    }}
-                                  >
-                                    false
-                                  </button>
-                                )}
-                              </TableCell>
-                            );
-                          })}
-                          <AdminPageUserEditForm user={row} />
-                        </TableRow>
-                      );
-                    })}
-                </TableBody>
+                          {column.label}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  </TableHead>
+                  <TableBody>
+                    {users
+                      .slice(
+                        page * rowsPerPage,
+                        page * rowsPerPage + rowsPerPage
+                      )
+                      .map((row) => {
+                        return (
+                          <TableRow
+                            hover
+                            role='checkbox'
+                            tabIndex={-1}
+                            key={row.code}
+                          >
+                            {columns.map((column) => {
+                              const value = row[column.id];
+                              return (
+                                <TableCell key={column.id} align={column.align}>
+                                  {column.id === 'edit' ? (
+                                    <AdminPageUserEditForm user={row} />
+                                  ) : column.id !== 'isAdmin' ? (
+                                    value
+                                  ) : value ? (
+                                    <button
+                                      onClick={() => {
+                                        handleToggle(row.id);
+                                      }}
+                                    >
+                                      true
+                                    </button>
+                                  ) : (
+                                    <button
+                                      onClick={() => {
+                                        handleToggle(row.id);
+                                      }}
+                                    >
+                                      false
+                                    </button>
+                                  )}
+                                </TableCell>
+                              );
+                            })}
+                          </TableRow>
+                        );
+                      })}
+                  </TableBody>
+                </TableContainer>
               </TableContainer>
-            </TableContainer>
-            <TablePagination
-              rowsPerPageOptions={[10, 25, 100]}
-              component='div'
-              count={users.length}
-              rowsPerPage={rowsPerPage}
-              page={page}
-              onPageChange={handleChangePage}
-              onRowsPerPageChange={handleChangeRowsPerPage}
-            />
-          </Paper>
+              <TablePagination
+                rowsPerPageOptions={[10, 25, 100]}
+                component='div'
+                count={users.length}
+                rowsPerPage={rowsPerPage}
+                page={page}
+                onPageChange={handleChangePage}
+                onRowsPerPageChange={handleChangeRowsPerPage}
+              />
+            </Paper>
+          </Grid>
         ) : (
           <div>
             <div>
@@ -308,6 +325,9 @@ const AdminPage = () => {
             >
               BROWSE ALL OF OUR SNACKS!
             </Typography>
+            <Box textAlign='center'>
+              <AdminPageProductCreateForm />
+            </Box>
             <div>
               <main className={classes.root}>
                 <div className={classes.toolbar} />

@@ -10,19 +10,16 @@ import {
   DialogContentText,
   DialogTitle,
 } from '@mui/material';
-import { _deleteProduct } from '../../store/Snacks';
-import { _updateProduct } from '../../store/Snacks';
+import { _createProduct } from '../../store/Snacks';
 
-export default function AdminPageProductEditForm({ snack }) {
+export default function AdminPageProductCreateForm() {
   const [open, setOpen] = useState(false);
-  const [name, setName] = useState(snack.name);
-  const [desc, setDesc] = useState(snack.desc);
-  const [price, setPrice] = useState(snack.price);
-  const [quantity, setQuantity] = useState(snack.quantity);
-  const [photoURL, setPhotoURL] = useState(snack.photoURL);
-  const [productCategoryId, setProductCategoryId] = useState(
-    snack.productCategoryId
-  );
+  const [name, setName] = useState('');
+  const [desc, setDesc] = useState('');
+  const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
+  const [photoURL, setPhotoURL] = useState('');
+  const [productCategoryId, setProductCategoryId] = useState('');
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -35,16 +32,9 @@ export default function AdminPageProductEditForm({ snack }) {
     setOpen(false);
   };
 
-  const handleDelete = (id) => {
-    dispatch(_deleteProduct(id));
-    history.push('/adminpage');
-    handleClose();
-  };
-
   const hanldeClick = (e) => {
     e.preventDefault();
-    const updatedSnack = {
-      id: snack.id,
+    const newSnack = {
       name,
       desc,
       price,
@@ -52,7 +42,7 @@ export default function AdminPageProductEditForm({ snack }) {
       photoURL,
       productCategoryId,
     };
-    dispatch(_updateProduct(updatedSnack));
+    dispatch(_createProduct(newSnack));
     history.push('/adminpage');
     handleClose();
   };
@@ -60,12 +50,12 @@ export default function AdminPageProductEditForm({ snack }) {
   return (
     <div>
       <Button variant='outlined' onClick={handleClickOpen}>
-        Edit
+        Add a new Product
       </Button>
       <Dialog open={open} onClose={handleClose} maxWidth='xl'>
-        <DialogTitle>Edit a product</DialogTitle>
+        <DialogTitle>Add a product</DialogTitle>
         <DialogContent>
-          <DialogContentText>Please edit the form!</DialogContentText>
+          <DialogContentText>Please fill the form!</DialogContentText>
           <TextField
             autoFocus
             margin='dense'
@@ -128,14 +118,7 @@ export default function AdminPageProductEditForm({ snack }) {
           />
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={() => {
-              handleDelete(snack.id);
-            }}
-          >
-            Delete
-          </Button>
-          <Button onClick={hanldeClick}>Update</Button>
+          <Button onClick={hanldeClick}>Create</Button>
         </DialogActions>
       </Dialog>
     </div>

@@ -74,15 +74,17 @@ export default function (state = [], action) {
     case GET_ALL_USERS:
       return action.users;
     case UPDATE_USER:
-      return state
-        .map((user) => (user.id === action.user.id ? action.user : user))
-        .sort();
+      return state.map((user) =>
+        user.id === action.user.id ? action.user : user
+      );
+
     case UPDATE_ADMIN_USER:
-      return state
-        .map((user) => (user.id === action.user.id ? action.user : user))
-        .sort(action.id);
+      return state.map((user) =>
+        user.id === action.user.id ? action.user : user
+      );
+
     case DELETE_USER:
-      return state.filter((user) => user.id !== action.user.id).sort();
+      return state.filter((user) => user.id !== action.user.id);
     default:
       return state;
   }
