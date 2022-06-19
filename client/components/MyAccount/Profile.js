@@ -10,7 +10,7 @@ import {
   Button,
   Box,
 } from '@material-ui/core';
-import { updateProfile } from '../../store';
+import { _updateUser } from '../../store';
 
 export default function Profile() {
   const classes = useStyles();
@@ -25,7 +25,7 @@ export default function Profile() {
   const [address2, setAddress2] = useState(user.address_line2);
   const [city, setCity] = useState(user.city);
   const [country, setCountry] = useState(user.country);
-  const [postal, setPostal] = useState(user.postal);
+  const [postal, setPostal] = useState(user.postal_code);
   const [telephone, setTelephone] = useState(user.telephone);
 
   const handleSubmit = (e) => {
@@ -43,7 +43,7 @@ export default function Profile() {
       telephone,
     };
     try {
-      dispatch(updateProfile(prof));
+      dispatch(_updateUser(prof));
       history.push('/');
     } catch (err) {
       console.log(err);

@@ -12,6 +12,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleSnack } from '../../../store/singleSnack';
 import { fetchAUser } from '../../../store';
+import { addToCart } from '../../../store/cart';
 // import GroupedButtons from './GroupedButtons';
 
 const useStyles = makeStyles({
@@ -46,32 +47,51 @@ const useStyles = makeStyles({
 
 const SingleSnacks = (props) => {
   const classes = useStyles();
+  const dispatch = useDispatch();
+
+  const userId = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
+  const [counter, setCounter] = useState(0);
+  const [placeHolderStock, setPlaceHolderStock] = useState(10);
 
   const snackId = props.match.params.snackId;
   const { singleSnack } = useSelector((state) => state);
-  const dispatch = useDispatch();
+  const { name, desc, price, quantity, photoURL } = singleSnack;
+
+  useEffect(() => {
+    const fetchUser = () => {
+      if (!userId) return 'loading';
+      dispatch(fetchAUser(userId.id)); //user with shopping id
+    };
+    fetchUser();
+  }, [userId]);
+
   useEffect(() => {
     dispatch(fetchSingleSnack(snackId));
   }, []);
 
-  const [counter, setCounter] = useState(0);
-  const [placeHolderStock, setPlaceHolderStock] = useState(10);
-
-  const { name, desc, price, quantity, photoURL } = singleSnack;
+  const atc = () => {
+    const cartItem = {
+      productId: singleSnack.id,
+      quantity: singleSnack.quantity,
+      shoppingSessionId: user.shopping_session.id,
+    };
+    dispatch(addToCart(cartItem));
+  };
   return (
     <div className={classes.root}>
       <div className={classes.leftCard}>
-        <CardMedia component="img" image={photoURL} />
+        <CardMedia component='img' image={photoURL} />
       </div>
       <Card className={classes.rightCard}>
         <div>
-          <Typography variant="h4" color="text.primary" component="div">
+          <Typography variant='h4' color='text.primary' component='div'>
             {name}
           </Typography>
-          <Typography variant="h4" color="text.primary">
+          <Typography variant='h4' color='text.primary'>
             {price}
           </Typography>
-          <Typography variant="h5" color="text.primary">
+          <Typography variant='h5' color='text.primary'>
             In Stock: {quantity}
           </Typography>
         </div>
@@ -80,9 +100,9 @@ const SingleSnacks = (props) => {
           <div className={classes.btnGroup}>
             <div>
               <ButtonGroup
-                color="primary"
-                variant="contained"
-                aria-label="outlined secondary button group"
+                color='primary'
+                variant='contained'
+                aria-label='outlined secondary button group'
               >
                 <Button
                   disabled={counter <= 0}
@@ -121,7 +141,7 @@ const SingleSnacks = (props) => {
               </ButtonGroup>
             </div>
             <div>
-              <Button variant="contained" color="primary">
+              <Button variant='contained' color='primary' onClick={() => atc()}>
                 Add to Cart
               </Button>
             </div>
@@ -131,7 +151,7 @@ const SingleSnacks = (props) => {
         <hr></hr>
 
         <div>
-          <Typography variant="subtitle">Description: {desc}</Typography>
+          <Typography variant='subtitle'>Description: {desc}</Typography>
         </div>
         <hr></hr>
         <div>HELLO</div>
