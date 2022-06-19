@@ -9,6 +9,8 @@ import user from './user';
 import singleSnack from './singleSnack';
 
 import users from './users';
+import orders from './orders';
+
 
 const reducer = combineReducers({
   auth,
@@ -16,6 +18,7 @@ const reducer = combineReducers({
   cartReducer,
   user,
   singleSnack,
+  orders,
   users,
 });
 
@@ -26,6 +29,6 @@ const store = createStore(reducer, middleware);
 
 export default store;
 export * from './auth';
-
 export * from './user';
 export * from './users';
+export * from './orders';
