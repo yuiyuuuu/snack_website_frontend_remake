@@ -12,7 +12,7 @@ import {
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleSnack } from '../../../store/singleSnack';
 import { fetchAUser } from '../../../store';
-import { addToCart } from '../../../store/cart';
+import { addToCart, updateCart, fetchCart } from '../../../store/cart';
 // import GroupedButtons from './GroupedButtons';
 
 const useStyles = makeStyles({
@@ -57,28 +57,34 @@ const SingleSnacks = (props) => {
   const { singleSnack } = useSelector((state) => state);
   const { name, desc, price, quantity, photoURL } = singleSnack;
 
-  //
-  // console.log('hello user', user);
-  // const { shopping_session } = useSelector((state) => state.user);
-  // const userCartArr =
-  //   shopping_session !== undefined ? shopping_session.cart_items : [];
+  const { shopping_session } = useSelector((state) => state.user);
+  const { cartReducer } = useSelector((state) => state);
 
-  // console.log('here123', userCartArr);
-  // const checkCartQuantity = () => {
-  //   //If item is in cart it will check amount, else return 0
-  //   let amount = 0;
-  //   for (let i = 0; i < userCartArr.length; i++) {
-  //     const snackInCart = userCartArr[i];
-  //     if (parseInt(snackId) === snackInCart.productId) {
-  //       //Testing line below
-  //       setCounter(counter + 2);
-  //       // return snackInCart.quantity;
-  //     }
-  //   }
-  //   return amount;
-  // };
-  // console.log(checkCartQuantity());
-  //
+  const userCartArr =
+    shopping_session !== undefined ? shopping_session.cart_items : [];
+
+  const checkCartQuantity = () => {
+    //If item is in cart it will check amount, else return 0
+    let amount = 0;
+    for (let i = 0; i < userCartArr.length; i++) {
+      const snackInCart = userCartArr[i];
+      if (parseInt(snackId) === snackInCart.productId) {
+        return snackInCart.quantity;
+      }
+    }
+    return amount;
+  };
+  const quantityInCart = checkCartQuantity();
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(fetchCart(userId.id));
+    }
+  }, [userId.id]);
+
+  useEffect(() => {
+    setCounter(quantityInCart);
+  }, [quantityInCart]);
 
   useEffect(() => {
     const fetchUser = () => {
@@ -92,13 +98,28 @@ const SingleSnacks = (props) => {
     dispatch(fetchSingleSnack(snackId));
   }, []);
 
+  const checkInCart = () => {
+    for (let i = 0; i < cartReducer.length; i++) {
+      const snackInReducer = cartReducer[i];
+      if (parseInt(snackId) === snackInReducer.productId) {
+        return true;
+      }
+    }
+    return false;
+  };
+  const check = checkInCart();
+
   const atc = () => {
     const cartItem = {
       productId: singleSnack.id,
-      quantity: 1,
+      quantity: counter,
       shoppingSessionId: user.shopping_session.id,
     };
-    dispatch(addToCart(cartItem));
+    if (check) {
+      dispatch(updateCart(cartItem));
+    } else {
+      dispatch(addToCart(cartItem));
+    }
   };
   return (
     <div className={classes.root}>
@@ -136,7 +157,7 @@ const SingleSnacks = (props) => {
                 </Button>
                 <Button disabled>{counter}</Button>
                 <Button
-                  disabled={counter >= 10}
+                  disabled={counter >= 100}
                   onClick={() => {
                     setCounter(counter + 1);
                   }}
@@ -163,7 +184,14 @@ const SingleSnacks = (props) => {
               </ButtonGroup>
             </div>
             <div>
-              <Button variant='contained' color='primary' onClick={() => atc()}>
+              <Button
+                // needs to refresh page in future
+                variant='contained'
+                color='primary'
+                onClick={() => {
+                  counter > 0 ? atc() : null;
+                }}
+              >
                 Add to Cart
               </Button>
             </div>

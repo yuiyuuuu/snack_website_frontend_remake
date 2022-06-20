@@ -20,6 +20,7 @@ const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.id);
   const { auth } = useSelector((state) => state);
   const classes = useStyles();
+  const { cartReducer } = useSelector((state) => state);
 
   //remove home and logout when we have functioning components for those, theyre so ugly ;(
   return (
@@ -88,13 +89,13 @@ const Navbar = () => {
                 to='/login'
                 style={{ marginRight: '10px' }}
               >
-                <Badge
-                  badgeContent={0}
+                {/* <Badge
+                  badgeContent={cartReducer.length}
                   showZero
                   classes={{ badge: classes.badge }}
-                >
-                  <ShoppingCart />
-                </Badge>
+                > */}
+                <ShoppingCart />
+                {/* </Badge> */}
               </IconButton>
               {/* The navbar will show these links before you log in */}
             </div>
