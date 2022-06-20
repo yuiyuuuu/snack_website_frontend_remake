@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../../store/Snacks';
 import SingleSnackComponent from './SingleSnackComponent';
 import FilterImg from './FilterImg';
+import { Box } from '@mui/material';
 
 const AllSnacks = () => {
   const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
@@ -37,7 +38,7 @@ const AllSnacks = () => {
       <div>
         <main className={classes.root}>
           <div className={classes.toolbar} />
-          <Grid container justifyContent='flex-start' spacing={5}>
+          <Grid container justifyContent='flex-start' spacing={4}>
             <Grid
               item
               xs={12}
@@ -120,7 +121,7 @@ const AllSnacks = () => {
       <div>
         <main className={classes.root}>
           <div className={classes.toolbar} />
-          <Grid container justifyContent='flex-start' spacing={4}>
+          <Grid container justifyContent='flex-start' spacing={3}>
             {flavor === 'Salty'
               ? saltyProducts.map((product) => {
                   return (

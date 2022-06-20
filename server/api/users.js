@@ -8,7 +8,9 @@ module.exports = router;
 // GET /api/users/
 router.get('/', async (req, res, next) => {
   try {
-    const users = await User.findAll();
+    const users = await User.findAll({
+      order: [['id', 'ASC']],
+    });
     res.json(users);
   } catch (err) {
     next(err);

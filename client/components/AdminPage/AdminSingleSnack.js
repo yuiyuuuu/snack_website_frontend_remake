@@ -35,13 +35,7 @@ const AdminSingleSnack = ({ snack }) => {
             color='text.secondary'
             component='div'
           >
-            {snack.productCategoryId === 1
-              ? 'salty'
-              : snack.productCategoryId === 2
-              ? 'sweet'
-              : snack.productCategoryId === 3
-              ? 'healthy'
-              : 'refrigerated/frozen'}
+            {snack.cat.type}
           </Typography>
           <Typography component='div' variant='h6'>
             $$ : {snack.price}

@@ -60,13 +60,7 @@ const SingleSnackComponent = ({ snack }) => {
               color='text.secondary'
               component='div'
             >
-              {snack.productCategoryId === 1
-                ? 'Salty'
-                : snack.productCategoryId === 2
-                ? 'Sweet'
-                : snack.productCategoryId === 3
-                ? 'Healthy'
-                : 'Refrigerated/Frozen'}
+              {snack.cat.type}
             </Typography>
             <Typography component='div' variant='h6'>
               $$ : {snack.price}

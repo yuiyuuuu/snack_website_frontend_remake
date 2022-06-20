@@ -143,29 +143,29 @@ const AdminPage = () => {
   return (
     <div className={classes.root}>
       <div className={classes.toolbar}>
-        <Box textAlign='center'>
-          <Button
-            variant='contained'
-            sx={{ margin: '15px' }}
-            onClick={() => {
-              setMenu('users');
-            }}
-          >
-            Users
-          </Button>
-          <Button
-            variant='contained'
-            sx={{ margin: '15px' }}
-            onClick={() => {
-              setMenu('products');
-            }}
-          >
-            Products
-          </Button>
-        </Box>
-        {menu === 'users' ? (
-          <Grid>
-            <Paper sx={{ width: '100%', align: 'center' }}>
+        <Grid item xs={12} sm={12} md={12} lg={12}>
+          <Box textAlign='center'>
+            <Button
+              variant='contained'
+              sx={{ margin: '15px' }}
+              onClick={() => {
+                setMenu('users');
+              }}
+            >
+              Users
+            </Button>
+            <Button
+              variant='contained'
+              sx={{ margin: '15px' }}
+              onClick={() => {
+                setMenu('products');
+              }}
+            >
+              Products
+            </Button>
+          </Box>
+          {menu === 'users' ? (
+            <Paper sx={{ width: '100%', align: 'center', overflow: 'auto' }}>
               <TableContainer sx={{ maxHeight: 600 }}>
                 <TableContainer stickyHeader aria-label='sticky table'>
                   <TableHead>
@@ -239,178 +239,178 @@ const AdminPage = () => {
                 onRowsPerPageChange={handleChangeRowsPerPage}
               />
             </Paper>
-          </Grid>
-        ) : (
-          <div>
+          ) : (
             <div>
-              <main className={classes.root}>
-                <div className={classes.toolbar} />
-                <Grid container justifyContent='flex-start' spacing={5}>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
-                    onClick={() => {
-                      setFlavor('Salty');
-                    }}
-                  >
-                    <FilterImg
-                      flavor={'Salty'}
-                      img={
-                        'https://m.media-amazon.com/images/I/41DzPGQXiuL._AC_SY350_.jpg'
-                      }
-                    />
+              <div>
+                <main className={classes.root}>
+                  <div className={classes.toolbar} />
+                  <Grid container justifyContent='flex-start' spacing={5}>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      lg={3}
+                      onClick={() => {
+                        setFlavor('Salty');
+                      }}
+                    >
+                      <FilterImg
+                        flavor={'Salty'}
+                        img={
+                          'https://m.media-amazon.com/images/I/41DzPGQXiuL._AC_SY350_.jpg'
+                        }
+                      />
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      lg={3}
+                      onClick={() => {
+                        setFlavor('Sweet');
+                      }}
+                    >
+                      <FilterImg
+                        flavor={'Sweet'}
+                        img={
+                          'https://www.sweetflavorfl.com/img/my-sweet-flavor-logo-1618319663.jpg'
+                        }
+                      />
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      lg={3}
+                      onClick={() => {
+                        setFlavor('Healthy');
+                      }}
+                    >
+                      <FilterImg
+                        flavor={'Healthy'}
+                        img={
+                          'https://styles.redditmedia.com/t5_2scbp/styles/communityIcon_8pqszfejizl61.png'
+                        }
+                      />
+                    </Grid>
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      md={4}
+                      lg={3}
+                      onClick={() => {
+                        setFlavor('Refrigerated && Frozen');
+                      }}
+                    >
+                      <FilterImg
+                        flavor={'Refrigerated && Frozen'}
+                        img={
+                          'https://cdn.shopify.com/s/files/1/0294/2825/2771/collections/Category-Bars-Intro.png?v=1654034576'
+                        }
+                      />
+                    </Grid>
                   </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
-                    onClick={() => {
-                      setFlavor('Sweet');
-                    }}
-                  >
-                    <FilterImg
-                      flavor={'Sweet'}
-                      img={
-                        'https://www.sweetflavorfl.com/img/my-sweet-flavor-logo-1618319663.jpg'
-                      }
-                    />
+                </main>
+              </div>
+              <Typography
+                component='div'
+                variant='h1'
+                align='center'
+                onClick={() => setFlavor('All')}
+              >
+                BROWSE ALL OF OUR SNACKS!
+              </Typography>
+              <Box textAlign='center'>
+                <AdminPageProductCreateForm />
+              </Box>
+              <div>
+                <main className={classes.root}>
+                  <div className={classes.toolbar} />
+                  <Grid container justifyContent='flex-start' spacing={4}>
+                    {flavor === 'Salty'
+                      ? saltyProducts.map((product) => {
+                          return (
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              md={4}
+                              lg={3}
+                              key={product.id}
+                            >
+                              <AdminSingleSnack snack={product} />
+                            </Grid>
+                          );
+                        })
+                      : flavor === 'Sweet'
+                      ? sweetProducts.map((product) => {
+                          return (
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              md={4}
+                              lg={3}
+                              key={product.id}
+                            >
+                              <AdminSingleSnack snack={product} />
+                            </Grid>
+                          );
+                        })
+                      : flavor === 'Healthy'
+                      ? healthyProducts.map((product) => {
+                          return (
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              md={4}
+                              lg={3}
+                              key={product.id}
+                            >
+                              <AdminSingleSnack snack={product} />
+                            </Grid>
+                          );
+                        })
+                      : flavor === 'Refrigerated && Frozen'
+                      ? frozenProducts.map((product) => {
+                          return (
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              md={4}
+                              lg={3}
+                              key={product.id}
+                            >
+                              <AdminSingleSnack snack={product} />
+                            </Grid>
+                          );
+                        })
+                      : randomListProducts.map((product) => {
+                          return (
+                            <Grid
+                              item
+                              xs={12}
+                              sm={6}
+                              md={4}
+                              lg={3}
+                              key={product.id}
+                            >
+                              <AdminSingleSnack snack={product} />
+                            </Grid>
+                          );
+                        })}
                   </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
-                    onClick={() => {
-                      setFlavor('Healthy');
-                    }}
-                  >
-                    <FilterImg
-                      flavor={'Healthy'}
-                      img={
-                        'https://styles.redditmedia.com/t5_2scbp/styles/communityIcon_8pqszfejizl61.png'
-                      }
-                    />
-                  </Grid>
-                  <Grid
-                    item
-                    xs={12}
-                    sm={6}
-                    md={4}
-                    lg={3}
-                    onClick={() => {
-                      setFlavor('Refrigerated && Frozen');
-                    }}
-                  >
-                    <FilterImg
-                      flavor={'Refrigerated && Frozen'}
-                      img={
-                        'https://cdn.shopify.com/s/files/1/0294/2825/2771/collections/Category-Bars-Intro.png?v=1654034576'
-                      }
-                    />
-                  </Grid>
-                </Grid>
-              </main>
+                </main>
+              </div>
             </div>
-            <Typography
-              component='div'
-              variant='h1'
-              align='center'
-              onClick={() => setFlavor('All')}
-            >
-              BROWSE ALL OF OUR SNACKS!
-            </Typography>
-            <Box textAlign='center'>
-              <AdminPageProductCreateForm />
-            </Box>
-            <div>
-              <main className={classes.root}>
-                <div className={classes.toolbar} />
-                <Grid container justifyContent='flex-start' spacing={4}>
-                  {flavor === 'Salty'
-                    ? saltyProducts.map((product) => {
-                        return (
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            lg={3}
-                            key={product.id}
-                          >
-                            <AdminSingleSnack snack={product} />
-                          </Grid>
-                        );
-                      })
-                    : flavor === 'Sweet'
-                    ? sweetProducts.map((product) => {
-                        return (
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            lg={3}
-                            key={product.id}
-                          >
-                            <AdminSingleSnack snack={product} />
-                          </Grid>
-                        );
-                      })
-                    : flavor === 'Healthy'
-                    ? healthyProducts.map((product) => {
-                        return (
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            lg={3}
-                            key={product.id}
-                          >
-                            <AdminSingleSnack snack={product} />
-                          </Grid>
-                        );
-                      })
-                    : flavor === 'Refrigerated && Frozen'
-                    ? frozenProducts.map((product) => {
-                        return (
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            lg={3}
-                            key={product.id}
-                          >
-                            <AdminSingleSnack snack={product} />
-                          </Grid>
-                        );
-                      })
-                    : randomListProducts.map((product) => {
-                        return (
-                          <Grid
-                            item
-                            xs={12}
-                            sm={6}
-                            md={4}
-                            lg={3}
-                            key={product.id}
-                          >
-                            <AdminSingleSnack snack={product} />
-                          </Grid>
-                        );
-                      })}
-                </Grid>
-              </main>
-            </div>
-          </div>
-        )}
+          )}
+        </Grid>
       </div>
     </div>
   );
