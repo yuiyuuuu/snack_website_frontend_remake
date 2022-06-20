@@ -14,6 +14,7 @@ router.get('/', async (req, res, next) => {
         model: ProductCategory,
         as: 'cat',
       },
+      order: [['id', 'ASC']],
     });
     res.json(products);
   } catch (err) {
@@ -42,7 +43,13 @@ router.get('/:id', async (req, res, next) => {
 router.post('/', async (req, res, next) => {
   try {
     const product = await Product.create(req.body);
-    res.status(201).send(product);
+    const createdproduct = await Product.findByPk(product.id, {
+      include: {
+        model: ProductCategory,
+        as: 'cat',
+      },
+    });
+    res.status(201).send(createdproduct);
   } catch (err) {
     next(err);
   }
@@ -67,13 +74,14 @@ router.delete('/:id', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
   try {
     const product = await Product.findByPk(req.params.id);
-    const updateProduct = await product.update(req.body, {
+    await product.update(req.body);
+    const updateproduct = await Product.findByPk(req.params.id, {
       include: {
         model: ProductCategory,
         as: 'cat',
       },
     });
-    res.send(updateProduct);
+    res.send(updateproduct);
   } catch (error) {
     next(error);
   }
