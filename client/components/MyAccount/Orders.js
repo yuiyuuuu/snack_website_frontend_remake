@@ -20,8 +20,11 @@ export default function Orders() {
   const user = useSelector((state) => state.auth);
   const { orders } = useSelector((state) => state);
   const dispatch = useDispatch();
-  const [flavor, setFlavor] = useState('All');
-  console.log(orders);
+  // console.log(orders);
+  // const firstOrder = orders[0];
+
+  // const ordersArr = firstOrder ? firstOrder.order_items : [];
+  // console.log('HERE ', ordersArr);
 
   useEffect(() => {
     dispatch(fetchOrders(user.id));
@@ -31,11 +34,17 @@ export default function Orders() {
     <Container maxWidth='sm'>
       {/* map through orders based on user id */}
       {orders.map((order) => (
-        <Accordion>
+        <Accordion key={order.id}>
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
             {`ORDER #${order.id}`}
+            {/* {`TOTAL: ${order.total}`} */}
           </AccordionSummary>
-          <AccordionDetails>the order details</AccordionDetails>
+          {order.order_items.map((item) => (
+            <AccordionDetails key={item.id}>
+              NAME: {`${item.product.name}`}
+              QUANTITY: {item.quantity}
+            </AccordionDetails>
+          ))}
         </Accordion>
       ))}
     </Container>
