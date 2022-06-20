@@ -16,6 +16,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchAUser } from '../../store';
+import { fetchCart } from '../../store/cart';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
@@ -48,15 +49,28 @@ const Shoppingcart = () => {
     shopping_session !== undefined ? shopping_session.cart_items : [];
 
   const { cartReducer } = useSelector((state) => state);
+  console.log('hello', cartReducer);
 
   useEffect(() => {
-    if (cartItemsArr) {
-      setBadge(cartItemsArr.length);
+    if (userId) {
+      dispatch(fetchCart(userId.id));
     }
-  }, [cartItemsArr]);
+  }, [userId.id]);
 
-  console.log(badge);
-  console.log(cartItemsArr);
+  useEffect(() => {
+    if (cartReducer) {
+      setBadge(cartReducer.length);
+    }
+  }, [cartReducer]);
+
+  // useEffect(() => {
+  //   if (cartItemsArr) {
+  //     setBadge(cartItemsArr.length);
+  //   }
+  // }, [cartItemsArr]);
+
+  // console.log(badge);
+  // console.log(cartItemsArr);
 
   useEffect(() => {
     const fetchUser = () => {
@@ -123,8 +137,9 @@ const Shoppingcart = () => {
             tabIndex={-1}
           >
             {/* this is where our products go ! */}
-            {cartItemsArr.map((cartItem) => {
-              return <CartItem itemInfo={cartItem} key={cartItem.id} />;
+            {cartReducer.map((cartItem) => {
+              console.log('FLAG', cartItem);
+              return <CartItem itemInfo={cartItem.product} key={cartItem.id} />;
             })}
           </DialogContentText>
         </DialogContent>
