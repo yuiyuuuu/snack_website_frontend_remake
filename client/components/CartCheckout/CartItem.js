@@ -10,9 +10,6 @@ import {
 import { Remove, Add, RemoveShoppingCart } from '@material-ui/icons';
 
 const CartItem = ({ itemInfo }) => {
-  //Gets product info from props drilled down from cart component
-  console.log(itemInfo);
-
   return (
     <Card
       sx={{

@@ -49,7 +49,6 @@ const Shoppingcart = () => {
     shopping_session !== undefined ? shopping_session.cart_items : [];
 
   const { cartReducer } = useSelector((state) => state);
-  console.log('hello', cartReducer);
 
   useEffect(() => {
     if (userId) {
@@ -62,15 +61,6 @@ const Shoppingcart = () => {
       setBadge(cartReducer.length);
     }
   }, [cartReducer]);
-
-  // useEffect(() => {
-  //   if (cartItemsArr) {
-  //     setBadge(cartItemsArr.length);
-  //   }
-  // }, [cartItemsArr]);
-
-  // console.log(badge);
-  // console.log(cartItemsArr);
 
   useEffect(() => {
     const fetchUser = () => {
@@ -138,7 +128,6 @@ const Shoppingcart = () => {
           >
             {/* this is where our products go ! */}
             {cartReducer.map((cartItem) => {
-              console.log('FLAG', cartItem);
               return <CartItem itemInfo={cartItem.product} key={cartItem.id} />;
             })}
           </DialogContentText>
