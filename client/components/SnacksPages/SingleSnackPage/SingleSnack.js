@@ -52,11 +52,33 @@ const SingleSnacks = (props) => {
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
   const [counter, setCounter] = useState(0);
-  const [placeHolderStock, setPlaceHolderStock] = useState(10);
 
   const snackId = props.match.params.snackId;
   const { singleSnack } = useSelector((state) => state);
   const { name, desc, price, quantity, photoURL } = singleSnack;
+
+  //
+  // console.log('hello user', user);
+  // const { shopping_session } = useSelector((state) => state.user);
+  // const userCartArr =
+  //   shopping_session !== undefined ? shopping_session.cart_items : [];
+
+  // console.log('here123', userCartArr);
+  // const checkCartQuantity = () => {
+  //   //If item is in cart it will check amount, else return 0
+  //   let amount = 0;
+  //   for (let i = 0; i < userCartArr.length; i++) {
+  //     const snackInCart = userCartArr[i];
+  //     if (parseInt(snackId) === snackInCart.productId) {
+  //       //Testing line below
+  //       setCounter(counter + 2);
+  //       // return snackInCart.quantity;
+  //     }
+  //   }
+  //   return amount;
+  // };
+  // console.log(checkCartQuantity());
+  //
 
   useEffect(() => {
     const fetchUser = () => {
@@ -73,7 +95,7 @@ const SingleSnacks = (props) => {
   const atc = () => {
     const cartItem = {
       productId: singleSnack.id,
-      quantity: singleSnack.quantity,
+      quantity: 1,
       shoppingSessionId: user.shopping_session.id,
     };
     dispatch(addToCart(cartItem));
@@ -114,7 +136,7 @@ const SingleSnacks = (props) => {
                 </Button>
                 <Button disabled>{counter}</Button>
                 <Button
-                  disabled={counter >= placeHolderStock}
+                  disabled={counter >= 10}
                   onClick={() => {
                     setCounter(counter + 1);
                   }}
