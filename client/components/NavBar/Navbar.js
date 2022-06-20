@@ -30,8 +30,6 @@ const Navbar = () => {
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
 
-  console.log('hello', cartReducer.length);
-
   useEffect(() => {
     if (cartReducer) {
       setBadge(cartReducer.length);

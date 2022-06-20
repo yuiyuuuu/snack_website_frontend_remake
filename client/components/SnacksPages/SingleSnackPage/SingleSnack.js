@@ -10,6 +10,7 @@ import {
   CardContent,
 } from '@material-ui/core';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { fetchSingleSnack } from '../../../store/singleSnack';
 import { fetchAUser } from '../../../store';
 import { addToCart, updateCart, fetchCart } from '../../../store/cart';
@@ -48,23 +49,33 @@ const useStyles = makeStyles({
 const SingleSnacks = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
-  const [counter, setCounter] = useState(0);
-
-  const snackId = props.match.params.snackId;
   const { singleSnack } = useSelector((state) => state);
-  const { name, desc, price, quantity, photoURL } = singleSnack;
-
   const { shopping_session } = useSelector((state) => state.user);
   const { cartReducer } = useSelector((state) => state);
+  const { name, desc, price, quantity, photoURL } = singleSnack;
+  const snackId = props.match.params.snackId;
 
+  // CART QUANTITY OF ITEM
+  const [counter, setCounter] = useState(0);
+
+  // const [cart, setCart] = useState([]);
+
+  // useEffect(() => {
+  //   if (cart) {
+  //     setCart(cart)
+  //   }
+  // }, [cart]);
+
+  // ARRAY OF CART ITEMS FOR USER
   const userCartArr =
     shopping_session !== undefined ? shopping_session.cart_items : [];
 
+  // CHECK IF ITEM IS IN CART. IF IT IS, RETURN CART QTY. IF NOT, RETURN 0
   const checkCartQuantity = () => {
-    //If item is in cart it will check amount, else return 0
     let amount = 0;
     for (let i = 0; i < userCartArr.length; i++) {
       const snackInCart = userCartArr[i];
@@ -74,6 +85,8 @@ const SingleSnacks = (props) => {
     }
     return amount;
   };
+
+  // QUANTITY IN CART AND BUTTON #
   const quantityInCart = checkCartQuantity();
 
   useEffect(() => {
@@ -98,28 +111,18 @@ const SingleSnacks = (props) => {
     dispatch(fetchSingleSnack(snackId));
   }, []);
 
-  const checkInCart = () => {
-    for (let i = 0; i < cartReducer.length; i++) {
-      const snackInReducer = cartReducer[i];
-      if (parseInt(snackId) === snackInReducer.productId) {
-        return true;
-      }
-    }
-    return false;
-  };
-  const check = checkInCart();
-
   const atc = () => {
     const cartItem = {
       productId: singleSnack.id,
       quantity: counter,
       shoppingSessionId: user.shopping_session.id,
     };
-    if (check) {
+    if (quantityInCart > 0) {
       dispatch(updateCart(cartItem));
     } else {
       dispatch(addToCart(cartItem));
     }
+    history.push('/allsnacks');
   };
   return (
     <div className={classes.root}>

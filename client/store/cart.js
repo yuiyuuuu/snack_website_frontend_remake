@@ -30,9 +30,7 @@ export const deleteCart = (product) => ({
 export const fetchCart = (id) => {
   return async (dispatch) => {
     try {
-      console.log('THUNK ID', typeof id);
       const { data } = await Axios.get(`/api/users/${id}`);
-      console.log('DATA here', data);
       dispatch(currentCart(data.shopping_session.cart_items));
     } catch (error) {
       console.error(error);
@@ -43,7 +41,6 @@ export const fetchCart = (id) => {
 export const addToCart = (product) => {
   return async (dispatch) => {
     try {
-      console.log(product);
       const { data } = await Axios.post(
         `/api/products/${product.id}/cartItem`,
         product
@@ -59,13 +56,10 @@ export const addToCart = (product) => {
 export const updateCart = (product) => {
   return async (dispatch) => {
     try {
-      // console.log('sent', product.productId);
       const { data: updatedSnack } = await Axios.put(
         `/api/products/${product.productId}/cartItem`,
         product
       );
-      // console.log('RECV SNACK', updatedSnack);
-
       dispatch(setUpdateCart(updatedSnack));
     } catch (error) {
       console.error(error);
@@ -81,7 +75,6 @@ export const cartReducer = (state = initialState, action) => {
     case CURRENT_CART:
       return action.products;
     case ADD_TO_CART:
-      // console.log('in add redc', [...state, action.product]);
       return [...state, action.product];
     case UPDATE_CART:
       return state.map((snack) => {

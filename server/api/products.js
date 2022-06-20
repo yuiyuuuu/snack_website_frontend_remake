@@ -87,49 +87,45 @@ router.put('/:id', async (req, res, next) => {
   }
 });
 
-// req.body should contain updated cart quantity and session id from useSelector
-// PUT /api/products/:id/cartItem
-// router.put("/:id/cartItem", async (req, res, next) => {
-//   try {
-//     const cartItem = await CartItem.findOrCreate({
-//       where: {
-//         productId: req.params.id,
-//       },
-//       defaults: {
-//         productId: req.params.id,
-//         quantity: req.body.quantity,
-//         shoppingSessionId: req.body.shoppingSessionId,
-//       },
-//     });
-//     // res.send(await cartItem.update(req.body));
-//     if(!cartItem)
-//   } catch (error) {
-//     next(error);
-//   }
-// });
-
+// POST /api/products/:id/cartItem
 router.post('/:id/cartItem', async (req, res, next) => {
   try {
-    console.log(req.body);
     const cartItem = await CartItem.create(req.body);
-    res.send(cartItem);
+    const updatedCartItem = await CartItem.findByPk(cartItem.id, {
+      include: {
+        model: Product,
+      },
+    });
+    res.send(updatedCartItem);
   } catch (error) {
     next(error);
   }
 });
 
+// PUT /api/products/:id/cartItem
 router.put('/:id/cartItem', async (req, res, next) => {
   try {
-    // console.log('snackId<-------->', req.params.id);
-    // console.log('reqbody<-------->', req.body);
     const cartItem = await CartItem.findOne({
       where: { productId: req.params.id },
     });
-    // console.log('before c<-------->', cartItem);
     const updated = await cartItem.update(req.body);
-    // console.log('after<-------->', updated);
+    const updatedCartItem = await CartItem.findByPk(updated.id, {
+      include: {
+        model: Product,
+      },
+    });
+    res.send(updatedCartItem);
+  } catch (error) {
+    next(error);
+  }
+});
 
-    res.send(updated);
+// DELETE /api/products/:id/cartItem
+router.delete('/:id/cartItem', async (req, res, next) => {
+  try {
+    const cartItem = await CartItem.findByPk(req.params.id);
+    await cartItem.destroy();
+    res.send(cartItem);
   } catch (error) {
     next(error);
   }
