@@ -9,9 +9,10 @@ import {
 } from '@mui/material';
 import { Remove, Add, RemoveShoppingCart } from '@material-ui/icons';
 
-const CartItem = (props) => {
+const CartItem = ({ itemInfo }) => {
   //Gets product info from props drilled down from cart component
-  const itemInfo = props.itemInfo;
+  console.log(itemInfo);
+
   return (
     <Card
       sx={{
@@ -24,7 +25,7 @@ const CartItem = (props) => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component='div' variant='h5'>
-            {itemInfo.product.name}
+            {itemInfo.name}
           </Typography>
           <Typography
             variant='subtitle1'
@@ -34,7 +35,7 @@ const CartItem = (props) => {
             CAT HERE
           </Typography>
           <Typography component='div' variant='h6'>
-            ${itemInfo.product.price}
+            ${itemInfo.price}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
@@ -42,7 +43,7 @@ const CartItem = (props) => {
             <Remove />
           </IconButton>
           {/* Returning qty in shopping session table, currently showing 100pcs*/}
-          Qty: {itemInfo.quantity}
+          {/* Qty: {itemInfo.quantity} */}
           <IconButton>
             <Add />
           </IconButton>
@@ -54,7 +55,7 @@ const CartItem = (props) => {
       <CardMedia
         component='img'
         sx={{ width: 200, objectFit: 'contain' }}
-        image={itemInfo.product.photoURL}
+        image={itemInfo.photoURL}
       />
     </Card>
   );
