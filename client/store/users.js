@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+const TOKEN = 'token';
 const GET_ALL_USERS = 'GET_ALL_USERS';
 const UPDATE_USER = 'UPDATE_USER';
 const DELETE_USER = 'DELETE_USER';
@@ -28,7 +29,12 @@ export const deleteUser = (user) => ({
 export const fetchAllUsers = () => {
   return async (dispatch) => {
     try {
-      const { data } = await axios.get(`/api/users`);
+      const token = window.localStorage.getItem(TOKEN);
+      const { data } = await axios.get(`/api/users`, {
+        headers: {
+          authorization: token,
+        },
+      });
       dispatch(getAllUsers(data));
     } catch (error) {
       console.error(error);
