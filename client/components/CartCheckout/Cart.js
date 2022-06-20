@@ -15,6 +15,7 @@ import { useHistory } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
 import CartItem from './CartItem';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchAUser } from '../../store';
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction='up' ref={ref} {...props} />;
@@ -34,11 +35,36 @@ const Shoppingcart = () => {
   const history = useHistory();
   const classes = useStyles();
 
-  const { shopping_session } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
 
-  //getting cart items from user/shopping_session/cart_items
+  const [badge, setBadge] = useState(0);
+
+  const userId = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
+
+  const shopping_session = useSelector((state) => state.user.shopping_session);
+
   const cartItemsArr =
     shopping_session !== undefined ? shopping_session.cart_items : [];
+
+  const { cartReducer } = useSelector((state) => state);
+
+  useEffect(() => {
+    if (cartItemsArr) {
+      setBadge(cartItemsArr.length);
+    }
+  }, [cartItemsArr]);
+
+  console.log(badge);
+  console.log(cartItemsArr);
+
+  useEffect(() => {
+    const fetchUser = () => {
+      if (!userId) return 'loading';
+      dispatch(fetchAUser(userId.id)); //user with shopping id
+    };
+    fetchUser();
+  }, [userId]);
 
   //checking for session to get user/shopping_session/total
   const activeSession = shopping_session !== undefined ? shopping_session : {};
@@ -70,7 +96,7 @@ const Shoppingcart = () => {
   return (
     <div>
       <Badge
-        badgeContent={cartItemsArr.length}
+        badgeContent={badge}
         showZero
         color='primary'
         onClick={handleClickOpen('paper')}

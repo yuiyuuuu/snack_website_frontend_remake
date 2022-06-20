@@ -117,3 +117,20 @@ router.post('/:id/cartItem', async (req, res, next) => {
     next(error);
   }
 });
+
+router.put('/:id/cartItem', async (req, res, next) => {
+  try {
+    // console.log('snackId<-------->', req.params.id);
+    // console.log('reqbody<-------->', req.body);
+    const cartItem = await CartItem.findOne({
+      where: { productId: req.params.id },
+    });
+    // console.log('before c<-------->', cartItem);
+    const updated = await cartItem.update(req.body);
+    // console.log('after<-------->', updated);
+
+    res.send(updated);
+  } catch (error) {
+    next(error);
+  }
+});
