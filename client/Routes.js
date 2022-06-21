@@ -1,19 +1,19 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'react-redux';
-import { withRouter, Route, Switch, Redirect } from 'react-router-dom';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
+import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 
-import Home from './components/Home/Home';
-import { me } from './store';
-import Signup from './components/AuthForms/Signup/Signup';
-import Cart from './components/CartCheckout/Cart';
-import Checkout from './components/CartCheckout/Checkout';
-import ConfirmationPage from './components/CartCheckout/ConfirmationPage';
-import MyAccount from './components/MyAccount/MyAccount';
-import AdminPage from './components/AdminPage/AdminPage';
-import Profile from './components/MyAccount/Profile';
-import AllSnacks from './components/SnacksPages/AllSnacks/AllSnacks';
-import SingleSnack from './components/SnacksPages/SingleSnackPage/SingleSnack';
-import Login from './components/AuthForms/Login/Login';
+import Home from "./components/Home/Home";
+import { me } from "./store";
+import Signup from "./components/AuthForms/Signup/Signup";
+import Cart from "./components/CartCheckout/Cart";
+import Checkout from "./components/CartCheckout/CheckoutForm/Checkout";
+import ConfirmationPage from "./components/CartCheckout/ConfirmationPage";
+import MyAccount from "./components/MyAccount/MyAccount";
+import AdminPage from "./components/AdminPage/AdminPage";
+import Profile from "./components/MyAccount/Profile";
+import AllSnacks from "./components/SnacksPages/AllSnacks/AllSnacks";
+import SingleSnack from "./components/SnacksPages/SingleSnackPage/SingleSnack";
+import Login from "./components/AuthForms/Login/Login";
 
 class Routes extends Component {
   componentDidMount() {

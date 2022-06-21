@@ -9,8 +9,6 @@ import {
   InputLabel,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core";
-import FormInput from "./FormInput";
-import { FormProvider, useForm } from "react-hook-form";
 
 const useStyles = makeStyles({
   inputFields: {
@@ -31,7 +29,6 @@ const useStyles = makeStyles({
 
 const AddressForm = () => {
   const classes = useStyles();
-  const methods = useForm();
 
   return (
     // <div classname={classes.root}>
@@ -57,14 +54,16 @@ const AddressForm = () => {
     //   </Select>
     // </div>
 
-    <FormProvider {...methods}>
-      <form>
-        <Grid container spacing={3}>
-          <FormInput required name='firstname' label='First Name' />
-          <FormInput required name='lastname' label='Last Name' />
-        </Grid>
-      </form>
-    </FormProvider>
+    <form>
+      <Grid container spacing={3}>
+        <TextField required label='First Name' />
+        <TextField required label='Last Name' />
+        <TextField required label='Address' style={{ width: "100%" }} />
+        <TextField required label='City' style={{ width: "33%" }} />
+        <TextField required label='State' style={{ width: "33%" }} />
+        <TextField required label='Zip Code' style={{ width: "33%" }} />
+      </Grid>
+    </form>
   );
 };
 
