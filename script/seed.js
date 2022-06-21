@@ -314,18 +314,18 @@ async function seed() {
       type: 'Refrigerated/Frozen',
     },
   ];
-  const orderItems = [
-    {
-      quantity: 3,
-    },
-    {
-      quantity: 4,
-    },
-    {
-      quantity: 5,
-    },
-  ];
-  const orders = [{}, {}];
+  // const orderItems = [
+  //   {
+  //     quantity: 3,
+  //   },
+  //   {
+  //     quantity: 4,
+  //   },
+  //   {
+  //     quantity: 5,
+  //   },
+  // ];
+  // const orders = [{}, {}];
   const shoppingSession = [{}, {}, {}, {}];
 
   await db.sync({ force: true }); // clears db and matches models to tables
@@ -476,29 +476,27 @@ async function seed() {
   await jun.setShopping_session(shopping4);
 
   // Creating fake order items and orders for Cody
-  const allOrderItems = await Promise.all(
-    orderItems.map((orderItem) => OrderItem.create(orderItem))
-  );
-  const [orderItem1, orderItem2, orderItem3] = allOrderItems;
+  // const allOrderItems = await Promise.all(
+  //   orderItems.map((orderItem) => OrderItem.create(orderItem))
+  // );
+  // const [orderItem1, orderItem2, orderItem3] = allOrderItems;
 
-  await orderItem1.setProduct(snack1);
-  await orderItem2.setProduct(snack2);
-  await orderItem3.setProduct(snack3);
+  // await orderItem1.setProduct(snack1);
+  // await orderItem2.setProduct(snack2);
+  // await orderItem3.setProduct(snack3);
 
   // when checkout button is pushed, create a new orderDetail for that user, grab cart items from that shopping session and make orderItems for each cart item, associate orderItems with new orderDetail
-  const allOrderDetails = await Promise.all(
-    orders.map((order) => OrderDetails.create(order))
-  );
+  // const allOrderDetails = await Promise.all(
+  //   orders.map((order) => OrderDetails.create(order))
+  // );
 
-  const [order1, order2] = allOrderDetails;
-  await orderItem1.setOrder_detail(order1);
-  await orderItem2.setOrder_detail(order2);
-  await orderItem3.setOrder_detail(order2);
+  // const [order1, order2] = allOrderDetails;
+  // await orderItem1.setOrder_detail(order1);
+  // await orderItem2.setOrder_detail(order2);
+  // await orderItem3.setOrder_detail(order2);
 
-  // console.log(Object.keys(cody.__proto__));
-
-  await jun.addOrder_details(order1);
-  await jun.addOrder_details(order2);
+  // await jun.addOrder_details(order1);
+  // await jun.addOrder_details(order2);
 
   console.log(`seeded successfully`);
 }

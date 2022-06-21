@@ -110,12 +110,7 @@ const AllSnacks = () => {
           </Grid>
         </main>
       </div>
-      <Typography
-        component='div'
-        variant='h1'
-        align='center'
-        onClick={() => setFlavor('All')}
-      >
+      <Typography variant='h1' align='center' onClick={() => setFlavor('All')}>
         BROWSE ALL OF OUR SNACKS!
       </Typography>
       <div>

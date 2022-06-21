@@ -20,12 +20,8 @@ const CartItemCheckOut = ({ itemInfo }) => {
     >
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
-          <Typography component='div' variant='h6'>
-            {itemInfo.product.name}
-          </Typography>
-          <Typography component='div' variant='text'>
-            ${itemInfo.product.price}
-          </Typography>
+          <Typography variant='h6'>{itemInfo.product.name}</Typography>
+          <Typography variant='text'>${itemInfo.product.price}</Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           Qty: {itemInfo.quantity}
