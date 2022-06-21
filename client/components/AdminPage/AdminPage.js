@@ -231,7 +231,6 @@ const AdminPage = () => {
               </TableContainer>
               <TablePagination
                 rowsPerPageOptions={[10, 25, 100]}
-                component='div'
                 count={users.length}
                 rowsPerPage={rowsPerPage}
                 page={page}
@@ -317,7 +316,6 @@ const AdminPage = () => {
                 </main>
               </div>
               <Typography
-                component='div'
                 variant='h1'
                 align='center'
                 onClick={() => setFlavor('All')}

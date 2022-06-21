@@ -132,7 +132,7 @@ const Shoppingcart = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions sx={{ justifyContent: 'space-between' }}>
-          <Typography component='div' variant='h6' sx={{ margin: '10px' }}>
+          <Typography variant='h6' sx={{ margin: '10px' }}>
             {`Total: $${total}`}
           </Typography>
           <Button

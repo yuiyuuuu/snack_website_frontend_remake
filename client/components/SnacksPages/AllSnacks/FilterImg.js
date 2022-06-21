@@ -16,7 +16,7 @@ export default function FilterImg({ flavor, img }) {
           image={img}
         />
         <CardContent>
-          <Typography gutterBottom variant='h6' component='div' align='center'>
+          <Typography gutterBottom variant='h6' align='center'>
             {flavor}
           </Typography>
         </CardContent>

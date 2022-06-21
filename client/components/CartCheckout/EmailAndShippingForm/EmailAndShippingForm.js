@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import useStyles from "./styles";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import useStyles from './styles';
+import { Link } from 'react-router-dom';
 import {
   Card,
   CardActions,
@@ -12,13 +12,13 @@ import {
   StepLabel,
   TextField,
   Input,
-} from "@material-ui/core";
-import EmailIcon from "@material-ui/icons/Email";
-import HomeIcon from "@material-ui/icons/Home";
-import PaymentIcon from "@material-ui/icons/Payment";
-import LockIcon from "@material-ui/icons/Lock";
-import AddressForm from "../AddressForm/AddressForm";
-import { useSelector } from "react-redux";
+} from '@material-ui/core';
+import EmailIcon from '@material-ui/icons/Email';
+import HomeIcon from '@material-ui/icons/Home';
+import PaymentIcon from '@material-ui/icons/Payment';
+import LockIcon from '@material-ui/icons/Lock';
+import AddressForm from '../AddressForm/AddressForm';
+import { useSelector } from 'react-redux';
 
 const EmailAndShippingForm = ({ nextstep }) => {
   const user = useSelector((state) => state.auth);
@@ -27,9 +27,8 @@ const EmailAndShippingForm = ({ nextstep }) => {
   const [email, setEmail] = useState(user.email);
   const [address, setAddress] = useState(user.address_line1);
   const [city, setCity] = useState(user.city);
-  const [state, setState] = useState(""); //add when we add state in backend
+  const [state, setState] = useState(''); //add when we add state in backend
   const [zip, setZip] = useState(user.postal_code);
-  console.log(firstName, lastName, address, city, state);
   const classes = useStyles();
   return (
     <>
@@ -65,7 +64,7 @@ const EmailAndShippingForm = ({ nextstep }) => {
           >
             Shipping Information
           </Typography>
-          <Typography variant='body2' component='p'>
+          <Typography variant='body2'>
             <AddressForm
               setFirstName={setFirstName}
               setLastName={setLastName}
@@ -83,10 +82,10 @@ const EmailAndShippingForm = ({ nextstep }) => {
           </Typography>
           <Button
             style={{
-              float: "left",
-              marginTop: "7px",
-              backgroundColor: "deepskyblue",
-              color: "white",
+              float: 'left',
+              marginTop: '7px',
+              backgroundColor: 'deepskyblue',
+              color: 'white',
             }}
             component={Link}
             to='/allsnacks'
