@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const SINGLE_SNACK = 'SINGLE_SNACK';
+const SINGLE_SNACK = "SINGLE_SNACK";
 
 export const setSingleSnack = (snack) => ({
   type: SINGLE_SNACK,
