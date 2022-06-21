@@ -1,9 +1,9 @@
-const Sequelize = require("sequelize");
-const db = require("../db");
+const Sequelize = require('sequelize');
+const db = require('../db');
 
-const ShoppingSession = db.define("shopping_session", {
+const ShoppingSession = db.define('shopping_session', {
   total: {
-    type: Sequelize.DECIMAL,
+    type: Sequelize.DECIMAL(10, 2),
   },
 });
 

@@ -44,35 +44,33 @@ const CartItem = ({ itemInfo }) => {
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <IconButton>
-            <Remove
-              onClick={() =>
-                dispatch(
-                  updateCart({
-                    ...itemInfo,
-                    quantity: (itemInfo.quantity -= 1),
-                  })
-                )
-              }
-            />
+          <IconButton
+            onClick={() =>
+              dispatch(
+                updateCart({
+                  ...itemInfo,
+                  quantity: (itemInfo.quantity -= 1),
+                })
+              )
+            }
+          >
+            <Remove />
           </IconButton>
           Qty: {itemInfo.quantity}
-          <IconButton>
-            <Add
-              onClick={() =>
-                dispatch(
-                  updateCart({
-                    ...itemInfo,
-                    quantity: (itemInfo.quantity += 1),
-                  })
-                )
-              }
-            />
+          <IconButton
+            onClick={() =>
+              dispatch(
+                updateCart({
+                  ...itemInfo,
+                  quantity: (itemInfo.quantity += 1),
+                })
+              )
+            }
+          >
+            <Add />
           </IconButton>
-          <IconButton>
-            <RemoveShoppingCart
-              onClick={() => dispatch(deleteCartItem(itemInfo.id))}
-            />
+          <IconButton onClick={() => dispatch(deleteCartItem(itemInfo.id))}>
+            <RemoveShoppingCart />
           </IconButton>
         </Box>
       </Box>
