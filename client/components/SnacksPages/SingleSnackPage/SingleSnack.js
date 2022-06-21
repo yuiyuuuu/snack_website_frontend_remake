@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState, useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Button,
   ButtonGroup,
@@ -8,59 +8,107 @@ import {
   Card,
   CardActions,
   CardContent,
-} from "@material-ui/core";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchSingleSnack } from "../../../store/singleSnack";
-import { fetchAUser } from "../../../store";
-import { addToCart } from "../../../store/cart";
+} from '@material-ui/core';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { fetchSingleSnack } from '../../../store/singleSnack';
+import { fetchAUser } from '../../../store';
+import { addToCart, updateCart, fetchCart } from '../../../store/cart';
 // import GroupedButtons from './GroupedButtons';
 
 const useStyles = makeStyles({
   root: {
-    display: "flex",
-    flexWrap: "wrap",
-    justifyContent: "center",
-    height: "75vh",
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    height: '75vh',
   },
   rightCard: {
-    borderRadius: "15px",
-    padding: "10px",
-    margin: "80px 5px 5px 5px",
-    flex: "0 1 500px",
+    borderRadius: '15px',
+    padding: '10px',
+    margin: '80px 5px 5px 5px',
+    flex: '0 1 500px',
     // border: '2px solid blue',
   },
   leftCard: {
-    borderRadius: "15px",
-    padding: "10px",
-    margin: "80px 5px 5px 5px",
-    flex: "0 1 300px",
+    borderRadius: '15px',
+    padding: '10px',
+    margin: '80px 5px 5px 5px',
+    flex: '0 1 300px',
     // border: '2px red solid',
     width: 200,
-    objectFit: "contain",
+    objectFit: 'contain',
   },
   btnGroup: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-between",
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
   },
 });
 
 const SingleSnacks = (props) => {
   const classes = useStyles();
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
+<<<<<<< HEAD
   const [placeHolderStock, setPlaceHolderStock] = useState(10);
   const [counter, setCounter] = useState(placeHolderStock > 0 ? 1 : 0); //default to one, if there are no stock then default to 0, use ternary
 
   const snackId = props.match.params.snackId;
+=======
+>>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
   const { singleSnack } = useSelector((state) => state);
+  const { shopping_session } = useSelector((state) => state.user);
+  const { cartReducer } = useSelector((state) => state);
   const { name, desc, price, quantity, photoURL } = singleSnack;
+  const snackId = props.match.params.snackId;
+
+  // CART QUANTITY OF ITEM
+  const [counter, setCounter] = useState(0);
+
+  // const [cart, setCart] = useState([]);
+
+  // useEffect(() => {
+  //   if (cart) {
+  //     setCart(cart)
+  //   }
+  // }, [cart]);
+
+  // ARRAY OF CART ITEMS FOR USER
+  const userCartArr =
+    shopping_session !== undefined ? shopping_session.cart_items : [];
+
+  // CHECK IF ITEM IS IN CART. IF IT IS, RETURN CART QTY. IF NOT, RETURN 0
+  const checkCartQuantity = () => {
+    let amount = 0;
+    for (let i = 0; i < userCartArr.length; i++) {
+      const snackInCart = userCartArr[i];
+      if (parseInt(snackId) === snackInCart.productId) {
+        return snackInCart.quantity;
+      }
+    }
+    return amount;
+  };
+
+  // QUANTITY IN CART AND BUTTON #
+  const quantityInCart = checkCartQuantity();
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(fetchCart(userId.id));
+    }
+  }, [userId.id]);
+
+  useEffect(() => {
+    setCounter(quantityInCart);
+  }, [quantityInCart]);
 
   useEffect(() => {
     const fetchUser = () => {
-      if (!userId) return "loading";
+      if (!userId) return 'loading';
       dispatch(fetchAUser(userId.id)); //user with shopping id
     };
     fetchUser();
@@ -73,10 +121,15 @@ const SingleSnacks = (props) => {
   const atc = () => {
     const cartItem = {
       productId: singleSnack.id,
-      quantity: singleSnack.quantity,
+      quantity: counter,
       shoppingSessionId: user.shopping_session.id,
     };
-    dispatch(addToCart(cartItem));
+    if (quantityInCart > 0) {
+      dispatch(updateCart(cartItem));
+    } else {
+      dispatch(addToCart(cartItem));
+    }
+    history.push('/allsnacks');
   };
   return (
     <div className={classes.root}>
@@ -92,7 +145,11 @@ const SingleSnacks = (props) => {
             {price}
           </Typography>
           <Typography variant='h5' color='text.primary'>
+<<<<<<< HEAD
             In Stock: {placeHolderStock}
+=======
+            In Stock: {quantity}
+>>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
           </Typography>
         </div>
         <hr></hr>
@@ -116,7 +173,7 @@ const SingleSnacks = (props) => {
                   {counter}
                 </Button>
                 <Button
-                  disabled={counter >= placeHolderStock}
+                  disabled={counter >= 100}
                   onClick={() => {
                     setCounter(counter + 1);
                   }}
@@ -143,7 +200,18 @@ const SingleSnacks = (props) => {
               </ButtonGroup>
             </div>
             <div>
+<<<<<<< HEAD
               <Button variant='contained' color='primary' onClick={() => atc()}>
+=======
+              <Button
+                // needs to refresh page in future
+                variant='contained'
+                color='primary'
+                onClick={() => {
+                  counter > 0 ? atc() : null;
+                }}
+              >
+>>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
                 Add to Cart
               </Button>
             </div>

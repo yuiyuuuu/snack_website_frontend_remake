@@ -9,7 +9,7 @@ import {
 } from '@mui/material';
 import { Remove, Add, RemoveShoppingCart } from '@material-ui/icons';
 
-const CartItem = () => {
+const CartItem = ({ itemInfo }) => {
   return (
     <Card
       sx={{
@@ -22,24 +22,25 @@ const CartItem = () => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component='div' variant='h5'>
-            Lays
+            {itemInfo.name}
           </Typography>
           <Typography
             variant='subtitle1'
             color='text.secondary'
             component='div'
           >
-            salty
+            CAT HERE
           </Typography>
           <Typography component='div' variant='h6'>
-            price : $99
+            ${itemInfo.price}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
           <IconButton>
             <Remove />
           </IconButton>
-          Qty : 1
+          {/* Returning qty in shopping session table, currently showing 100pcs*/}
+          {/* Qty: {itemInfo.quantity} */}
           <IconButton>
             <Add />
           </IconButton>
@@ -51,7 +52,7 @@ const CartItem = () => {
       <CardMedia
         component='img'
         sx={{ width: 200, objectFit: 'contain' }}
-        image='https://images-na.ssl-images-amazon.com/images/I/81vJyb43URL._SL1500_.jpg'
+        image={itemInfo.photoURL}
       />
     </Card>
   );

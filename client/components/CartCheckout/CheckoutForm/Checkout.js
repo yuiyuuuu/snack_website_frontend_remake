@@ -122,7 +122,59 @@ export default function Checkout() {
     <div className={classes.root}>
       {cart.length === 0 ? (
         <NoCartItemPage />
-      ) : (
+      ) : activeStep === 0 ? (
+        <>
+          <div className={classes.stepperDiv}>
+            <Stepper activeStep={activeStep} className={classes.stepper}>
+              {steps.map((step) => (
+                <Step key={step}>
+                  <StepLabel>{step}</StepLabel>
+                </Step>
+              ))}
+            </Stepper>
+          </div>
+          <div className={classes.root2}>
+            <div className={classes.columnCard}>
+              <Emai />
+            </div>
+            <div className={classes.columnCard}>
+              <div className={classes.rightCard}>
+                <Card className={classes.topRight}>
+                  <CardContent>
+                    <Typography
+                      className={classes.title}
+                      color='textSecondary'
+                      gutterBottom
+                    >
+                      Your cart
+                    </Typography>
+                    <Typography variant='body2' component='p'>
+                      CART ITEMS WILL GO HERE
+                    </Typography>
+                  </CardContent>
+                </Card>
+
+                <Card className={classes.bottomRight}>
+                  <CardContent>
+                    <Typography
+                      className={classes.title}
+                      color='textSecondary'
+                      gutterBottom
+                    >
+                      SUBTOTAL:
+                    </Typography>
+                  </CardContent>
+                  <CardContent>
+                    <Typography variant='body2' component='p'>
+                      ${placeHolderSubtotal}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </div>
+            </div>
+          </div>
+        </>
+      ) : activeStep === 1 ? (
         <>
           <div className={classes.stepperDiv}>
             <Stepper activeStep={activeStep} className={classes.stepper}>
@@ -174,6 +226,8 @@ export default function Checkout() {
             </div>
           </div>
         </>
+      ) : (
+        <div>confirmation</div>
       )}
     </div>
   );

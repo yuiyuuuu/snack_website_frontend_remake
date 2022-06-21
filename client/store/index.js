@@ -1,13 +1,16 @@
-import { createStore, combineReducers, applyMiddleware } from "redux";
-import { createLogger } from "redux-logger";
-import thunkMiddleware from "redux-thunk";
-import { composeWithDevTools } from "redux-devtools-extension";
-import auth from "./auth";
-import products from "./products";
-import { cartReducer } from "./cart";
-import user from "./user";
-import singleSnack from "./singleSnack";
-import profile from './profile';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createLogger } from 'redux-logger';
+import thunkMiddleware from 'redux-thunk';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import auth from './auth';
+import products from './Snacks';
+import { cartReducer } from './cart';
+import user from './user';
+import singleSnack from './singleSnack';
+
+import users from './users';
+import orders from './orders';
+
 
 const reducer = combineReducers({
   auth,
@@ -15,7 +18,8 @@ const reducer = combineReducers({
   cartReducer,
   user,
   singleSnack,
-  profile
+  orders,
+  users,
 });
 
 const middleware = composeWithDevTools(
@@ -25,5 +29,6 @@ const store = createStore(reducer, middleware);
 
 export default store;
 export * from './auth';
-export * from './profile';
-export * from "./user";
+export * from './user';
+export * from './users';
+export * from './orders';

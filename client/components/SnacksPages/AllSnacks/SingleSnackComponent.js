@@ -6,17 +6,13 @@ import {
   CardMedia,
   IconButton,
   Typography,
-} from "@mui/material";
-import { ShoppingBasket } from "@material-ui/icons";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../../store/cart";
-import { fetchAUser } from "../../../store";
-import { Link } from "react-router-dom";
+} from '@mui/material';
+import { Link } from 'react-router-dom';
 
 const SingleSnackComponent = ({ snack }) => {
-  const dispatch = useDispatch();
-  const userId = useSelector((state) => state.auth);
-  const user = useSelector((state) => state.user);
+  //   const dispatch = useDispatch();
+  //   const userId = useSelector((state) => state.auth);
+  //   const user = useSelector((state) => state.user);
 
   // useEffect(() => {
   //   const fetchUser = async () => {
@@ -27,17 +23,19 @@ const SingleSnackComponent = ({ snack }) => {
   //   fetchUser();
   // }, [userId]);
 
-  console.log(user);
-  const atc = () => {
-    const cartItem = {
-      productId: snack.id,
-      quantity: snack.quantity,
-      shoppingSessionId: user.shopping_session.id,
-    };
-    dispatch(addToCart(cartItem));
-  };
+  // console.log(user);
+
+  //   const atc = () => {
+  //     const cartItem = {
+  //       productId: snack.id,
+  //       quantity: snack.quantity,
+  //       shoppingSessionId: user.shopping_session.id,
+  //     };
+  //     dispatch(addToCart(cartItem));
+  //   };
 
   return (
+<<<<<<< HEAD
     <Card
       sx={{
         display: "flex",
@@ -83,9 +81,45 @@ const SingleSnackComponent = ({ snack }) => {
           <IconButton onClick={() => atc()}>
             <ShoppingBasket />
           </IconButton>
+=======
+    <Link to={`/allsnacks/${snack.id}`}>
+      <Card
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          padding: '25px',
+          margin: '20px',
+          height: '80%',
+        }}
+      >
+        <CardMedia
+          component='img'
+          sx={{ width: 200, objectFit: 'contain' }}
+          image={snack.photoURL}
+        />
+        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+          <CardContent sx={{ flex: '1 0 auto' }}>
+            <Typography component='div' variant='h6'>
+              {snack.name}
+            </Typography>
+            <Typography
+              variant='subtitle1'
+              color='text.secondary'
+              component='div'
+            >
+              {snack.cat.type}
+            </Typography>
+            <Typography component='div' variant='h6'>
+              $$ : {snack.price}
+            </Typography>
+          </CardContent>
+          <Box
+            sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}
+          ></Box>
+>>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
         </Box>
-      </Box>
-    </Card>
+      </Card>
+    </Link>
   );
 };
 

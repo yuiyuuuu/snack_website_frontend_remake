@@ -52,7 +52,7 @@ const Signup = ({ formName }) => {
         </Typography>
         <Box component='form' className={classes.form} onSubmit={handleSubmit}>
           {err && <Alert color='error'>{err}</Alert>}
-          <Grid>
+          <Grid container spacing={2}>
             <Grid item xs={12}>
               <TextField
                 variant='outlined'

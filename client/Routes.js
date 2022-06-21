@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 
+<<<<<<< HEAD
 import Home from "./components/Home/Home";
 import { me } from "./store";
 import Signup from "./components/AuthForms/Signup/Signup";
@@ -14,6 +15,20 @@ import Profile from "./components/MyAccount/Profile";
 import AllSnacks from "./components/SnacksPages/AllSnacks/AllSnacks";
 import SingleSnack from "./components/SnacksPages/SingleSnackPage/SingleSnack";
 import Login from "./components/AuthForms/Login/Login";
+=======
+import Home from './components/Home/Home';
+import { me } from './store';
+import Signup from './components/AuthForms/Signup/Signup';
+import Cart from './components/CartCheckout/Cart';
+import Checkout from './components/CartCheckout/Checkout';
+import ConfirmationPage from './components/CartCheckout/ConfirmationPage';
+import MyAccount from './components/MyAccount/MyAccount';
+import AdminPage from './components/AdminPage/AdminPage';
+import Orders from './components/MyAccount/Orders';
+import AllSnacks from './components/SnacksPages/AllSnacks/AllSnacks';
+import SingleSnack from './components/SnacksPages/SingleSnackPage/SingleSnack';
+import Login from './components/AuthForms/Login/Login';
+>>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
 
 class Routes extends Component {
   componentDidMount() {
@@ -31,7 +46,7 @@ class Routes extends Component {
             <Route exact path='/allsnacks' component={AllSnacks} />
             <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
             <Route exact path='/myaccount' component={MyAccount} />
-            <Route exact path='/profile/:id' component={Profile} />
+            <Route exact path='/orders' component={Orders} />
             <Route exact path='/adminpage' component={AdminPage} />
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/checkout' component={Checkout} />

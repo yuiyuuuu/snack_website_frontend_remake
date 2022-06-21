@@ -1,6 +1,7 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchAUser } from '../../store';
 import {
   AppBar,
   Toolbar,
@@ -20,6 +21,30 @@ const Navbar = () => {
   const isLoggedIn = useSelector((state) => !!state.auth.id);
   const { auth } = useSelector((state) => state);
   const classes = useStyles();
+
+  const dispatch = useDispatch();
+
+  const { cartReducer } = useSelector((state) => state);
+  const [badge, setBadge] = useState(0);
+
+  const userId = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
+
+  useEffect(() => {
+    if (cartReducer) {
+      setBadge(cartReducer.length);
+    }
+  }, [cartReducer]);
+
+  useEffect(() => {
+    const fetchUser = () => {
+      if (!userId) return 'loading';
+      dispatch(fetchAUser(userId.id)); //user with shopping id
+    };
+    fetchUser();
+  }, [userId]);
+
+  // const { cartReducer } = useSelector((state) => state);
 
   //remove home and logout when we have functioning components for those, theyre so ugly ;(
   return (
@@ -89,7 +114,7 @@ const Navbar = () => {
                 style={{ marginRight: '10px' }}
               >
                 <Badge
-                  badgeContent={0}
+                  badgeContent={badge}
                   showZero
                   classes={{ badge: classes.badge }}
                 >
