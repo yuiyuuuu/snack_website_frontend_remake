@@ -128,7 +128,7 @@ const Shoppingcart = () => {
           >
             {/* this is where our products go ! */}
             {cartReducer.map((cartItem) => {
-              return <CartItem itemInfo={cartItem.product} key={cartItem.id} />;
+              return <CartItem itemInfo={cartItem} key={cartItem.id} />;
             })}
           </DialogContentText>
         </DialogContent>

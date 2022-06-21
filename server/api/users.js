@@ -8,7 +8,6 @@ module.exports = router;
 // GET /api/users/
 router.get('/', requireToken, isAdmin, async (req, res, next) => {
   try {
-    console.log('>>>>>>>>>>.', req.headers);
     const users = await User.findAll({
       order: [['id', 'ASC']],
     });
