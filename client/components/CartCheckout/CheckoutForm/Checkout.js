@@ -1,8 +1,8 @@
 //READ!!! this page will contain all the info for final order submission, including email, address, and payment info **MOST LIKELY**
 //ADDRESS FORM and payment form will be in different files
 
-import React, { useState } from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import {
   Card,
   CardActions,
@@ -14,18 +14,19 @@ import {
   StepLabel,
   TextField,
   Input,
-} from "@material-ui/core";
-import EmailIcon from "@material-ui/icons/Email";
-import HomeIcon from "@material-ui/icons/Home";
-import PaymentIcon from "@material-ui/icons/Payment";
-import LockIcon from "@material-ui/icons/Lock";
-import AddressForm from "../AddressForm/AddressForm";
-import { Link } from "react-router-dom";
-import useStyles from "./styles";
-import PaymentForm from "./PaymentForm/PaymentForm";
-import NoCartItemPage from "../NoCartItemPage";
-import { useSelector } from "react-redux";
-import EmailAndShippingForm from "../EmailAndShippingForm/EmailAndShippingForm";
+} from '@material-ui/core';
+import EmailIcon from '@material-ui/icons/Email';
+import HomeIcon from '@material-ui/icons/Home';
+import PaymentIcon from '@material-ui/icons/Payment';
+import LockIcon from '@material-ui/icons/Lock';
+import AddressForm from '../AddressForm/AddressForm';
+import { Link } from 'react-router-dom';
+import useStyles from './styles';
+import PaymentForm from './PaymentForm/PaymentForm';
+import NoCartItemPage from '../NoCartItemPage';
+import { useSelector } from 'react-redux';
+import EmailAndShippingForm from '../EmailAndShippingForm/EmailAndShippingForm';
+import CartItemCheckOut from './CartItemCheckOut';
 
 const placeHolderSubtotal = 26.94;
 
@@ -33,7 +34,7 @@ export default function Checkout() {
   const classes = useStyles();
 
   const [activeStep, setActiveStep] = useState(0);
-  const steps = ["Shipping Information", "Payment Details", "Confirmation"];
+  const steps = ['Shipping Information', 'Payment Details', 'Confirmation'];
 
   //THIS IS WHERE ALL THE SHIPPING INFORMATION IS STORED, EACH HAS THEIR OWN STATE
   // const [firstName, setFirstName] = useState("");
@@ -45,7 +46,13 @@ export default function Checkout() {
   // console.log(firstName);
 
   const cart = useSelector((state) => state.cartReducer);
-  console.log("cart:", cart);
+  let total;
+  if (cart) {
+    total = cart
+      .map((item) => item.quantity * Number(item.product.price))
+      .reduce((prev, curr) => prev + curr)
+      .toFixed(2);
+  }
 
   //adds one step to move to from address form to payment form or payment form to confirmation page
   function nextstep() {
@@ -89,7 +96,9 @@ export default function Checkout() {
                       Your cart
                     </Typography>
                     <Typography variant='body2' component='p'>
-                      CART ITEMS WILL GO HERE
+                      {cart.map((cartItem) => {
+                        return <CartItemCheckOut itemInfo={cartItem} />;
+                      })}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -101,12 +110,12 @@ export default function Checkout() {
                       color='textSecondary'
                       gutterBottom
                     >
-                      SUBTOTAL:
+                      Total:
                     </Typography>
                   </CardContent>
                   <CardContent>
                     <Typography variant='body2' component='p'>
-                      ${placeHolderSubtotal}
+                      ${total}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -141,7 +150,9 @@ export default function Checkout() {
                       Your cart
                     </Typography>
                     <Typography variant='body2' component='p'>
-                      CART ITEMS WILL GO HERE
+                      {cart.map((cartItem) => {
+                        return <CartItemCheckOut itemInfo={cartItem} />;
+                      })}
                     </Typography>
                   </CardContent>
                 </Card>
@@ -153,12 +164,12 @@ export default function Checkout() {
                       color='textSecondary'
                       gutterBottom
                     >
-                      SUBTOTAL:
+                      Total:
                     </Typography>
                   </CardContent>
                   <CardContent>
                     <Typography variant='body2' component='p'>
-                      ${placeHolderSubtotal}
+                      ${total}
                     </Typography>
                   </CardContent>
                 </Card>
