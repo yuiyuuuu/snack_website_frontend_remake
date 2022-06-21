@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const {
-  models: { OrderDetails, OrderItem, Product },
+  models: { OrderDetails, OrderItem, Product, ShoppingSession },
 } = require('../db');
 
 module.exports = router;
@@ -31,6 +31,34 @@ router.post('/:id', async (req, res, next) => {
     next(err);
   }
 });
+
+// create shoppingsession (need User ID)
+// POST /api/orders/:id/shoppingsession
+
+router.post('/:id/shoppingsession', async (req, res, next) => {
+  try {
+    const ss = await ShoppingSession.create({
+      userId: req.params.id,
+    });
+    res.json(ss);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// delete shoppingsession (need shoppingsession ID)
+// DELETE /api/orders/:id/shoppingsession
+
+router.delete('/:id/shoppingsession', async (req, res, next) => {
+  try {
+    const ss = await ShoppingSession.findByPk(req.params.id);
+    await ss.destroy();
+    res.send(ss);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // ** CHECKOUT PAGE ** //
 
 // ** ORDER HISTORY PAGE ** //
@@ -57,4 +85,5 @@ router.get('/:id', async (req, res, next) => {
     next(err);
   }
 });
+
 // ** ORDER HISTORY PAGE ** //

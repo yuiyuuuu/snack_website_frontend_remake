@@ -1,9 +1,9 @@
-import Axios from 'axios';
+import axios from "axios";
 
-const CURRENT_CART = 'CURRENT_CART';
-const ADD_TO_CART = 'Add_TO_CART';
-const UPDATE_CART = 'UPDATE_CART';
-const DELETE_CART = 'DELETE_CART';
+const CURRENT_CART = "CURRENT_CART";
+const ADD_TO_CART = "Add_TO_CART";
+const UPDATE_CART = "UPDATE_CART";
+const DELETE_CART = "DELETE_CART";
 //Action Creator
 
 export const currentCart = (products) => ({
@@ -30,7 +30,7 @@ export const deleteCart = (product) => ({
 export const fetchCart = (id) => {
   return async (dispatch) => {
     try {
-      const { data } = await Axios.get(`/api/users/${id}`);
+      const { data } = await axios.get(`/api/users/${id}`);
       dispatch(currentCart(data.shopping_session.cart_items));
     } catch (error) {
       console.error(error);
@@ -41,7 +41,7 @@ export const fetchCart = (id) => {
 export const addToCart = (product) => {
   return async (dispatch) => {
     try {
-      const { data } = await Axios.post(
+      const { data } = await axios.post(
         `/api/products/${product.id}/cartItem`,
         product
       );
@@ -56,11 +56,22 @@ export const addToCart = (product) => {
 export const updateCart = (product) => {
   return async (dispatch) => {
     try {
-      const { data: updatedSnack } = await Axios.put(
+      const { data: updatedSnack } = await axios.put(
         `/api/products/${product.productId}/cartItem`,
         product
       );
       dispatch(setUpdateCart(updatedSnack));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const deleteCartItem = (id) => {
+  return async (dispatch) => {
+    try {
+      const { data } = await axios.delete(`/api/products/${id}/cartItem`);
+      dispatch(deleteCart(data));
     } catch (error) {
       console.error(error);
     }
@@ -82,6 +93,8 @@ export const cartReducer = (state = initialState, action) => {
           ? action.product
           : snack;
       });
+    case DELETE_CART:
+      return state.filter((product) => product.id !== action.product.id);
     default:
       return state;
   }

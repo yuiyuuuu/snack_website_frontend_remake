@@ -33,21 +33,15 @@ const useStyles = makeStyles(() => ({
 const Shoppingcart = () => {
   const [open, setOpen] = useState(false);
   const [scroll, setScroll] = useState('paper');
+  const [total, setTotal] = useState(0);
+  const [badge, setBadge] = useState(0);
   const history = useHistory();
   const classes = useStyles();
-
   const dispatch = useDispatch();
-
-  const [badge, setBadge] = useState(0);
 
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
-
   const shopping_session = useSelector((state) => state.user.shopping_session);
-
-  const cartItemsArr =
-    shopping_session !== undefined ? shopping_session.cart_items : [];
-
   const { cartReducer } = useSelector((state) => state);
 
   useEffect(() => {
@@ -59,6 +53,14 @@ const Shoppingcart = () => {
   useEffect(() => {
     if (cartReducer) {
       setBadge(cartReducer.length);
+      if (cartReducer.length > 0) {
+        const cartReducerPrices = cartReducer.map(
+          (item) => item.quantity * Number(item.product.price)
+        );
+        setTotal(
+          cartReducerPrices.reduce((prev, curr) => prev + curr).toFixed(2)
+        );
+      }
     }
   }, [cartReducer]);
 
@@ -69,9 +71,6 @@ const Shoppingcart = () => {
     };
     fetchUser();
   }, [userId]);
-
-  //checking for session to get user/shopping_session/total
-  const activeSession = shopping_session !== undefined ? shopping_session : {};
 
   const handleClickOpen = (scrollType) => () => {
     setOpen(true);
@@ -118,7 +117,7 @@ const Shoppingcart = () => {
         classes={{ paper: classes.dialogPaper }}
       >
         <DialogTitle size='lg' id='scroll-dialog-title'>
-          Shopping-Cart
+          Shopping Cart
         </DialogTitle>
         <DialogContent dividers={scroll === 'paper'}>
           <DialogContentText
@@ -128,13 +127,13 @@ const Shoppingcart = () => {
           >
             {/* this is where our products go ! */}
             {cartReducer.map((cartItem) => {
-              return <CartItem itemInfo={cartItem.product} key={cartItem.id} />;
+              return <CartItem itemInfo={cartItem} key={cartItem.id} />;
             })}
           </DialogContentText>
         </DialogContent>
         <DialogActions sx={{ justifyContent: 'space-between' }}>
           <Typography component='div' variant='h6' sx={{ margin: '10px' }}>
-            ${activeSession.total}
+            {`Total: $${total}`}
           </Typography>
           <Button
             variant='contained'

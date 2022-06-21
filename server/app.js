@@ -4,11 +4,12 @@ const morgan = require("morgan");
 const app = express();
 module.exports = app;
 
-const stripe = require("stripe")(process.env.REACT_APP_STRIPE_SECRET_KEY);
+const stripe = require("stripe")(
+  "sk_test_51L9yoAIILTUpIrN8axb1z8Jx5GFkY9TR9WBS9KJpZkWqWeHNDMxUogPOmTgA2DTsRAdyDy9GHWvKUVrCZx5ym7ZR00bsAEHoq2"
+);
 
 // if I am NOT in my production environment, I want access to the secrets.js file inside of my local machine (each dev should have one) --> development, test
 if (process.env.NODE_ENV !== "production") require("./secrets");
-const STRIPE_API_KEY = process.env.STRIPE_API_KEY;
 
 // logging middleware
 app.use(morgan("dev"));
@@ -26,6 +27,38 @@ app.get("/", (req, res) =>
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, "..", "public")));
+
+const calculatePrice = (items) => {
+  let totalPrice = 0;
+  items.forEach((item) => {
+    const itemPrice = item.product.price * 100;
+    const itemQuantity = item.quantity;
+    const itemTotal = itemPrice * itemQuantity;
+    totalPrice = totalPrice + itemTotal;
+  });
+  console.log(totalPrice);
+  return totalPrice; //totalPrice of our whole cart
+};
+
+app.post("/create-payment-intent", async (req, res) => {
+  const { items } = req.body;
+
+  // Create a PaymentIntent with the order amount and currency
+  const paymentIntent = await stripe.paymentIntents.create({
+    amount: 1299,
+    currency: "usd",
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+  console.log("payment intent:", paymentIntent);
+  res.send({
+    clientSecret: paymentIntent.client_secret,
+  });
+  console.log({
+    clientSecret: paymentIntent.client_secret,
+  });
+});
 
 // any remaining requests with an extension (.js, .css, etc.) send 404
 app.use((req, res, next) => {

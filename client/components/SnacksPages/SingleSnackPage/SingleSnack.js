@@ -62,14 +62,6 @@ const SingleSnacks = (props) => {
   // CART QUANTITY OF ITEM
   const [counter, setCounter] = useState(0);
 
-  // const [cart, setCart] = useState([]);
-
-  // useEffect(() => {
-  //   if (cart) {
-  //     setCart(cart)
-  //   }
-  // }, [cart]);
-
   // ARRAY OF CART ITEMS FOR USER
   const userCartArr =
     shopping_session !== undefined ? shopping_session.cart_items : [];

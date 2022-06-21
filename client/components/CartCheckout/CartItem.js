@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Card,
@@ -8,8 +8,16 @@ import {
   Typography,
 } from '@mui/material';
 import { Remove, Add, RemoveShoppingCart } from '@material-ui/icons';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteCartItem, updateCart } from '../../store/cart';
 
 const CartItem = ({ itemInfo }) => {
+  const dispatch = useDispatch();
+
+  if (itemInfo.quantity === 0) {
+    dispatch(deleteCartItem(itemInfo.id));
+  }
+
   return (
     <Card
       sx={{
@@ -22,7 +30,7 @@ const CartItem = ({ itemInfo }) => {
       <Box sx={{ display: 'flex', flexDirection: 'column' }}>
         <CardContent sx={{ flex: '1 0 auto' }}>
           <Typography component='div' variant='h5'>
-            {itemInfo.name}
+            {itemInfo.product.name}
           </Typography>
           <Typography
             variant='subtitle1'
@@ -32,19 +40,36 @@ const CartItem = ({ itemInfo }) => {
             CAT HERE
           </Typography>
           <Typography component='div' variant='h6'>
-            ${itemInfo.price}
+            ${itemInfo.product.price}
           </Typography>
         </CardContent>
         <Box sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}>
-          <IconButton>
+          <IconButton
+            onClick={() =>
+              dispatch(
+                updateCart({
+                  ...itemInfo,
+                  quantity: (itemInfo.quantity -= 1),
+                })
+              )
+            }
+          >
             <Remove />
           </IconButton>
-          {/* Returning qty in shopping session table, currently showing 100pcs*/}
-          {/* Qty: {itemInfo.quantity} */}
-          <IconButton>
+          Qty: {itemInfo.quantity}
+          <IconButton
+            onClick={() =>
+              dispatch(
+                updateCart({
+                  ...itemInfo,
+                  quantity: (itemInfo.quantity += 1),
+                })
+              )
+            }
+          >
             <Add />
           </IconButton>
-          <IconButton>
+          <IconButton onClick={() => dispatch(deleteCartItem(itemInfo.id))}>
             <RemoveShoppingCart />
           </IconButton>
         </Box>
@@ -52,7 +77,7 @@ const CartItem = ({ itemInfo }) => {
       <CardMedia
         component='img'
         sx={{ width: 200, objectFit: 'contain' }}
-        image={itemInfo.photoURL}
+        image={itemInfo.product.photoURL}
       />
     </Card>
   );
