@@ -6,8 +6,8 @@ import {
   CardMedia,
   IconButton,
   Typography,
-} from '@mui/material';
-import { Link } from 'react-router-dom';
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
 const SingleSnackComponent = ({ snack }) => {
   //   const dispatch = useDispatch();
@@ -35,70 +35,23 @@ const SingleSnackComponent = ({ snack }) => {
   //   };
 
   return (
-<<<<<<< HEAD
-    <Card
-      sx={{
-        display: "flex",
-        justifyContent: "space-between",
-        padding: "25px",
-        margin: "20px",
-        height: "80%",
-      }}
-    >
-      <CardMedia
-        sx={{ width: 200, objectFit: "contain" }}
-        image={snack.photoURL}
-        component={Link}
-        to={`/allsnacks/${snack.id}`}
-      />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography
-            // component={Link}
-            // to={`/allsnacks/${snack.id}`}
-            variant='h6'
-          >
-            {snack.name}
-          </Typography>
-          <Typography
-            variant='subtitle1'
-            color='text.secondary'
-            component='div'
-          >
-            {snack.productCategoryId === 1
-              ? "salty"
-              : snack.productCategoryId === 2
-              ? "sweet"
-              : snack.productCategoryId === 3
-              ? "healthy"
-              : "refrigerated/frozen"}
-          </Typography>
-          <Typography component='div' variant='h6'>
-            $$ : {snack.price}
-          </Typography>
-        </CardContent>
-        <Box sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}>
-          <IconButton onClick={() => atc()}>
-            <ShoppingBasket />
-          </IconButton>
-=======
     <Link to={`/allsnacks/${snack.id}`}>
       <Card
         sx={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          padding: '25px',
-          margin: '20px',
-          height: '80%',
+          display: "flex",
+          justifyContent: "space-between",
+          padding: "25px",
+          margin: "20px",
+          height: "80%",
         }}
       >
         <CardMedia
           component='img'
-          sx={{ width: 200, objectFit: 'contain' }}
+          sx={{ width: 200, objectFit: "contain" }}
           image={snack.photoURL}
         />
-        <Box sx={{ display: 'flex', flexDirection: 'column' }}>
-          <CardContent sx={{ flex: '1 0 auto' }}>
+        <Box sx={{ display: "flex", flexDirection: "column" }}>
+          <CardContent sx={{ flex: "1 0 auto" }}>
             <Typography component='div' variant='h6'>
               {snack.name}
             </Typography>
@@ -114,9 +67,8 @@ const SingleSnackComponent = ({ snack }) => {
             </Typography>
           </CardContent>
           <Box
-            sx={{ display: 'flex', alignItems: 'center', pl: 1, pb: 1 }}
+            sx={{ display: "flex", alignItems: "center", pl: 1, pb: 1 }}
           ></Box>
->>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
         </Box>
       </Card>
     </Link>

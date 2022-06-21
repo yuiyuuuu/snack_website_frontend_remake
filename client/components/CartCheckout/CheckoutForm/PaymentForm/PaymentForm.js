@@ -11,7 +11,7 @@ import useStyles from "./styles";
 import { loadStripe } from "@stripe/stripe-js";
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY);
 
-const PaymentForm = () => {
+const PaymentForm = ({ backstep, nextstep }) => {
   const classes = useStyles();
   console.log("process:", stripePromise);
 
@@ -46,7 +46,9 @@ const PaymentForm = () => {
                   <div
                     style={{ display: "flex", justifyContent: "space-between" }}
                   >
-                    <Button variant='outlined'>Back</Button>
+                    <Button variant='outlined' onClick={() => backstep()}>
+                      Back
+                    </Button>
                     <Button
                       type='submit'
                       variant='contained'

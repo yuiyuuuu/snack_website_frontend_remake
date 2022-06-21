@@ -13,6 +13,7 @@ import {
   Step,
   StepLabel,
   TextField,
+  Input,
 } from "@material-ui/core";
 import EmailIcon from "@material-ui/icons/Email";
 import HomeIcon from "@material-ui/icons/Home";
@@ -24,98 +25,37 @@ import useStyles from "./styles";
 import PaymentForm from "./PaymentForm/PaymentForm";
 import NoCartItemPage from "../NoCartItemPage";
 import { useSelector } from "react-redux";
+import EmailAndShippingForm from "../EmailAndShippingForm/EmailAndShippingForm";
 
 const placeHolderSubtotal = 26.94;
 
 export default function Checkout() {
   const classes = useStyles();
-  const [hasEmail, setHasEmail] = useState(true); //user email, if they click edit email during checkout we turn this false and show input field to change email and set it back true once they submit
-  const [email, setEmail] = useState("yingsonyu@gmail.com"); //hard code email for now, change when we get database stuff. this is the actual email that is going to be in order details
-  const [onChangeEmail, setOnChangeEmail] = useState(""); //on change email for text field
+
   const [activeStep, setActiveStep] = useState(0);
   const steps = ["Shipping Information", "Payment Details", "Confirmation"];
+
+  //THIS IS WHERE ALL THE SHIPPING INFORMATION IS STORED, EACH HAS THEIR OWN STATE
+  // const [firstName, setFirstName] = useState("");
+  // const [lastName, setLastName] = useState("");
+  // const [address, setAddress] = useState("");
+  // const [city, setCity] = useState("");
+  // const [state, setState] = useState("");
+  // const [zip, setZip] = useState("");
+  // console.log(firstName);
 
   const cart = useSelector((state) => state.cartReducer);
   console.log("cart:", cart);
 
-  const EmailAndShippingForm = () => (
-    <>
-      <Card className={classes.leftCard}>
-        <CardContent>
-          <EmailIcon color='primary' />
-          <Typography
-            className={classes.title}
-            color='textSecondary'
-            gutterBottom
-          >
-            Contact Information
-          </Typography>
-          {hasEmail === true ? (
-            <div>
-              <Typography style={{ color: "black" }} gutterBottom>
-                {email}
-              </Typography>
-              <Button onClick={() => setHasEmail(false)}>Change Email</Button>
-            </div>
-          ) : (
-            <div>
-              <TextField
-                label='Email'
-                variant='standard'
-                onChange={(e) => setOnChangeEmail(e.target.value)}
-              />
-              <Button
-                onClick={() => {
-                  setHasEmail(true), setEmail(onChangeEmail);
-                }}
-                style={{ marginTop: "20px", marginLeft: "4px" }}
-              >
-                Submit
-              </Button>
-            </div>
-          )}
-        </CardContent>
-      </Card>
-      <Card className={classes.shippingInfo}>
-        <CardContent>
-          <HomeIcon color='primary' />
-          <Typography
-            className={classes.title}
-            color='textSecondary'
-            gutterBottom
-          >
-            Shipping Information
-          </Typography>
-          <Typography variant='body2' component='p'>
-            <AddressForm />
-          </Typography>
-          <Button
-            style={{
-              float: "left",
-              marginTop: "7px",
-              backgroundColor: "deepskyblue",
-              color: "white",
-            }}
-            component={Link}
-            to='/allsnacks'
-          >
-            Back
-          </Button>
+  //adds one step to move to from address form to payment form or payment form to confirmation page
+  function nextstep() {
+    setActiveStep(activeStep + 1);
+  }
 
-          <Button
-            style={{
-              float: "right",
-              marginTop: "7px",
-              backgroundColor: "deepskyblue",
-              color: "white",
-            }}
-          >
-            Next
-          </Button>
-        </CardContent>
-      </Card>
-    </>
-  );
+  //back one step
+  function backstep() {
+    setActiveStep(activeStep - 1);
+  }
 
   //RETURN BEGINS HERE
   return (
@@ -135,7 +75,7 @@ export default function Checkout() {
           </div>
           <div className={classes.root2}>
             <div className={classes.columnCard}>
-              <Emai />
+              <EmailAndShippingForm nextstep={nextstep} />
             </div>
             <div className={classes.columnCard}>
               <div className={classes.rightCard}>
@@ -187,7 +127,7 @@ export default function Checkout() {
           </div>
           <div className={classes.root2}>
             <div className={classes.columnCard}>
-              <PaymentForm />
+              <PaymentForm nextStep={nextstep} backstep={backstep} />
             </div>
             <div className={classes.columnCard}>
               <div className={classes.rightCard}>

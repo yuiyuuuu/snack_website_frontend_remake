@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import React, { useState, useEffect } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import {
   Button,
   ButtonGroup,
@@ -8,41 +8,41 @@ import {
   Card,
   CardActions,
   CardContent,
-} from '@material-ui/core';
-import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import { fetchSingleSnack } from '../../../store/singleSnack';
-import { fetchAUser } from '../../../store';
-import { addToCart, updateCart, fetchCart } from '../../../store/cart';
+} from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { fetchSingleSnack } from "../../../store/singleSnack";
+import { fetchAUser } from "../../../store";
+import { addToCart, updateCart, fetchCart } from "../../../store/cart";
 // import GroupedButtons from './GroupedButtons';
 
 const useStyles = makeStyles({
   root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    justifyContent: 'center',
-    height: '75vh',
+    display: "flex",
+    flexWrap: "wrap",
+    justifyContent: "center",
+    height: "75vh",
   },
   rightCard: {
-    borderRadius: '15px',
-    padding: '10px',
-    margin: '80px 5px 5px 5px',
-    flex: '0 1 500px',
+    borderRadius: "15px",
+    padding: "10px",
+    margin: "80px 5px 5px 5px",
+    flex: "0 1 500px",
     // border: '2px solid blue',
   },
   leftCard: {
-    borderRadius: '15px',
-    padding: '10px',
-    margin: '80px 5px 5px 5px',
-    flex: '0 1 300px',
+    borderRadius: "15px",
+    padding: "10px",
+    margin: "80px 5px 5px 5px",
+    flex: "0 1 300px",
     // border: '2px red solid',
     width: 200,
-    objectFit: 'contain',
+    objectFit: "contain",
   },
   btnGroup: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
 });
 
@@ -53,13 +53,6 @@ const SingleSnacks = (props) => {
 
   const userId = useSelector((state) => state.auth);
   const user = useSelector((state) => state.user);
-<<<<<<< HEAD
-  const [placeHolderStock, setPlaceHolderStock] = useState(10);
-  const [counter, setCounter] = useState(placeHolderStock > 0 ? 1 : 0); //default to one, if there are no stock then default to 0, use ternary
-
-  const snackId = props.match.params.snackId;
-=======
->>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
   const { singleSnack } = useSelector((state) => state);
   const { shopping_session } = useSelector((state) => state.user);
   const { cartReducer } = useSelector((state) => state);
@@ -108,7 +101,7 @@ const SingleSnacks = (props) => {
 
   useEffect(() => {
     const fetchUser = () => {
-      if (!userId) return 'loading';
+      if (!userId) return "loading";
       dispatch(fetchAUser(userId.id)); //user with shopping id
     };
     fetchUser();
@@ -129,7 +122,7 @@ const SingleSnacks = (props) => {
     } else {
       dispatch(addToCart(cartItem));
     }
-    history.push('/allsnacks');
+    history.push("/allsnacks");
   };
   return (
     <div className={classes.root}>
@@ -145,11 +138,7 @@ const SingleSnacks = (props) => {
             {price}
           </Typography>
           <Typography variant='h5' color='text.primary'>
-<<<<<<< HEAD
-            In Stock: {placeHolderStock}
-=======
             In Stock: {quantity}
->>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
           </Typography>
         </div>
         <hr></hr>
@@ -200,9 +189,6 @@ const SingleSnacks = (props) => {
               </ButtonGroup>
             </div>
             <div>
-<<<<<<< HEAD
-              <Button variant='contained' color='primary' onClick={() => atc()}>
-=======
               <Button
                 // needs to refresh page in future
                 variant='contained'
@@ -211,7 +197,6 @@ const SingleSnacks = (props) => {
                   counter > 0 ? atc() : null;
                 }}
               >
->>>>>>> db749b1c2d67718dd373f0ee126a9d38077922a5
                 Add to Cart
               </Button>
             </div>

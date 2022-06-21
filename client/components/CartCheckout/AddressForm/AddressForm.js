@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Typography,
   TextField,
@@ -27,7 +27,20 @@ const useStyles = makeStyles({
   },
 });
 
-const AddressForm = () => {
+const AddressForm = ({
+  setFirstName,
+  setLastName,
+  setAddress,
+  setCity,
+  setState,
+  setZip,
+  firstName,
+  lastName,
+  address,
+  city,
+  state,
+  zip,
+}) => {
   const classes = useStyles();
 
   return (
@@ -56,15 +69,61 @@ const AddressForm = () => {
 
     <form>
       <Grid container spacing={3}>
-        <TextField required label='First Name' />
-        <TextField required label='Last Name' />
-        <TextField required label='Address' style={{ width: "100%" }} />
-        <TextField required label='City' style={{ width: "33%" }} />
-        <TextField required label='State' style={{ width: "33%" }} />
-        <TextField required label='Zip Code' style={{ width: "33%" }} />
+        <TextField
+          required
+          label='First Name'
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        />
+        <TextField
+          required
+          label='Last Name'
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        />
+        <TextField
+          required
+          label='Address'
+          style={{ width: "100%" }}
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+        />
+        <TextField
+          required
+          label='City'
+          style={{ width: "33%" }}
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
+        />
+        <TextField
+          required
+          label='State'
+          style={{ width: "33%" }}
+          value={state}
+          onChange={(e) => setState(e.target.value)}
+        />
+        <TextField
+          required
+          label='Zip Code'
+          style={{ width: "33%" }}
+          value={zip}
+          onChange={(e) => setZip(e.target.value)}
+        />
       </Grid>
     </form>
   );
 };
 
 export default AddressForm;
+/*setFirstName,
+  setLastName,
+  setAddress,
+  setCity,
+  setState,
+  setZip,
+  firstName,
+  lastName,
+  address,
+  city,
+  state,
+  zip,*/
