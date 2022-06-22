@@ -14,7 +14,6 @@ router.post('/:id', async (req, res, next) => {
       userId: req.params.id,
       total: req.body.total,
     });
-    console.log('here', newOrder);
     res.json(newOrder);
   } catch (err) {
     next(err);

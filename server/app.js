@@ -28,8 +28,8 @@ app.get('/', (req, res) =>
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
-app.post('/create-payment-intent', async (req, res) => {
-  const { items } = req.body;
+app.post('/payment', async (req, res) => {
+  const { id, items } = req.body;
   const calculatePrice = (items) => {
     let totalPrice = 0;
     items.forEach((item) => {
@@ -42,18 +42,26 @@ app.post('/create-payment-intent', async (req, res) => {
   };
 
   // Create a PaymentIntent with the order amount and currency
-  const paymentIntent = await stripe.paymentIntents.create({
-    amount: calculatePrice(items),
-    currency: 'usd',
-    automatic_payment_methods: {
-      enabled: true,
-    },
-  });
-  res.send({
-    clientSecret: paymentIntent.client_secret,
-  });
-});
+  try {
+    const paymentIntent = await stripe.paymentIntents.create({
+      amount: calculatePrice(items),
+      currency: 'USD',
+      payment_method: id,
+      confirm: true,
+    });
 
+    res.json({
+      message: 'Payment Successful',
+      success: true,
+    });
+  } catch (error) {
+    console.log('Error', error);
+    res.json({
+      message: 'Payment failed',
+      success: false,
+    });
+  }
+});
 // any remaining requests with an extension (.js, .css, etc.) send 404
 app.use((req, res, next) => {
   if (path.extname(req.path).length) {
