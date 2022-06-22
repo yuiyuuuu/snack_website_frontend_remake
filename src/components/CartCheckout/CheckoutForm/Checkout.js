@@ -29,7 +29,6 @@ import NoCartItemPage from '../NoCartItemPage';
 import { useSelector, useDispatch } from 'react-redux';
 import EmailAndShippingForm from '../EmailAndShippingForm/EmailAndShippingForm';
 import CartItemCheckOut from './CartItemCheckOut';
-import List from '@mui/material/List';
 import { Elements, CardElement } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import {
@@ -41,8 +40,6 @@ import {
   _createshoppingSession,
 } from '../../../store/checkout';
 
-import { Elements, CardElement } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 const stripePromise = loadStripe(
   'pk_test_51L9yoAIILTUpIrN8iTUzIA9WvtgWwbV5m2v7MhzzemIV0oe5M5ZAfh2k6woPHKYGHSZyh0KLt89LOYFzhQwxInuT00mqP6sYUS'
 );
