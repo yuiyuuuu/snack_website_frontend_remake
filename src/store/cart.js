@@ -1,9 +1,10 @@
-import axios from "axios";
+import axios from 'axios';
 
-const CURRENT_CART = "CURRENT_CART";
-const ADD_TO_CART = "Add_TO_CART";
-const UPDATE_CART = "UPDATE_CART";
-const DELETE_CART = "DELETE_CART";
+const CURRENT_CART = 'CURRENT_CART';
+const ADD_TO_CART = 'Add_TO_CART';
+const UPDATE_CART = 'UPDATE_CART';
+const DELETE_CART = 'DELETE_CART';
+
 //Action Creator
 
 export const currentCart = (products) => ({

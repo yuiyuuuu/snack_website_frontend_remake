@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import useStyles from "./AdminPageStyle";
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import useStyles from './AdminPageStyle';
 import {
   Paper,
   Table,
@@ -13,79 +13,79 @@ import {
   TableRow,
   Button,
   Box,
-} from "@mui/material";
-import { Container, Typography, Grid } from "@material-ui/core";
-import { fetchAllUsers } from "../../store";
-import AdminPageProductCreateForm from "./AdminPageProductCreateForm";
-import AdminPageUserEditForm from "./AdminPageUserEditForm";
-import { _updateAdminUser } from "../../store";
-import { fetchProducts } from "../../store/Snacks";
-import AdminSingleSnack from "./AdminSingleSnack";
-import FilterImg from "../SnacksPages/AllSnacks/FilterImg";
+} from '@mui/material';
+import { Container, Typography, Grid } from '@material-ui/core';
+import { fetchAllUsers } from '../../store';
+import AdminPageProductCreateForm from './AdminPageProductCreateForm';
+import AdminPageUserEditForm from './AdminPageUserEditForm';
+import { _updateAdminUser } from '../../store';
+import { fetchProducts } from '../../store/Snacks';
+import AdminSingleSnack from './AdminSingleSnack';
+import FilterImg from '../SnacksPages/AllSnacks/FilterImg';
 
 const columns = [
-  { id: "id", label: "ID", minWidth: 30, align: "center" },
-  { id: "firstName", label: "First name", minWidth: 100, align: "center" },
-  { id: "lastName", label: "Last name", minWidth: 100, align: "center" },
+  { id: 'id', label: 'ID', minWidth: 30, align: 'center' },
+  { id: 'firstName', label: 'First name', minWidth: 100, align: 'center' },
+  { id: 'lastName', label: 'Last name', minWidth: 100, align: 'center' },
   {
-    id: "isAdmin",
-    label: "isAdmin",
+    id: 'isAdmin',
+    label: 'isAdmin',
     minWidth: 50,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "email",
-    label: "Email",
+    id: 'email',
+    label: 'Email',
     minWidth: 150,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "address_line1",
-    label: "Address Line 1",
+    id: 'address_line1',
+    label: 'Address Line 1',
     minWidth: 480,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "address_line2",
-    label: "Address Line 2",
+    id: 'address_line2',
+    label: 'Address Line 2',
     minWidth: 170,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "city",
-    label: "City",
+    id: 'city',
+    label: 'City',
     minWidth: 100,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "postal_code",
-    label: "Postal Code",
+    id: 'postal_code',
+    label: 'Postal Code',
     minWidth: 100,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "country",
-    label: "Country",
+    id: 'country',
+    label: 'Country',
     minWidth: 100,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "telephone",
-    label: "Telephone",
+    id: 'telephone',
+    label: 'Telephone',
     minWidth: 170,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "createdAt",
-    label: "CreatedAt",
+    id: 'createdAt',
+    label: 'CreatedAt',
     minWidth: 170,
-    align: "center",
+    align: 'center',
   },
   {
-    id: "edit",
-    label: "EDIT",
+    id: 'edit',
+    label: 'EDIT',
     minWidth: 30,
-    align: "center",
+    align: 'center',
   },
 ];
 
@@ -97,7 +97,7 @@ const AdminPage = () => {
   const [rowsPerPage, setRowsPerPage] = useState(10);
 
   //for users page
-  const [menu, setMenu] = useState("users");
+  const [menu, setMenu] = useState('users');
   const { users } = useSelector((state) => state);
   users.sort();
   useEffect(() => {
@@ -105,14 +105,13 @@ const AdminPage = () => {
   }, []);
 
   //for products page
-  const shuffle = (arr) => [...arr].sort(() => Math.random() - 0.5);
-  const [flavor, setFlavor] = useState("All");
+
+  const [flavor, setFlavor] = useState('All');
   const { products } = useSelector((state) => state);
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
-  const randomListProducts = shuffle(products);
   const saltyProducts = products.filter(
     (product) => product.productCategoryId === 1
   );
@@ -128,7 +127,7 @@ const AdminPage = () => {
 
   const handleToggle = (id) => {
     dispatch(_updateAdminUser(id));
-    history.push("/adminpage");
+    history.push('/adminpage');
   };
 
   const handleChangePage = (event, newPage) => {
@@ -147,25 +146,25 @@ const AdminPage = () => {
           <Box textAlign='center'>
             <Button
               variant='contained'
-              sx={{ margin: "15px" }}
+              sx={{ margin: '15px' }}
               onClick={() => {
-                setMenu("users");
+                setMenu('users');
               }}
             >
               Users
             </Button>
             <Button
               variant='contained'
-              sx={{ margin: "15px" }}
+              sx={{ margin: '15px' }}
               onClick={() => {
-                setMenu("products");
+                setMenu('products');
               }}
             >
               Products
             </Button>
           </Box>
-          {menu === "users" ? (
-            <Paper sx={{ width: "100%", align: "center", overflow: "auto" }}>
+          {menu === 'users' ? (
+            <Paper sx={{ width: '100%', align: 'center', overflow: 'auto' }}>
               <TableContainer sx={{ maxHeight: 600 }}>
                 <TableContainer stickyHeader aria-label='sticky table'>
                   <TableHead>
@@ -199,9 +198,9 @@ const AdminPage = () => {
                               const value = row[column.id];
                               return (
                                 <TableCell key={column.id} align={column.align}>
-                                  {column.id === "edit" ? (
+                                  {column.id === 'edit' ? (
                                     <AdminPageUserEditForm user={row} />
-                                  ) : column.id !== "isAdmin" ? (
+                                  ) : column.id !== 'isAdmin' ? (
                                     value
                                   ) : value ? (
                                     <button
@@ -252,13 +251,13 @@ const AdminPage = () => {
                       md={4}
                       lg={3}
                       onClick={() => {
-                        setFlavor("Salty");
+                        setFlavor('Salty');
                       }}
                     >
                       <FilterImg
-                        flavor={"Salty"}
+                        flavor={'Salty'}
                         img={
-                          "https://m.media-amazon.com/images/I/41DzPGQXiuL._AC_SY350_.jpg"
+                          'https://m.media-amazon.com/images/I/41DzPGQXiuL._AC_SY350_.jpg'
                         }
                       />
                     </Grid>
@@ -269,13 +268,13 @@ const AdminPage = () => {
                       md={4}
                       lg={3}
                       onClick={() => {
-                        setFlavor("Sweet");
+                        setFlavor('Sweet');
                       }}
                     >
                       <FilterImg
-                        flavor={"Sweet"}
+                        flavor={'Sweet'}
                         img={
-                          "https://www.sweetflavorfl.com/img/my-sweet-flavor-logo-1618319663.jpg"
+                          'https://www.sweetflavorfl.com/img/my-sweet-flavor-logo-1618319663.jpg'
                         }
                       />
                     </Grid>
@@ -286,13 +285,13 @@ const AdminPage = () => {
                       md={4}
                       lg={3}
                       onClick={() => {
-                        setFlavor("Healthy");
+                        setFlavor('Healthy');
                       }}
                     >
                       <FilterImg
-                        flavor={"Healthy"}
+                        flavor={'Healthy'}
                         img={
-                          "https://styles.redditmedia.com/t5_2scbp/styles/communityIcon_8pqszfejizl61.png"
+                          'https://styles.redditmedia.com/t5_2scbp/styles/communityIcon_8pqszfejizl61.png'
                         }
                       />
                     </Grid>
@@ -303,13 +302,13 @@ const AdminPage = () => {
                       md={4}
                       lg={3}
                       onClick={() => {
-                        setFlavor("Refrigerated && Frozen");
+                        setFlavor('Refrigerated && Frozen');
                       }}
                     >
                       <FilterImg
-                        flavor={"Refrigerated && Frozen"}
+                        flavor={'Refrigerated && Frozen'}
                         img={
-                          "https://cdn.shopify.com/s/files/1/0294/2825/2771/collections/Category-Bars-Intro.png?v=1654034576"
+                          'https://cdn.shopify.com/s/files/1/0294/2825/2771/collections/Category-Bars-Intro.png?v=1654034576'
                         }
                       />
                     </Grid>
@@ -320,7 +319,7 @@ const AdminPage = () => {
                 <Button
                   sx={{ width: 1000, height: 200, fontSize: 60 }}
                   color='secondary'
-                  onClick={() => setFlavor("All")}
+                  onClick={() => setFlavor('All')}
                 >
                   BROWSE ALL OF OUR SNACKS!
                 </Button>
@@ -332,7 +331,7 @@ const AdminPage = () => {
                 <main className={classes.root}>
                   <div className={classes.toolbar} />
                   <Grid container justifyContent='flex-start' spacing={4}>
-                    {flavor === "Salty"
+                    {flavor === 'Salty'
                       ? saltyProducts.map((product) => {
                           return (
                             <Grid
@@ -347,7 +346,7 @@ const AdminPage = () => {
                             </Grid>
                           );
                         })
-                      : flavor === "Sweet"
+                      : flavor === 'Sweet'
                       ? sweetProducts.map((product) => {
                           return (
                             <Grid
@@ -362,7 +361,7 @@ const AdminPage = () => {
                             </Grid>
                           );
                         })
-                      : flavor === "Healthy"
+                      : flavor === 'Healthy'
                       ? healthyProducts.map((product) => {
                           return (
                             <Grid
@@ -377,7 +376,7 @@ const AdminPage = () => {
                             </Grid>
                           );
                         })
-                      : flavor === "Refrigerated && Frozen"
+                      : flavor === 'Refrigerated && Frozen'
                       ? frozenProducts.map((product) => {
                           return (
                             <Grid
@@ -392,7 +391,7 @@ const AdminPage = () => {
                             </Grid>
                           );
                         })
-                      : randomListProducts.map((product) => {
+                      : products.map((product) => {
                           return (
                             <Grid
                               item
