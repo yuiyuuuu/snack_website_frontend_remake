@@ -6,22 +6,18 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
-    "babel-loader": "^8.2.2",
-    "dotenv-webpack": "^7.1.0",
     "@chec/commerce.js": "^2.3.0-beta1",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
-    "@material-ui/core": "^4.12.4",
-    "@material-ui/icons": "^4.9.1",
-    "@material-ui/lab": "^4.0.0-alpha.56",
-    "@mui/material": "^5.8.4",
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.11.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.27.2",
+    "babel-loader": "^8.2.2",
     "bcrypt": "^5.0.0",
+    "dotenv-webpack": "^7.1.0",
     "express": "^4.16.4",
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
@@ -56,7 +52,6 @@
     "eject": "react-scripts eject",
     "seed": "node script/seed.js",
     "start:dev2": "node server",
-    "start:dev": "npm run build:dev & npm run start-server",
     "start-server": "JWT=shh nodemon server -e html,js,scss --ignore public --ignore client"
   },
   "eslintConfig": {
@@ -76,5 +71,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "file-loader": "^6.2.0",
+    "image-webpack-loader": "^8.1.0",
+    "url-loader": "^4.1.1"
   }
 }
