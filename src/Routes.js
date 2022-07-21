@@ -19,7 +19,7 @@ class Routes extends Component {
 
     return (
       <div>
-        {isLoggedIn ? (
+        {!isLoggedIn ? (
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/allsnacks' component={Allsnacks} />
