@@ -2,6 +2,10 @@ import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { withRouter, Route, Switch, Redirect } from "react-router-dom";
 import Home from "./components/Home/Home";
+import Allsnacks from "./components/Allsnacks/Allsnacks";
+import MyAccount from "./components/MyAccount/MyAccount";
+import Checkout from "./components/Checkout/Checkout";
+import SingleSnack from "./components/Allsnacks/SingleSnack/SingleSnack";
 import { me } from "./store";
 
 class Routes extends Component {
@@ -14,9 +18,15 @@ class Routes extends Component {
 
     return (
       <div>
-        <Switch>
-          <Route exact path='/home' component={Home} />
-        </Switch>
+        {isLoggedIn ? (
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/allsnacks' component={Allsnacks} />
+            <Route exact path='/myaccount' component={MyAccount} />
+            <Route exact path='/checkout' component={Checkout} />
+            <Route exact path='./allsnacks/:id' component={SingleSnack} />
+          </Switch>
+        ) : null}
       </div>
     );
   }
