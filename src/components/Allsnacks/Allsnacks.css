@@ -1,8 +1,53 @@
 .container {
-  height: 300px;
+  height: auto;
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .parent {
-  background-color: red;
+  /* background-color: red; */
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.filters {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.snack-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+.checkbox-input {
+  margin-right: 3px;
+}
+
+.checkbox-div {
+  margin-bottom: 6px;
+}
+
+.next-div {
+  height: 100%;
+  width: 45px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.next-div:hover {
+  opacity: 0.4;
+}
+
+.leftandright {
+  width: 30px;
+  height: 30px;
 }
