@@ -12,6 +12,7 @@ class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
   }
+  //test
 
   render() {
     const { isLoggedIn } = this.props;
