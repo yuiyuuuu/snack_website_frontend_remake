@@ -1,15 +1,19 @@
 const webpack = require("webpack");
 const Dotenv = require("dotenv-webpack");
+const path = require("path");
 
 module.exports = {
   mode: "development",
   plugins: [new Dotenv()],
-  entry: ["./src/index.js"],
+  entry: path.resolve(__dirname, "./src/index.js"),
   output: {
     path: __dirname,
     filename: "./public/bundle.js",
   },
   devtool: "source-map",
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
   module: {
     rules: [
       {
@@ -25,17 +29,11 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(png|svg|jpg|jpe?g|gif)$/i,
+        test: /\.png/,
         type: "asset/resource",
-        use: [
-          {
-            loader: "file-loader",
-            options: {
-              name: "[name].[ext]",
-              outputPath: "./assets",
-            },
-          },
-        ],
+        generator: {
+          outputPath: "./assets",
+        },
       },
       {
         test: /\.(png|jpg|gif)$/i,

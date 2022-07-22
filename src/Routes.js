@@ -12,13 +12,14 @@ class Routes extends Component {
   componentDidMount() {
     this.props.loadInitialData();
   }
+  //test
 
   render() {
     const { isLoggedIn } = this.props;
 
     return (
       <div>
-        {isLoggedIn ? (
+        {!isLoggedIn ? (
           <Switch>
             <Route exact path='/' component={Home} />
             <Route exact path='/allsnacks' component={Allsnacks} />

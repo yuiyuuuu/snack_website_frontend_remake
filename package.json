@@ -16,6 +16,7 @@
     "@testing-library/user-event": "^7.1.2",
     "axios": "^0.27.2",
     "babel-loader": "^8.2.2",
+    "babel-plugin-macros": "^3.1.0",
     "bcrypt": "^5.0.0",
     "dotenv-webpack": "^7.1.0",
     "express": "^4.16.4",
@@ -40,7 +41,7 @@
     "semantic-ui-react": "^2.0.1",
     "sequelize": "^6.21.0",
     "stripe": "^9.9.0",
-    "webpack": "^5.15.0",
+    "webpack": "^5.73.0",
     "webpack-cli": "^4.3.1"
   },
   "scripts": {
@@ -52,7 +53,8 @@
     "eject": "react-scripts eject",
     "seed": "node script/seed.js",
     "start:dev2": "node server",
-    "start-server": "JWT=shh nodemon server -e html,js,scss --ignore public --ignore client"
+    "start-server": "JWT=shh nodemon server -e html,js,scss --ignore public --ignore client",
+    "heroku-postbuild": "npm run start:dev"
   },
   "eslintConfig": {
     "extends": [
@@ -76,5 +78,8 @@
     "file-loader": "^6.2.0",
     "image-webpack-loader": "^8.1.0",
     "url-loader": "^4.1.1"
+  },
+  "resolutions": {
+    "babel-loader": "8.1.0"
   }
 }

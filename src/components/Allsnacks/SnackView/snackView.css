@@ -1,0 +1,33 @@
+.snackView {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.snackView:hover {
+  opacity: 0.4;
+}
+
+.snackview--title {
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none !important;
+  width: 100%;
+  height: 20px;
+  background-color: red;
+  overflow: hidden;
+}
+.snackview--description {
+  font-size: 12px;
+}
+
+.snackview--price {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.noDecoration {
+  text-decoration: none;
+  color: black;
+}
