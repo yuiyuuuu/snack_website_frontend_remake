@@ -1,9 +1,12 @@
 .container {
-  height: auto;
+  height: 273px;
+  margin-bottom: 10px;
   width: 100%;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-flow: row wrap;
+  overflow: hidden; /*hides elements when it is overflow. */
 }
 
 .parent {
