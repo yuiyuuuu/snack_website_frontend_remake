@@ -1,12 +1,12 @@
 import React from "react";
 
-import Navbar from "./components/Navbar/Navbar.js";
+// import Navbar from "./components/Navbar/Navbar.js";
 import Routes from "./Routes";
 
 const App = () => {
   return (
     <div>
-      <Navbar />
+      {/* <Navbar /> */}
       <Routes />
     </div>
   );
