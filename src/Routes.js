@@ -25,7 +25,7 @@ class Routes extends Component {
             <Route exact path='/allsnacks' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
-            <Route exact path='./allsnacks/:id' component={SingleSnack} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
           </Switch>
         ) : null}
       </div>
