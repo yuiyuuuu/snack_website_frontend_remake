@@ -9,7 +9,6 @@ export default function SnackView({
   price,
   snack,
 }) {
-  console.log(`${photoUrl} ${title} ${description} ${price}`);
   return (
     <Link to={`/allsnacks/${snack.id}`} className='noDecoration'>
       <div className='snackView'>
@@ -31,3 +30,16 @@ export default function SnackView({
     </Link>
   );
 }
+
+/* container css 
+
+height: 273px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; 
+  flex-flow: row wrap;
+  overflow: hidden; /*hides elements when it is overflow. 
+  justify-content: space-evenly;
+  */
