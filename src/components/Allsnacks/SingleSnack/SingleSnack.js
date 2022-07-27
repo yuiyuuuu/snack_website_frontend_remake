@@ -5,7 +5,7 @@ import { fetchSingleSnack } from "../../../store/singleSnack";
 import { fetchProducts } from "../../../store/Snacks";
 import SnackView from "../SnackView/SnackView";
 import "./SingleSnack.css";
-import Navbar from "../../Navbar/Navbar";
+import Navbar from "../../Navbar/Navbar.js";
 
 const left =
   "https://cdn-icons.flaticon.com/png/128/2985/premium/2985161.png?token=exp=1658385917~hmac=cbcc92465affce3974f896dee4fd8840";

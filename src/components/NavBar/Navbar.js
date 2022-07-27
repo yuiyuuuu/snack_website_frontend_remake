@@ -17,7 +17,6 @@ const Navbar = () => {
         <div className='Navbar--Container' style={{ justifyContent: "center" }}>
           <div
             style={{
-              // marginRight: "10px",
               display: "flex",
               flexDirection: "row",
               justifyContent: "center",
@@ -111,7 +110,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-// /allsnacks - displays all snacks
-// /snack/id -displays one snack
-// /checkout
