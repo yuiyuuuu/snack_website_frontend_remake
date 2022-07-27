@@ -79,3 +79,14 @@
   height: 30px;
   display: flex;
 }
+
+.arrow-circle {
+  cursor: pointer;
+  border-radius: 50%;
+  background-color: gainsboro;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  display: flex;
+}

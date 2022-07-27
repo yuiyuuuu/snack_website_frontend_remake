@@ -61,9 +61,11 @@ const Navbar = () => {
               Account
             </Link>
           </div>
-          <div className='Nav--Cart' style={{ marginRight: "30px" }}>
-            Cart
-          </div>
+          <Link to='/cart'>
+            <div className='Nav--Cart' style={{ marginRight: "30px" }}>
+              Cart
+            </div>
+          </Link>
           <div className='Nav--Login'>
             <Link
               to='/login'

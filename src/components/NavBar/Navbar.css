@@ -25,3 +25,8 @@
 .Nav--Profile {
   padding-right: 30px;
 }
+
+.Nav--Cart {
+  text-decoration: none;
+  color: white;
+}

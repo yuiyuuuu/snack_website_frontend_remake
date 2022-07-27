@@ -76,3 +76,41 @@
   color: white;
   cursor: pointer;
 }
+
+.similar-products-title {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+.title-arrow-container {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.left-right-but {
+  width: 20px;
+  height: 20px;
+}
+
+.container-similar-products {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 22%;
+  overflow-x: scroll;
+  gap: 10px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain; /* on a laptop espicially, if you scroll even slightly too far you will go to the next/previous page, very annoying without this line. This says if you are scrolling this element, you cannot scroll other elements*/
+}
+
+.container-similar-products::-webkit-scrollbar {
+  display: none;
+}
+
+.snap-single-product {
+  scroll-snap-type: inline mandatory;
+}
+/*  snap does not work for some reason */

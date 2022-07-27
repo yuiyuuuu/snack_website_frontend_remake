@@ -3,6 +3,7 @@ import "./Allsnacks.css";
 import SnackView from "./SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
+import Navbar from "../Navbar/Navbar";
 const left =
   "https://cdn-icons.flaticon.com/png/128/2985/premium/2985161.png?token=exp=1658385917~hmac=cbcc92465affce3974f896dee4fd8840";
 
@@ -90,159 +91,179 @@ const Allsnacks = () => {
   }, []);
 
   return (
-    <div className='parent'>
-      <div className='filters'>
-        <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
-        <div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Sweet
-          </div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Salty
-          </div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Healthy
-          </div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Frozen Snacks
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Navbar />
+
+      <div className='parent'>
+        <div className='filters'>
+          <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
+          <div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Sweet
+            </div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Salty
+            </div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Healthy
+            </div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Frozen Snacks
+            </div>
           </div>
         </div>
-      </div>
 
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          width: "1100px",
-        }}
-      >
-        <div className='snack-title'>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            Sweet Snacks
-            <div style={{ flexGrow: 1 }} />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "1100px",
+          }}
+        >
+          <div className='snack-title'>
             <div
-              className='leftcircle'
-              onClick={() => {
-                leftScroll(sweetSnackRef);
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
               }}
             >
-              <img src={left} alt='leftarrow' className='leftandright' />
-            </div>
-            <div
-              className='leftcircle'
-              style={{ marginLeft: "10px" }}
-              onClick={() => rightScroll(sweetSnackRef)}
-            >
-              <img src={rightArrow} alt='rightarrow' className='leftandright' />
+              Sweet Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => {
+                  leftScroll(sweetSnackRef);
+                }}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(sweetSnackRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className='container snap-inline' ref={sweetSnackRef}>
-            {SweetSnacks}
+          <div>
+            <div className='container snap-inline' ref={sweetSnackRef}>
+              {SweetSnacks}
+            </div>
           </div>
-        </div>
 
-        <div className='snack-title'>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            Healthy Snacks
-            <div style={{ flexGrow: 1 }} />
+          <div className='snack-title'>
             <div
-              className='leftcircle'
-              onClick={() => leftScroll(healthySnackRef)}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
             >
-              <img src={left} alt='leftarrow' className='leftandright' />
-            </div>
-            <div
-              className='leftcircle'
-              style={{ marginLeft: "10px" }}
-              onClick={() => rightScroll(healthySnackRef)}
-            >
-              <img src={rightArrow} alt='rightarrow' className='leftandright' />
+              Healthy Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(healthySnackRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(healthySnackRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className='container snap-inline' ref={healthySnackRef}>
-            {HealthySnacks}
+          <div>
+            <div className='container snap-inline' ref={healthySnackRef}>
+              {HealthySnacks}
+            </div>
           </div>
-        </div>
 
-        <div className='snack-title'>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            Salty Snacks
-            <div style={{ flexGrow: 1 }} />
+          <div className='snack-title'>
             <div
-              className='leftcircle'
-              onClick={() => leftScroll(saltySnacksRef)}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
             >
-              <img src={left} alt='leftarrow' className='leftandright' />
-            </div>
-            <div
-              className='leftcircle'
-              style={{ marginLeft: "10px" }}
-              onClick={() => rightScroll(saltySnacksRef)}
-            >
-              <img src={rightArrow} alt='rightarrow' className='leftandright' />
+              Salty Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(saltySnacksRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(saltySnacksRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className='container snap-inline' ref={saltySnacksRef}>
-            {SnackCards}
+          <div>
+            <div className='container snap-inline' ref={saltySnacksRef}>
+              {SnackCards}
+            </div>
           </div>
-        </div>
 
-        <div className='snack-title'>
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            Frozen Snacks
-            <div style={{ flexGrow: 1 }} />
+          <div className='snack-title'>
             <div
-              className='leftcircle'
-              onClick={() => leftScroll(frozenSnacksRef)}
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
             >
-              <img src={left} alt='leftarrow' className='leftandright' />
-            </div>
-            <div
-              className='leftcircle'
-              style={{ marginLeft: "10px" }}
-              onClick={() => rightScroll(frozenSnacksRef)}
-            >
-              <img src={rightArrow} alt='rightarrow' className='leftandright' />
+              Frozen Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(frozenSnacksRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(frozenSnacksRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
             </div>
           </div>
-        </div>
-        <div>
-          <div className='container snap-inline' ref={frozenSnacksRef}>
-            {FrozenSnacks}
+          <div>
+            <div className='container snap-inline' ref={frozenSnacksRef}>
+              {FrozenSnacks}
+            </div>
           </div>
         </div>
       </div>
