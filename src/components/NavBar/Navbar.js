@@ -1,6 +1,5 @@
 import React from "react";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -28,27 +27,27 @@ const Navbar = () => {
               className='Nav--Logo'
               style={{ marginRight: "50px", height: "30px" }}
             >
-              <Link to='/' style={{ textDecoration: "none", color: "white" }}>
+              <a href='/' style={{ textDecoration: "none", color: "white" }}>
                 <img
                   src='https://cdn.discordapp.com/attachments/779278654714675232/1001654225819934801/logocropped.png'
                   alt='logo'
                   width={37}
                 />
-              </Link>
+              </a>
             </div>
             <div>
-              <Link
-                to='/allsnacks'
+              <a
+                href='/allsnacks'
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Shop Button
-              </Link>
+              </a>
             </div>
             <div style={{ flexGrow: 1 }} />
           </div>
 
           <div style={{ flexGrow: 1 }} />
-          <Link to='/allsnacks'>
+          <a href='/allsnacks'>
             <div
               style={{
                 marginLeft: "10px",
@@ -61,7 +60,7 @@ const Navbar = () => {
                 style={{ height: "25px" }}
               />
             </div>
-          </Link>
+          </a>
           <div style={{ flexGrow: 1 }} />
           <div
             style={{
@@ -75,25 +74,25 @@ const Navbar = () => {
           >
             <div className='Nav--Profile' style={{}}>
               {/* if user is logged in, or redirect */}
-              <Link
-                to='/myaccount'
+              <a
+                href='/myaccount'
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Account
-              </Link>
+              </a>
             </div>
-            <Link to='/cart'>
+            <a href='/cart'>
               <div className='Nav--Cart' style={{ marginRight: "30px" }}>
                 Cart
               </div>
-            </Link>
+            </a>
             <div className='Nav--Login'>
-              <Link
-                to='/login'
+              <a
+                href='/login'
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Login/Signup Icon
-              </Link>
+              </a>
             </div>
           </div>
         </div>

@@ -11,6 +11,9 @@ module.exports = {
     filename: "./public/bundle.js",
   },
   devtool: "source-map",
+  resolveLoader: {
+    modules: [path.join(__dirname, "node_modules")],
+  },
   resolve: {
     extensions: [".ts", ".js"],
   },
