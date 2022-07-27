@@ -25,7 +25,7 @@ export default function SnackView({
             ? description.slice(0, 75) + "..."
             : description}
         </div>
-        <div760 className='snackview--price'>{price}</div760>
+        <div className='snackview--price'>{price}</div>
       </div>
     </Link>
   );
