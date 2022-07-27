@@ -114,3 +114,9 @@
   scroll-snap-type: inline mandatory;
 }
 /*  snap does not work for some reason */
+.goback-single,
+a:link,
+a:visited,
+a:active {
+  color: black;
+}

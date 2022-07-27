@@ -59,20 +59,21 @@ const SingleSnack = (props) => {
     <div className='single-snack-container'>
       <Navbar />
       <div className='single-snack-flex-container'>
-        <Link to='/allsnacks'>
-          <div
-            style={{
-              height: "50px",
-              display: "flex",
-              flexDirection: "column-reverse",
-              textDecoration: "underline",
-              color: "black",
-              marginBottom: "18px",
-            }}
-          >
-            Go back
-          </div>
-        </Link>
+        <div
+          style={{
+            height: "50px",
+            display: "flex",
+            flexDirection: "column-reverse",
+            textDecoration: "underline",
+            color: "black",
+            marginBottom: "18px",
+            width: "70px",
+          }}
+          className='goback-single'
+        >
+          <a href='/allsnacks'>Go back</a>
+        </div>
+
         <div className='single-snack-product-container'>
           <div className='product-image-div'>
             <img src={snack.photoURL} className='product-image' />

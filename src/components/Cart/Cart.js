@@ -264,6 +264,14 @@ const Cart = () => {
         </div>
       </div>
       <div className='bottom-div-cart'>
+        <div
+          style={{
+            backgroundColor: "gainsboro",
+            height: ".5px",
+            width: "100%",
+          }}
+        />
+
         <a href='/checkout' className='cart-nodecorations'>
           <div className='checkout-but-cart'>Checkout</div>
         </a>
