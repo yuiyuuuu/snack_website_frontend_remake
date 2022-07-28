@@ -3,21 +3,21 @@ import "./Cart.css";
 import SnackView from "../Allsnacks/SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
-import logo from "../../../assets/bullseye-logo/cover.png";
 import { Link } from "react-router-dom";
 
 import { useHistory } from "react-router-dom";
 
 const left =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985161.png?token=exp=1658385917~hmac=cbcc92465affce3974f896dee4fd8840";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
 const rightArrow =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985179.png?token=exp=1658449648~hmac=9c05aeaa10fae14449737f88789c5727";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054992049479730/unknown.png";
 
 const Cart = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const wantRef = useRef(null);
+  const newRef = useRef(null);
   const { products } = useSelector((state) => state);
 
   const leftScroll = (reference) => {
@@ -34,8 +34,8 @@ const Cart = () => {
 
   return (
     <div>
-      <div className='topnav-cart'>
-        <div className='back-but-cart' onClick={() => history.goBack()}>
+      <div className="topnav-cart">
+        <div className="back-but-cart" onClick={() => history.goBack()}>
           &#8592; Back
         </div>
         <div
@@ -45,7 +45,7 @@ const Cart = () => {
             marginRight: "50%",
           }}
         >
-          <a href='/allsnacks'>
+          <a href="/allsnacks">
             <img
               src={
                 "https://cdn.discordapp.com/attachments/779278654714675232/1001644818612637726/cover.png"
@@ -65,9 +65,9 @@ const Cart = () => {
         />
       </div>
 
-      <div className='parent-cart'>
-        <div className='container-cart'>
-          <div className='middle-container'>
+      <div className="parent-cart">
+        <div className="container-cart">
+          <div className="middle-container">
             <div
               style={{ width: "80%", display: "flex", flexDirection: "column" }}
             >
@@ -80,12 +80,12 @@ const Cart = () => {
               >
                 My bag
               </div>
-              <div className='cart-item-container'>
+              <div className="cart-item-container">
                 <div>
                   <img
-                    src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg'
-                    alt='cartitem'
-                    className='cart-item-image'
+                    src="https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg"
+                    alt="cartitem"
+                    className="cart-item-image"
                   />
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -103,9 +103,9 @@ const Cart = () => {
                   </div>
                 </div>
                 <div style={{ flexGrow: 1 }} />
-                <div className='cart-addbut'>
+                <div className="cart-addbut">
                   <div
-                    className='cart-plus'
+                    className="cart-plus"
                     style={{ marginLeft: "3px", backgroundColor: "white" }}
                   >
                     -
@@ -114,7 +114,7 @@ const Cart = () => {
                   <div>12</div>
 
                   <div
-                    className='cart-plus'
+                    className="cart-plus"
                     style={{ marginRight: "3px", backgroundColor: "aqua" }}
                   >
                     +
@@ -122,12 +122,12 @@ const Cart = () => {
                 </div>
               </div>
 
-              <div className='cart-item-container'>
+              <div className="cart-item-container">
                 <div>
                   <img
-                    src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg'
-                    alt='cartitem'
-                    className='cart-item-image'
+                    src="https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg"
+                    alt="cartitem"
+                    className="cart-item-image"
                   />
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -145,9 +145,9 @@ const Cart = () => {
                   </div>
                 </div>
                 <div style={{ flexGrow: 1 }} />
-                <div className='cart-addbut'>
+                <div className="cart-addbut">
                   <div
-                    className='cart-plus'
+                    className="cart-plus"
                     style={{ marginLeft: "3px", backgroundColor: "white" }}
                   >
                     -
@@ -156,7 +156,7 @@ const Cart = () => {
                   <div>12</div>
 
                   <div
-                    className='cart-plus'
+                    className="cart-plus"
                     style={{ marginRight: "3px", backgroundColor: "aqua" }}
                   >
                     +
@@ -164,12 +164,12 @@ const Cart = () => {
                 </div>
               </div>
 
-              <div className='cart-item-container'>
+              <div className="cart-item-container">
                 <div>
                   <img
-                    src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg'
-                    alt='cartitem'
-                    className='cart-item-image'
+                    src="https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg"
+                    alt="cartitem"
+                    className="cart-item-image"
                   />
                 </div>
                 <div style={{ display: "flex", flexDirection: "column" }}>
@@ -187,9 +187,9 @@ const Cart = () => {
                   </div>
                 </div>
                 <div style={{ flexGrow: 1 }} />
-                <div className='cart-addbut'>
+                <div className="cart-addbut">
                   <div
-                    className='cart-plus'
+                    className="cart-plus"
                     style={{ marginLeft: "3px", backgroundColor: "white" }}
                   >
                     -
@@ -198,7 +198,7 @@ const Cart = () => {
                   <div>12</div>
 
                   <div
-                    className='cart-plus'
+                    className="cart-plus"
                     style={{
                       marginRight: "3px",
                       backgroundColor: "aqua",
@@ -222,7 +222,7 @@ const Cart = () => {
               </div>
             </div>
           </div>
-          <div className='title-arrow-container-cart'>
+          <div className="title-arrow-container-cart">
             <div
               style={{
                 width: "auto",
@@ -237,21 +237,21 @@ const Cart = () => {
 
             <div style={{ flexGrow: 1 }} />
             <div
-              className='arrow-circle'
+              className="arrow-circle"
               style={{ marginRight: "10px" }}
               onClick={() => leftScroll(wantRef)}
             >
-              <img src={left} alt='leftbutton' className='left-right-but' />
+              <img src={left} alt="leftbutton" className="left-right-but" />
             </div>
-            <div className='arrow-circle' onClick={() => rightScroll(wantRef)}>
+            <div className="arrow-circle" onClick={() => rightScroll(wantRef)}>
               <img
                 src={rightArrow}
-                alt='rightbutton'
-                className='left-right-but'
+                alt="rightbutton"
+                className="left-right-but"
               />
             </div>
           </div>
-          <div className='cart-want-container' ref={wantRef}>
+          <div className="cart-want-container" ref={wantRef}>
             {products.map((item) => (
               <SnackView
                 key={item.name}
@@ -264,7 +264,7 @@ const Cart = () => {
             ))}
           </div>
 
-          <div className='title-arrow-container-cart'>
+          <div className="title-arrow-container-cart">
             <div
               style={{
                 width: "auto",
@@ -279,22 +279,22 @@ const Cart = () => {
 
             <div style={{ flexGrow: 1 }} />
             <div
-              className='arrow-circle'
+              className="arrow-circle"
               style={{ marginRight: "10px" }}
               onClick={() => leftScroll(wantRef)}
             >
-              <img src={left} alt='leftbutton' className='left-right-but' />
+              <img src={left} alt="leftbutton" className="left-right-but" />
             </div>
-            <div className='arrow-circle' onClick={() => rightScroll(wantRef)}>
+            <div className="arrow-circle" onClick={() => rightScroll(newRef)}>
               <img
                 src={rightArrow}
-                alt='rightbutton'
-                className='left-right-but'
+                alt="rightbutton"
+                className="left-right-but"
               />
             </div>
           </div>
 
-          <div className='cart-want-container' ref={wantRef}>
+          <div className="cart-want-container" ref={newRef}>
             {products.map((item) => (
               <SnackView
                 key={item.name}
@@ -308,7 +308,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className='bottom-div-cart'>
+      <div className="bottom-div-cart">
         <div
           style={{
             backgroundColor: "gainsboro",
@@ -317,8 +317,8 @@ const Cart = () => {
           }}
         />
 
-        <a href='/checkout' className='cart-nodecorations'>
-          <div className='checkout-but-cart'>Checkout</div>
+        <a href="/checkout" className="cart-nodecorations">
+          <div className="checkout-but-cart">Checkout</div>
         </a>
       </div>
     </div>
