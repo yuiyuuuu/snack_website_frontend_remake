@@ -8,15 +8,16 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 const left =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985161.png?token=exp=1658385917~hmac=cbcc92465affce3974f896dee4fd8840";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
 const rightArrow =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985179.png?token=exp=1658449648~hmac=9c05aeaa10fae14449737f88789c5727";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054992049479730/unknown.png";
 
 const Cart = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const wantRef = useRef(null);
+  const newRef = useRef(null);
   const { products } = useSelector((state) => state);
 
   const leftScroll = (reference) => {
@@ -284,7 +285,7 @@ const Cart = () => {
             >
               <img src={left} alt="leftbutton" className="left-right-but" />
             </div>
-            <div className="arrow-circle" onClick={() => rightScroll(wantRef)}>
+            <div className="arrow-circle" onClick={() => rightScroll(newRef)}>
               <img
                 src={rightArrow}
                 alt="rightbutton"
@@ -293,7 +294,7 @@ const Cart = () => {
             </div>
           </div>
 
-          <div className="cart-want-container" ref={wantRef}>
+          <div className="cart-want-container" ref={newRef}>
             {products.map((item) => (
               <SnackView
                 key={item.name}

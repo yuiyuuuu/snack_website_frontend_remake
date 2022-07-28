@@ -47,6 +47,7 @@
   "scripts": {
     "build": "webpack",
     "start:dev": "npm run build:dev & npm run start-server",
+    "start:dev3": "nodemon server & npm run build:dev",
     "build:dev": "npm run build -- --watch --mode=development",
     "start": "react-scripts start",
     "test": "react-scripts test",
