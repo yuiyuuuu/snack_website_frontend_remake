@@ -7,6 +7,9 @@ import MyAccount from "./components/MyAccount/MyAccount";
 import Checkout from "./components/Checkout/Checkout";
 import SingleSnack from "./components/Allsnacks/SingleSnack/SingleSnack";
 import { me } from "./store";
+import Cart from "./components/Cart/Cart";
+import Login from "./Auth/Login/Login";
+import Signup from "./Auth/signup/Signup";
 
 class Routes extends Component {
   componentDidMount() {
@@ -25,7 +28,10 @@ class Routes extends Component {
             <Route exact path='/allsnacks' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
-            <Route exact path='./allsnacks/:id' component={SingleSnack} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
+            <Route exact path='/cart' component={Cart} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
           </Switch>
         ) : null}
       </div>
