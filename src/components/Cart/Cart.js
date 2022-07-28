@@ -45,12 +45,14 @@ const Cart = () => {
             marginRight: "50%",
           }}
         >
-          <img
-            src={
-              "https://cdn.discordapp.com/attachments/779278654714675232/1001644818612637726/cover.png"
-            }
-            style={{ height: "85px" }}
-          />
+          <a href='/allsnacks'>
+            <img
+              src={
+                "https://cdn.discordapp.com/attachments/779278654714675232/1001644818612637726/cover.png"
+              }
+              style={{ height: "85px" }}
+            />
+          </a>
         </div>
         <div
           style={{
@@ -249,6 +251,49 @@ const Cart = () => {
               />
             </div>
           </div>
+          <div className='cart-want-container' ref={wantRef}>
+            {products.map((item) => (
+              <SnackView
+                key={item.name}
+                photoUrl={item.photoURL}
+                title={item.name}
+                description={item.desc}
+                price={item.price}
+                snack={item}
+              />
+            ))}
+          </div>
+
+          <div className='title-arrow-container-cart'>
+            <div
+              style={{
+                width: "auto",
+                alignSelf: "start",
+                fontSize: "25px",
+                fontWeight: "600",
+                fontFamily: "arial black",
+              }}
+            >
+              New on bullseye
+            </div>
+
+            <div style={{ flexGrow: 1 }} />
+            <div
+              className='arrow-circle'
+              style={{ marginRight: "10px" }}
+              onClick={() => leftScroll(wantRef)}
+            >
+              <img src={left} alt='leftbutton' className='left-right-but' />
+            </div>
+            <div className='arrow-circle' onClick={() => rightScroll(wantRef)}>
+              <img
+                src={rightArrow}
+                alt='rightbutton'
+                className='left-right-but'
+              />
+            </div>
+          </div>
+
           <div className='cart-want-container' ref={wantRef}>
             {products.map((item) => (
               <SnackView
