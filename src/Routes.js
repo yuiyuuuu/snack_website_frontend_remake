@@ -8,7 +8,7 @@ import Checkout from "./components/Checkout/Checkout";
 import SingleSnack from "./components/Allsnacks/SingleSnack/SingleSnack";
 import { me } from "./store";
 import Cart from "./components/Cart/Cart";
-import Login from "./Auth/Login/Login";
+import Login from "./Auth/login/Login";
 import Signup from "./Auth/signup/Signup";
 
 class Routes extends Component {
@@ -24,14 +24,14 @@ class Routes extends Component {
       <div>
         {!isLoggedIn ? (
           <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/allsnacks' component={Allsnacks} />
-            <Route exact path='/myaccount' component={MyAccount} />
-            <Route exact path='/checkout' component={Checkout} />
-            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
-            <Route exact path='/cart' component={Cart} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/signup' component={Signup} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/allsnacks" component={Allsnacks} />
+            <Route exact path="/myaccount" component={MyAccount} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route exact path="/allsnacks/:snackId" component={SingleSnack} />
+            <Route exact path="/cart" component={Cart} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/signup" component={Signup} />
           </Switch>
         ) : null}
       </div>
