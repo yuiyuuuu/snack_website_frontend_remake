@@ -90,7 +90,7 @@ input[type="text"] {
 
 .signup-but {
   border-radius: 45px;
-  background-color: aqua;
+  background-color: #e24f5e;
   width: 70%;
   height: 40px;
   align-items: center;
@@ -98,6 +98,7 @@ input[type="text"] {
   justify-content: center;
   cursor: pointer;
   font-size: 17px;
+  color: white;
 }
 
 .Input-text::placeholder {
