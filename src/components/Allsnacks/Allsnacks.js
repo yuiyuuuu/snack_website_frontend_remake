@@ -28,11 +28,6 @@ const Allsnacks = () => {
   const saltySnacksRef = useRef(null);
   const frozenSnacksRef = useRef(null);
 
-  const right = () => {
-    counter = counter + 5;
-    counter2 = counter2 + 5;
-  };
-
   const SnackCards = salty.map((item) => (
     <SnackView
       key={item.name}
