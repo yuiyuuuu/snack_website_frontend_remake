@@ -55,7 +55,8 @@
     "seed": "node script/seed.js",
     "start:dev2": "node server",
     "start-server": "JWT=shh nodemon server -e html,js,scss --ignore public --ignore client",
-    "heroku-postbuild": "npm run start:dev"
+    "start:production": "npm run build & npm run start-server",
+    "heroku-postbuild": "npm run start:production"
   },
   "eslintConfig": {
     "extends": [
