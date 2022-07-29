@@ -5,13 +5,13 @@ import { fetchSingleSnack } from "../../../store/singleSnack";
 import { fetchProducts } from "../../../store/Snacks";
 import SnackView from "../SnackView/SnackView";
 import "./SingleSnack.css";
-import Navbar from "../../Navbar/Navbar.jsx";
+import Navbar from "../../Navbar/Navbar";
 
 const left =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985161.png?token=exp=1658385917~hmac=cbcc92465affce3974f896dee4fd8840";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
 const rightArrow =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985179.png?token=exp=1658449648~hmac=9c05aeaa10fae14449737f88789c5727";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054992049479730/unknown.png";
 
 const SingleSnack = (props) => {
   const alsoViewedRef = useRef(null);
@@ -56,9 +56,9 @@ const SingleSnack = (props) => {
   }, [products]);
 
   return (
-    <div className='single-snack-container'>
+    <div className="single-snack-container">
       <Navbar />
-      <div className='single-snack-flex-container'>
+      <div className="single-snack-flex-container">
         <div
           style={{
             height: "50px",
@@ -69,17 +69,17 @@ const SingleSnack = (props) => {
             marginBottom: "18px",
             width: "70px",
           }}
-          className='goback-single'
+          className="goback-single"
         >
-          <a href='/allsnacks'>Go back</a>
+          <a href="/allsnacks">Go back</a>
         </div>
 
-        <div className='single-snack-product-container'>
-          <div className='product-image-div'>
-            <img src={snack.photoURL} className='product-image' />
+        <div className="single-snack-product-container">
+          <div className="product-image-div">
+            <img src={snack.photoURL} className="product-image" />
           </div>
-          <div className='product-description-div'>
-            <div className='product-name'>{snack.name}</div>
+          <div className="product-description-div">
+            <div className="product-name">{snack.name}</div>
             <div
               style={{ fontWeight: "600", marginTop: "10px", fontSize: "18px" }}
             >
@@ -87,9 +87,9 @@ const SingleSnack = (props) => {
             </div>
             <div style={{ marginTop: "10px" }}>{snack.desc}</div>
             <div style={{ flexGrow: 1 }} />
-            <div className='atc-quantity-div'>
+            <div className="atc-quantity-div">
               <div
-                className='add-sub'
+                className="add-sub"
                 style={{ pointerEvents: counter === 1 ? "none" : "auto" }}
                 onClick={() => setCounter(counter - 1)}
               >
@@ -97,33 +97,33 @@ const SingleSnack = (props) => {
               </div>
               <div>{counter}</div>
               <div
-                className='add-sub'
+                className="add-sub"
                 style={{ fontSize: "22px" }}
                 onClick={() => setCounter(counter + 1)}
               >
                 +
               </div>
 
-              <div className='atcbut'>Add to bag</div>
+              <div className="atcbut">Add to bag</div>
             </div>
           </div>
         </div>
 
-        <div className='title-arrow-container'>
-          <div className='similar-products-title'>Similar Products</div>
+        <div className="title-arrow-container">
+          <div className="similar-products-title">Similar Products</div>
           <div style={{ flexGrow: 1 }} />
-          <div className='arrow-circle' style={{ marginRight: "10px" }}>
-            <img src={left} alt='leftbutton' className='left-right-but' />
+          <div className="arrow-circle" style={{ marginRight: "10px" }}>
+            <img src={left} alt="leftbutton" className="left-right-but" />
           </div>
-          <div className='arrow-circle'>
+          <div className="arrow-circle">
             <img
               src={rightArrow}
-              alt='rightbutton'
-              className='left-right-but'
+              alt="rightbutton"
+              className="left-right-but"
             />
           </div>
         </div>
-        <div className='container-similar-products snap-single-product'>
+        <div className="container-similar-products snap-single-product">
           {filteredProducts.map((item) => (
             <SnackView
               key={item.name}
@@ -136,29 +136,29 @@ const SingleSnack = (props) => {
           ))}
         </div>
 
-        <div className='title-arrow-container' style={{ marginTop: "12px" }}>
-          <div className='similar-products-title'>Customers also viewed</div>
+        <div className="title-arrow-container" style={{ marginTop: "12px" }}>
+          <div className="similar-products-title">Customers also viewed</div>
           <div style={{ flexGrow: 1 }} />
           <div
-            className='arrow-circle'
+            className="arrow-circle"
             style={{ marginRight: "10px" }}
             onClick={() => leftScroll(alsoViewedRef)}
           >
-            <img src={left} alt='leftbutton' className='left-right-but' />
+            <img src={left} alt="leftbutton" className="left-right-but" />
           </div>
           <div
-            className='arrow-circle'
+            className="arrow-circle"
             onClick={() => rightScroll(alsoViewedRef)}
           >
             <img
               src={rightArrow}
-              alt='rightbutton'
-              className='left-right-but'
+              alt="rightbutton"
+              className="left-right-but"
             />
           </div>
         </div>
         <div
-          className='container-similar-products snap-single-product'
+          className="container-similar-products snap-single-product"
           style={{ marginTop: "12px" }}
           ref={alsoViewedRef}
         >
