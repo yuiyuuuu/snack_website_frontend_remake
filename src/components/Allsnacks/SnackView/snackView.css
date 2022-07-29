@@ -1,8 +1,6 @@
 .snackView {
   display: flex;
   flex-direction: column;
-  width: 200px;
-  margin-right: 10px;
 }
 
 .snackView:hover {
@@ -14,9 +12,7 @@
   font-weight: 600;
   text-decoration: none !important;
   width: 100%;
-  height: 20px;
-  background-color: red;
-  overflow: hidden;
+  height: auto;
 }
 .snackview--description {
   font-size: 12px;

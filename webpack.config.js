@@ -11,6 +11,9 @@ module.exports = {
     filename: "./public/bundle.js",
   },
   devtool: "source-map",
+  resolveLoader: {
+    modules: [path.join(__dirname, "node_modules")],
+  },
   resolve: {
     extensions: [".ts", ".js"],
   },
@@ -36,7 +39,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|jpg|gif)$/i,
+        test: /\.(png|jpg|gif)$/,
         use: [
           {
             loader: "url-loader",

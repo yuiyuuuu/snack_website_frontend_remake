@@ -1,0 +1,146 @@
+.topnav-cart {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: 0%;
+  background-color: white;
+  border-radius: 0, 0, 10px, 0;
+}
+
+.back-but-cart {
+  align-self: start;
+  background-color: gainsboro;
+  height: 30px;
+  border-radius: 45px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  margin-left: 8px;
+  padding: 0 10px 0 10px;
+  cursor: pointer;
+}
+
+.parent-cart {
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 60px;
+}
+
+.container-cart {
+  display: flex;
+  flex-direction: column;
+  width: 65%;
+  align-items: center;
+}
+
+.middle-container {
+  width: 70%; /* maybe auto */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-container {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  width: 100%;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.cart-item-image {
+  height: 45px;
+  width: 45px;
+}
+
+.cart-addbut {
+  background-color: ghostwhite;
+  width: 20%;
+  border-radius: 50px;
+  height: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 0 5px 0;
+}
+
+.cart-plus {
+  border-radius: 50%;
+  height: 27px;
+  width: 27px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.cart-want-container {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 23%;
+  overflow-x: scroll;
+  gap: 7px;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-inline: contain;
+  width: 100%;
+}
+
+.title-arrow-container-cart {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  width: 100%;
+  margin-top: 35px;
+}
+
+.cart-want-container::-webkit-scrollbar {
+  display: none;
+}
+
+.bottom-div-cart {
+  background-color: white;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.checkout-but-cart {
+  background-color: aqua;
+  border-radius: 45px;
+  height: 38px;
+  width: auto;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  padding: 0, 10px, 0, 5px;
+  margin: 5px 0px 5px 0px;
+  padding: 0px 70px 0px 70px;
+  font-weight: 600;
+  cursor: pointer;
+  color: white;
+}
+
+.cart-nodecorations, /*REMOVE TEXT DECORATION SOLUTION SINCE ITS NOT WORKING*/
+a:link,
+a:visited {
+  text-decoration: none;
+}

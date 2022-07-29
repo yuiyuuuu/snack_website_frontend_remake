@@ -23,7 +23,7 @@
     "history": "^4.9.0",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
-    "nodemon": "^2.0.16",
+    "nodemon": "^2.0.19",
     "pg": "^8.5.1",
     "react": "^16.14.0",
     "react-dom": "^16.13.1",
@@ -47,6 +47,7 @@
   "scripts": {
     "build": "webpack",
     "start:dev": "npm run build:dev & npm run start-server",
+    "start:dev3": "nodemon server & npm run build:dev",
     "build:dev": "npm run build -- --watch --mode=development",
     "start": "react-scripts start",
     "test": "react-scripts test",
@@ -54,6 +55,7 @@
     "seed": "node script/seed.js",
     "start:dev2": "node server",
     "start-server": "JWT=shh nodemon server -e html,js,scss --ignore public --ignore client",
+    "start:production": "npm run build & npm run start-server",
     "heroku-postbuild": "npm run start:dev"
   },
   "eslintConfig": {
@@ -75,8 +77,10 @@
     ]
   },
   "devDependencies": {
+    "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "image-webpack-loader": "^8.1.0",
+    "style-loader": "^3.3.1",
     "url-loader": "^4.1.1"
   },
   "resolutions": {

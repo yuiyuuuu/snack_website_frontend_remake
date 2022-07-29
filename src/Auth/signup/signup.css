@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+.topnav-signup {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: fixed;
+  top: 0%;
+  background-color: white;
+  border-radius: 0, 0, 10px, 0;
+}
+
+.backbut-signup {
+  align-self: start;
+  height: 30px;
+  border-radius: 45px;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  margin-top: 14px;
+  margin-bottom: 14px;
+  margin-left: 8px;
+  padding: 0 10px 0 10px;
+}
+
+.parent-form-signup {
+  margin-top: 150px;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.col-form-signup {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+  align-items: center;
+}
+
+.Input-text-signup {
+  display: block;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--inputFontSize);
+  font-weight: inherit;
+  height: 50px;
+  padding-left: 14px;
+}
+
+.Input-text::placeholder {
+  color: #b0bec5;
+  font-size: 18px;
+}
+
+.Input-text:placeholder-shown + .Input-label {
+  visibility: hidden;
+  z-index: -1;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+input[type="text"] {
+  font-size: 16px;
+}
+
+.Input-login {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 15px;
+  width: 24%;
+}
+
+.signup-but-container {
+  margin-top: 25px;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.signup-but {
+  border-radius: 45px;
+  /* background-color: #e24f5e; */
+  width: 70%;
+  height: 40px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 17px;
+  color: white;
+  outline: 0;
+}
+
+.Input-text::placeholder {
+  font-size: 15px;
+}
