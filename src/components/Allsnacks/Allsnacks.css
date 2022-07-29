@@ -29,7 +29,7 @@
 }
 
 .filters {
-  width: 270px;
+  width: 15%;
   display: flex;
   flex-direction: column;
   align-items: center;

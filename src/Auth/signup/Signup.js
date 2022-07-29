@@ -1,7 +1,35 @@
-import React from "react";
+import React, { useState } from "react";
 import "./signup.css";
+import { useDispatch, useSelector } from "react-redux";
+import { authenticate } from "../../store";
+import { useHistory } from "react-router-dom";
 
 const Signup = () => {
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  const [firstName, setFirstname] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    try {
+      dispatch(authenticate(email, password, "signup"));
+      history.push("/");
+    } catch (error) {
+      console.log("Failed to create an account");
+    }
+  };
+
+  const isLoggedin = useSelector((state) => !!state.auth.id);
+
+  if (isLoggedin) {
+    history.push("/myaccount");
+  }
+
   return (
     <div>
       <div className='topnav-signup'>
@@ -47,41 +75,47 @@ const Signup = () => {
           <input
             type='text'
             id='input'
-            class='Input-text-signup'
+            className='Input-text-signup'
             placeholder='First Name'
             size='20'
             style={{ width: "47.9%" }}
+            onChange={(e) => setFirstname(e.target.value)}
           />
 
           <input
             type='text'
             id='input'
-            class='Input-text-signup'
+            className='Input-text-signup'
             placeholder='Last Name'
             size='20'
             style={{ width: "47.9%", marginBottom: "15px" }}
+            onChange={(e) => setLastName(e.target.value)}
           />
 
           <input
             type='text'
             id='input'
-            class='Input-text-signup'
+            className='Input-text-signup'
             placeholder='Email'
             size='20'
             style={{ width: "100%" }}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
             type='password'
             id='input'
-            class='Input-text-signup'
+            className='Input-text-signup'
             placeholder='Password'
             size='20'
             style={{ width: "100%", marginTop: "15px" }}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <div className='signup-but-container'>
-            <div className='signup-but'>Sign up</div>
+            <div className='signup-but' onClick={(e) => handleSubmit(e)}>
+              Sign up
+            </div>
           </div>
 
           <div
