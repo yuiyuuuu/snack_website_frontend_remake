@@ -8,7 +8,7 @@ import { fetchAUser } from "../../store";
 import { fetchCart } from "../../store/cart";
 
 import { useHistory } from "react-router-dom";
-import { updateCart } from "../../store/cart";
+import { updateCart, deleteCartItem } from "../../store/cart";
 
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
@@ -48,6 +48,7 @@ const Cart = () => {
   };
 
   const increment = (item) => {
+    console.log(item);
     const itemCart = {
       productId: item.product.id,
       quantity: item.quantity + 1,
@@ -58,13 +59,17 @@ const Cart = () => {
   };
 
   const decrement = (item) => {
-    const itemCart = {
-      productId: item.product.id,
-      quantity: item.quantity - 1,
-      shoppingSessionId: user.shopping_session.id,
-    };
+    if (item.quantity === 1) {
+      dispatch(deleteCartItem(item.id));
+    } else {
+      const itemCart = {
+        productId: item.product.id,
+        quantity: item.quantity - 1,
+        shoppingSessionId: user.shopping_session.id,
+      };
 
-    dispatch(updateCart(itemCart));
+      dispatch(updateCart(itemCart));
+    }
   };
 
   const sorting = (id, id2) => {
@@ -94,6 +99,8 @@ const Cart = () => {
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
+
+  console.log(cart);
 
   return (
     <div>
@@ -200,7 +207,10 @@ const Cart = () => {
                 <div style={{ fontWeight: "600" }}>Order subtotal:</div>
                 <div style={{ flexGrow: 1 }} />
                 <div style={{ fontWeight: "600" }}>
-                  ${Math.round(total * 100) / 100}
+                  $
+                  {Math.round(total * 100) % 10 === 0 && total !== 0
+                    ? Math.round(total * 100) / 100 + "0"
+                    : Math.round(total * 100) / 100}
                 </div>
               </div>
             </div>

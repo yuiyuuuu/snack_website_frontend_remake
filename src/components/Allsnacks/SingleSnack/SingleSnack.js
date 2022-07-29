@@ -77,7 +77,6 @@ const SingleSnack = (props) => {
   const atc = () => {
     try {
       if (quantityInCart > 0) {
-        console.log("COUNTTTTER", counter);
         const cartItem = {
           productId: snackId,
           quantity: counter + quantityInCart,
@@ -94,15 +93,11 @@ const SingleSnack = (props) => {
       }
       setShowSuccess(null);
       dispatch(fetchAUser(userId.id));
-      console.log("SUCCCCCESSSS");
     } catch (error) {
       console.error(error);
     }
     history.push("/allsnacks");
   };
-
-  // console.log(shopping_session ? shopping_session.cart_items : null);
-  console.log(counter);
 
   useEffect(() => {
     const fetchUser = () => {
@@ -119,7 +114,7 @@ const SingleSnack = (props) => {
     dispatch(fetchSingleSnack(snackId));
     dispatch(fetchProducts());
     setLoading(false);
-  }, []);
+  }, [snackId]);
 
   useEffect(() => {
     randomIntFromInterval(0, products.length - 10);
