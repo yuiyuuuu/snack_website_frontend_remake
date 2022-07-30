@@ -13,6 +13,13 @@ const Step1 = ({
   setStep,
   cart,
   total,
+  email,
+  firstName,
+  lastName,
+  address,
+  city,
+  state,
+  zip,
 }) => {
   return (
     <div
@@ -138,6 +145,16 @@ const Step1 = ({
                 cursor: "pointer",
                 borderRadius: "7px",
                 marginTop: "15px",
+                pointerEvents:
+                  email !== "" &&
+                  firstName !== "" &&
+                  lastName !== "" &&
+                  address !== "" &&
+                  city !== "" &&
+                  state !== "State" &&
+                  zip !== ""
+                    ? "auto"
+                    : "none",
               }}
               onClick={() => setStep(2)}
             >
@@ -153,7 +170,7 @@ const Step1 = ({
                 src={item.product.photoURL}
                 style={{ width: "75px", height: "75px" }}
               />
-              <div style={{ width: "55%" }}>
+              <div style={{ width: "55%", marginRight: "5px" }}>
                 <div>{item.product.name}</div>
                 <div
                   style={{

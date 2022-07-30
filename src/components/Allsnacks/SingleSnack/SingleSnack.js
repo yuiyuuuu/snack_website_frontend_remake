@@ -28,6 +28,7 @@ const SingleSnack = (props) => {
   const userId = useSelector((state) => state.auth);
   const { shopping_session } = useSelector((state) => state.user);
 
+  console.log(user);
   const [counter, setCounter] = useState(1); //cart qty
   const [randomNum, setRandomNum] = useState(null);
 

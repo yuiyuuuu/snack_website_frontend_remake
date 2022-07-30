@@ -29,6 +29,8 @@ const Cart = () => {
   const [total, setTotal] = useState("");
   const cart = useSelector((state) => state.cartReducer);
 
+  const [loading, setLoading] = useState(true);
+
   const leftScroll = (reference) => {
     reference.current.scrollLeft += -200;
   };
@@ -90,10 +92,11 @@ const Cart = () => {
       if (userId) {
         dispatch(fetchAUser(userId.id));
       }
+      dispatch(fetchCart(userId.id));
     };
 
     fetchUser();
-    dispatch(fetchCart(userId.id));
+    setLoading(false);
   }, [userId]);
 
   useEffect(() => {
@@ -102,6 +105,7 @@ const Cart = () => {
 
   console.log(cart);
 
+  if (loading) return "loading";
   return (
     <div>
       <div className='topnav-cart'>
@@ -137,84 +141,92 @@ const Cart = () => {
 
       <div className='parent-cart'>
         <div className='container-cart'>
-          <div className='middle-container'>
-            <div
-              style={{ width: "80%", display: "flex", flexDirection: "column" }}
-            >
+          {cart.length !== 0 ? (
+            <div className='middle-container'>
               <div
                 style={{
-                  fontSize: "35px",
-                  fontWeight: "600",
-                  fontFamily: "arial black",
-                }}
-              >
-                My bag
-              </div>
-
-              {cart.map((item) => (
-                <div className='cart-item-container' key={item.product.id}>
-                  <div>
-                    <img
-                      src={item.product.photoURL}
-                      alt='cartitem'
-                      className='cart-item-image'
-                    />
-                  </div>
-                  <div style={{ display: "flex", flexDirection: "column" }}>
-                    <div style={{ fontSize: "11px", fontWeight: "600" }}>
-                      {item.product.name}
-                    </div>
-                    <div
-                      style={{
-                        fontSize: "10px",
-                        marginTop: "4px",
-                        color: "darkgray",
-                      }}
-                    >
-                      ${item.product.price}
-                    </div>
-                  </div>
-                  <div style={{ flexGrow: 1 }} />
-                  <div className='cart-addbut'>
-                    <div
-                      className='cart-plus'
-                      style={{ marginLeft: "3px", backgroundColor: "white" }}
-                      onClick={() => decrement(item)}
-                    >
-                      -
-                    </div>
-
-                    <div>{item.quantity}</div>
-
-                    <div
-                      className='cart-plus'
-                      style={{ marginRight: "3px", backgroundColor: "aqua" }}
-                      onClick={() => increment(item)}
-                    >
-                      +
-                    </div>
-                  </div>
-                </div>
-              ))}
-
-              <div
-                style={{
+                  width: "80%",
                   display: "flex",
-                  flexDirection: "row",
-                  marginTop: "13px",
+                  flexDirection: "column",
                 }}
               >
-                <div style={{ fontWeight: "600" }}>Order subtotal:</div>
-                <div style={{ flexGrow: 1 }} />
-                <div style={{ fontWeight: "600" }}>
-                  $
-                  {Math.round(total * 100) % 10 === 0 && total !== 0
-                    ? Math.round(total * 100) / 100 + "0"
-                    : Math.round(total * 100) / 100}
+                <div
+                  style={{
+                    fontSize: "35px",
+                    fontWeight: "600",
+                    fontFamily: "arial black",
+                  }}
+                >
+                  My bag
+                </div>
+
+                {cart.map((item) => (
+                  <div className='cart-item-container' key={item.product.id}>
+                    <div>
+                      <img
+                        src={item.product.photoURL}
+                        alt='cartitem'
+                        className='cart-item-image'
+                      />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <div style={{ fontSize: "11px", fontWeight: "600" }}>
+                        {item.product.name}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "10px",
+                          marginTop: "4px",
+                          color: "darkgray",
+                        }}
+                      >
+                        ${item.product.price}
+                      </div>
+                    </div>
+                    <div style={{ flexGrow: 1 }} />
+                    <div className='cart-addbut'>
+                      <div
+                        className='cart-plus'
+                        style={{ marginLeft: "3px", backgroundColor: "white" }}
+                        onClick={() => decrement(item)}
+                      >
+                        -
+                      </div>
+
+                      <div>{item.quantity}</div>
+
+                      <div
+                        className='cart-plus'
+                        style={{ marginRight: "3px", backgroundColor: "aqua" }}
+                        onClick={() => increment(item)}
+                      >
+                        +
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginTop: "13px",
+                  }}
+                >
+                  <div style={{ fontWeight: "600" }}>Order subtotal:</div>
+                  <div style={{ flexGrow: 1 }} />
+                  <div style={{ fontWeight: "600" }}>
+                    $
+                    {Math.round(total * 100) % 10 === 0 && total !== 0
+                      ? Math.round(total * 100) / 100 + "0"
+                      : Math.round(total * 100) / 100}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div>You have no items in your cart</div>
+          )}
           <div className='title-arrow-container-cart'>
             <div
               style={{
