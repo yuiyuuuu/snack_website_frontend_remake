@@ -17,6 +17,7 @@ export default function SnackView({
           className='snackview--image'
           style={{ height: "200px", width: "100%" }}
         />
+
         <div className='snackview--title'>
           {title.length > 23 ? title.slice(0, 23) + "..." : title}
         </div>

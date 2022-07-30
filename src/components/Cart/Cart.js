@@ -1,11 +1,14 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Cart.css";
 import SnackView from "../Allsnacks/SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
 import { Link } from "react-router-dom";
+import { fetchAUser } from "../../store";
+import { fetchCart } from "../../store/cart";
 
 import { useHistory } from "react-router-dom";
+import { updateCart, deleteCartItem } from "../../store/cart";
 
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
@@ -18,7 +21,15 @@ const Cart = () => {
   const dispatch = useDispatch();
   const wantRef = useRef(null);
   const newRef = useRef(null);
+
   const { products } = useSelector((state) => state);
+  const { shopping_session } = useSelector((state) => state.user);
+  const userId = useSelector((state) => state.auth);
+  const user = useSelector((state) => state.user);
+  const [total, setTotal] = useState("");
+  const cart = useSelector((state) => state.cartReducer);
+
+  const [loading, setLoading] = useState(true);
 
   const leftScroll = (reference) => {
     reference.current.scrollLeft += -200;
@@ -28,14 +39,77 @@ const Cart = () => {
     reference.current.scrollLeft += 200;
   };
 
+  const calculatePrice = () => {
+    if (!shopping_session) return;
+    let totalPrice = 0;
+    cart.forEach((item) => {
+      const totalOne = item.product.price * item.quantity;
+      totalPrice += totalOne;
+    });
+    setTotal(totalPrice);
+  };
+
+  const increment = (item) => {
+    console.log(item);
+    const itemCart = {
+      productId: item.product.id,
+      quantity: item.quantity + 1,
+      shoppingSessionId: user.shopping_session.id,
+    };
+
+    dispatch(updateCart(itemCart));
+  };
+
+  const decrement = (item) => {
+    if (item.quantity === 1) {
+      dispatch(deleteCartItem(item.id));
+    } else {
+      const itemCart = {
+        productId: item.product.id,
+        quantity: item.quantity - 1,
+        shoppingSessionId: user.shopping_session.id,
+      };
+
+      dispatch(updateCart(itemCart));
+    }
+  };
+
+  const sorting = (id, id2) => {
+    if (id > id2) {
+      return 1;
+    } else {
+      return -1;
+    }
+  };
+
+  useEffect(() => {
+    calculatePrice();
+  }, [cart]);
+
+  useEffect(() => {
+    const fetchUser = () => {
+      if (!userId) return "loading";
+      if (userId) {
+        dispatch(fetchAUser(userId.id));
+      }
+      dispatch(fetchCart(userId.id));
+    };
+
+    fetchUser();
+    setLoading(false);
+  }, [userId]);
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
+  console.log(cart);
+
+  if (loading) return "loading";
   return (
     <div>
-      <div className="topnav-cart">
-        <div className="back-but-cart" onClick={() => history.goBack()}>
+      <div className='topnav-cart'>
+        <div className='back-but-cart' onClick={() => history.goBack()}>
           &#8592; Back
         </div>
         <div
@@ -45,7 +119,7 @@ const Cart = () => {
             marginRight: "50%",
           }}
         >
-          <a href="/allsnacks">
+          <a href='/allsnacks'>
             <img
               src={
                 "https://cdn.discordapp.com/attachments/779278654714675232/1001644818612637726/cover.png"
@@ -65,164 +139,95 @@ const Cart = () => {
         />
       </div>
 
-      <div className="parent-cart">
-        <div className="container-cart">
-          <div className="middle-container">
-            <div
-              style={{ width: "80%", display: "flex", flexDirection: "column" }}
-            >
+      <div className='parent-cart'>
+        <div className='container-cart'>
+          {cart.length !== 0 ? (
+            <div className='middle-container'>
               <div
                 style={{
-                  fontSize: "35px",
-                  fontWeight: "600",
-                  fontFamily: "arial black",
-                }}
-              >
-                My bag
-              </div>
-              <div className="cart-item-container">
-                <div>
-                  <img
-                    src="https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg"
-                    alt="cartitem"
-                    className="cart-item-image"
-                  />
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ fontSize: "11px", fontWeight: "600" }}>
-                    Lays BBQ CHIPS NAME
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "10px",
-                      marginTop: "4px",
-                      color: "darkgray",
-                    }}
-                  >
-                    $11.99
-                  </div>
-                </div>
-                <div style={{ flexGrow: 1 }} />
-                <div className="cart-addbut">
-                  <div
-                    className="cart-plus"
-                    style={{ marginLeft: "3px", backgroundColor: "white" }}
-                  >
-                    -
-                  </div>
-
-                  <div>12</div>
-
-                  <div
-                    className="cart-plus"
-                    style={{ marginRight: "3px", backgroundColor: "aqua" }}
-                  >
-                    +
-                  </div>
-                </div>
-              </div>
-
-              <div className="cart-item-container">
-                <div>
-                  <img
-                    src="https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg"
-                    alt="cartitem"
-                    className="cart-item-image"
-                  />
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ fontSize: "11px", fontWeight: "600" }}>
-                    Lays BBQ CHIPS NAME
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "10px",
-                      marginTop: "4px",
-                      color: "darkgray",
-                    }}
-                  >
-                    $11.99
-                  </div>
-                </div>
-                <div style={{ flexGrow: 1 }} />
-                <div className="cart-addbut">
-                  <div
-                    className="cart-plus"
-                    style={{ marginLeft: "3px", backgroundColor: "white" }}
-                  >
-                    -
-                  </div>
-
-                  <div>12</div>
-
-                  <div
-                    className="cart-plus"
-                    style={{ marginRight: "3px", backgroundColor: "aqua" }}
-                  >
-                    +
-                  </div>
-                </div>
-              </div>
-
-              <div className="cart-item-container">
-                <div>
-                  <img
-                    src="https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg"
-                    alt="cartitem"
-                    className="cart-item-image"
-                  />
-                </div>
-                <div style={{ display: "flex", flexDirection: "column" }}>
-                  <div style={{ fontSize: "11px", fontWeight: "600" }}>
-                    Lays BBQ CHIPS NAME
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "10px",
-                      marginTop: "4px",
-                      color: "darkgray",
-                    }}
-                  >
-                    $11.99
-                  </div>
-                </div>
-                <div style={{ flexGrow: 1 }} />
-                <div className="cart-addbut">
-                  <div
-                    className="cart-plus"
-                    style={{ marginLeft: "3px", backgroundColor: "white" }}
-                  >
-                    -
-                  </div>
-
-                  <div>12</div>
-
-                  <div
-                    className="cart-plus"
-                    style={{
-                      marginRight: "3px",
-                      backgroundColor: "aqua",
-                    }}
-                  >
-                    +
-                  </div>
-                </div>
-              </div>
-
-              <div
-                style={{
+                  width: "80%",
                   display: "flex",
-                  flexDirection: "row",
-                  marginTop: "13px",
+                  flexDirection: "column",
                 }}
               >
-                <div style={{ fontWeight: "600" }}>Order subtotal:</div>
-                <div style={{ flexGrow: 1 }} />
-                <div style={{ fontWeight: "600" }}>$11.99</div>
+                <div
+                  style={{
+                    fontSize: "35px",
+                    fontWeight: "600",
+                    fontFamily: "arial black",
+                  }}
+                >
+                  My bag
+                </div>
+
+                {cart.map((item) => (
+                  <div className='cart-item-container' key={item.product.id}>
+                    <div>
+                      <img
+                        src={item.product.photoURL}
+                        alt='cartitem'
+                        className='cart-item-image'
+                      />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <div style={{ fontSize: "11px", fontWeight: "600" }}>
+                        {item.product.name}
+                      </div>
+                      <div
+                        style={{
+                          fontSize: "10px",
+                          marginTop: "4px",
+                          color: "darkgray",
+                        }}
+                      >
+                        ${item.product.price}
+                      </div>
+                    </div>
+                    <div style={{ flexGrow: 1 }} />
+                    <div className='cart-addbut'>
+                      <div
+                        className='cart-plus'
+                        style={{ marginLeft: "3px", backgroundColor: "white" }}
+                        onClick={() => decrement(item)}
+                      >
+                        -
+                      </div>
+
+                      <div>{item.quantity}</div>
+
+                      <div
+                        className='cart-plus'
+                        style={{ marginRight: "3px", backgroundColor: "aqua" }}
+                        onClick={() => increment(item)}
+                      >
+                        +
+                      </div>
+                    </div>
+                  </div>
+                ))}
+
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    marginTop: "13px",
+                  }}
+                >
+                  <div style={{ fontWeight: "600" }}>Order subtotal:</div>
+                  <div style={{ flexGrow: 1 }} />
+                  <div style={{ fontWeight: "600" }}>
+                    $
+                    {Math.round(total * 100) % 10 === 0 && total !== 0
+                      ? Math.round(total * 100) / 100 + "0"
+                      : Math.round(total * 100) / 100}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="title-arrow-container-cart">
+          ) : (
+            <div>You have no items in your cart</div>
+          )}
+          <div className='title-arrow-container-cart'>
             <div
               style={{
                 width: "auto",
@@ -237,21 +242,21 @@ const Cart = () => {
 
             <div style={{ flexGrow: 1 }} />
             <div
-              className="arrow-circle"
+              className='arrow-circle'
               style={{ marginRight: "10px" }}
               onClick={() => leftScroll(wantRef)}
             >
-              <img src={left} alt="leftbutton" className="left-right-but" />
+              <img src={left} alt='leftbutton' className='left-right-but' />
             </div>
-            <div className="arrow-circle" onClick={() => rightScroll(wantRef)}>
+            <div className='arrow-circle' onClick={() => rightScroll(wantRef)}>
               <img
                 src={rightArrow}
-                alt="rightbutton"
-                className="left-right-but"
+                alt='rightbutton'
+                className='left-right-but'
               />
             </div>
           </div>
-          <div className="cart-want-container" ref={wantRef}>
+          <div className='cart-want-container' ref={wantRef}>
             {products.map((item) => (
               <SnackView
                 key={item.name}
@@ -264,7 +269,7 @@ const Cart = () => {
             ))}
           </div>
 
-          <div className="title-arrow-container-cart">
+          <div className='title-arrow-container-cart'>
             <div
               style={{
                 width: "auto",
@@ -279,22 +284,22 @@ const Cart = () => {
 
             <div style={{ flexGrow: 1 }} />
             <div
-              className="arrow-circle"
+              className='arrow-circle'
               style={{ marginRight: "10px" }}
               onClick={() => leftScroll(wantRef)}
             >
-              <img src={left} alt="leftbutton" className="left-right-but" />
+              <img src={left} alt='leftbutton' className='left-right-but' />
             </div>
-            <div className="arrow-circle" onClick={() => rightScroll(newRef)}>
+            <div className='arrow-circle' onClick={() => rightScroll(newRef)}>
               <img
                 src={rightArrow}
-                alt="rightbutton"
-                className="left-right-but"
+                alt='rightbutton'
+                className='left-right-but'
               />
             </div>
           </div>
 
-          <div className="cart-want-container" ref={newRef}>
+          <div className='cart-want-container' ref={newRef}>
             {products.map((item) => (
               <SnackView
                 key={item.name}
@@ -308,7 +313,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
-      <div className="bottom-div-cart">
+      <div className='bottom-div-cart'>
         <div
           style={{
             backgroundColor: "gainsboro",
@@ -317,8 +322,8 @@ const Cart = () => {
           }}
         />
 
-        <a href="/checkout" className="cart-nodecorations">
-          <div className="checkout-but-cart">Checkout</div>
+        <a href='/checkout' className='cart-nodecorations'>
+          <div className='checkout-but-cart'>Checkout</div>
         </a>
       </div>
     </div>

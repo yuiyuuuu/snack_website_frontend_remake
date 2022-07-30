@@ -1,11 +1,20 @@
 import React from "react";
 import "./login.css";
+import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
+  const history = useHistory();
+  const isLoggedin = useSelector((state) => !!state.auth.id);
+
+  if (isLoggedin) {
+    history.push("/myaccount");
+  }
+
   return (
     <div>
-      <div className="topnav-login">
-        <div className="backbut-login"></div>
+      <div className='topnav-login'>
+        <div className='backbut-login'></div>
         <div
           style={{
             position: "absolute",
@@ -13,7 +22,7 @@ const Login = () => {
             marginRight: "50%",
           }}
         >
-          <a href="/allsnacks">
+          <a href='/allsnacks'>
             <img
               src={
                 "https://cdn.discordapp.com/attachments/779278654714675232/1001644818612637726/cover.png"
@@ -32,7 +41,7 @@ const Login = () => {
           }}
         />
       </div>
-      <div className="parent-form-login">
+      <div className='parent-form-login'>
         <div
           style={{
             fontSize: "32px",
@@ -43,27 +52,27 @@ const Login = () => {
         >
           Welcome back!
         </div>
-        <div class="Input-login">
+        <div class='Input-login'>
           <input
-            type="text"
-            id="input"
-            class="Input-text"
-            placeholder="Email"
-            size="20"
+            type='text'
+            id='input'
+            class='Input-text'
+            placeholder='Email'
+            size='20'
             style={{ width: "100%" }}
           />
 
           <input
-            type="password"
-            id="input"
-            class="Input-text"
-            placeholder="Password"
-            size="20"
+            type='password'
+            id='input'
+            class='Input-text'
+            placeholder='Password'
+            size='20'
             style={{ width: "100%", marginTop: "15px" }}
           />
 
-          <div className="signup-but-container">
-            <div className="signup-but">Sign in</div>
+          <div className='signup-but-container'>
+            <div className='signup-but'>Sign in</div>
           </div>
 
           <div
@@ -85,7 +94,7 @@ const Login = () => {
                 cursor: "pointer",
               }}
             >
-              <a href="/signup">Sign up</a>
+              <a href='/signup'>Sign up</a>
             </div>
           </div>
         </div>

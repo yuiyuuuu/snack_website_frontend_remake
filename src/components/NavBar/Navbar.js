@@ -1,7 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Navbar.css";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchCart } from "../../store/cart";
+import { fetchAUser } from "../../store";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cartReducer);
+  const userId = useSelector((state) => state.auth);
+
+  useEffect(() => {
+    const fetchUser = () => {
+      if (!userId) return "loading";
+      if (userId) {
+        dispatch(fetchAUser(userId.id));
+      }
+    };
+
+    fetchUser();
+    dispatch(fetchCart(userId.id));
+  }, [userId]);
   return (
     <div className='Navbar'>
       <div
@@ -83,7 +101,7 @@ const Navbar = () => {
             </div>
             <a href='/cart'>
               <div className='Nav--Cart' style={{ marginRight: "30px" }}>
-                Cart
+                My Bag ({cart.length})
               </div>
             </a>
             <div className='Nav--Login'>
