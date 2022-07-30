@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import "./Navbar.css";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchCart } from "../../store/cart";
 import { fetchAUser } from "../../store";
