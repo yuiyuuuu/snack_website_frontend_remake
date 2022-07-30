@@ -116,7 +116,7 @@ const Allsnacks = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "1100px",
+            width: "83%",
           }}
         >
           <div className="snack-title">
