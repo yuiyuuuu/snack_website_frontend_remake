@@ -89,24 +89,24 @@ const Allsnacks = () => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Navbar />
 
-      <div className="parent">
-        <div className="filters">
+      <div className='parent'>
+        <div className='filters'>
           <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
           <div>
-            <div className="checkbox-div">
-              <input type="checkbox" className="checkbox-input" />
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
               Sweet
             </div>
-            <div className="checkbox-div">
-              <input type="checkbox" className="checkbox-input" />
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
               Salty
             </div>
-            <div className="checkbox-div">
-              <input type="checkbox" className="checkbox-input" />
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
               Healthy
             </div>
-            <div className="checkbox-div">
-              <input type="checkbox" className="checkbox-input" />
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
               Frozen Snacks
             </div>
           </div>
@@ -116,10 +116,10 @@ const Allsnacks = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "1100px",
+            width: "83%",
           }}
         >
-          <div className="snack-title">
+          <div className='snack-title'>
             <div
               style={{
                 display: "flex",
@@ -130,33 +130,33 @@ const Allsnacks = () => {
               Sweet Snacks
               <div style={{ flexGrow: 1 }} />
               <div
-                className="leftcircle"
+                className='leftcircle'
                 onClick={() => {
                   leftScroll(sweetSnackRef);
                 }}
               >
-                <img src={left} alt="leftarrow" className="leftandright" />
+                <img src={left} alt='leftarrow' className='leftandright' />
               </div>
               <div
-                className="leftcircle"
+                className='leftcircle'
                 style={{ marginLeft: "10px" }}
                 onClick={() => rightScroll(sweetSnackRef)}
               >
                 <img
                   src={rightArrow}
-                  alt="rightarrow"
-                  className="leftandright"
+                  alt='rightarrow'
+                  className='leftandright'
                 />
               </div>
             </div>
           </div>
           <div>
-            <div className="container snap-inline" ref={sweetSnackRef}>
+            <div className='container snap-inline' ref={sweetSnackRef}>
               {SweetSnacks}
             </div>
           </div>
 
-          <div className="snack-title">
+          <div className='snack-title'>
             <div
               style={{
                 display: "flex",
@@ -167,31 +167,31 @@ const Allsnacks = () => {
               Healthy Snacks
               <div style={{ flexGrow: 1 }} />
               <div
-                className="leftcircle"
+                className='leftcircle'
                 onClick={() => leftScroll(healthySnackRef)}
               >
-                <img src={left} alt="leftarrow" className="leftandright" />
+                <img src={left} alt='leftarrow' className='leftandright' />
               </div>
               <div
-                className="leftcircle"
+                className='leftcircle'
                 style={{ marginLeft: "10px" }}
                 onClick={() => rightScroll(healthySnackRef)}
               >
                 <img
                   src={rightArrow}
-                  alt="rightarrow"
-                  className="leftandright"
+                  alt='rightarrow'
+                  className='leftandright'
                 />
               </div>
             </div>
           </div>
           <div>
-            <div className="container snap-inline" ref={healthySnackRef}>
+            <div className='container snap-inline' ref={healthySnackRef}>
               {HealthySnacks}
             </div>
           </div>
 
-          <div className="snack-title">
+          <div className='snack-title'>
             <div
               style={{
                 display: "flex",
@@ -202,31 +202,31 @@ const Allsnacks = () => {
               Salty Snacks
               <div style={{ flexGrow: 1 }} />
               <div
-                className="leftcircle"
+                className='leftcircle'
                 onClick={() => leftScroll(saltySnacksRef)}
               >
-                <img src={left} alt="leftarrow" className="leftandright" />
+                <img src={left} alt='leftarrow' className='leftandright' />
               </div>
               <div
-                className="leftcircle"
+                className='leftcircle'
                 style={{ marginLeft: "10px" }}
                 onClick={() => rightScroll(saltySnacksRef)}
               >
                 <img
                   src={rightArrow}
-                  alt="rightarrow"
-                  className="leftandright"
+                  alt='rightarrow'
+                  className='leftandright'
                 />
               </div>
             </div>
           </div>
           <div>
-            <div className="container snap-inline" ref={saltySnacksRef}>
+            <div className='container snap-inline' ref={saltySnacksRef}>
               {SnackCards}
             </div>
           </div>
 
-          <div className="snack-title">
+          <div className='snack-title'>
             <div
               style={{
                 display: "flex",
@@ -237,26 +237,26 @@ const Allsnacks = () => {
               Frozen Snacks
               <div style={{ flexGrow: 1 }} />
               <div
-                className="leftcircle"
+                className='leftcircle'
                 onClick={() => leftScroll(frozenSnacksRef)}
               >
-                <img src={left} alt="leftarrow" className="leftandright" />
+                <img src={left} alt='leftarrow' className='leftandright' />
               </div>
               <div
-                className="leftcircle"
+                className='leftcircle'
                 style={{ marginLeft: "10px" }}
                 onClick={() => rightScroll(frozenSnacksRef)}
               >
                 <img
                   src={rightArrow}
-                  alt="rightarrow"
-                  className="leftandright"
+                  alt='rightarrow'
+                  className='leftandright'
                 />
               </div>
             </div>
           </div>
           <div>
-            <div className="container snap-inline" ref={frozenSnacksRef}>
+            <div className='container snap-inline' ref={frozenSnacksRef}>
               {FrozenSnacks}
             </div>
           </div>

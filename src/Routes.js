@@ -24,16 +24,27 @@ class Routes extends Component {
       <div>
         {!isLoggedIn ? (
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/allsnacks" component={Allsnacks} />
-            <Route exact path="/myaccount" component={MyAccount} />
-            <Route exact path="/checkout" component={Checkout} />
-            <Route exact path="/allsnacks/:snackId" component={SingleSnack} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/login" component={Login} />
-            <Route exact path="/signup" component={Signup} />
+            <Route exact path='/' component={Home} />
+            <Route exact path='/allsnacks' component={Allsnacks} />
+            <Route exact path='/myaccount' component={MyAccount} />
+            <Route exact path='/checkout' component={Checkout} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
+            <Route exact path='/cart' component={Cart} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
           </Switch>
-        ) : null}
+        ) : (
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/allsnacks' component={Allsnacks} />
+            <Route exact path='/myaccount' component={MyAccount} />
+            <Route exact path='/checkout' component={Checkout} />
+            <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
+            <Route exact path='/cart' component={Cart} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/signup' component={Signup} />
+          </Switch>
+        )}
       </div>
     );
   }
@@ -46,7 +57,7 @@ const mapState = (state) => {
   return {
     // Being 'logged in' for our purposes will be defined has having a state.auth that has a truthy id.
     // Otherwise, state.auth will be an empty object, and state.auth.id will be falsey
-    isLoggedIn: !!state.auth.id,
+    isLoggedIn: !!state.auth.id, //auth is in reducer in index.js of store
   };
 };
 
