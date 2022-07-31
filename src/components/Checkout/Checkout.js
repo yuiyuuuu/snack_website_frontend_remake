@@ -205,6 +205,13 @@ const Checkout = () => {
                 cart={cart}
                 total={total}
                 userid={userid}
+                email={email}
+                firstName={firstName}
+                lastName={lastName}
+                address={address}
+                city={city}
+                state={state}
+                zip={zip}
               />
             </Elements>
           ) : (

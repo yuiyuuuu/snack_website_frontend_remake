@@ -1,18 +1,26 @@
-const router = require('express').Router();
+const router = require("express").Router();
 const {
   models: { OrderDetails, OrderItem, Product, ShoppingSession },
-} = require('../db');
+} = require("../db");
 
 module.exports = router;
 
 // ** CHECKOUT PAGE ** //
 // create new orderDetail and add all orderItems (need userId)
 // POST /api/orders/:id
-router.post('/:id', async (req, res, next) => {
+router.post("/:id", async (req, res, next) => {
+  console.log("bodyyyyyyyy", req.body);
   try {
     const newOrder = await OrderDetails.create({
       userId: req.params.id,
       total: req.body.total,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      address: req.body.address,
+      city: req.body.city,
+      state: req.body.state,
+      zip: req.body.zip,
     });
     res.json(newOrder);
   } catch (err) {
@@ -22,7 +30,7 @@ router.post('/:id', async (req, res, next) => {
 
 // create a new orderItem for cartItem (need productId)
 // POST /api/orders/:id/orderItem
-router.post('/:id/orderItem', async (req, res, next) => {
+router.post("/:id/orderItem", async (req, res, next) => {
   try {
     const newOrderDetail = await OrderDetails.findAll({
       where: {
@@ -45,7 +53,7 @@ router.post('/:id/orderItem', async (req, res, next) => {
 // create shoppingsession (need User ID)
 // POST /api/orders/:id/shoppingsession
 
-router.post('/:id/shoppingsession', async (req, res, next) => {
+router.post("/:id/shoppingsession", async (req, res, next) => {
   try {
     const ss = await ShoppingSession.create({
       userId: req.params.id,
@@ -59,7 +67,7 @@ router.post('/:id/shoppingsession', async (req, res, next) => {
 // delete shoppingsession (need shoppingsession ID)
 // DELETE /api/orders/:id/shoppingsession
 
-router.delete('/:id/shoppingsession', async (req, res, next) => {
+router.delete("/:id/shoppingsession", async (req, res, next) => {
   try {
     const ss = await ShoppingSession.findByPk(req.params.id);
     await ss.destroy();
@@ -74,7 +82,7 @@ router.delete('/:id/shoppingsession', async (req, res, next) => {
 // ** ORDER HISTORY PAGE ** //
 // get all orders based on userId
 // GET /api/orders/:id
-router.get('/:id', async (req, res, next) => {
+router.get("/:id", async (req, res, next) => {
   try {
     const orders = await OrderDetails.findAll({
       where: {
@@ -85,7 +93,7 @@ router.get('/:id', async (req, res, next) => {
           model: OrderItem,
           include: {
             model: Product,
-            attributes: ['name', 'price', 'photoURL'],
+            attributes: ["name", "price", "photoURL"],
           },
         },
       ],
