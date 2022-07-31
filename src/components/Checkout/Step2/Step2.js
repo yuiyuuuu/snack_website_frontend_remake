@@ -16,7 +16,19 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 
-const Step2 = ({ cart, setStep, total, userid }) => {
+const Step2 = ({
+  cart,
+  setStep,
+  total,
+  userid,
+  email,
+  firstName,
+  lastName,
+  address,
+  city,
+  state,
+  zip,
+}) => {
   const elements = useElements();
   const stripe = useStripe();
   const dispatch = useDispatch();
@@ -25,9 +37,20 @@ const Step2 = ({ cart, setStep, total, userid }) => {
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
+    console.log("FIRSTTT", firstName);
     // create new order detail
-    const detailTotal = { userId: userid.id, total: Number(total) };
-    await dispatch(_createOrderDetail(detailTotal));
+    const detailTotal = {
+      userId: userid.id,
+      total: Number(total),
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      address: address,
+      city: city,
+      state: state,
+      zip: zip,
+    };
+    dispatch(_createOrderDetail(detailTotal));
 
     // create new order items
     await cart.map((item) => {
@@ -67,7 +90,7 @@ const Step2 = ({ cart, setStep, total, userid }) => {
       type: "card",
       card: elements.getElement(CardElement),
     });
-    setLoading(true);
+    // setLoading(true);
     if (!error) {
       try {
         const { id } = paymentMethod;
@@ -82,6 +105,7 @@ const Step2 = ({ cart, setStep, total, userid }) => {
           .then((res) => res.json())
           .then((data) => {
             console.log(data);
+
             setLoading(false);
             setStep(3);
           });
