@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const GET_USER = 'GET_USER';
+const GET_USER = "GET_USER";
 
 export const fetchUser = (user) => ({
   type: GET_USER,

@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import "./Allsnacks.css";
-import productData from "../../../script/productData";
 import SnackView from "./SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
+import Navbar from "../Navbar/Navbar";
 const left =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985161.png?token=exp=1658385917~hmac=cbcc92465affce3974f896dee4fd8840";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
 const rightArrow =
-  "https://cdn-icons.flaticon.com/png/128/2985/premium/2985179.png?token=exp=1658449648~hmac=9c05aeaa10fae14449737f88789c5727";
+  "https://cdn.discordapp.com/attachments/515744333379665927/1002054992049479730/unknown.png";
 //for filtering, im thinking of a checkbox where you can select as many filters as you want
 //if user selects a filter, it gets pushed to an array
 //only render sections that is included in that array
@@ -16,6 +16,7 @@ const rightArrow =
 
 const Allsnacks = () => {
   const dispatch = useDispatch();
+
   const { products } = useSelector((state) => state);
   const salty = products.filter((item) => item.productCategoryId === 1);
   const sweet = products.filter((item) => item.productCategoryId === 3);
@@ -23,10 +24,10 @@ const Allsnacks = () => {
   const frozen = products.filter((item) => item.productCategoryId === 2);
   console.log(frozen);
 
-  const right = () => {
-    counter = counter + 5;
-    counter2 = counter2 + 5;
-  };
+  const sweetSnackRef = useRef(null);
+  const healthySnackRef = useRef(null);
+  const saltySnacksRef = useRef(null);
+  const frozenSnacksRef = useRef(null);
 
   const SnackCards = salty.map((item) => (
     <SnackView
@@ -72,75 +73,192 @@ const Allsnacks = () => {
     />
   ));
 
+  const leftScroll = (reference) => {
+    reference.current.scrollLeft += -400;
+  };
+
+  const rightScroll = (reference) => {
+    reference.current.scrollLeft += 400;
+  };
+
   useEffect(() => {
     dispatch(fetchProducts());
   }, []);
 
   return (
-    <div className='parent'>
-      <div className='filters'>
-        <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
-        <div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Sweet
-          </div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Salty
-          </div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Healthy
-          </div>
-          <div className='checkbox-div'>
-            <input type='checkbox' className='checkbox-input' />
-            Frozen Snacks
-          </div>
-        </div>
-      </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <div className='snack-title'>Sweet Snacks</div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div className='next-div'>
-            <img src={left} className='leftandright' alt='lefticon' />
-          </div>
-          <div className='container'>{SweetSnacks}</div>
-          <div className='next-div' onClick={() => right()}>
-            <img src={rightArrow} alt='righticon' className='leftandright' />
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <Navbar />
+
+      <div className='parent'>
+        <div className='filters'>
+          <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
+          <div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Sweet
+            </div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Salty
+            </div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Healthy
+            </div>
+            <div className='checkbox-div'>
+              <input type='checkbox' className='checkbox-input' />
+              Frozen Snacks
+            </div>
           </div>
         </div>
 
-        <div className='snack-title'>Healthy Snacks</div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div className='next-div'>
-            <img src={left} className='leftandright' alt='lefticon' />
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "83%",
+          }}
+        >
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Sweet Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => {
+                  leftScroll(sweetSnackRef);
+                }}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(sweetSnackRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
           </div>
-          <div className='container'>{HealthySnacks}</div>
-          <div className='next-div' onClick={() => right()}>
-            <img src={rightArrow} alt='righticon' className='leftandright' />
+          <div>
+            <div className='container snap-inline' ref={sweetSnackRef}>
+              {SweetSnacks}
+            </div>
           </div>
-        </div>
 
-        <div className='snack-title'>Salty Snacks</div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div className='next-div'>
-            <img src={left} className='leftandright' alt='lefticon' />
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Healthy Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(healthySnackRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(healthySnackRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
           </div>
-          <div className='container'>{SnackCards}</div>
-          <div className='next-div' onClick={() => right()}>
-            <img src={rightArrow} alt='righticon' className='leftandright' />
+          <div>
+            <div className='container snap-inline' ref={healthySnackRef}>
+              {HealthySnacks}
+            </div>
           </div>
-        </div>
 
-        <div className='snack-title'>Frozen Snacks</div>
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          <div className='next-div'>
-            <img src={left} className='leftandright' alt='lefticon' />
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Salty Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(saltySnacksRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(saltySnacksRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
           </div>
-          <div className='container'>{FrozenSnacks}</div>
-          <div className='next-div' onClick={() => right()}>
-            <img src={rightArrow} alt='righticon' className='leftandright' />
+          <div>
+            <div className='container snap-inline' ref={saltySnacksRef}>
+              {SnackCards}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Frozen Snacks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(frozenSnacksRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(frozenSnacksRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={frozenSnacksRef}>
+              {FrozenSnacks}
+            </div>
           </div>
         </div>
       </div>
@@ -149,3 +267,23 @@ const Allsnacks = () => {
 };
 
 export default Allsnacks;
+
+/*
+
+
+
+
+
+
+
+        <div className='snack-title'>
+          Sweet Snacks
+          <div className='container'>
+            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
+            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
+            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
+            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
+            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
+          </div>
+        </div>
+        */

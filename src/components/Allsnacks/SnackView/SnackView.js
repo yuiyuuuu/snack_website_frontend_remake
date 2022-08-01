@@ -9,7 +9,6 @@ export default function SnackView({
   price,
   snack,
 }) {
-  console.log(`${photoUrl} ${title} ${description} ${price}`);
   return (
     <Link to={`/allsnacks/${snack.id}`} className='noDecoration'>
       <div className='snackView'>
@@ -18,6 +17,7 @@ export default function SnackView({
           className='snackview--image'
           style={{ height: "200px", width: "100%" }}
         />
+
         <div className='snackview--title'>
           {title.length > 23 ? title.slice(0, 23) + "..." : title}
         </div>
@@ -26,8 +26,21 @@ export default function SnackView({
             ? description.slice(0, 75) + "..."
             : description}
         </div>
-        <div760 className='snackview--price'>{price}</div760>
+        <div className='snackview--price'>{price}</div>
       </div>
     </Link>
   );
 }
+
+/* container css 
+
+height: 273px;
+  margin-bottom: 10px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; 
+  flex-flow: row wrap;
+  overflow: hidden; /*hides elements when it is overflow. 
+  justify-content: space-evenly;
+  */
