@@ -215,7 +215,18 @@ const Checkout = () => {
               />
             </Elements>
           ) : (
-            <Step3 />
+            <Step3
+              cart={cart}
+              total={total}
+              userid={userid}
+              firstName={firstName}
+              lastName={lastName}
+              address={address}
+              city={city}
+              state={state}
+              zip={zip}
+              email={email}
+            />
           )}
         </div>
       ) : (

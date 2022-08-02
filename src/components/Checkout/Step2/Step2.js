@@ -90,7 +90,7 @@ const Step2 = ({
       type: "card",
       card: elements.getElement(CardElement),
     });
-    // setLoading(true);
+    setLoading(true);
     if (!error) {
       try {
         const { id } = paymentMethod;
@@ -109,6 +109,7 @@ const Step2 = ({
             setLoading(false);
             setStep(3);
           });
+
         handleCheckout();
       } catch (error) {
         console.log("Error", error);
@@ -124,6 +125,7 @@ const Step2 = ({
     dispatch(fetchAUser(userid.id));
   }, [userid]);
 
+  //some classname /css is copied from step 1
   return (
     <>
       {loading ? (
