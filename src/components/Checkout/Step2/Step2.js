@@ -59,7 +59,7 @@ const Step2 = ({
         userId: userid.id,
         quantity: item.quantity,
       };
-      return dispatch(_createOrderItem(obj));
+      dispatch(_createOrderItem(obj));
     });
 
     // update product quantities
