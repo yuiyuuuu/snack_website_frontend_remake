@@ -1,0 +1,30 @@
+.parent-myaccount {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 70px;
+}
+
+.left-myaccount {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+}
+
+.right-myaccount {
+  /* background-color: red; */
+  width: 700px;
+}
+
+.myaccount-tab {
+  margin-bottom: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: freemono;
+}
+
+.orderhistory-parent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}

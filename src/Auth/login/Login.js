@@ -52,11 +52,11 @@ const Login = () => {
         >
           Welcome back!
         </div>
-        <div class='Input-login'>
+        <div className='Input-login'>
           <input
             type='text'
             id='input'
-            class='Input-text'
+            className='Input-text'
             placeholder='Email'
             size='20'
             style={{ width: "100%" }}
@@ -65,7 +65,7 @@ const Login = () => {
           <input
             type='password'
             id='input'
-            class='Input-text'
+            className='Input-text'
             placeholder='Password'
             size='20'
             style={{ width: "100%", marginTop: "15px" }}

@@ -28,7 +28,6 @@ const SingleSnack = (props) => {
   const userId = useSelector((state) => state.auth);
   const { shopping_session } = useSelector((state) => state.user);
 
-  console.log(user);
   const [counter, setCounter] = useState(1); //cart qty
   const [randomNum, setRandomNum] = useState(null);
 
@@ -121,6 +120,7 @@ const SingleSnack = (props) => {
     randomIntFromInterval(0, products.length - 10);
   }, [products]);
 
+  console.log("userrr", userId);
   if (loading) return "loading";
   return (
     <div className='single-snack-container'>
@@ -174,7 +174,7 @@ const SingleSnack = (props) => {
 
               <div
                 className='atcbut'
-                onClick={() => atc()}
+                onClick={() => (!!userId.id ? atc() : history.push("/login"))}
                 style={{ pointerEvents: loading ? "none" : "auto" }}
               >
                 Add to bag
