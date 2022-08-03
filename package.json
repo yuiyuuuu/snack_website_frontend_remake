@@ -47,15 +47,15 @@
   },
   "scripts": {
     "build": "webpack",
-    "start:dev": "npm run build:dev && npm run start-server",
-    "start:dev3": " npm run build:dev && nodemon server ",
+    "start:dev": "npm run build:dev & npm run start-server",
+    "start:dev3": " npm run build:dev & nodemon server ",
     "build:dev": "npm run build -- --watch --mode=development",
     "start": "react-scripts start",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "seed": "node script/seed.js",
     "start:dev2": "node server",
-    "start-server": "nodemon server JWT=shh -e html,js,scss --ignore public --ignore client",
+    "start-server": " JWT=shh nodemon server -e html,js,scss --ignore public --ignore client",
     "start:production": "npm run build & npm run start-server",
     "heroku-postbuild": "npm run start:dev"
   },
