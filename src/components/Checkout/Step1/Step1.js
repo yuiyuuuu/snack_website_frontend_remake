@@ -108,8 +108,8 @@ const Step1 = ({
             >
               <optgroup>
                 {states.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
+                  <option key={state} value={state.name}>
+                    {state.name}
                   </option>
                 ))}
               </optgroup>

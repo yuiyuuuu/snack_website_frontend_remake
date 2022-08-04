@@ -4,7 +4,6 @@ import "./myaccount.css";
 const OrderHistory = ({ orders }) => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [total, setTotal] = useState(0);
-  console.log("selectedddd", selectedOrder);
 
   const calculateTotal = () => {
     if (!selectedOrder) return;
