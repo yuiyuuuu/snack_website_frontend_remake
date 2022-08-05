@@ -52,6 +52,17 @@ router.delete("/:id", async (req, res, next) => {
   }
 });
 
+router.put("/:id/editemail", async (req, res, next) => {
+  try {
+    console.log(req.body, "bodyyyy");
+    const user = await User.findByPk(req.params.id);
+    await user.update({ email: req.body.email });
+    res.send(user);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // PUT /api/users/:id
 router.put("/:id", async (req, res, next) => {
   try {

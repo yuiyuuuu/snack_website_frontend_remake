@@ -53,6 +53,12 @@ const MyAccount = () => {
 
     dispatch(addAnAddress(addressObj));
     setShowAddForm(false);
+    setFirstName("");
+    setLastName("");
+    setAddress("");
+    setCity("");
+    setState("");
+    setZip("");
   };
 
   useEffect(() => {
@@ -79,7 +85,6 @@ const MyAccount = () => {
           display: showAddForm ? "" : "none",
         }}
         onClick={() => {
-          console.log(showAddForm);
           setShowAddForm(false);
         }}
       />
@@ -138,6 +143,7 @@ const MyAccount = () => {
                 className='Input-text-checkout-email'
                 placeholder='First Name'
                 size='20'
+                value={firstName}
                 style={{
                   width: "44%",
                   marginBottom: "25px",
@@ -152,6 +158,7 @@ const MyAccount = () => {
                 className='Input-text-checkout-email'
                 placeholder='Last Name'
                 size='20'
+                value={lastName}
                 style={{ width: "44%", marginBottom: "25px" }}
                 onChange={(e) => setLastName(e.target.value)}
               />
@@ -162,6 +169,7 @@ const MyAccount = () => {
               className='Input-text-checkout-email'
               placeholder='Address'
               size='20'
+              value={address}
               style={{ width: "91%", marginBottom: "25px" }}
               onChange={(e) => setAddress(e.target.value)}
             />
@@ -179,6 +187,7 @@ const MyAccount = () => {
                 className='Input-text-checkout-email'
                 placeholder='City'
                 size='20'
+                value={city}
                 style={{ width: "29%", marginRight: "2%" }}
                 onChange={(e) => setCity(e.target.value)}
               />
@@ -186,10 +195,11 @@ const MyAccount = () => {
                 className='select-states-myaccount'
                 style={{ width: "29%", marginRight: "2%", fontSize: "13px" }}
                 onChange={(e) => setState(e.target.value)}
+                value={state}
               >
                 <optgroup>
                   {states.map((state) => (
-                    <option key={state} value={state.name}>
+                    <option key={state.name} value={state.name}>
                       {state.name}
                     </option>
                   ))}
@@ -201,6 +211,7 @@ const MyAccount = () => {
                 className='Input-text-checkout-email'
                 placeholder='Zip Code'
                 size='20'
+                value={zip}
                 style={{ width: "29%" }}
                 onChange={(e) => setZip(e.target.value)}
               />
@@ -208,6 +219,20 @@ const MyAccount = () => {
             <button className='submit-button-add-address' type='submit'>
               Submit
             </button>
+            <div
+              style={{ marginTop: "15px", cursor: "pointer" }}
+              onClick={() => {
+                setShowAddForm(false);
+                setFirstName("");
+                setLastName("");
+                setAddress("");
+                setCity("");
+                setState("");
+                setZip("");
+              }}
+            >
+              Cancel
+            </div>
           </form>
         </div>
       </div>
@@ -226,7 +251,8 @@ const MyAccount = () => {
           >
             Order History
           </div>
-          <div
+
+          {/* <div
             className='myaccount-tab'
             style={{
               color: step === 1 ? "black" : "gainsboro",
@@ -235,7 +261,8 @@ const MyAccount = () => {
             onClick={() => setStep(1)}
           >
             Account Details
-          </div>
+          </div> */}
+
           <div
             className='myaccount-tab'
             style={{
@@ -244,7 +271,7 @@ const MyAccount = () => {
             }}
             onClick={() => setStep(2)}
           >
-            Shipping Addresses
+            Account Details
           </div>
           <div
             className='myaccount-tab'
@@ -261,7 +288,7 @@ const MyAccount = () => {
           {step === 0 ? (
             <OrderHistory orders={orders} />
           ) : step === 2 ? (
-            <Addresses setShowAddForm={setShowAddForm} />
+            <Addresses setShowAddForm={setShowAddForm} userId={userId} />
           ) : (
             <div>Hello</div>
           )}

@@ -1,17 +1,23 @@
-import axios from 'axios';
-import history from '../history';
+import axios from "axios";
+import history from "../history";
 
-const TOKEN = 'token';
+const TOKEN = "token";
 
 /**
  * ACTION TYPES
  */
-const SET_AUTH = 'SET_AUTH';
+const SET_AUTH = "SET_AUTH";
+const EDIT_EMAIL = "EDIT_EMAIL";
 
 /**
  * ACTION CREATORS
  */
 const setAuth = (auth) => ({ type: SET_AUTH, auth });
+
+const emailEdit = (email) => ({
+  type: EDIT_EMAIL,
+  email,
+});
 
 /**
  * THUNK CREATORS
@@ -19,7 +25,7 @@ const setAuth = (auth) => ({ type: SET_AUTH, auth });
 export const me = () => async (dispatch) => {
   const token = window.localStorage.getItem(TOKEN);
   if (token) {
-    const res = await axios.get('/auth/me', {
+    const res = await axios.get("/auth/me", {
       headers: {
         authorization: token,
       },
@@ -40,10 +46,24 @@ export const authenticate = (email, password, method) => async (dispatch) => {
 
 export const logout = () => {
   window.localStorage.removeItem(TOKEN);
-  history.push('/login');
+  history.push("/login");
   return {
     type: SET_AUTH,
     auth: {},
+  };
+};
+
+export const editEmail = (userid, email) => {
+  return async (dispatch) => {
+    try {
+      console.log(email, "emaillll");
+      const { data } = await axios.put(`/api/users/${userid}/editemail`, {
+        email: email,
+      });
+      dispatch(emailEdit(data.email));
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 
@@ -54,6 +74,8 @@ export default function (state = {}, action) {
   switch (action.type) {
     case SET_AUTH:
       return action.auth;
+    case EDIT_EMAIL:
+      return { ...state, email: action.email };
     default:
       return state;
   }
