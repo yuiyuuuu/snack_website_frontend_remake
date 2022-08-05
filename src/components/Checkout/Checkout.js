@@ -197,6 +197,7 @@ const Checkout = () => {
               city={city}
               state={state}
               zip={zip}
+              userId={userid}
             />
           ) : step === 2 ? (
             <Elements stripe={stripePromise}>
