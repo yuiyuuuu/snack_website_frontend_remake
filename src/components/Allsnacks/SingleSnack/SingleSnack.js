@@ -5,7 +5,7 @@ import { fetchSingleSnack } from "../../../store/singleSnack";
 import { fetchProducts } from "../../../store/Snacks";
 import SnackView from "../SnackView/SnackView";
 import "./SingleSnack.css";
-import Navbar from "../../Navbar/Navbar";
+import Navbar from "../../Navbar/Navbar.js";
 import { addToCart, updateCart, fetchCart } from "../../../store/cart";
 import { fetchAUser } from "../../../store";
 import { useHistory } from "react-router-dom";

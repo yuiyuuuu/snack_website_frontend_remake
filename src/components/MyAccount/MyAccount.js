@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { me } from "../../store";
 import "./myaccount.css";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Navbar/Navbar.js";
 import OrderHistory from "./OrderHistory";
 import Addresses from "./Addresses";
 import states from "../Checkout/states";
