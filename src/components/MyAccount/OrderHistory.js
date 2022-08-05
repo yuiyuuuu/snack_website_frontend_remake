@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./myaccount.css";
+import states from "../Checkout/states";
 
 const OrderHistory = ({ orders }) => {
   const [selectedOrder, setSelectedOrder] = useState(null);
@@ -102,7 +103,7 @@ const OrderHistory = ({ orders }) => {
           >
             {selectedOrder.city +
               " " +
-              selectedOrder.state.slice(0, 2).toUpperCase() +
+              states.find((s) => s.name === selectedOrder.state).abbreviation +
               " " +
               selectedOrder.zip}
           </div>

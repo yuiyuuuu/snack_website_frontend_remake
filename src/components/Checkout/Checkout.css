@@ -96,3 +96,28 @@
   animation-iteration-count: infinite;
   animation-timing-function: linear;
 }
+
+.animation-underline-step1 {
+  font-size: 20px;
+  font-family: freemono;
+  text-decoration: none;
+  position: relative;
+}
+
+.animation-underline-step1::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  top: 17px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.animation-underline-step1:hover::before {
+  transform: scaleX(1);
+}

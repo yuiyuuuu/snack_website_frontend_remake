@@ -74,7 +74,7 @@ const Addresses = ({ setShowAddForm }) => {
           className='add-address-button'
           onClick={() => setShowAddForm(true)}
         >
-          Add Address
+          <a className='animation-underline'>Add Address</a>
         </div>
       </div>
     </>

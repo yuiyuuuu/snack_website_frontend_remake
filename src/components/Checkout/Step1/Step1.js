@@ -135,7 +135,6 @@ const Step1 = ({
             <div
               style={{
                 width: "36%",
-                fontSize: "13px",
                 height: "48px",
                 backgroundColor: "black",
                 color: "white",
@@ -158,7 +157,12 @@ const Step1 = ({
               }}
               onClick={() => setStep(2)}
             >
-              Continue to payment
+              <a
+                className='animation-underline-step1'
+                style={{ fontSize: "13px" }}
+              >
+                Continue to payment
+              </a>
             </div>
           </div>
         </div>

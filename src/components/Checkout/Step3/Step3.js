@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../Checkout.css";
+import states from "../states";
 
 const Step3 = ({
   cart,
@@ -56,7 +57,7 @@ const Step3 = ({
               </div>
               <div style={{ marginTop: "4px" }}>{address}</div>
               <div style={{ marginTop: "4px" }}>
-                {city} {state.slice(0, 2).toUpperCase()} {zip}
+                {city} {states.find((s) => s.name === state).abbreviation} {zip}
               </div>
             </div>
           </div>

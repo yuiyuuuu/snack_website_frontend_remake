@@ -185,8 +185,14 @@ const Step2 = ({
                       marginTop: "15px",
                     }}
                     type='submit'
+                    disabled={!stripe || !elements}
                   >
-                    Pay
+                    <a
+                      className='animation-underline-step1'
+                      style={{ fontSize: "13px" }}
+                    >
+                      Pay
+                    </a>
                   </button>
                 </div>
               </form>
