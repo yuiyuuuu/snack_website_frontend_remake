@@ -101,7 +101,14 @@ const Step3 = ({
                   Quantity: {item.quantity}
                 </div>
               </div>
-              <div>${item.product.price * item.quantity}</div>
+              <div>
+                $
+                {Math.round(item.product.price * item.quantity * 100) % 10 ===
+                  0 && item.product.price * item.quantity !== 0
+                  ? Math.round(item.product.price * item.quantity * 100) / 100 +
+                    "0"
+                  : Math.round(item.product.price * item.quantity * 100) / 100}
+              </div>
             </div>
           ))}
           <div

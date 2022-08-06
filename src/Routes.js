@@ -10,6 +10,7 @@ import { me } from "./store";
 import Cart from "./components/Cart/Cart";
 import Login from "./Auth/login/Login";
 import Signup from "./Auth/signup/Signup";
+import AdminMain from "./AdminPages/AdminMain";
 
 class Routes extends Component {
   componentDidMount() {
@@ -43,6 +44,7 @@ class Routes extends Component {
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
+            <Route exact path='/admin' component={AdminMain} />
           </Switch>
         )}
       </div>

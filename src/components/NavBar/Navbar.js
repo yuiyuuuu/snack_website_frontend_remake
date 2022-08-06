@@ -109,7 +109,7 @@ const Navbar = () => {
                 href='/login'
                 style={{ textDecoration: "none", color: "black" }}
               >
-                Login/Signup Icon
+                Admin
               </a>
             </div>
           </div>

@@ -84,7 +84,7 @@ input[type="text"] {
 }
 
 .signup-but {
-  border-radius: 45px;
+  border-radius: 8px; /*fix later*/
   background-color: aqua;
   width: 70%;
   height: 40px;

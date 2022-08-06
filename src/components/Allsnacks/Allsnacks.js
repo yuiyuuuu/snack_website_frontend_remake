@@ -22,7 +22,6 @@ const Allsnacks = () => {
   const sweet = products.filter((item) => item.productCategoryId === 3);
   const healthy = products.filter((item) => item.productCategoryId === 4);
   const frozen = products.filter((item) => item.productCategoryId === 2);
-  console.log(frozen);
 
   const sweetSnackRef = useRef(null);
   const healthySnackRef = useRef(null);

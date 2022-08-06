@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { fetchSingleSnack } from "../../../store/singleSnack";
 import { fetchProducts } from "../../../store/Snacks";
 import SnackView from "../SnackView/SnackView";
@@ -21,6 +21,7 @@ const SingleSnack = (props) => {
   const similarRef = useRef(null);
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   const { products } = useSelector((state) => state); //al products
   const user = useSelector((state) => state.user);
@@ -75,6 +76,7 @@ const SingleSnack = (props) => {
   const quantityInCart = checkCartQuantity();
 
   const atc = () => {
+    if (!user.shopping_session?.id) return;
     try {
       if (quantityInCart > 0) {
         const cartItem = {
@@ -111,6 +113,21 @@ const SingleSnack = (props) => {
   }, [userId]); //might not need this. can get user directly from state.auth
 
   useEffect(() => {
+    if (location.state) {
+      setCounter(!location.state.quantity ? null : location.state.quantity);
+      if (!counter) {
+        return;
+      }
+      if (!user) return;
+      atc();
+    }
+  }, [
+    location.state,
+    counter,
+    !user.shopping_session?.id ? "" : user.shopping_session.id,
+  ]);
+
+  useEffect(() => {
     dispatch(fetchSingleSnack(snackId));
     dispatch(fetchProducts());
     setLoading(false);
@@ -120,7 +137,6 @@ const SingleSnack = (props) => {
     randomIntFromInterval(0, products.length - 10);
   }, [products]);
 
-  console.log("userrr", userId);
   if (loading) return "loading";
   return (
     <div className='single-snack-container'>
@@ -174,7 +190,14 @@ const SingleSnack = (props) => {
 
               <div
                 className='atcbut'
-                onClick={() => (!!userId.id ? atc() : history.push("/login"))}
+                onClick={() =>
+                  !!userId.id
+                    ? atc()
+                    : history.push({
+                        pathname: "/login",
+                        state: { from: snack, quantity: counter },
+                      })
+                }
                 style={{ pointerEvents: loading ? "none" : "auto" }}
               >
                 Add to bag

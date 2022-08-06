@@ -1,11 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
-import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { authenticate } from "../../store";
 
 const Login = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
+  const location = useLocation();
+
   const isLoggedin = useSelector((state) => !!state.auth.id);
+  const userid = useSelector((state) => state.auth);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(authenticate(email, password, "login"));
+
+    if (!userid.error) {
+      if (location.state) {
+        history.push({
+          pathname: `/allsnacks/${location.state.from.id}`,
+          state: { atc: true, quantity: location.state.quantity },
+        });
+      } else {
+        history.push("/");
+      }
+    }
+
+    setErrorMessage("Failed to authenticate");
+  };
 
   if (isLoggedin) {
     history.push("/myaccount");
@@ -52,7 +78,18 @@ const Login = () => {
         >
           Welcome back!
         </div>
-        <div className='Input-login'>
+
+        <div
+          style={{
+            marginTop: "10px",
+            color: "red",
+            display: !userid.error ? "none" : "",
+          }}
+        >
+          {errorMessage}
+        </div>
+
+        <form onSubmit={(e) => handleSubmit(e)} className='Input-login'>
           <input
             type='text'
             id='input'
@@ -60,6 +97,7 @@ const Login = () => {
             placeholder='Email'
             size='20'
             style={{ width: "100%" }}
+            onChange={(e) => setEmail(e.target.value)}
           />
 
           <input
@@ -69,33 +107,50 @@ const Login = () => {
             placeholder='Password'
             size='20'
             style={{ width: "100%", marginTop: "15px" }}
+            onChange={(e) => setPassword(e.target.value)}
           />
 
           <div className='signup-but-container'>
-            <div className='signup-but'>Sign in</div>
-          </div>
-
-          <div
-            style={{
-              marginTop: "15px",
-              width: "100%",
-              fontSize: "12px",
-              display: "flex",
-              flexDirection: "row",
-              justifyContent: "center",
-            }}
-          >
-            Don't have an account?{"  "}
-            <div
+            <button
+              className='signup-but'
+              type='submit'
+              disabled={email === "" || password === ""}
               style={{
-                textDecoration: "underline",
-                fontWeight: "600",
-                marginLeft: "4px",
-                cursor: "pointer",
+                pointerEvents: email === "" || password === "" ? "none" : "",
               }}
             >
-              <a href='/signup'>Sign up</a>
-            </div>
+              Sign in
+            </button>
+          </div>
+        </form>
+
+        <div
+          style={{
+            marginTop: "15px",
+            width: "100%",
+            fontSize: "12px",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "center",
+          }}
+        >
+          Don't have an account?{"  "}
+          <div
+            style={{
+              textDecoration: "underline",
+              fontWeight: "600",
+              marginLeft: "4px",
+              cursor: "pointer",
+            }}
+          >
+            <Link
+              to={{
+                pathname: "/signup",
+                state: { ...location.state },
+              }}
+            >
+              Sign up
+            </Link>
           </div>
         </div>
       </div>

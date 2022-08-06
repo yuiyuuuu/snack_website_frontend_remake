@@ -5,7 +5,7 @@ import { deleteAnAddress } from "../../store/useraddresses";
 import "./myaccount.css";
 import { editEmail as editingEmail } from "../../store/auth";
 
-const Addresses = ({ setShowAddForm }) => {
+const Addresses = ({ setShowAddForm, showAddForm }) => {
   const dispatch = useDispatch();
   const userId = useSelector((state) => state.auth);
   const addresses = useSelector((state) => state.addressReducer);
@@ -157,7 +157,12 @@ const Addresses = ({ setShowAddForm }) => {
           className='add-address-button'
           onClick={() => setShowAddForm(true)}
         >
-          <a className='animation-underline'>Add Address</a>
+          <a
+            className='animation-underline'
+            style={{ pointerEvents: showAddForm ? "none" : "" }}
+          >
+            Add Address
+          </a>
         </div>
       </div>
     </>

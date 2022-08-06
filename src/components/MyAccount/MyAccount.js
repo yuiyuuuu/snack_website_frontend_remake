@@ -216,7 +216,18 @@ const MyAccount = () => {
                 onChange={(e) => setZip(e.target.value)}
               />
             </div>
-            <button className='submit-button-add-address' type='submit'>
+            <button
+              className='submit-button-add-address'
+              type='submit'
+              disabled={
+                firstName === "" ||
+                lastName === "" ||
+                address === "" ||
+                city === "" ||
+                state === "" ||
+                zip === ""
+              }
+            >
               Submit
             </button>
             <div
@@ -288,7 +299,11 @@ const MyAccount = () => {
           {step === 0 ? (
             <OrderHistory orders={orders} />
           ) : step === 2 ? (
-            <Addresses setShowAddForm={setShowAddForm} userId={userId} />
+            <Addresses
+              setShowAddForm={setShowAddForm}
+              userId={userId}
+              showAddForm={showAddForm}
+            />
           ) : (
             <div>Hello</div>
           )}

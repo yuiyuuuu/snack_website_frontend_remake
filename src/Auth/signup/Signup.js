@@ -2,11 +2,12 @@ import React, { useState } from "react";
 import "./signup.css";
 import { useDispatch, useSelector } from "react-redux";
 import { authenticate } from "../../store";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation, Link } from "react-router-dom";
 
 const Signup = () => {
   const dispatch = useDispatch();
   const history = useHistory();
+  const location = useLocation();
 
   const [firstName, setFirstname] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,7 +19,14 @@ const Signup = () => {
 
     try {
       dispatch(authenticate(email, password, "signup"));
-      history.push("/");
+      if (location.state) {
+        history.push({
+          pathname: `/allsnacks/${location.state.from.id}`,
+          state: { atc: true, quantity: location.state.quantity },
+        });
+      } else {
+        history.push("/");
+      }
     } catch (error) {
       console.log("Failed to create an account");
     }
@@ -30,6 +38,7 @@ const Signup = () => {
     history.push("/myaccount");
   }
 
+  console.log(location.state);
   return (
     <div>
       <div className='topnav-signup'>
@@ -137,7 +146,14 @@ const Signup = () => {
                 cursor: "pointer",
               }}
             >
-              <a href='/login'>Sign in</a>
+              <Link
+                to={{
+                  pathname: "/login",
+                  state: { ...location.state },
+                }}
+              >
+                Sign in
+              </Link>
             </div>
           </div>
         </div>
