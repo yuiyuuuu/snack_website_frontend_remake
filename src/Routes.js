@@ -10,7 +10,7 @@ import { me } from "./store";
 import Cart from "./components/Cart/Cart";
 import Login from "./Auth/login/Login";
 import Signup from "./Auth/signup/Signup";
-import AdminMain from "./AdminPages/AdminMain";
+import AdminMain from "./components/AdminPages/AdminMain";
 
 class Routes extends Component {
   componentDidMount() {

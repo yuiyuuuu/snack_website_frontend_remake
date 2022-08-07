@@ -1,0 +1,26 @@
+.tab-admin {
+  margin-bottom: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: freemono;
+}
+
+.div-single-admin-order:hover {
+  opacity: 0.2;
+}
+
+.div-single-admin-order {
+  cursor: pointer;
+}
+
+.cancel-button-admin {
+  height: 50px;
+  width: 120px;
+  border-radius: 7px;
+  background: red;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}

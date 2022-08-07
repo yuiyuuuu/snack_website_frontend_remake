@@ -37,7 +37,6 @@ const Step2 = ({
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
-    console.log("FIRSTTT", firstName);
     // create new order detail
     const detailTotal = {
       userId: userid.id,
