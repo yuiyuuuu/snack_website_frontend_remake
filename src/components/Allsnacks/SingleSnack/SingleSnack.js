@@ -42,7 +42,9 @@ const SingleSnack = (props) => {
   const snack = useSelector((state) => state.singleSnack);
   const filteredProducts = products.filter(
     (item) =>
-      item.productCategoryId === snack.productCategoryId && item.id !== snack.id
+      item.productCategoryId === snack.productCategoryId &&
+      item.id !== snack.id &&
+      item.display
   );
 
   function randomIntFromInterval(min, max) {
@@ -51,7 +53,10 @@ const SingleSnack = (props) => {
   }
 
   const customerAlsoViewed = products
-    .filter((item) => item.productCategoryId !== snack.productCategoryId)
+    .filter(
+      (item) =>
+        item.productCategoryId !== snack.productCategoryId && item.display
+    )
     .slice(randomNum, randomNum + 10);
 
   const leftScroll = (reference) => {
@@ -138,6 +143,24 @@ const SingleSnack = (props) => {
   }, [products]);
 
   if (loading) return "loading";
+  if (!snack.display) {
+    return (
+      <div>
+        <Navbar />
+        <div
+          style={{
+            width: "100%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          This item is not available
+        </div>
+      </div>
+    );
+  }
   return (
     <div className='single-snack-container'>
       <Navbar />
@@ -169,12 +192,22 @@ const SingleSnack = (props) => {
               ${snack.price}
             </div>
             <div style={{ marginTop: "10px" }}>{snack.desc}</div>
+            <div style={{ marginTop: "15px" }}>
+              {snack.quantity !== 0 ? (
+                "In stock: " + snack.quantity
+              ) : (
+                <span style={{ color: "red" }}>Out of stock</span>
+              )}
+            </div>
             <div style={{ flexGrow: 1 }} />
 
             <div className='atc-quantity-div'>
               <div
                 className='add-sub'
-                style={{ pointerEvents: counter === 1 ? "none" : "auto" }}
+                style={{
+                  pointerEvents:
+                    counter === 1 || snack.quantity === 0 ? "none" : "auto",
+                }}
                 onClick={() => setCounter(counter - 1)}
               >
                 -
@@ -182,7 +215,13 @@ const SingleSnack = (props) => {
               <div>{counter}</div>
               <div
                 className='add-sub'
-                style={{ fontSize: "22px" }}
+                style={{
+                  fontSize: "22px",
+                  pointerEvents:
+                    counter === snack.quantity || snack.quantity === 0
+                      ? "none"
+                      : "",
+                }}
                 onClick={() => setCounter(counter + 1)}
               >
                 +
@@ -198,7 +237,11 @@ const SingleSnack = (props) => {
                         state: { from: snack, quantity: counter },
                       })
                 }
-                style={{ pointerEvents: loading ? "none" : "auto" }}
+                style={{
+                  pointerEvents:
+                    loading || snack.quantity === 0 ? "none" : "auto",
+                  backgroundColor: snack.quantity === 0 ? "gainsboro" : "red",
+                }}
               >
                 Add to bag
               </div>

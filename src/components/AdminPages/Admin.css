@@ -60,3 +60,52 @@
   justify-content: center;
   align-items: center;
 }
+table,
+tr,
+td {
+  border: 1px solid;
+  border-collapse: collapse;
+}
+
+.edit-but-adminproducts {
+  height: 50px;
+  width: 70px;
+  background-color: antiquewhite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.delete-but-adminproducts {
+  height: 50px;
+  width: 70px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.Input-text-admin-edit {
+  display: block;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--inputFontSize);
+  font-weight: inherit;
+  height: 40px;
+  padding-left: 14px;
+}
+
+.edit-but-adminproducts-form {
+  width: 100px;
+  height: 50px;
+  background-color: antiquewhite;
+  border-radius: 7px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 13px;
+}

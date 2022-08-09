@@ -18,10 +18,18 @@ const Allsnacks = () => {
   const dispatch = useDispatch();
 
   const { products } = useSelector((state) => state);
-  const salty = products.filter((item) => item.productCategoryId === 1);
-  const sweet = products.filter((item) => item.productCategoryId === 3);
-  const healthy = products.filter((item) => item.productCategoryId === 4);
-  const frozen = products.filter((item) => item.productCategoryId === 2);
+  const salty = products.filter(
+    (item) => item.productCategoryId === 1 && item.display
+  );
+  const sweet = products.filter(
+    (item) => item.productCategoryId === 3 && item.display
+  );
+  const healthy = products.filter(
+    (item) => item.productCategoryId === 4 && item.display
+  );
+  const frozen = products.filter(
+    (item) => item.productCategoryId === 2 && item.display
+  );
 
   const sweetSnackRef = useRef(null);
   const healthySnackRef = useRef(null);

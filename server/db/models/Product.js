@@ -1,7 +1,7 @@
-const Sequelize = require('sequelize');
-const db = require('../db');
+const Sequelize = require("sequelize");
+const db = require("../db");
 
-const Product = db.define('product', {
+const Product = db.define("product", {
   name: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -23,7 +23,11 @@ const Product = db.define('product', {
   photoURL: {
     type: Sequelize.TEXT,
     defaultValue:
-      'https://img.freepik.com/free-vector/cartoon-taco-drawing_125371-78.jpg?w=2000',
+      "https://img.freepik.com/free-vector/cartoon-taco-drawing_125371-78.jpg?w=2000",
+  },
+  display: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: true,
   },
 });
 
