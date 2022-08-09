@@ -5,7 +5,7 @@
 
 <em>Original project repo: https://github.com/2204-Federation/federation-store</em>
 
-<em>Rebuild Dev: Yingson Yu</em>
+<em>Rebuild Dev: Yingson Yu</em><br/>
 <em>LinkedIn: https://www.linkedin.com/in/yingson-yu-3b0a581b9/</em>
 
 ---
