@@ -46,7 +46,7 @@ router.get("/:id", async (req, res, next) => {
         },
       ],
     });
-    // console.log('IN THE API', singleUser);
+
     res.json(singleUser);
   } catch (err) {
     next(err);
@@ -63,13 +63,8 @@ router.delete("/:id", async (req, res, next) => {
         },
       },
     });
-    // console.log(
-    //   "dataaaaa",
-    //   deleteUser.order_details[0].dataValues.order_items[0]
-    // );
 
     const orderDetails = deleteUser.order_details;
-    console.log("dataaaa", orderDetails);
 
     orderDetails.forEach(async (item) => {
       item.dataValues.order_items.forEach(async (a) => {
@@ -89,7 +84,6 @@ router.delete("/:id", async (req, res, next) => {
 
 router.put("/:id/editemail", async (req, res, next) => {
   try {
-    console.log(req.body, "bodyyyy");
     const user = await User.findByPk(req.params.id);
     await user.update({ email: req.body.email });
     res.send(user);
