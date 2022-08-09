@@ -6,6 +6,8 @@ import "./Admin.css";
 import AdminOrders from "./AdminOrders";
 import AdminUsers from "./AdminUsers";
 import { fetchAllUsers } from "../../store";
+import AdminProducts from "./AdminProducts";
+import { fetchProducts } from "../../store/Snacks";
 
 const AdminMain = () => {
   const dispatch = useDispatch();
@@ -41,6 +43,9 @@ const AdminMain = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [error, setError] = useState(false);
 
+  //ADMINPRODUCTS
+  const { products } = useSelector((state) => state);
+
   useEffect(() => {
     dispatch(fetchAllAdminOrders());
   }, []);
@@ -49,7 +54,10 @@ const AdminMain = () => {
     dispatch(fetchAllUsers());
   }, []);
 
-  console.log(allUsers);
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, []);
+
   return (
     <div>
       <Navbar />
@@ -131,7 +139,9 @@ const AdminMain = () => {
               selectedOrder={selectedOrder}
               setSelectedOrder={setSelectedOrder}
             />
-          ) : null}
+          ) : (
+            <AdminProducts products={products} />
+          )}
         </div>
       </div>
     </div>
