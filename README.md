@@ -1,9 +1,12 @@
 # Bullseye
 
-<em>Hey there! Thanks for checking out Bullseye. Bullseye is an eCommerce site built to satisfy any snack craving</em>
+<em>Hey there! Thanks for checking out Bullseye.</em>
 <em>This project was originally built by a team of 4 including me. I decided to rebuild the frontend to strengthen my css skills and build a website that does not fully depend on a frontend library like MaterialUI. Please check out the video walkthrough below and I hope you enjoy the presentation!</em>
 
 <em>Original project repo: https://github.com/2204-Federation/federation-store</em>
+
+<em>Rebuild Dev: Yingson Yu</em>
+<em>LinkedIn: https://www.linkedin.com/in/yingson-yu-3b0a581b9/</em>
 
 ---
 
