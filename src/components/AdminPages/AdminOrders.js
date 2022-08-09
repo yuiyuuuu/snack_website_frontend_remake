@@ -7,7 +7,6 @@ const AdminOrders = ({ allOrders, selectedOrder, setSelectedOrder }) => {
   const dispatch = useDispatch();
 
   const [total, setTotal] = useState(0);
-  console.log(selectedOrder);
 
   const calculateTotal = () => {
     if (!selectedOrder) return;
@@ -28,6 +27,10 @@ const AdminOrders = ({ allOrders, selectedOrder, setSelectedOrder }) => {
   useEffect(() => {
     calculateTotal();
   }, [selectedOrder]);
+
+  if (allOrders.length === 0) {
+    return <div>No orders in database</div>;
+  }
 
   return (
     <div
@@ -55,7 +58,7 @@ const AdminOrders = ({ allOrders, selectedOrder, setSelectedOrder }) => {
               }}
               onClick={() => setSelectedOrder(null)}
             >
-              All Orders
+              Go Back
             </div>
           </div>
           <div
@@ -180,12 +183,13 @@ const AdminOrders = ({ allOrders, selectedOrder, setSelectedOrder }) => {
                 marginBottom: "20px",
                 justifyContent: "space-between",
               }}
+              key={item.id}
               className='div-single-admin-order'
               onClick={() => setSelectedOrder(item)}
             >
-              <div>Order #{item.id}</div>
-              <div>{item.email}</div>
-              <div>
+              <div style={{ width: "33%" }}>Order #{item.id}</div>
+              <div style={{ width: "33%" }}>{item.email}</div>
+              <div style={{ width: "33%" }}>
                 $
                 {Math.round(item.total * 100) % 10 === 0 && item.total !== 0
                   ? Math.round(item.total * 100) / 100 + "0"

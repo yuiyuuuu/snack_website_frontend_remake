@@ -4,6 +4,8 @@ import { fetchAllAdminOrders } from "../../store/adminOrders";
 import Navbar from "../Navbar/Navbar";
 import "./Admin.css";
 import AdminOrders from "./AdminOrders";
+import AdminUsers from "./AdminUsers";
+import { fetchAllUsers } from "../../store";
 
 const AdminMain = () => {
   const dispatch = useDispatch();
@@ -32,14 +34,22 @@ const AdminMain = () => {
 
   //ADMINORDERS
   const [selectedOrder, setSelectedOrder] = useState(null);
-
   const allOrders = useSelector((state) => state.adminOrders);
-  console.log(allOrders);
+
+  //ADMINUSERS
+  const allUsers = useSelector((state) => state.users);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [error, setError] = useState(false);
 
   useEffect(() => {
     dispatch(fetchAllAdminOrders());
   }, []);
 
+  useEffect(() => {
+    dispatch(fetchAllUsers());
+  }, []);
+
+  console.log(allUsers);
   return (
     <div>
       <Navbar />
@@ -64,7 +74,12 @@ const AdminMain = () => {
               color: tab === 1 ? "black" : "gainsboro",
               textDecoration: tab === 1 ? "underline" : "none",
             }}
-            onClick={() => (tab === 1 ? setSelectedOrder(null) : setTab(1))}
+            onClick={() => {
+              setSelectedOrder(null);
+              setTab(1);
+              setSelectedUser(null);
+              setError(false);
+            }}
           >
             Orders
           </div>
@@ -74,7 +89,12 @@ const AdminMain = () => {
               color: tab === 2 ? "black" : "gainsboro",
               textDecoration: tab === 2 ? "underline" : "none",
             }}
-            onClick={() => setTab(2)}
+            onClick={() => {
+              setSelectedUser(null);
+              setTab(2);
+              setSelectedOrder(null);
+              setError(false);
+            }}
           >
             Users
           </div>
@@ -89,16 +109,29 @@ const AdminMain = () => {
             Products
           </div>
         </div>
-        <div style={{ width: "95%" }}>
+        <div style={{ width: "95%", marginBottom: "50px" }}>
           {tab === 1 ? (
             <AdminOrders
               allOrders={allOrders}
               selectedOrder={selectedOrder}
               setSelectedOrder={setSelectedOrder}
             />
-          ) : (
-            "hi"
-          )}
+          ) : tab === 2 && !selectedOrder ? (
+            <AdminUsers
+              selectedUser={selectedUser}
+              setSelectedUser={setSelectedUser}
+              allUsers={allUsers}
+              setSelectedOrder={setSelectedOrder}
+              setError={setError}
+              error={error}
+            />
+          ) : tab === 2 && selectedOrder ? (
+            <AdminOrders
+              allOrders={allOrders}
+              selectedOrder={selectedOrder}
+              setSelectedOrder={setSelectedOrder}
+            />
+          ) : null}
         </div>
       </div>
     </div>

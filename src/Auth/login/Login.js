@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./login.css";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { authenticate } from "../../store";
+import { authenticate, login } from "../../store";
 
 const Login = () => {
   const history = useHistory();
@@ -17,20 +17,22 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(authenticate(email, password, "login"));
-
-    if (!userid.error) {
-      if (location.state) {
-        history.push({
-          pathname: `/allsnacks/${location.state.from.id}`,
-          state: { atc: true, quantity: location.state.quantity },
-        });
-      } else {
-        history.push("/");
+    try {
+      dispatch(login(email, password));
+      if (!userid.error) {
+        if (location.state.from) {
+          history.push({
+            pathname: `/allsnacks/${location.state.from.id}`,
+            state: { atc: true, quantity: location.state.quantity },
+          });
+        } else {
+          history.push("/");
+        }
       }
+    } catch (error) {
+      console.error(error);
+      setErrorMessage("Failed to authenticate");
     }
-
-    setErrorMessage("Failed to authenticate");
   };
 
   if (isLoggedin) {

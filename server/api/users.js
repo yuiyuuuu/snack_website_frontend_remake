@@ -5,14 +5,25 @@ const {
 } = require("../db");
 
 const UserAddresses = require("../db/models/UserAddresses");
+const OrderDetails = require("../db/models/OrderDetails");
+const OrderItem = require("../db/models/OrderItem");
 
 module.exports = router;
 
 // GET /api/users/
-router.get("/", requireToken, isAdmin, async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const users = await User.findAll({
       order: [["id", "ASC"]],
+      include: {
+        model: OrderDetails,
+        include: {
+          model: OrderItem,
+          include: {
+            model: Product,
+          },
+        },
+      },
     });
     res.json(users);
   } catch (err) {
@@ -44,7 +55,31 @@ router.get("/:id", async (req, res, next) => {
 
 router.delete("/:id", async (req, res, next) => {
   try {
-    const deleteUser = await User.findByPk(req.params.id);
+    const deleteUser = await User.findByPk(req.params.id, {
+      include: {
+        model: OrderDetails,
+        include: {
+          model: OrderItem,
+        },
+      },
+    });
+    // console.log(
+    //   "dataaaaa",
+    //   deleteUser.order_details[0].dataValues.order_items[0]
+    // );
+
+    const orderDetails = deleteUser.order_details;
+    console.log("dataaaa", orderDetails);
+
+    orderDetails.forEach(async (item) => {
+      item.dataValues.order_items.forEach(async (a) => {
+        const orderitems = await OrderItem.findByPk(a.dataValues.id);
+        await orderitems.destroy();
+      });
+
+      const order = await OrderDetails.findByPk(item.dataValues.id);
+      await order.destroy();
+    });
     await deleteUser.destroy();
     res.json(deleteUser);
   } catch (err) {

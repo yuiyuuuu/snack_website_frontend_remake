@@ -18,8 +18,8 @@ const Signup = () => {
     e.preventDefault();
 
     try {
-      dispatch(authenticate(email, password, "signup"));
-      if (location.state) {
+      dispatch(authenticate(email, password, firstName, lastName, "signup"));
+      if (location.state.from) {
         history.push({
           pathname: `/allsnacks/${location.state.from.id}`,
           state: { atc: true, quantity: location.state.quantity },
@@ -29,6 +29,7 @@ const Signup = () => {
       }
     } catch (error) {
       console.log("Failed to create an account");
+      console.log(error);
     }
   };
 
@@ -38,7 +39,6 @@ const Signup = () => {
     history.push("/myaccount");
   }
 
-  console.log(location.state);
   return (
     <div>
       <div className='topnav-signup'>

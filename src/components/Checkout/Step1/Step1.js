@@ -30,7 +30,6 @@ const Step1 = ({
   const [savedAddress, setSavedAddress] = useState([]);
 
   const fetchSavedAddress = () => {
-    if (!addresses.length || !addresses) return;
     const arr = [];
     addresses.forEach((a) => {
       const add = {
@@ -51,8 +50,19 @@ const Step1 = ({
       };
       arr.push(add);
     });
-    setSavedAddress([{ name: "Saved Addresses" }, ...arr]);
-    console.log(arr, "SAVEDDDDD");
+    setSavedAddress([
+      {
+        name: "Saved Addresses",
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        state: "",
+        zip: "",
+      },
+      ...arr,
+    ]);
+    console.log(arr, "saveeeed");
   };
 
   const handleChangeSaved = (a) => {

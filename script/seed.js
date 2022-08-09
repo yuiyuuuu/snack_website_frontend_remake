@@ -326,7 +326,7 @@ async function seed() {
   //   },
   // ];
   // const orders = [{}, {}];
-  const shoppingSession = [{}, {}, {}, {}];
+  const shoppingSession = [{}, {}, {}, {}, {}];
 
   await db.sync({ force: true }); // clears db and matches models to tables
   console.log("db synced!");
@@ -361,9 +361,16 @@ async function seed() {
       password: "123",
       isAdmin: true,
     }),
+    User.create({
+      firstName: "jackyu123",
+      lastName: "yu",
+      email: "jackyu@gmail.com",
+      password: "123",
+      isAdmin: false,
+    }),
   ]);
 
-  const [manny, kenji, jack, jun] = users;
+  const [manny, kenji, jack, jun, jackyu] = users;
 
   // Creating Product Categories
   const allCats = await Promise.all(
@@ -468,12 +475,14 @@ async function seed() {
   const allShoppingSessions = await Promise.all(
     shoppingSession.map((ss) => ShoppingSession.create(ss))
   );
-  const [shopping1, shopping2, shopping3, shopping4] = allShoppingSessions;
+  const [shopping1, shopping2, shopping3, shopping4, shopping5] =
+    allShoppingSessions;
 
   await manny.setShopping_session(shopping1);
   await kenji.setShopping_session(shopping2);
   await jack.setShopping_session(shopping3);
   await jun.setShopping_session(shopping4);
+  await jackyu.setShopping_session(shopping5);
 
   // Creating fake order items and orders for Cody
   // const allOrderItems = await Promise.all(

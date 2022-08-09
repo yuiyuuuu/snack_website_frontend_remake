@@ -3,6 +3,7 @@
   font-size: 22px;
   cursor: pointer;
   font-family: freemono;
+  user-select: none;
 }
 
 .div-single-admin-order:hover {
@@ -23,4 +24,39 @@
   justify-content: center;
   align-items: center;
   color: white;
+}
+
+.user-admin:hover {
+  opacity: 0.3;
+  cursor: pointer;
+}
+
+.delete-button-adminusers {
+  font-size: 17px;
+  font-family: freemono;
+  height: 50px;
+  width: 120px;
+  border-radius: 8px;
+  background-color: red;
+  cursor: pointer;
+  color: white;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.update-button-adminusers {
+  font-size: 17px;
+  font-family: freemono;
+  height: 50px;
+  width: 120px;
+  border-radius: 8px;
+  background-color: aqua;
+  cursor: pointer;
+  color: white;
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
