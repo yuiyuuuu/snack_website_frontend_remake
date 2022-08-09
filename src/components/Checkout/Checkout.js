@@ -197,6 +197,7 @@ const Checkout = () => {
               city={city}
               state={state}
               zip={zip}
+              userId={userid}
             />
           ) : step === 2 ? (
             <Elements stripe={stripePromise}>
@@ -215,7 +216,18 @@ const Checkout = () => {
               />
             </Elements>
           ) : (
-            <Step3 />
+            <Step3
+              cart={cart}
+              total={total}
+              userid={userid}
+              firstName={firstName}
+              lastName={lastName}
+              address={address}
+              city={city}
+              state={state}
+              zip={zip}
+              email={email}
+            />
           )}
         </div>
       ) : (

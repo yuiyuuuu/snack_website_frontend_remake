@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios from "axios";
 
-const ALL_ORDERS = 'ALL_ORDERS';
+const ALL_ORDERS = "ALL_ORDERS";
 
 export const fetchAllOrders = (orders) => ({
   type: ALL_ORDERS,
@@ -26,4 +26,3 @@ export default function (state = [], action) {
       return state;
   }
 }
-

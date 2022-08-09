@@ -5,6 +5,36 @@ const {
 
 module.exports = router;
 
+router.get("/allorders", async (req, res, next) => {
+  try {
+    const orders = await OrderDetails.findAll({
+      include: [
+        {
+          model: OrderItem,
+          include: {
+            model: Product,
+            attributes: ["name", "price", "photoURL"],
+          },
+        },
+      ],
+    });
+    res.send(orders);
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.delete("/:id/cancel", async (req, res, next) => {
+  try {
+    const order = await OrderDetails.findByPk(req.params.id);
+    await order.destroy();
+
+    res.send(order);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // ** CHECKOUT PAGE ** //
 // create new orderDetail and add all orderItems (need userId)
 // POST /api/orders/:id

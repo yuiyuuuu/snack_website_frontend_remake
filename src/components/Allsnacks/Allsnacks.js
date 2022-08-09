@@ -3,7 +3,7 @@ import "./Allsnacks.css";
 import SnackView from "./SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
-import Navbar from "../Navbar/Navbar";
+import Navbar from "../Navbar/Navbar.js";
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
@@ -22,7 +22,6 @@ const Allsnacks = () => {
   const sweet = products.filter((item) => item.productCategoryId === 3);
   const healthy = products.filter((item) => item.productCategoryId === 4);
   const frozen = products.filter((item) => item.productCategoryId === 2);
-  console.log(frozen);
 
   const sweetSnackRef = useRef(null);
   const healthySnackRef = useRef(null);

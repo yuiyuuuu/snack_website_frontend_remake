@@ -8,9 +8,11 @@ import { cartReducer } from "./cart";
 import user from "./user";
 import singleSnack from "./singleSnack";
 import checkout from "./checkout";
+import { addressReducer } from "./useraddresses";
 
 import users from "./users";
 import orders from "./orders";
+import adminOrders from "./adminOrders";
 
 const reducer = combineReducers({
   auth,
@@ -21,6 +23,8 @@ const reducer = combineReducers({
   orders,
   users,
   checkout,
+  addressReducer,
+  adminOrders,
 });
 
 const middleware = composeWithDevTools(

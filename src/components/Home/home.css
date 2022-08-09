@@ -1,3 +1,20 @@
 .home {
-  background-color: "orange";
+  height: 1000px;
+  width: 100%;
+  background-color: orange;
+}
+
+.home--landingPage {
+  background-color: green;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
+  padding: 20px;
+}
+
+.home--allsnacks {
+  background-color: wheat;
+  height: fit-content;
+  margintop: 10px;
 }

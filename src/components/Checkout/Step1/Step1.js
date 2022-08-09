@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchAllAddresses } from "../../../store/useraddresses";
 import "../Checkout.css";
 import states from "../states";
 
@@ -20,7 +22,67 @@ const Step1 = ({
   city,
   state,
   zip,
+  userId,
 }) => {
+  const dispatch = useDispatch();
+  const addresses = useSelector((state) => state.addressReducer);
+
+  const [savedAddress, setSavedAddress] = useState([]);
+
+  const fetchSavedAddress = () => {
+    const arr = [];
+    addresses.forEach((a) => {
+      const add = {
+        name: `${
+          a.firstName +
+          " " +
+          a.lastName +
+          " " +
+          a.address +
+          " " +
+          a.city +
+          " " +
+          a.state +
+          " " +
+          a.zip
+        }`,
+        ...a,
+      };
+      arr.push(add);
+    });
+    setSavedAddress([
+      {
+        name: "Saved Addresses",
+        firstName: "",
+        lastName: "",
+        address: "",
+        city: "",
+        state: "",
+        zip: "",
+      },
+      ...arr,
+    ]);
+    console.log(arr, "saveeeed");
+  };
+
+  const handleChangeSaved = (a) => {
+    setFirstName(a.firstName);
+    setLastName(a.lastName);
+    setAddress(a.address);
+    setCity(a.city);
+    setState(a.state);
+    setZip(a.zip);
+  };
+
+  useEffect(() => {
+    dispatch(fetchAllAddresses(userId.id));
+    setEmail(userId.email);
+  }, [userId]);
+
+  useEffect(() => {
+    fetchSavedAddress();
+  }, [addresses]);
+  console.log(userId);
   return (
     <div
       style={{
@@ -46,11 +108,36 @@ const Step1 = ({
               className='Input-text-checkout-email'
               placeholder='Email'
               size='20'
+              value={email}
               style={{ width: "95%", marginBottom: "15px" }}
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
           <div style={{ marginTop: "25px" }}>Shipping information</div>
+          <select
+            className='Input-text-checkout-email'
+            style={{
+              width: "95%",
+              marginRight: "2.5%",
+              fontSize: "13px",
+              color: "gray",
+              marginTop: "20px",
+            }}
+            onChange={(e) => {
+              handleChangeSaved(JSON.parse(e.target.value));
+            }}
+          >
+            <optgroup>
+              {savedAddress.map((add) => (
+                <option
+                  key={add.id}
+                  value={`{"firstName": "${add.firstName}", "lastName": "${add.lastName}", "address":"${add.address}", "city":"${add.city}", "state":"${add.state}", "zip":"${add.zip}"}`}
+                >
+                  {add.name}
+                </option>
+              ))}
+            </optgroup>
+          </select>
           <div
             style={{
               display: "flex",
@@ -64,6 +151,7 @@ const Step1 = ({
               className='Input-text-checkout-email'
               placeholder='First Name'
               size='20'
+              value={firstName}
               style={{ width: "46%", marginBottom: "15px", marginRight: "3%" }}
               onChange={(e) => setFirstName(e.target.value)}
             />
@@ -73,6 +161,7 @@ const Step1 = ({
               className='Input-text-checkout-email'
               placeholder='Last Name'
               size='20'
+              value={lastName}
               style={{ width: "46%", marginBottom: "15px" }}
               onChange={(e) => setLastName(e.target.value)}
             />
@@ -83,6 +172,7 @@ const Step1 = ({
             className='Input-text-checkout-email'
             placeholder='Address'
             size='20'
+            value={address}
             style={{ width: "95%", marginBottom: "15px" }}
             onChange={(e) => setAddress(e.target.value)}
           />
@@ -93,6 +183,7 @@ const Step1 = ({
               className='Input-text-checkout-email'
               placeholder='City'
               size='20'
+              value={city}
               style={{
                 width: "30%",
                 marginBottom: "15px",
@@ -104,12 +195,13 @@ const Step1 = ({
             <select
               className='Input-text-checkout-email'
               style={{ width: "30%", marginRight: "2.5%", fontSize: "13px" }}
+              value={state}
               onChange={(e) => setState(e.target.value)}
             >
               <optgroup>
                 {states.map((state) => (
-                  <option key={state} value={state}>
-                    {state}
+                  <option key={state} value={state.name}>
+                    {state.name}
                   </option>
                 ))}
               </optgroup>
@@ -121,6 +213,7 @@ const Step1 = ({
               className='Input-text-checkout-email'
               placeholder='Zip Code'
               size='20'
+              value={zip}
               style={{ width: "30%", marginBottom: "15px" }}
               onChange={(e) => setZip(e.target.value)}
             />
@@ -135,7 +228,6 @@ const Step1 = ({
             <div
               style={{
                 width: "36%",
-                fontSize: "13px",
                 height: "48px",
                 backgroundColor: "black",
                 color: "white",
@@ -158,7 +250,12 @@ const Step1 = ({
               }}
               onClick={() => setStep(2)}
             >
-              Continue to payment
+              <a
+                className='animation-underline-step1'
+                style={{ fontSize: "13px" }}
+              >
+                Continue to payment
+              </a>
             </div>
           </div>
         </div>
@@ -182,7 +279,14 @@ const Step1 = ({
                   Quantity: {item.quantity}
                 </div>
               </div>
-              <div>${item.product.price * item.quantity}</div>
+              <div>
+                $
+                {Math.round(item.product.price * item.quantity * 100) % 10 ===
+                  0 && item.product.price * item.quantity !== 0
+                  ? Math.round(item.product.price * item.quantity * 100) / 100 +
+                    "0"
+                  : Math.round(item.product.price * item.quantity * 100) / 100}
+              </div>
             </div>
           ))}
           <div

@@ -104,14 +104,16 @@ const Navbar = () => {
                 My Bag ({cart.length})
               </div>
             </a>
-            <div className='Nav--Login'>
-              <a
-                href='/login'
-                style={{ textDecoration: "none", color: "black" }}
-              >
-                Login/Signup Icon
-              </a>
-            </div>
+            {userId.isAdmin ? (
+              <div className='Nav--Login'>
+                <a
+                  href='/admin'
+                  style={{ textDecoration: "none", color: "black" }}
+                >
+                  Admin
+                </a>
+              </div>
+            ) : null}
           </div>
         </div>
       </div>

@@ -1,0 +1,108 @@
+.parent-myaccount {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 70px;
+}
+
+.left-myaccount {
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+}
+
+.right-myaccount {
+  /* background-color: red; */
+  width: 700px;
+}
+
+.myaccount-tab {
+  margin-bottom: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  font-family: freemono;
+  user-select: none;
+}
+
+.orderhistory-parent {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.remove-addresses-button {
+  cursor: pointer;
+  font-size: 20px;
+  font-family: freemono;
+  margin-top: 15px;
+}
+
+.add-address-button {
+  margin-top: 20px;
+  font-family: freemono;
+  font-size: 20px;
+  height: 50px;
+  width: 150px;
+  background-color: black;
+  color: white;
+  border-radius: 7px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.select-states-myaccount {
+  display: block;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--inputFontSize);
+  font-weight: inherit;
+  height: 40px;
+  padding-left: 14px;
+}
+
+.Input-text-checkout-email::placeholder {
+  font-size: 13px;
+}
+
+.submit-button-add-address {
+  height: 48px;
+  width: 130px;
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: freemono;
+  font-size: 20px;
+  margin-top: 25px;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.animation-underline {
+  font-size: 20px;
+  font-family: freemono;
+  text-decoration: none;
+  position: relative;
+}
+
+.animation-underline::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.animation-underline:hover::before {
+  transform: scaleX(1);
+}

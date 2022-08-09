@@ -103,8 +103,6 @@ const Cart = () => {
     dispatch(fetchProducts());
   }, []);
 
-  console.log(cart);
-
   if (loading) return "loading";
   return (
     <div>

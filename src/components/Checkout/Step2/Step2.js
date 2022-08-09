@@ -37,7 +37,6 @@ const Step2 = ({
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
-    console.log("FIRSTTT", firstName);
     // create new order detail
     const detailTotal = {
       userId: userid.id,
@@ -59,7 +58,7 @@ const Step2 = ({
         userId: userid.id,
         quantity: item.quantity,
       };
-      return dispatch(_createOrderItem(obj));
+      dispatch(_createOrderItem(obj));
     });
 
     // update product quantities
@@ -90,7 +89,7 @@ const Step2 = ({
       type: "card",
       card: elements.getElement(CardElement),
     });
-    // setLoading(true);
+    setLoading(true);
     if (!error) {
       try {
         const { id } = paymentMethod;
@@ -109,6 +108,7 @@ const Step2 = ({
             setLoading(false);
             setStep(3);
           });
+
         handleCheckout();
       } catch (error) {
         console.log("Error", error);
@@ -124,6 +124,7 @@ const Step2 = ({
     dispatch(fetchAUser(userid.id));
   }, [userid]);
 
+  //some classname /css is copied from step 1
   return (
     <>
       {loading ? (
@@ -183,8 +184,14 @@ const Step2 = ({
                       marginTop: "15px",
                     }}
                     type='submit'
+                    disabled={!stripe || !elements}
                   >
-                    Pay
+                    <a
+                      className='animation-underline-step1'
+                      style={{ fontSize: "13px" }}
+                    >
+                      Pay
+                    </a>
                   </button>
                 </div>
               </form>
@@ -209,7 +216,17 @@ const Step2 = ({
                       Quantity: {item.quantity}
                     </div>
                   </div>
-                  <div>${item.product.price * item.quantity}</div>
+                  <div>
+                    $
+                    {Math.round(item.product.price * item.quantity * 100) %
+                      10 ===
+                      0 && item.product.price * item.quantity !== 0
+                      ? Math.round(item.product.price * item.quantity * 100) /
+                          100 +
+                        "0"
+                      : Math.round(item.product.price * item.quantity * 100) /
+                        100}
+                  </div>
                 </div>
               ))}
               <div

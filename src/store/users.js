@@ -1,10 +1,10 @@
-import axios from 'axios';
+import axios from "axios";
 
-const TOKEN = 'token';
-const GET_ALL_USERS = 'GET_ALL_USERS';
-const UPDATE_USER = 'UPDATE_USER';
-const DELETE_USER = 'DELETE_USER';
-const UPDATE_ADMIN_USER = 'UPDATE_ADMIN_USER';
+const TOKEN = "token";
+const GET_ALL_USERS = "GET_ALL_USERS";
+const UPDATE_USER = "UPDATE_USER";
+const DELETE_USER = "DELETE_USER";
+const UPDATE_ADMIN_USER = "UPDATE_ADMIN_USER";
 
 export const getAllUsers = (users) => ({
   type: GET_ALL_USERS,
@@ -86,7 +86,7 @@ export default function (state = [], action) {
 
     case UPDATE_ADMIN_USER:
       return state.map((user) =>
-        user.id === action.user.id ? action.user : user
+        user.id === action.user.id ? { ...user, isAdmin: !user.isAdmin } : user
       );
 
     case DELETE_USER:
