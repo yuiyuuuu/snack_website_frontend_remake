@@ -109,3 +109,16 @@ td {
   align-items: center;
   margin-bottom: 13px;
 }
+
+.add-but-products-admin {
+  height: 50px;
+  width: 100px;
+  background-color: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  align-self: flex-end;
+  margin-right: 5%;
+  margin-bottom: 15px;
+}

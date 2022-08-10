@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { _deleteProduct, _restoreProduct } from "../../store/Snacks";
 import "./Admin.css";
 
-const AdminProducts = ({ products, edit, setEdit }) => {
+const AdminProducts = ({ products, edit, setEdit, setAdd }) => {
   const dispatch = useDispatch();
   const [filtered, setFiltered] = useState([]);
   const [noDisplayProducts, setNoDisplayProducts] = useState([]);
@@ -21,6 +21,27 @@ const AdminProducts = ({ products, edit, setEdit }) => {
   return (
     <>
       <div style={{ display: "flex", flexDirection: "column" }}>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              fontFamily: "freemono",
+              fontSize: "23px",
+              fontWeight: "600",
+            }}
+          >
+            Products on display
+          </div>
+          <div style={{ flexGrow: 1 }} />
+          <div className='add-but-products-admin' onClick={() => setAdd(true)}>
+            Add Product
+          </div>
+        </div>
         <table style={{ width: "95%" }}>
           <tr>
             <td
@@ -97,7 +118,7 @@ const AdminProducts = ({ products, edit, setEdit }) => {
             marginBottom: "20px",
           }}
         >
-          Delete Products
+          Deleted Products
         </div>
         <table style={{ width: "95%" }}>
           <tr>
