@@ -153,17 +153,38 @@ const Addresses = ({ setShowAddForm, showAddForm }) => {
             </div>
           </div>
         ))}
-        <div
-          className='add-address-button'
-          onClick={() => setShowAddForm(true)}
-        >
-          <a
-            className='animation-underline'
-            style={{ pointerEvents: showAddForm ? "none" : "" }}
+        {showAddForm ? (
+          <div
+            className='add-address-button'
+            onClick={() => setShowAddForm(true)}
           >
-            Add Address
-          </a>
-        </div>
+            <a
+              className='no-animation-add-form'
+              style={{
+                pointerEvents: showAddForm ? "none" : "",
+                color: "gray",
+                fontFamily: "freemono",
+              }}
+            >
+              Add Address
+            </a>
+          </div>
+        ) : (
+          <div
+            className='add-address-button'
+            onClick={() => setShowAddForm(true)}
+          >
+            <a
+              className='animation-underline'
+              style={{
+                pointerEvents: showAddForm ? "none" : "",
+                color: showAddForm ? "gray" : "white",
+              }}
+            >
+              Add Address
+            </a>
+          </div>
+        )}
       </div>
     </>
   );

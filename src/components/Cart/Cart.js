@@ -110,6 +110,18 @@ const Cart = () => {
         <div className='back-but-cart' onClick={() => history.goBack()}>
           &#8592; Back
         </div>
+        <a href='/allsnacks'>
+          <div
+            style={{
+              fontSize: "20px",
+              fontFamily: "freemono",
+              cursor: "pointer",
+              marginLeft: "20px",
+            }}
+          >
+            All Snacks
+          </div>
+        </a>
         <div
           style={{
             position: "absolute",

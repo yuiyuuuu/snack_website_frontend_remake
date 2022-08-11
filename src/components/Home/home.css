@@ -1,20 +1,50 @@
 .home {
-  height: 1000px;
   width: 100%;
-  background-color: orange;
 }
 
-.home--landingPage {
-  background-color: green;
-  height: 100px;
+@keyframes backgroundcolor {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
+
+.image-parent-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.example {
+  /* animation-name: backgroundcolor;
+  animation-duration: 1s;
+  animation-iteration-count: infinite; */
+}
+
+.shop-button-home {
+  width: 150px;
+  height: 50px;
+  background-color: white;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  padding: 20px;
+  align-items: center;
+  border-radius: 45px;
+  cursor: pointer;
 }
 
-.home--allsnacks {
-  background-color: wheat;
-  height: fit-content;
-  margintop: 10px;
+.slider-inner {
+  width: 600%;
+}
+
+.snap {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  scroll-snap-type: inline mandatory;
+  overflow: scroll;
+}
+
+.snap::-webkit-scrollbar {
+  display: none;
 }

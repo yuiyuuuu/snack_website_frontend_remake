@@ -78,10 +78,9 @@ const MyAccount = () => {
       <div
         style={{
           position: "fixed",
-          backgroundColor: "gray",
+          backgroundColor: "rgba(40,40,40, .75)",
           width: "100%",
           height: "100%",
-          opacity: 0.8,
           display: showAddForm ? "" : "none",
         }}
         onClick={() => {
