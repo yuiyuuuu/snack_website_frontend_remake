@@ -41,10 +41,26 @@
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: 100%;
-  scroll-snap-type: inline mandatory;
+  scroll-snap-type: x mandatory;
   overflow: scroll;
 }
 
 .snap::-webkit-scrollbar {
+  display: none;
+}
+
+.vertical-container {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 100%;
+  overflow: scroll;
+  gap: 0px;
+}
+
+.image-vertical {
+  margin-bottom: -4px !important;
+}
+
+.vertical-container::-webkit-scrollbar {
   display: none;
 }
