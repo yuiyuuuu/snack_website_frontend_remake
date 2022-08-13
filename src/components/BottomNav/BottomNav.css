@@ -1,7 +1,21 @@
 .containerNav {
-  width: 100%;
-  height: 200px;
-  background-color: gainsboro;
-  position: relative;
-  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+
+.sub {
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 15px;
+  color: white;
+}
+
+.sub:hover {
+  text-decoration: underline;
+}
+
+.social-image {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
 }

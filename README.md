@@ -1,7 +1,7 @@
 # Bullseye
 
 <em>Hey there! Thanks for checking out Bullseye.</em>
-<em>This project was originally built by a team of 4 including me. I decided to rebuild the frontend to strengthen my css skills and build a website that does not fully depend on a frontend library like MaterialUI. Please check out the video walkthrough below and I hope you enjoy the presentation!</em>
+<em>This project was originally built by a team of 4 including me. I decided to rebuild the frontend to strengthen my HTML and CSS skills and build a website that does not fully depend on a frontend library like MaterialUI. Please check out the video walkthrough below and I hope you enjoy the presentation!</em>
 
 <em>Original project repo: https://github.com/2204-Federation/federation-store</em>
 
@@ -20,10 +20,18 @@ insert video here
 
 ## Key Features :key:
 
-- Create a user account your email
-- Filter through snacks based on your current cravings
-- Add to cart functionality with persistent shopping sessions to save cart contents for later
-- Implementation of Stripe API for checkout
+User:
+
+- Create a user account your email.
+- Add to cart functionality with persistent shopping sessions to save cart contents for later.
+- Save addresses to autofill for quick checkouts.
+- Implementation of Stripe API for checkout.
+
+Admins:
+
+- Admins can see all orders, and users.
+- Admins can cancel orders, delete users, give other users admin.
+- Admins can create new products, delete products, and edit product quantities.
 
 ## Tech Stack :books:
 
@@ -31,9 +39,9 @@ Below is a non-exhaustive list of technologies used throughout the project.
 
 |  Front End  |  Back End   |  APIs  | Libraries/Frameworks |
 | :---------: | :---------: | :----: | :------------------: |
-| React/Redux | PostgresSQL | Stripe |         CSS          |
+| React/Redux | PostgresSQL | Stripe |                      |
 |    HTML     |   Node.js   |        |
-|     CSS     |             |        |
+|     CSS     |  Sequelize  |        |
 
 ## Setup :rocket:
 

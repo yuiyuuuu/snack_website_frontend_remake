@@ -106,3 +106,9 @@
 .animation-underline:hover::before {
   transform: scaleX(1);
 }
+
+.no-animation-add-form {
+  font-size: 20px;
+  text-decoration: none;
+  position: relative;
+}
