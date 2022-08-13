@@ -1,6 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./home.css";
 import Navbar from "../Navbar/Navbar.js";
+import { objects } from "./objects";
+import BottomNav from "../BottomNav/BottomNav";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -53,6 +55,8 @@ const Home = () => {
       if (num === 1) {
         setSmoothVertical(false);
         scrollRef5.current.scrollTop += scrollRef6.current.offsetHeight + 100;
+        scrollRef3.current.scrollTop += -scrollRef4.current.offsetHeight - 100;
+        scrollRef.current.scrollLeft += -10000;
         setSmoothVertical(true);
       }
 
@@ -80,28 +84,6 @@ const Home = () => {
         }, 2500);
       }
     };
-
-    // const verticalScroll = (num) => {
-    //   setSmooth(true);
-    //   if (num % 6 === 0) {
-    //     scrollRef3.current.scrollTop +=
-    //       scrollRef4.current.offsetHeight / 6 + 1.7;
-    //     setTimeout(() => {
-    //       setSmooth(false);
-    //       scrollRef3.current.scrollTop +=
-    //         -scrollRef4.current.offsetHeight - 100;
-    //       return verticalScroll(num + 1);
-    //     }, 700);
-    //   } else {
-    //     setTimeout(() => {
-    //       scrollRef3.current.scrollTop +=
-    //         scrollRef4.current.offsetHeight / 6 + 1.7;
-    //       return verticalScroll(num + 1);
-    //     }, 2545);
-    //   }
-    // };
-
-    // verticalScroll(1);
     scroll(1);
   }, []);
 
@@ -129,12 +111,15 @@ const Home = () => {
               marginBottom: "30px",
               fontFamily: "Helvetica",
             }}
+            className='text-main-hook'
           >
             Tasty snacks delivered in minutes.
           </div>
           <a href='/allsnacks'>
             {" "}
-            <div className='shop-button-home'>Shop Now</div>
+            <div className='shop-button-home animation-underline-home'>
+              Shop Now
+            </div>
           </a>
         </div>
         <div style={{ width: "50%", display: "flex", flexDirection: "column" }}>
@@ -221,6 +206,199 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            marginTop: "45px",
+            display: "flex",
+            flexDirection: "row",
+            width: "90%",
+            justifyContent: "space-evenly",
+            alignSelf: "center",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src='https://cdn.discordapp.com/attachments/775994350143930391/1007486148781813810/unknown.png'
+              style={{ width: "80px", height: "80px" }}
+            />
+            <div
+              style={{
+                fontSize: "40px",
+                fontWeight: "600",
+                textAlign: "center",
+              }}
+            >
+              Hundreds of Items
+            </div>
+            <div style={{ width: "65%", textAlign: "center" }}>
+              From your favorite salty chips & crackers to refreshing
+              electrolyte drinks and sodas and more
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src='https://cdn.discordapp.com/attachments/775994350143930391/1007486170881601567/unknown.png'
+              style={{ width: "80px", height: "80px", marginRight: "11px" }}
+            />
+            <div
+              style={{
+                fontSize: "40px",
+                fontWeight: "600",
+                textAlign: "center",
+              }}
+            >
+              Delivered Fast
+            </div>
+            <div style={{ width: "65%", textAlign: "center" }}>
+              With our fulfillment centers all around the country means we get
+              your order to your door in as little as 30 minutes.
+            </div>
+            <div
+              style={{
+                color: "gainsboro",
+                fontSize: "10px",
+                marginTop: "10px",
+              }}
+            >
+              *Not guarnteed. Average delivery time.
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
+            <img
+              src='https://cdn.discordapp.com/attachments/775994350143930391/1007486192029290556/unknown.png'
+              style={{ width: "80px", height: "80px" }}
+            />
+            <div
+              style={{
+                fontSize: "40px",
+                fontWeight: "600",
+                textAlign: "center",
+              }}
+            >
+              Free Delivery
+            </div>
+            <div style={{ width: "65%", textAlign: "center" }}>
+              Everything you need... fast and fresh delivered right to your door
+              at no extra cost.
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          textAlign: "center",
+          fontSize: "44px",
+          fontWeight: "600",
+          marginTop: "60px",
+        }}
+      >
+        Browse a Popular Category
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: "17px",
+              marginTop: "8px",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              cursor: "pointer",
+              width: "10%",
+            }}
+            className='start-shopping-home'
+          >
+            <a href='/allsnacks' style={{ color: "rgb(23, 144, 243)" }}>
+              Start Shopping
+            </a>
+
+            <svg
+              fill='none'
+              viewBox='0 0 20 20'
+              height='20'
+              width='20'
+              xmlns='http://www.w3.org/2000/svg'
+            >
+              <path
+                xmlns='http://www.w3.org/2000/svg'
+                d='M3.125 10H16.875'
+                stroke='#00A4FF'
+                strokeWidth='2'
+                strokeLinejoin='round'
+              ></path>
+              <path
+                xmlns='http://www.w3.org/2000/svg'
+                d='M11.25 4.375L16.875 10L11.25 15.625'
+                stroke='#00A4FF'
+                strokeWidth='2'
+                strokeLinejoin='round'
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        style={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "25px",
+        }}
+      >
+        <div className='category-grid-container'>
+          {objects.map((item) => (
+            <a href={Object.values(item)[1]}>
+              <div className='backgroundcolor'>
+                <span
+                  style={{
+                    marginTop: "15px",
+                    marginBottom: "10px",
+                  }}
+                  className='georgia-font'
+                >
+                  {Object.keys(item)[0]}
+                </span>
+                <img
+                  src={Object.values(item)[0]}
+                  style={{ width: "165px", height: "175px" }}
+                />
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+      <BottomNav />
     </div>
   );
 };
