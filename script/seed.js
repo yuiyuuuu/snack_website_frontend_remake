@@ -299,6 +299,76 @@ async function seed() {
       photoURL:
         "https://target.scene7.com/is/image/Target/GUEST_3d151f0e-d79d-4b82-bb3c-20cb2940c779?wid=325&hei=325&qlt=80&fmt=pjpeg",
     },
+    {
+      name: "Banana",
+      desc: "Tasty on their own or added into smoothies, oatmeal or dessert",
+      price: 0.19,
+      photoURL:
+        "https://cdn.discordapp.com/attachments/775994350143930391/1008128022391570543/unknown.png",
+    },
+    {
+      name: "Strawberries- 1b Package",
+      desc: "A great fruit to add to your child's lunchbox",
+      price: 2.59,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_ce4ac41d-c124-49db-8f0f-2f472ee51815?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Organic Honeycrisp Apples - 2lb",
+      desc: "A two-pound bag of Organic Honeycrisp Apples from Good & Gather™ makes it easy to stay stocked up on the perfect lunchtime side, grab-and-go snack or baking choice, all in one go!",
+      price: 7.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_4d41e2f3-8e05-4eaf-a8dc-7b1e035649ab?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Red Grapefruit - 1 Count",
+      desc: "Packed with essential nutrients and a great amount of Vitamin C, Red Grapefruits also make a refreshing, healthy treat any time of the day.",
+      price: 0.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_c9cc2d3f-d31a-4e81-a99c-f7521195cd86?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Driscoll's Raspberries - 6oz Package",
+      desc: "For the finest in raspberries the world try Driscoll's.",
+      price: 3.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_16ebad26-b7b3-4dd0-80a9-92866fc98c41?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Mini Watermelon - 1 Count",
+      desc: "Mini seedless watermelons have a deep red flesh that provides a crisp, juicy flavor.",
+      price: 3.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_7dfb5982-541a-4c72-b731-ccd9b061da84?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Iceberg Lettuce Head - 1 Count",
+      desc: "This Iceberg Lettuce from Green Giant® offers a variety of uses while being low in calories, making it an excellent component in your veggie drawer.",
+      price: 1.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_f5e5b991-eeb5-4f39-a5b0-44016423f017?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Blueberries - 1pt",
+      desc: "Fresh blueberries to add into your baking recepies.",
+      price: 2.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_31e44e71-4d8b-413c-b5bd-d5b36650098e?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Green Cabbage - 1 Count",
+      desc: "Green cabbage is a winter vegetable and one of several cabbage varieties.",
+      price: 1.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_3b0594d0-878b-4744-b9a8-32c45d2bf436?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Lemon - 1 Count",
+      desc: "Lemons are a type of citrus fruit used in many ways as the flesh, juice and peel all have various uses.",
+      price: 0.69,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_3d962311-4a0b-47f9-8146-28740dfa2d53?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
   ];
   const categories = [
     {
@@ -312,6 +382,39 @@ async function seed() {
     },
     {
       type: "Refrigerated/Frozen",
+    },
+    {
+      type: "Grocery",
+    },
+    {
+      type: "Drinks",
+    },
+    {
+      type: "Alcohol",
+    },
+    {
+      type: "Cleaning",
+    },
+    {
+      type: "Ice Cream",
+    },
+    {
+      type: "Quick Meals",
+    },
+    {
+      type: "Bath and Beauty",
+    },
+    {
+      type: "Health",
+    },
+    {
+      type: "Home and Office",
+    },
+    {
+      type: "Pets",
+    },
+    {
+      type: "Baby",
     },
   ];
   // const orderItems = [
@@ -377,7 +480,23 @@ async function seed() {
     categories.map((cat) => ProductCategory.create(cat))
   );
 
-  const [salty, sweet, health, cold] = allCats;
+  const [
+    salty,
+    sweet,
+    health,
+    cold,
+    grocery,
+    drinks,
+    alcohol,
+    cleaning,
+    icecream,
+    quickmeals,
+    bathandbeauty,
+    healthproducts,
+    homeandoffice,
+    pets,
+    baby,
+  ] = allCats;
 
   // Creating Products
   const allProducts = await Promise.all(
@@ -425,6 +544,16 @@ async function seed() {
     snack38,
     snack39,
     snack40,
+    snack41,
+    snack42,
+    snack43,
+    snack44,
+    snack45,
+    snack46,
+    snack47,
+    snack48,
+    snack49,
+    snack50,
   ] = allProducts;
 
   await snack1.setCat(salty);
@@ -470,6 +599,17 @@ async function seed() {
   await snack38.setCat(cold);
   await snack39.setCat(cold);
   await snack40.setCat(cold);
+
+  await snack41.setCat(grocery);
+  await snack42.setCat(grocery);
+  await snack43.setCat(grocery);
+  await snack44.setCat(grocery);
+  await snack45.setCat(grocery);
+  await snack46.setCat(grocery);
+  await snack47.setCat(grocery);
+  await snack48.setCat(grocery);
+  await snack49.setCat(grocery);
+  await snack50.setCat(grocery);
 
   // Creating shopping sessions for everyone
   const allShoppingSessions = await Promise.all(

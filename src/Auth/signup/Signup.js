@@ -50,7 +50,7 @@ const Signup = () => {
             marginRight: "50%",
           }}
         >
-          <a href='/allsnacks'>
+          <a href='/bullseye'>
             <img
               src={
                 "https://cdn.discordapp.com/attachments/779278654714675232/1001644818612637726/cover.png"

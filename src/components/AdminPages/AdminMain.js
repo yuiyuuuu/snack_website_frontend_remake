@@ -9,6 +9,7 @@ import { fetchAllUsers } from "../../store";
 import AdminProducts from "./AdminProducts";
 import { fetchProducts } from "../../store/Snacks";
 import { _updateProduct, _createProduct } from "../../store/Snacks";
+import axios from "axios";
 
 const AdminMain = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const AdminMain = () => {
   }
 
   const [tab, setTab] = useState(1);
+  const [allCategories, setAllCategories] = useState([]);
 
   //ADMINORDERS
   const [selectedOrder, setSelectedOrder] = useState(null);
@@ -53,7 +55,7 @@ const AdminMain = () => {
   const [add, setAdd] = useState(false);
   const [productName, setProductName] = useState("");
   const [productQuantity, setProductQuantity] = useState(null);
-  const [productCategory, setProductCategory] = useState(1);
+  const [productCategory, setProductCategory] = useState("Salty");
   const [productPrice, setProductPrice] = useState(null);
   const [productImage, setProductImage] = useState("");
   const [productDescription, setProductDescription] = useState("");
@@ -88,13 +90,17 @@ const AdminMain = () => {
       return;
     }
 
+    console.log(allCategories.find((item) => item.type === productCategory));
+
     const product = {
       name: productName,
       desc: productDescription,
       price: Number(productPrice),
       quantity: Number(productQuantity),
       photoURL: productImage,
-      productCategoryId: productCategory,
+      productCategoryId: allCategories.find(
+        (item) => item.type === productCategory
+      ).id,
       display: true,
     };
     dispatch(_createProduct(product));
@@ -117,8 +123,10 @@ const AdminMain = () => {
     dispatch(fetchAllUsers());
   }, []);
 
-  useEffect(() => {
+  useEffect(async () => {
     dispatch(fetchProducts());
+    const { data } = await axios.get("/api/products/productcategory");
+    setAllCategories(data);
   }, []);
 
   console.log(productCategory);
@@ -246,15 +254,22 @@ const AdminMain = () => {
               marginBottom: "25px",
               marginTop: "15px",
             }}
-            value={edit ? edit.productCategoryId : ""}
+            value={edit?.cat?.type}
             onChange={(e) =>
-              setEdit({ ...edit, productCategoryId: Number(e.target.value) })
+              setEdit({
+                ...edit,
+                productCategoryId: allCategories.find(
+                  (item) => item.type === e.target.value
+                )?.id,
+                cat: allCategories.find((item) => item.type === e.target.value),
+              })
             }
           >
-            <option value={1}>Salty</option>
-            <option value={3}>Sweet</option>
-            <option value={2}>Frozen</option>
-            <option value={4}>Healthy</option>
+            <option value={"Salty"}>Salty</option>
+            <option value={"Sweet"}>Sweet</option>
+            <option value={"Refrigerated/Frozen"}>Frozen</option>
+            <option value={"Healthy"}>Healthy</option>
+            <option value={"Grocery"}>Grocery</option>
           </select>
         </div>
         <div style={{ color: "red", marginBottom: "10px" }}>
@@ -378,12 +393,13 @@ const AdminMain = () => {
               marginTop: "15px",
             }}
             value={productCategory}
-            onChange={(e) => setProductCategory(Number(e.target.value))}
+            onChange={(e) => setProductCategory(e.target.value)}
           >
-            <option value={1}>Salty</option>
-            <option value={3}>Sweet</option>
-            <option value={2}>Frozen</option>
-            <option value={4}>Healthy</option>
+            <option value={"Salty"}>Salty</option>
+            <option value={"Sweet"}>Sweet</option>
+            <option value={"Refrigerated/Frozen"}>Frozen</option>
+            <option value={"Healthy"}>Healthy</option>
+            <option value={"Grocery"}>Grocery</option>
           </select>
         </div>
         <div style={{ color: "red", marginBottom: "10px" }}>{errorAddForm}</div>

@@ -4,6 +4,7 @@ import SnackView from "./SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
 import Navbar from "../Navbar/Navbar.js";
+import axios from "axios";
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
@@ -19,22 +20,27 @@ const Allsnacks = () => {
 
   const { products } = useSelector((state) => state);
   const salty = products.filter(
-    (item) => item.productCategoryId === 1 && item.display
+    (item) => item.cat.type === "Salty" && item.display
   );
   const sweet = products.filter(
-    (item) => item.productCategoryId === 3 && item.display
+    (item) => item.cat.type === "Sweet" && item.display
   );
   const healthy = products.filter(
-    (item) => item.productCategoryId === 4 && item.display
+    (item) => item.cat.type === "Healthy" && item.display
   );
   const frozen = products.filter(
-    (item) => item.productCategoryId === 2 && item.display
+    (item) => item.cat.type === "Refrigerated/Frozen" && item.display
+  );
+
+  const grocery = products.filter(
+    (item) => item.cat.type === "Grocery" && item.display
   );
 
   const sweetSnackRef = useRef(null);
   const healthySnackRef = useRef(null);
   const saltySnacksRef = useRef(null);
   const frozenSnacksRef = useRef(null);
+  const groceryRef = useRef(null);
 
   const SnackCards = salty.map((item) => (
     <SnackView
@@ -70,6 +76,17 @@ const Allsnacks = () => {
   ));
 
   const FrozenSnacks = frozen.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Grocery = grocery.map((item) => (
     <SnackView
       key={item.name}
       photoUrl={item.photoURL}
@@ -137,6 +154,17 @@ const Allsnacks = () => {
               Sweet Snacks
               <div style={{ flexGrow: 1 }} />
               <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                View All
+              </div>
+              <div
                 className='leftcircle'
                 onClick={() => {
                   leftScroll(sweetSnackRef);
@@ -173,6 +201,17 @@ const Allsnacks = () => {
             >
               Healthy Snacks
               <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                View All
+              </div>
               <div
                 className='leftcircle'
                 onClick={() => leftScroll(healthySnackRef)}
@@ -244,6 +283,17 @@ const Allsnacks = () => {
               Frozen Snacks
               <div style={{ flexGrow: 1 }} />
               <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                View All
+              </div>
+              <div
                 className='leftcircle'
                 onClick={() => leftScroll(frozenSnacksRef)}
               >
@@ -265,6 +315,52 @@ const Allsnacks = () => {
           <div>
             <div className='container snap-inline' ref={frozenSnacksRef}>
               {FrozenSnacks}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Grocery
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                View All
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(groceryRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(groceryRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={groceryRef}>
+              {Grocery}
             </div>
           </div>
         </div>

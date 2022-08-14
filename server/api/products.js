@@ -22,6 +22,16 @@ router.get("/", async (req, res, next) => {
   }
 });
 
+router.get("/productcategory", async (req, res, next) => {
+  try {
+    const categories = await ProductCategory.findAll();
+    console.log(categories);
+    res.json(categories);
+  } catch (error) {
+    next(error);
+  }
+});
+
 // GET SINGLE PRODUCT
 // GET /api/products/:id
 router.get("/:id", async (req, res, next) => {

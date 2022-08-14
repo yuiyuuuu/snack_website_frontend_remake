@@ -26,7 +26,7 @@ class Routes extends Component {
         {!isLoggedIn ? (
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/allsnacks' component={Allsnacks} />
+            <Route exact path='/bullseye' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
@@ -37,7 +37,7 @@ class Routes extends Component {
         ) : (
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/allsnacks' component={Allsnacks} />
+            <Route exact path='/bullseye' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/allsnacks/:snackId' component={SingleSnack} />

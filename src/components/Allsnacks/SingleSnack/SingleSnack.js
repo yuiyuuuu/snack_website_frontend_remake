@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { fetchSingleSnack } from "../../../store/singleSnack";
+import { clearState, fetchSingleSnack } from "../../../store/singleSnack";
 import { fetchProducts } from "../../../store/Snacks";
 import SnackView from "../SnackView/SnackView";
 import "./SingleSnack.css";
@@ -103,7 +103,7 @@ const SingleSnack = (props) => {
     } catch (error) {
       console.error(error);
     }
-    history.push("/allsnacks");
+    history.push("/bullseye");
   };
 
   useEffect(() => {
@@ -133,6 +133,8 @@ const SingleSnack = (props) => {
   ]);
 
   useEffect(() => {
+    dispatch(clearState());
+    setLoading(true);
     dispatch(fetchSingleSnack(snackId));
     dispatch(fetchProducts());
     setLoading(false);
@@ -177,7 +179,9 @@ const SingleSnack = (props) => {
           }}
           className='goback-single'
         >
-          <a href='/allsnacks'>Go back</a>
+          <div onClick={() => history.goBack()} style={{ cursor: "pointer" }}>
+            Go back
+          </div>
         </div>
 
         <div className='single-snack-product-container'>
