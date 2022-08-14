@@ -90,3 +90,9 @@
   height: 30px;
   display: flex;
 }
+
+.allsnacks-grid-container {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));
+}

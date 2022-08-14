@@ -172,15 +172,58 @@ const SingleSnack = (props) => {
             height: "50px",
             display: "flex",
             flexDirection: "column-reverse",
-            textDecoration: "underline",
             color: "black",
-            marginBottom: "18px",
-            width: "70px",
+            marginBottom: "35px",
           }}
           className='goback-single'
         >
-          <div onClick={() => history.goBack()} style={{ cursor: "pointer" }}>
-            Go back
+          <div style={{ cursor: "pointer" }}>
+            <span
+              style={{ textDecoration: "underline" }}
+              onClick={() => history.push("/bullseye")}
+            >
+              Home
+            </span>{" "}
+            <span className='span-hi'>- </span>
+            {snack.cat.type === "Salty" ||
+            snack.cat.type === "Sweet" ||
+            snack.cat.type === "Healthy" ||
+            snack.cat.type === "Refrigerated/Frozen" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allsnacks")}
+              >
+                Snacks
+              </span>
+            ) : snack.cat.type === "Grocery" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allgrocery")}
+              >
+                Grocery
+              </span>
+            ) : snack.cat.type === "Drinks" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/alldrinks")}
+              >
+                Drinks
+              </span>
+            ) : snack.cat.type === "Alcohol" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allalcohol")}
+              >
+                Alcohol
+              </span>
+            ) : snack.cat.type === "Cleaning" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allcleaning")}
+              >
+                Cleaning
+              </span>
+            ) : null}
           </div>
         </div>
 

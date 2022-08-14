@@ -369,6 +369,282 @@ async function seed() {
       photoURL:
         "https://target.scene7.com/is/image/Target/GUEST_3d962311-4a0b-47f9-8146-28740dfa2d53?wid=325&hei=325&qlt=80&fmt=pjpeg",
     },
+    {
+      name: "Coca-Cola - 12pk/12 fl oz Cans",
+      desc: "12 cans of Coca-Cola Original Taste—the refreshing, crisp taste you know and love",
+      price: 6.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_f2a6f540-4792-43f5-85a5-33b77626e7db?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Dr Pepper Soda - 12pk/12 fl oz Cans",
+      desc: "The 23 signature flavors of Dr Pepper are blended to create one satisfyingly unique beverage.",
+      price: 6.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_27a2e72f-7a3a-4f3c-8ee3-c41c1f9be91b?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Canada Dry Ginger Ale Soda - 12pk/12 fl oz Cans",
+      desc: "Relax Your Way with Canada Dry when you want, the way you want.",
+      price: 6.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_ec795fc6-ade8-45f5-b962-0b43b150b036?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "A&W Root Beer Soda - 12pk/12 fl oz Cans",
+      desc: "Treat yourself to the All-American classic flavor with A&W Root Beer.",
+      price: 6.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_2ee850c0-8fd3-4f97-9a8d-1c6d63ebfa52?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Sunkist Orange Soda - 12pk/12 fl oz Cans",
+      desc: "Beaming with bold, orange flavor, Sunkist always satisfies your thirst.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_de22bbfb-395a-4084-8276-cdee9c7df71b?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Sprite - 12pk/12 fl oz Cans",
+      desc: "The OG Sprite, lemon-lime flavored soda for bold personalities.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_17187f3d-41bc-4471-8232-2fc084875814?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Pepsi Cola Soda - 12pk/12 fl oz Cans",
+      desc: "Enjoy an ice cold Pepsi, the bold, refreshing cola.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_363ec77f-3dd0-4eda-97bd-810c67a4eabe?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Mountain Dew Citrus Soda - 12pk/12 fl oz Cans",
+      desc: "Charged for anything, keep on doing you with Mtn Dew.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_bba6faeb-f9d6-4ecc-b934-5dc95c189bfe?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Coca-Cola Cherry - 12pk/12 fl oz Cans",
+      desc: "Delicious combination of Coca-Cola and cherry flavor.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_7d8cd148-a87f-4583-b3e3-5a7babc6ee79?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Sprite - 2 L Bottle",
+      desc: "The OG Sprite, lemon-lime flavored soda for bold personalities.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_7c23b7bd-d895-4b43-9ce8-3b21b5e5f3d5?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Coca-Cola - 2 L Bottle",
+      desc: "2L bottle of Coca-Cola Original Taste—the refreshing, crisp taste you know and love.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_583c4660-39f9-4456-8494-0d4c0be960b1?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+    {
+      name: "Sunkist Orange Soda - 2 L Bottle",
+      desc: "Beaming with bold, orange flavor, Sunkist always satisfies your thirst.",
+      price: 6.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_cc5ff53f-8a33-483f-9bb4-31af87bb5e01?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "La Marca Rose Prosecco 750 ml 11% ABV",
+      desc: "This sparkling wine is pale, golden straw in color. Bubbles are full textured and persistent.",
+      price: 19.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/059/564/xlarge/085000032442-1.png?1620779046",
+    },
+
+    {
+      name: "Mionetto Prosecco Brut 750 ml",
+      desc: "We'll be there in a prosecco.",
+      price: 14.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/065/331/xlarge/ptuwggh5vvrowidbgiig.png?1629137245",
+    },
+
+    {
+      name: "14 Hands Cabernet 750 ml",
+      desc: "A rich, juicy red that features aromas of dark cherry, black currant, coffee and subtle hints of spice.",
+      price: 14.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/059/157/xlarge/10513-1.png?1620249609",
+    },
+    {
+      name: "Prestige de France Brut 750 ml",
+      desc: "A fresh and harmonious sparkling wine.",
+      price: 17.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/042/266/xlarge/25457.png?1610753704",
+    },
+
+    {
+      name: "Andre Brut Champagne 750 ml",
+      desc: "Iconic yet affordable, André Brut Champagne (9.5% ABV), is a California sparkling wine that offers a dry mouthfeel and fruity notes.",
+      price: 6.49,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/029/920/xlarge/3541.jpg?1562100150",
+    },
+
+    {
+      name: "Navigator Napa Valley Sauvignon Blanc 750 ml",
+      desc: "Silver Medal winner in the SF Chronicle Wine Competition '22! Bright tropical fruit and citrus aromas; full bodied, with fresh melon and grapefruit flavors; long, clean finish, a perfect match with white fish. ",
+      price: 16.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/103/425/xlarge/hxv6yaslhwjig7i9uwfh.png?1643126483",
+    },
+
+    {
+      name: "Josh Cellars Sauvignon Blanc 750 ml",
+      desc: "Aromatic and bright with a crisp, clean finish. This wine is sunshine in a bottle. ",
+      price: 13.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/018/530/xlarge/josh-sauvignon.jpg?1530624949",
+    },
+
+    {
+      name: "Donovan-Parke Sauvignon Blanc 750ml",
+      desc: "This ripe and round Sauvignon Blanc shows excellent length and energy on the palate; fine, ripe melon flavors. ",
+      price: 12.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/052/855/xlarge/60cdf65b090e1d4981fae0178ef67577_large.png?1614657748",
+    },
+
+    {
+      name: "Unruly Red Blend 750 ml",
+      desc: "California bronze medal winner at the 2018 San Francisco Wine Competition, (2016 vintage). ",
+      price: 9.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/042/272/xlarge/24160.png?1610753915",
+    },
+
+    {
+      name: "Apothic Red 750 ml",
+      desc: "A rich blend featuring notes of vanilla, black cherry and mocha, Apothic Red is a seductive elixir worthy of an important date.",
+      price: 11.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/555/xlarge/3542.jpg?1580486103",
+    },
+
+    {
+      name: "Donovan-Parke Cabernet Sauvignon 750ml",
+      desc: "With aromas of black cherry, hints of vanilla and toasty oak, and a silky finish, our Cabernet Sauvignon was crafted to carry through from appetizer to main course and beyond.",
+      price: 12.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/050/439/xlarge/60ff72a81ef3f5eb01544a8aebf092f6_large.png?1614648045",
+    },
+
+    {
+      name: "Bounty Full Sheet Paper Towels",
+      desc: "Pack contains 4 Double Rolls of Bounty white Full Size paper towels.",
+      price: 8.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_b898b9b9-5e62-4092-b2d4-0b14489c8ac5?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Clorox Disinfecting Wipes Value Pack Bleach Free Cleaning Wipes - 75ct Each/3pk",
+      desc: "Clorox® Disinfecting Wipes are proven to kill -19 Virus* in 15 seconds; cleans and kills 99.9% of viruses and bacteria with powerful, triple-layered wipe; Package may vary",
+      price: 12.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_ee613317-8f45-417d-9c8a-dc81bb3198b9?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Clorox Fresh Scent Disinfecting Wipes - Fresh",
+      desc: "Clorox Disinfecting Wipes clean, disinfect, deodorize and remove allergens for 5x cleaning power* and leave a fresh scent.",
+      price: 2.89,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_544827bb-df47-42ac-997b-b8577dee1e2c?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Scott 2-Ply Toilet Paper",
+      desc: "Contains 550 2-ply sheets per roll for long-lasting use, Standard toilet paper is suitable for home or office use.",
+      price: 1.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/884/xlarge/4876_1.png?1581441472",
+    },
+
+    {
+      name: "Basically, 2ct Split Sheet Paper Towels Extra Large Roll",
+      desc: "Package includes 2 double rolls, equivalent to 5 regular rolls.",
+      price: 5.49,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/177/156/xlarge/hfehdrgld2hlam7jfcnv.png?1650587311",
+    },
+
+    {
+      name: "Nicole Home Collection Tall Kitchen Trash Bags 90ct",
+      desc: "Nicole Home Collection Drawstring Trash Bags, 90 Count.",
+      price: 14.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/034/720/xlarge/8793_1.png?1585072870",
+    },
+
+    {
+      name: "Seventh Generation Tall Kitchen Drawstring Trash Bags 20ct",
+      desc: "You need a reliable trash bag in your kitchen; we've all had that experience when it breaks as you take it out.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/859/xlarge/8403_1.png?1581437504",
+    },
+
+    {
+      name: "Pure Bright Bleach 32oz",
+      desc: "Germicidal bleanch ready for use, good for sanitizing and disinfecting areas.",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/038/004/xlarge/21080.png?1595438218",
+    },
+
+    {
+      name: "Fabuloso Lavender All Purpose Cleaner 16.9oz",
+      desc: "An all-purpose cleaner. Cleans floors, bathrooms, kitchens, walls and other surfaces.",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/031/024/xlarge/fabuloso.jpg?1568687841",
+    },
+
+    {
+      name: "Dropps Lemon Dishwasher Detergent Pods 32ct",
+      desc: "Powers away 24-hour baked on food and tough stains. Glasses so sparkly and dishes so clean you can eat off them. Literally.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/059/250/xlarge/42373.png?1620252136",
+    },
+
+    {
+      name: "Dawn Ultra Liquid Original Dish Soap 19.4oz",
+      desc: "Orginal Dish Soap with the fighting power of Dawn, great at breaking down grease.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/030/575/xlarge/13439.jpg?1566422698",
+    },
+
+    {
+      name: "Sponge Daddy Dual-Sided Sponge & Scrubber 3ct",
+      desc: "Scratch Free FlexTexture® side changes texture based on your water temperature.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/034/125/xlarge/19146.jpg?1582921395",
+    },
+
+    {
+      name: "Mrs. Meyer's Clean Day Lavender Scented Soy Candle 7.2oz",
+      desc: "Scented candle made from soy wax, vegetable wax and other thoughtfully chosen ingredients Comes in a recyclable glass candle jar and makes an easy gift.",
+      price: 11.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/041/310/xlarge/23537.png?1607652714",
+    },
   ];
   const categories = [
     {
@@ -554,6 +830,41 @@ async function seed() {
     snack48,
     snack49,
     snack50,
+    snack51,
+    snack52,
+    snack53,
+    snack54,
+    snack55,
+    snack56,
+    snack57,
+    snack58,
+    snack59,
+    snack60,
+    snack61,
+    snack62,
+    snack63,
+    snack64,
+    snack65,
+    snack66,
+    snack67,
+    snack68,
+    snack69,
+    snack70,
+    snack71,
+    snack72,
+    snack73,
+    snack74,
+    snack75,
+    snack76,
+    snack77,
+    snack78,
+    snack79,
+    snack80,
+    snack81,
+    snack82,
+    snack83,
+    snack84,
+    snack85,
   ] = allProducts;
 
   await snack1.setCat(salty);
@@ -610,6 +921,44 @@ async function seed() {
   await snack48.setCat(grocery);
   await snack49.setCat(grocery);
   await snack50.setCat(grocery);
+
+  await snack51.setCat(drinks);
+  await snack52.setCat(drinks);
+  await snack53.setCat(drinks);
+  await snack54.setCat(drinks);
+  await snack55.setCat(drinks);
+  await snack56.setCat(drinks);
+  await snack57.setCat(drinks);
+  await snack58.setCat(drinks);
+  await snack59.setCat(drinks);
+  await snack60.setCat(drinks);
+  await snack61.setCat(drinks);
+  await snack62.setCat(drinks);
+
+  await snack63.setCat(alcohol);
+  await snack64.setCat(alcohol);
+  await snack65.setCat(alcohol);
+  await snack66.setCat(alcohol);
+  await snack67.setCat(alcohol);
+  await snack68.setCat(alcohol);
+  await snack69.setCat(alcohol);
+  await snack70.setCat(alcohol);
+  await snack71.setCat(alcohol);
+  await snack72.setCat(alcohol);
+  await snack73.setCat(alcohol);
+
+  await snack74.setCat(cleaning);
+  await snack75.setCat(cleaning);
+  await snack76.setCat(cleaning);
+  await snack77.setCat(cleaning);
+  await snack78.setCat(cleaning);
+  await snack79.setCat(cleaning);
+  await snack80.setCat(cleaning);
+  await snack81.setCat(cleaning);
+  await snack82.setCat(cleaning);
+  await snack83.setCat(cleaning);
+  await snack84.setCat(cleaning);
+  await snack85.setCat(cleaning);
 
   // Creating shopping sessions for everyone
   const allShoppingSessions = await Promise.all(

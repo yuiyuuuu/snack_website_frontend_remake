@@ -20,20 +20,32 @@ const Allsnacks = () => {
 
   const { products } = useSelector((state) => state);
   const salty = products.filter(
-    (item) => item.cat.type === "Salty" && item.display
+    (item) => item.cat?.type === "Salty" && item.display
   );
   const sweet = products.filter(
-    (item) => item.cat.type === "Sweet" && item.display
+    (item) => item.cat?.type === "Sweet" && item.display
   );
   const healthy = products.filter(
-    (item) => item.cat.type === "Healthy" && item.display
+    (item) => item.cat?.type === "Healthy" && item.display
   );
   const frozen = products.filter(
-    (item) => item.cat.type === "Refrigerated/Frozen" && item.display
+    (item) => item.cat?.type === "Refrigerated/Frozen" && item.display
   );
 
   const grocery = products.filter(
-    (item) => item.cat.type === "Grocery" && item.display
+    (item) => item.cat?.type === "Grocery" && item.display
+  );
+
+  const drinks = products.filter(
+    (item) => item.cat?.type === "Drinks" && item.display
+  );
+
+  const alcohol = products.filter(
+    (item) => item.cat?.type === "Alcohol" && item.display
+  );
+
+  const cleaning = products.filter(
+    (item) => item.cat?.type === "Cleaning" && item.display
   );
 
   const sweetSnackRef = useRef(null);
@@ -41,6 +53,9 @@ const Allsnacks = () => {
   const saltySnacksRef = useRef(null);
   const frozenSnacksRef = useRef(null);
   const groceryRef = useRef(null);
+  const drinksRef = useRef(null);
+  const alcoholRef = useRef(null);
+  const cleaningRef = useRef(null);
 
   const SnackCards = salty.map((item) => (
     <SnackView
@@ -87,6 +102,39 @@ const Allsnacks = () => {
   ));
 
   const Grocery = grocery.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Drinks = drinks.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Alcohol = alcohol.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Cleaning = cleaning.map((item) => (
     <SnackView
       key={item.name}
       photoUrl={item.photoURL}
@@ -162,7 +210,7 @@ const Allsnacks = () => {
                   marginRight: "15px",
                 }}
               >
-                View All
+                <a href='/allsnacks'>View All</a>
               </div>
               <div
                 className='leftcircle'
@@ -210,7 +258,7 @@ const Allsnacks = () => {
                   marginRight: "15px",
                 }}
               >
-                View All
+                <a href='/allsnacks'>View All</a>
               </div>
               <div
                 className='leftcircle'
@@ -247,6 +295,17 @@ const Allsnacks = () => {
             >
               Salty Snacks
               <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allsnacks'>View All</a>
+              </div>
               <div
                 className='leftcircle'
                 onClick={() => leftScroll(saltySnacksRef)}
@@ -291,7 +350,7 @@ const Allsnacks = () => {
                   marginRight: "15px",
                 }}
               >
-                View All
+                <a href='/allsnacks'>View All</a>
               </div>
               <div
                 className='leftcircle'
@@ -337,7 +396,7 @@ const Allsnacks = () => {
                   marginRight: "15px",
                 }}
               >
-                View All
+                <a href='/allgrocery'>View All</a>
               </div>
               <div
                 className='leftcircle'
@@ -363,6 +422,141 @@ const Allsnacks = () => {
               {Grocery}
             </div>
           </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Drinks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/alldrinks'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(drinksRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(drinksRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={drinksRef}>
+              {Drinks}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Alcohol
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allalcohol'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(alcoholRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(alcoholRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={alcoholRef}>
+              {Alcohol}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Cleaning
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allcleaning'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(cleaningRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(cleaningRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={cleaningRef}>
+              {Cleaning}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -370,23 +564,3 @@ const Allsnacks = () => {
 };
 
 export default Allsnacks;
-
-/*
-
-
-
-
-
-
-
-        <div className='snack-title'>
-          Sweet Snacks
-          <div className='container'>
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-          </div>
-        </div>
-        */
