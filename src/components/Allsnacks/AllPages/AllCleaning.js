@@ -44,6 +44,7 @@ const AllCleaning = () => {
             marginTop: "50px",
             fontSize: "35px",
             fontWeight: "600",
+            marginBottom: "20px",
           }}
         >
           Cleaning

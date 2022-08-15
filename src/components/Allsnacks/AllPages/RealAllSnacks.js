@@ -8,10 +8,10 @@ const RealAllSnacks = () => {
   const dispatch = useDispatch();
   const allProducts = useSelector((state) => state.products).filter(
     (item) =>
-      item.cat.type === "Salty" ||
-      item.cat.type === "Sweet" ||
-      item.cat.type === "Healthy" ||
-      item.cat.type === "Refrigerated/Frozen"
+      item.cat?.type === "Salty" ||
+      item.cat?.type === "Sweet" ||
+      item.cat?.type === "Healthy" ||
+      item.cat?.type === "Refrigerated/Frozen"
   );
 
   useEffect(() => {
@@ -48,6 +48,7 @@ const RealAllSnacks = () => {
             marginTop: "50px",
             fontSize: "35px",
             fontWeight: "600",
+            marginBottom: "20px",
           }}
         >
           Snacks

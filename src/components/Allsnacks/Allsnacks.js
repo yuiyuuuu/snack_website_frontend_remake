@@ -48,6 +48,14 @@ const Allsnacks = () => {
     (item) => item.cat?.type === "Cleaning" && item.display
   );
 
+  const icecream = products.filter(
+    (item) => item.cat?.type === "Ice Cream" && item.display
+  );
+
+  const quickmeals = products.filter(
+    (item) => item.cat?.type === "Quick Meals" && item.display
+  );
+
   const sweetSnackRef = useRef(null);
   const healthySnackRef = useRef(null);
   const saltySnacksRef = useRef(null);
@@ -56,6 +64,8 @@ const Allsnacks = () => {
   const drinksRef = useRef(null);
   const alcoholRef = useRef(null);
   const cleaningRef = useRef(null);
+  const iceCreamRef = useRef(null);
+  const quickMealsRef = useRef(null);
 
   const SnackCards = salty.map((item) => (
     <SnackView
@@ -135,6 +145,28 @@ const Allsnacks = () => {
   ));
 
   const Cleaning = cleaning.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const IceCream = icecream.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const QuickMeals = quickmeals.map((item) => (
     <SnackView
       key={item.name}
       photoUrl={item.photoURL}
@@ -555,6 +587,98 @@ const Allsnacks = () => {
           <div>
             <div className='container snap-inline' ref={cleaningRef}>
               {Cleaning}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Ice Cream
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/ice_cream'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(iceCreamRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(iceCreamRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={iceCreamRef}>
+              {IceCream}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Quick Meals
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/quick_meals'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(quickMealsRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(quickMealsRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={quickMealsRef}>
+              {QuickMeals}
             </div>
           </div>
         </div>

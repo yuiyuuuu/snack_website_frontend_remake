@@ -223,6 +223,20 @@ const SingleSnack = (props) => {
               >
                 Cleaning
               </span>
+            ) : snack.cat.type === "Ice Cream" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/ice_cream")}
+              >
+                Ice Cream
+              </span>
+            ) : snack.cat.type === "Quick Meals" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/quick_meals")}
+              >
+                Quick Meals
+              </span>
             ) : null}
           </div>
         </div>

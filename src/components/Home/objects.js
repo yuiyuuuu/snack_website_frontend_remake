@@ -27,12 +27,12 @@ export const objects = [
   {
     "Ice Cream":
       "https://cdn.discordapp.com/attachments/775994350143930391/1007761448337936384/unknown.png",
-    a: "/allicecream",
+    a: "/ice_cream",
   },
   {
     "Quick Meals":
       "https://cdn.discordapp.com/attachments/775994350143930391/1007761579128918166/unknown.png",
-    a: "/allquickmeals",
+    a: "/quick_meals",
   },
   {
     "Bath and Beauty":

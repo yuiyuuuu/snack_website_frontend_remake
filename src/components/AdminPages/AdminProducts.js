@@ -76,13 +76,13 @@ const AdminProducts = ({ products, edit, setEdit, setAdd }) => {
                 {product.quantity}
               </td>
               <td style={{ textAlign: "center" }}>
-                {product.cat.type === "Salty"
+                {product.cat?.type === "Salty"
                   ? "Salty"
-                  : product.cat.type === "Refrigerated/Frozen"
+                  : product.cat?.type === "Refrigerated/Frozen"
                   ? "Frozen"
-                  : product.cat.type === "Sweet"
+                  : product.cat?.type === "Sweet"
                   ? "Sweet"
-                  : product.cat.type === "Healthy"
+                  : product.cat?.type === "Healthy"
                   ? "Healthy"
                   : "Grocery"}
               </td>

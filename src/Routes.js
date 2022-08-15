@@ -16,6 +16,9 @@ import AllGrocery from "./components/Allsnacks/AllPages/AllGrocery";
 import AllDrinks from "./components/Allsnacks/AllPages/AllDrinks";
 import AllAlcohol from "./components/Allsnacks/AllPages/AllAlcohol";
 import AllCleaning from "./components/Allsnacks/AllPages/AllCleaning";
+import IceCream from "./components/Allsnacks/AllPages/IceCream";
+import Credits from "./components/Credits";
+import QuickMeals from "./components/Allsnacks/AllPages/QuickMeals";
 
 class Routes extends Component {
   componentDidMount() {
@@ -43,6 +46,9 @@ class Routes extends Component {
             <Route exact path='/alldrinks' component={AllDrinks} />
             <Route exact path='/allalcohol' component={AllAlcohol} />
             <Route exact path='/allcleaning' component={AllCleaning} />
+            <Route exact path='/ice_cream' component={IceCream} />
+            <Route exact path='/credits' component={Credits} />
+            <Route exact path='/quick_meals' component={QuickMeals} />
           </Switch>
         ) : (
           <Switch>
@@ -60,6 +66,9 @@ class Routes extends Component {
             <Route exact path='/alldrinks' component={AllDrinks} />
             <Route exact path='/allalcohol' component={AllAlcohol} />
             <Route exact path='/allcleaning' component={AllCleaning} />
+            <Route exact path='/ice_cream' component={IceCream} />
+            <Route exact path='/credits' component={Credits} />
+            <Route exact path='/quick_meals' component={QuickMeals} />
           </Switch>
         )}
       </div>

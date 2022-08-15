@@ -4,10 +4,10 @@ import { fetchProducts } from "../../../store/Snacks";
 import Navbar from "../../Navbar/Navbar";
 import SnackView from "../SnackView/SnackView";
 
-const AllDrinks = () => {
+const IceCream = () => {
   const dispatch = useDispatch();
   const products = useSelector((state) => state.products).filter(
-    (item) => item.cat?.type === "Drinks"
+    (item) => item.cat?.type === "Ice Cream"
   );
 
   useEffect(() => {
@@ -47,7 +47,7 @@ const AllDrinks = () => {
             marginBottom: "20px",
           }}
         >
-          Drinks
+          Ice Cream
         </div>
         <div className='allsnacks-grid-container'>
           {products.map((item) => (
@@ -66,4 +66,4 @@ const AllDrinks = () => {
   );
 };
 
-export default AllDrinks;
+export default IceCream;

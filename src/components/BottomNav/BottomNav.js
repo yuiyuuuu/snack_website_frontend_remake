@@ -49,6 +49,9 @@ const BottomNav = () => {
           <a className='sub' href='/contact' style={{ color: "white" }}>
             Contact Us
           </a>
+          <a className='sub' href='/credits' style={{ color: "white" }}>
+            Credits
+          </a>
         </div>
         <div
           style={{

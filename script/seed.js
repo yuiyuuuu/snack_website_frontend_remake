@@ -645,6 +645,197 @@ async function seed() {
       photoURL:
         "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/041/310/xlarge/23537.png?1607652714",
     },
+
+    {
+      name: "Ben & Jerry's Chunky Monkey Ice Cream 16oz",
+      desc: "Give in to your wild side with Ben & Jerry's Chunky Monkey Ice Cream. Featuring fudge chunks and walnuts mixed into smooth banana ice cream, this toothsome treat kicks snack time into high gear.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/229/625/xlarge/hh9q7he4s7vaing8e6ot.png?1660238536",
+    },
+
+    {
+      name: "Ben & Jerry's Netflix & Chill'd Ice Cream 16oz",
+      desc: "Ben & Jerry's Netflix & Chilled is made with Peanut Butter Ice Cream with Sweet & Salty Pretzel Swirls & Fudge Brownies.",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/230/229/xlarge/jqqhfepjcqlsxjpmogee.png?1660320049",
+    },
+
+    {
+      name: "Ben & Jerry's Strawberry Cheesecake Ice Cream 16oz",
+      desc: "Ben & Jerry's Strawberry Cheesecake Ice Cream tastes exactly like you'd expect: rich, creamy and utterly irresistible.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/225/299/xlarge/nta0zqux1v3vn2kidlrv.png?1660141062",
+    },
+
+    {
+      name: "Ben & Jerry's Half Baked Ice Cream 16oz",
+      desc: "Filled with luscious chunks of fudge brownie and cookie dough, Ben & Jerry's Half Baked Ice Cream pint is a time-tested favorite among snack lovers of all persuasions.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/225/283/xlarge/k1aveznitz25zcvbbttc.png?1660140629",
+    },
+
+    {
+      name: "Ben & Jerry's Chocolate Chip Cookie Dough Ice Cream 16oz",
+      desc: "If you're looking to cool off on a hot summer day, then a pint of Ben & Jerry's ice cream is the way to go.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/225/252/xlarge/sgyoc6ynljcpnckvioar.png?1660139498",
+    },
+
+    {
+      name: "Ben & Jerry's Chocolate Fudge Brownie Ice Cream 16oz",
+      desc: "Looking for some ice cream that you can feel extra good about eating? Ben & Jerry's Chocolate Fudge Brownie ice cream is made of creamy chocolate ice cream with fudgy brownies from New York’s Greyston Baker.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/229/639/xlarge/xfuvpxjtor8ssprxwzlv.png?1660239180",
+    },
+
+    {
+      name: "Ben & Jerry's The Americone Dream Ice Cream 16oz",
+      desc: "Ben & Jerry's AmeriCone Dream Ice Cream is made of sweet vanilla Ice Cream with fudge-covered waffle cone pieces and a caramel swirl.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/032/706/xlarge/1479.jpg?1574269054",
+    },
+    {
+      name: "Ben & Jerry's The Tonight Dough Ice Cream 16oz",
+      desc: "Curated with Tonight Show host Jimmy Fallon, Ben & Jerry's Tonight Dough has all the ingredients to cure those late night cravings.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/032/704/xlarge/1247.jpg?1574268887",
+    },
+
+    {
+      name: "Talenti Gelato Layers Vanilla Fudge Cookie 10.6oz",
+      desc: "Don't sleep on Talenti Gelato Layers Vanilla Fudge Cookie gelato!",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/029/483/xlarge/13409.jpg?1560177021",
+    },
+
+    {
+      name: "Talenti Dairy Free Sorbetto Alphonso Mango 16oz",
+      desc: "Made with real mangoes, pure sugar and fresh lemon, Talenti Alphonso Mango Sorbetto is a flavorful and refreshing treat anyone can enjoy.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/032/212/xlarge/talenti-mango.jpg?1572980269",
+    },
+
+    {
+      name: "Talenti Gelato Layers Salted Caramel Truffle 11.6oz",
+      desc: "Talenti Gelato Layers Salted Caramel Truffle is a decadent 5-layer dessert inspired by the brand's popular Sea Salt Caramel Gelato.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/029/484/xlarge/13408.jpg?1560177039",
+    },
+
+    {
+      name: "Talenti Gelato Mediterranean Mint 16oz",
+      desc: "We can't deliver a Mediterranean vacation, but this is the next best thing. Talenti Mediterranean Mint Gelato is made with real mint leaves and pieces of bittersweet chocolate to add a touch of sweetness.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/032/214/xlarge/talenti-mint.jpg?1572980461",
+    },
+
+    {
+      name: "Lunchables Turkey & Cheddar with Crackers 3.2oz",
+      desc: "Turkey and Cheddar Lunchables feature Kraft Cheddar cheese, Oscar Mayer lean turkey and crackers.",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/871/xlarge/7702_1.png?1581438211",
+    },
+
+    {
+      name: "Lunchables Pizza Pepperoni 4.3oz",
+      desc: "Whether your feeding the kids or feeling like a kid, Pepperoni Pizza Lunchables are the perfect treat.",
+      price: 3.49,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/022/877/xlarge/1543_0990.jpg?1541663906",
+    },
+
+    {
+      name: "Lunchables Ham & Cheddar with Crackers 3.2oz",
+      desc: "Ham and cheese? It’s a match made in heaven. And with Lunchables Ham & Cheddar, it’s the perfect snack to sate cravings at home or on the go.",
+      price: 3.79,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/869/xlarge/7712_1.png?1581438157",
+    },
+
+    {
+      name: "Lunchables Extra Cheesy Pizza Lunch Combinations 10.6oz",
+      desc: "Make lunchtime something they can dip into. Includes a Capri Sun and Air Head.",
+      price: 5.79,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/004/201/xlarge/lunchables_extra_cheesy_BOSTON.jpg?1438202990",
+    },
+
+    {
+      name: "Kraft Original Flavor Macaroni & Cheese Dinner 7.25oz",
+      desc: "Imported from your childhood. Chances are you'll be serving Kraft Original Flavor Macaroni & Cheese Dinner to your kids but at the same time helping yourself to a spoonful or two.",
+      price: 2.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/022/785/xlarge/1329_0084.jpg?1541663692",
+    },
+
+    {
+      name: "Velveeta Shells & Creamy Cheese Sauce 12oz",
+      desc: "Let the cheese sauce fill all the nooks and crannies of the shells in this Velveeta Shells and Cheese.",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/870/xlarge/7708_1.png?1581438182",
+    },
+
+    {
+      name: "Rice-A-Roni Cheddar Broccoli Rice Cup 2.11oz",
+      desc: "See... you do like broccoli.",
+      price: 2.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/028/684/xlarge/12969_104.jpg?1557857044",
+    },
+
+    {
+      name: "Jack’s Pepperoni Pizza 14.3oz",
+      desc: "Pepperoni Pizza will never fade away. You can't do much better than crispy crust, 100% real Wisconsin cheese and scrumptious pepperoni.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/039/610/xlarge/22457.png?1602271661",
+    },
+
+    {
+      name: "Jack's Sausage & Pepperoni Pizza 15oz",
+      desc: "Meat lovers rejoice over this Sausage and Pepperoni Pizza! And don't have a cow - we didn't skimp on the 100% real Wisconsin cheese.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/039/606/xlarge/22453.png?1602271600",
+    },
+
+    {
+      name: "Hot Pockets Frozen Garlic Buttery Crust Pepperoni Pizza 2ct 9oz",
+      desc: "Real ooey gooey cheese. Garlic butter seasoned crust. Flavorful pepperoni... are you drooling yet?",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/101/945/xlarge/r1rjht98jmbtpimxsufa.png?1642699060",
+    },
+
+    {
+      name: "Totino's Frozen Combination Pizza Rolls 15ct 7.5oz",
+      desc: "It's not a party without pizza rolls.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/023/524/xlarge/3396_1264.jpg?1541665465",
+    },
+
+    {
+      name: "White Castle Frozen Classic Cheeseburger Sliders 4ct 7.3oz",
+      desc: "Craving White Castle but there’s no location nearby to drive up to? We’ve got ya covered.",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/056/726/xlarge/25548-2%281%29.png?1617049952",
+    },
   ];
   const categories = [
     {
@@ -865,6 +1056,31 @@ async function seed() {
     snack83,
     snack84,
     snack85,
+    snack86,
+    snack87,
+    snack88,
+    snack89,
+    snack90,
+    snack91,
+    snack92,
+    snack93,
+    snack94,
+    snack95,
+    snack96,
+    snack97,
+    snack98,
+    snack99,
+    snack100,
+    snack101,
+    snack102,
+    snack103,
+    snack104,
+    snack105,
+    snack106,
+    snack107,
+    snack108,
+    snack109,
+    snack110,
   ] = allProducts;
 
   await snack1.setCat(salty);
@@ -959,6 +1175,33 @@ async function seed() {
   await snack83.setCat(cleaning);
   await snack84.setCat(cleaning);
   await snack85.setCat(cleaning);
+
+  await snack86.setCat(icecream);
+  await snack87.setCat(icecream);
+  await snack88.setCat(icecream);
+  await snack89.setCat(icecream);
+  await snack90.setCat(icecream);
+  await snack91.setCat(icecream);
+  await snack92.setCat(icecream);
+  await snack93.setCat(icecream);
+  await snack94.setCat(icecream);
+  await snack95.setCat(icecream);
+  await snack96.setCat(icecream);
+  await snack97.setCat(icecream);
+  await snack98.setCat(icecream);
+
+  await snack99.setCat(quickmeals);
+  await snack100.setCat(quickmeals);
+  await snack101.setCat(quickmeals);
+  await snack102.setCat(quickmeals);
+  await snack103.setCat(quickmeals);
+  await snack104.setCat(quickmeals);
+  await snack105.setCat(quickmeals);
+  await snack106.setCat(quickmeals);
+  await snack107.setCat(quickmeals);
+  await snack108.setCat(quickmeals);
+  await snack109.setCat(quickmeals);
+  await snack110.setCat(quickmeals);
 
   // Creating shopping sessions for everyone
   const allShoppingSessions = await Promise.all(
