@@ -270,6 +270,16 @@ const AdminMain = () => {
             <option value={"Refrigerated/Frozen"}>Frozen</option>
             <option value={"Healthy"}>Healthy</option>
             <option value={"Grocery"}>Grocery</option>
+            <option value={"Drinks"}>Drinks</option>
+            <option value={"Alcohol"}>Alcohol</option>
+            <option value={"Cleaning"}>Cleaning</option>
+            <option value={"Ice Cream"}>Ice Cream</option>
+            <option value={"Quick Meals"}>Quick Meals</option>
+            <option value={"Bath and Beauty"}>Bath and Beauty</option>
+            <option value={"Health"}>Health</option>
+            <option value={"Home and Office"}>Home and Office</option>
+            <option value={"Pets"}>Pets</option>
+            <option value={"Baby"}>Baby</option>
           </select>
         </div>
         <div style={{ color: "red", marginBottom: "10px" }}>
@@ -400,6 +410,16 @@ const AdminMain = () => {
             <option value={"Refrigerated/Frozen"}>Frozen</option>
             <option value={"Healthy"}>Healthy</option>
             <option value={"Grocery"}>Grocery</option>
+            <option value={"Drinks"}>Drinks</option>
+            <option value={"Alcohol"}>Alcohol</option>
+            <option value={"Cleaning"}>Cleaning</option>
+            <option value={"Ice Cream"}>Ice Cream</option>
+            <option value={"Quick Meals"}>Quick Meals</option>
+            <option value={"Bath and Beauty"}>Bath and Beauty</option>
+            <option value={"Health"}>Health</option>
+            <option value={"Home and Office"}>Home and Office</option>
+            <option value={"Pets"}>Pets</option>
+            <option value={"Baby"}>Baby</option>
           </select>
         </div>
         <div style={{ color: "red", marginBottom: "10px" }}>{errorAddForm}</div>

@@ -3,7 +3,7 @@
   grid-auto-flow: column;
   grid-auto-columns: 18%;
   overflow-x: scroll;
-  gap: 10px;
+  gap: 18px;
   scroll-behavior: smooth;
   overscroll-behavior-inline: contain; /* on a laptop espicially, if you scroll even slightly too far you will go to the next/previous page, very annoying without this line. This says if you are scrolling this element, you cannot scroll other elements*/
 }
@@ -25,7 +25,8 @@
   display: flex;
   flex-direction: row;
   height: 100%;
-  margin-top: 20px;
+  /* margin-top: 5px; */
+  justify-content: center;
 }
 
 .filters {
@@ -100,4 +101,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.grid-container-filters {
+  display: grid;
+  grid-auto-flow: column;
+  overflow: scroll;
+  gap: 25px;
+  margin-bottom: 7px;
 }
