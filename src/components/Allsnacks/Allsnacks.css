@@ -26,6 +26,7 @@
   flex-direction: row;
   height: 100%;
   margin-top: 20px;
+  justify-content: center;
 }
 
 .filters {
@@ -100,4 +101,12 @@
 
 html {
   scroll-behavior: smooth;
+}
+
+.grid-container-filters {
+  display: grid;
+  grid-auto-flow: column;
+  overflow: scroll;
+  gap: 25px;
+  margin-bottom: 7px;
 }

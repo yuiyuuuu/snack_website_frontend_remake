@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../../store/Snacks";
+import BottomNav from "../../BottomNav/BottomNav";
 import Navbar from "../../Navbar/Navbar";
 import SnackView from "../SnackView/SnackView";
 
@@ -49,7 +50,10 @@ const HomeOffice = () => {
         >
           Home and Office
         </div>
-        <div className='allsnacks-grid-container'>
+        <div
+          className='allsnacks-grid-container'
+          style={{ marginBottom: "40px" }}
+        >
           {products.map((item) => (
             <SnackView
               key={item.name}
@@ -62,6 +66,7 @@ const HomeOffice = () => {
           ))}
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 };

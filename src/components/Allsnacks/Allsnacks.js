@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
 import Navbar from "../Navbar/Navbar.js";
 import BottomNav from "../BottomNav/BottomNav";
+import FilterIcons from "./FilterIcons";
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
@@ -272,37 +273,41 @@ const Allsnacks = () => {
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Navbar />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          position: "sticky",
+          backgroundColor: "white",
+          width: "100%",
+          marginTop: "20px",
+          top: "60px",
+          zIndex: 10,
+        }}
+      >
+        <FilterIcons />
+      </div>
 
       <div className='parent' style={{ marginBottom: "10vh" }}>
-        <div className='filters'>
-          <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
-          <div>
-            <div className='checkbox-div'>
-              <input type='checkbox' className='checkbox-input' />
-              Sweet
-            </div>
-            <div className='checkbox-div'>
-              <input type='checkbox' className='checkbox-input' />
-              Salty
-            </div>
-            <div className='checkbox-div'>
-              <input type='checkbox' className='checkbox-input' />
-              Healthy
-            </div>
-            <div className='checkbox-div'>
-              <input type='checkbox' className='checkbox-input' />
-              Frozen Snacks
-            </div>
-          </div>
-        </div>
-
         <div
           style={{
             display: "flex",
             flexDirection: "column",
-            width: "83%",
+            width: "90%",
           }}
         >
+          {/* <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              position: "fixed",
+              backgroundColor: "white",
+            }}
+          >
+            <FilterIcons />
+          </div> */}
           <div className='snack-title'>
             <div
               style={{

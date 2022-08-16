@@ -359,10 +359,14 @@ const SingleSnack = (props) => {
         <div className='title-arrow-container'>
           <div className='similar-products-title'>Similar Products</div>
           <div style={{ flexGrow: 1 }} />
-          <div className='arrow-circle' style={{ marginRight: "10px" }}>
+          <div
+            className='arrow-circle'
+            style={{ marginRight: "10px" }}
+            onClick={() => leftScroll(similarRef)}
+          >
             <img src={left} alt='leftbutton' className='left-right-but' />
           </div>
-          <div className='arrow-circle'>
+          <div className='arrow-circle' onClick={() => rightScroll(similarRef)}>
             <img
               src={rightArrow}
               alt='rightbutton'
@@ -370,7 +374,10 @@ const SingleSnack = (props) => {
             />
           </div>
         </div>
-        <div className='container-similar-products snap-single-product'>
+        <div
+          className='container-similar-products snap-single-product'
+          ref={similarRef}
+        >
           {filteredProducts.map((item) => (
             <SnackView
               key={item.name}
