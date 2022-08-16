@@ -4,7 +4,7 @@ import SnackView from "./SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
 import Navbar from "../Navbar/Navbar.js";
-import axios from "axios";
+import BottomNav from "../BottomNav/BottomNav";
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
@@ -56,6 +56,26 @@ const Allsnacks = () => {
     (item) => item.cat?.type === "Quick Meals" && item.display
   );
 
+  const bathBeauty = products.filter(
+    (item) => item.cat?.type === "Bath and Beauty" && item.display
+  );
+
+  const health = products.filter(
+    (item) => item.cat?.type === "Health" && item.display
+  );
+
+  const homeoffice = products.filter(
+    (item) => item.cat?.type === "Home and Office" && item.display
+  );
+
+  const pets = products.filter(
+    (item) => item.cat?.type === "Pets" && item.display
+  );
+
+  const baby = products.filter(
+    (item) => item.cat?.type === "Baby" && item.display
+  );
+
   const sweetSnackRef = useRef(null);
   const healthySnackRef = useRef(null);
   const saltySnacksRef = useRef(null);
@@ -66,6 +86,11 @@ const Allsnacks = () => {
   const cleaningRef = useRef(null);
   const iceCreamRef = useRef(null);
   const quickMealsRef = useRef(null);
+  const bathRef = useRef(null);
+  const healthRef = useRef(null);
+  const homeRef = useRef(null);
+  const petsRef = useRef(null);
+  const babyRef = useRef(null);
 
   const SnackCards = salty.map((item) => (
     <SnackView
@@ -177,6 +202,61 @@ const Allsnacks = () => {
     />
   ));
 
+  const BathandBeauty = bathBeauty.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Health = health.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const HomeOffice = homeoffice.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Pets = pets.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Baby = baby.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
   const leftScroll = (reference) => {
     reference.current.scrollLeft += -400;
   };
@@ -193,7 +273,7 @@ const Allsnacks = () => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Navbar />
 
-      <div className='parent'>
+      <div className='parent' style={{ marginBottom: "10vh" }}>
         <div className='filters'>
           <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
           <div>
@@ -681,8 +761,224 @@ const Allsnacks = () => {
               {QuickMeals}
             </div>
           </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Bath and Beauty
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/bath_beauty'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(bathRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(bathRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={bathRef}>
+              {BathandBeauty}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Health
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/health'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(healthRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(healthRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={healthRef}>
+              {Health}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Home and Office
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/home_office'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(homeRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(homeRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={homeRef}>
+              {HomeOffice}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Pets
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/pets'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(petsRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(petsRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={petsRef}>
+              {Pets}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Baby
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/baby'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(babyRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(babyRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={babyRef}>
+              {Baby}
+            </div>
+          </div>
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 };

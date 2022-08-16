@@ -836,6 +836,501 @@ async function seed() {
       photoURL:
         "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/056/726/xlarge/25548-2%281%29.png?1617049952",
     },
+
+    {
+      name: "Q-Tips Cotton Swabs 170ct",
+      desc: "Q-tips cotton swabs are the ultimate home, hygiene, and beauty tool.",
+      price: 3.29,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/065/379/xlarge/bqlcjwbe8wkhcptxih45.png?1629167031",
+    },
+
+    {
+      name: "Sally Hansen Insta-Dri Nail Polish Taupe Priority 0.31oz",
+      desc: "Sally Hansen Insta-Dri Nail Color is America's #1 quick-dry polish.",
+      price: 2.29,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/140/522/xlarge/vyytoenjjw8drofn0xk0.png?1645480462",
+    },
+
+    {
+      name: "Sally Hansen Insta-Dri Nail Polish Against the Grey 0.31oz",
+      desc: "Sally Hansen Insta-Dri Nail Color is America's #1 quick-dry polish.",
+      price: 2.29,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/038/951/xlarge/21501_1.png?1600181655",
+    },
+
+    {
+      name: "Quip Plastic Electric Toothbrush Blue 1ct",
+      desc: "Get a full two-minute clean with quip’s sensitive sonic vibrations, built-in timer and 30-second pulses to remind you when to switch sides.",
+      price: 29.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/156/257/xlarge/k6rkmdshdkd9vlwwyul5.png?1646321361",
+    },
+
+    {
+      name: "Harry's Truman Indigo Blue Razor with Refill Cartridge",
+      desc: "A rubberized handle with a textured pattern provides optimal control, even when wet.",
+      price: 9.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/069/458/xlarge/zxnr1ach36a3hsgzc5ev.png?1631890391",
+    },
+
+    {
+      name: "Harry's Shave Gel with Aloe 6.7oz",
+      desc: "The rich lather protects your face and keeps you in control of your shave. The gel quickly lathers into a rich, cushioning foam.",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/174/612/xlarge/u1m8uc6eaetvpniyuznc.png?1649888275",
+    },
+
+    {
+      name: "Dove Refreshing Cool Moisture Cucumber & Green Tea Body Wash 12oz",
+      desc: "A nourishing body wash with a refreshing cucumber and green tea scent. Lasting moisture and a fresh clean.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/039/886/xlarge/10125.png?1602871821",
+    },
+
+    {
+      name: "Irish Spring Original Deodorant Soap Bars 3pk 3.7oz",
+      desc: "Deodorant soap bar with an invigorating scent and long lasting Irish Spring Original fragrance 12-hour deodorant protection lets you feel fresh throughout the day.",
+      price: 2.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/037/326/xlarge/35000141088_R1C1_ISS_ORIG_3.png?1594304573",
+    },
+
+    {
+      name: "Dove Men Extra Fresh Cooling Agent Body Wash 13.5oz",
+      desc: "How fresh will you be today? Extra Fresh.",
+      price: 7.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/021/831/xlarge/dove-men-extra-fresh.jpg?1540825839",
+    },
+    {
+      name: "Chapstick Total Hydration Soothing Oasis .12oz",
+      desc: "ChapStick Total Hydration Soothing Oasis Moisturizing Lip Balm Tube has a Korean-inspired, 3-in-1 formula that provides triple action lip care in one lip balm.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/030/186/xlarge/14048.jpg?1564681064",
+    },
+
+    {
+      name: "Colgate Cavity Protection Toothpaste 2.5oz",
+      desc: "Cavity free is the way to be.",
+      price: 2.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/029/746/xlarge/810.jpg?1561144525",
+    },
+
+    {
+      name: "Crest Pro-Health Advanced Multi-Protection Fresh Mint Mouthwash 16.9oz",
+      desc: "Crest Pro-Health Advanced Multi-Protection Mouthwash with Fluoride helps you have stronger teeth for a healthier mouth.",
+      price: 7.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/030/455/xlarge/13558.jpg?1566418698",
+    },
+
+    {
+      name: "Childrens Tylenol Pain + Fever Relief Liquid - Acetaminophen - 4 fl oz",
+      desc: "Children's Tylenol Liquid Oral Suspension Medicine with acetaminophen for pain & fever relief.",
+      price: 6.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_313ddf88-7b1e-447e-95f0-54a689f532b3?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Tylenol Extra Strength Pain Reliever and Fever Reducer Caplets - Acetaminophen",
+      desc: "Tylenol Extra Strength Caplets with acetaminophen to relieve minor aches & pains & reduce fever.",
+      price: 6.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_f35f5453-90f2-4c01-9b83-94e3cd9a22dc?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Vicks SpeedRead Digital Thermometer - White",
+      desc: "Oral, underarm use and accurate readings within +/- 0.2F, 8 second readings",
+      price: 9.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_87315e21-415f-41e3-87f0-e4234f5da990?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "FLTR No Contact Infrared Digital Forehead Thermometer",
+      desc: "Non-Contact, One Second Instant Reading - Take your body temperature instantly from 1.2-2.0 inches away.",
+      price: 39.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_6e1eb52f-939a-4fc5-9b71-275a21c3a095?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Delsym Cough Relief Liquid - Grape",
+      desc: "Controls & Suppresses Cough, advanced time-release formula that works immediately.",
+      price: 13.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_4392f4c9-6296-49a3-a352-15b55fe3e2c9?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Mucinex 12 Hour Maximum Strength Cough Suppressant Tablets - 14ct",
+      desc: "MAXIMUM STRENGTH MUCINEX DM COUGH & CHEST CONGESTION MEDICINE: Clinically proven to last up to 12 hours to control cough and provide relief for your severe chest congestion.",
+      price: 13.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_db7f019b-45ce-4790-9271-56532b6c7ed3?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Robitussin Maximum Strength Cough and Chest Congestion Relief Syrup - Elderberry - 8.0 fl oz",
+      desc: "8 fl oz bottle of Robitussin Elderberry Maximum Strength Chest Congestion Relief and Cough Medicine.",
+      price: 10.49,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_6567bd37-29e4-4007-8087-498542c7eea2?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Dramamine Nausea Long Lasting Tablets - 10ct",
+      desc: "Dramamine Nausea Long Lasting relieves nausea, dizziness and vomiting for up to 24 hours.",
+      price: 5.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_d9941d76-047e-406f-a5a8-2e5066a66cb5?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Seaband Nausea Relief Acupressure Wristbands - 2ct",
+      desc: "Natural nausea relief with no side effects",
+      price: 8.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_2cf0d9ad-6df5-479d-81ac-f51b89b2be43?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Bayer Headache Pain Reliever Coated Aspirin 500mg with Caffeine Tablets (NSAID) - 100ct",
+      desc: "Bayer Aspirin Headache is designed to provide fast relief at first site of pain and starts working in minutes.",
+      price: 9.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_68e4cf40-43be-4357-acd8-cd1222a2f70a?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Vitafusion MultiVites Vitamin Gummies - Berry, Peach & Orange - 150ct",
+      desc: "Delicious and Nutritious: Vitamins fused with delicious berry, peach and orange flavors for a taste you'll love!",
+      price: 11.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_12e3d77d-246b-41ce-a140-674eb1d7bf3d?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Nature's Truth B12 Vitamin 1000mcg | 100 Tablets",
+      desc: "ESSENTIAL VITAMIN: Cyanocobalamin, is a beneficial nutrient in wellness",
+      price: 11.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_b12b8f81-9583-4f8f-bdf9-710e7bcbfbd7?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Febreze Odor-Eliminating Linen & Sky Air Freshener 8.8oz",
+      desc: "Febreze Air Effects actually eliminates air odors.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/034/713/xlarge/8347_1.png?1585072489",
+    },
+
+    {
+      name: "Enviroscent Scent Spring Water & Lotus Stix Refill",
+      desc: "No flames, no liquids, no spills, no mess Now with 4 Scent Stix.",
+      price: 7.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/064/575/xlarge/obdupnihzziwtsbhcyu6.png?1627922623",
+    },
+
+    {
+      name: "P.F. Candle Co Teakwood & Tobacco Soy Candle 7.2oz",
+      desc: "The one that started it all. Some call it the boyfriend scent, we call it the O.G. Leather, teak, and orange.",
+      price: 24.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/056/347/xlarge/41704.png?1616512225",
+    },
+
+    {
+      name: "Dove Purely Pampering Shea Butter & Warm Vanilla Beauty Soap Bars 2ct",
+      desc: "Formulated with Dove’s gentle cleansers and 1/4 moisturizing cream, the Shea Butter Beauty Bar leaves skin feeling soft and smooth and looking radiant.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/034/026/xlarge/10124.jpg?1582130818",
+    },
+
+    {
+      name: "Dove Deep Moisture Nourishing Hand Sanitizer 2oz",
+      desc: "Looking for a hand sanitizer that will moisturize your skin? Dove Deep Moisture Hand Sanitizer is 99.99% effective against many common germs and provides 8 hours of moisturization.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/038/573/xlarge/21259_1.png?1597710736",
+    },
+
+    {
+      name: "Medix Instant Hand Sanitizer 8oz",
+      desc: "75% Alcohol with Aloe Vera.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/036/398/xlarge/IMG_7390.png?1591030188",
+    },
+
+    {
+      name: "Lysol Crisp Linen Disinfectant Spray 19oz",
+      desc: "Kills 99.9% of viruses, bacteria and fungi. Kills cold & flu viruses and COVID-19 virus.",
+      price: 9.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/039/878/xlarge/21423.png?1602723176",
+    },
+
+    {
+      name: "Lysol Lemon & Lime Blossom Disinfecting Wipes 35ct",
+      desc: "Kills 99.9% of viruses and bacteria*, including 8 cold and flu viruses Kills the COVID-19 virus.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/020/445/xlarge/lysol-wipes.jpg?1535566238",
+    },
+
+    {
+      name: "Homesmart Toilet Bowl Brush",
+      desc: "Sturdy toliet bowl brush, sleek and compact design.",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/018/231/xlarge/Toilet_Bowl_Brush.jpg?1528400628",
+    },
+
+    {
+      name: "Toilet Plunger",
+      desc: "Wooden handle toilet plunger, good grip.",
+      price: 6.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/029/749/xlarge/6760.jpg?1561145015",
+    },
+
+    {
+      name: "Duracell Coppertop AA Batteries - 20 Pack Alkaline Battery",
+      desc: "Formulated with POWER BOOST™ ingredients which deliver lasting performance in your devices.",
+      price: 17.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_c50b4767-bce3-4526-8040-70438815dfa4?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Paper Mate Write Bros. 20pk Ballpoint Pens 1.00mm Medium Tip Black",
+      desc: "Ballpoint pen with sleek design at affordable price",
+      price: 2.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_2414c24d-5a8e-46bf-91e5-8f1ee6673b2f?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Ticonderoga #2 Pre-Sharpened Pencil, 18ct",
+      desc: "Exclusive #2 graphite formula provides extra smooth performance",
+      price: 2.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_45cd5680-2d8c-406a-babd-af02cb83f0a0?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Texas Instruments TI-30XIIS Scientific Calculator - Blue",
+      desc: "Fundamental, two-line calculator combines statistics and advanced scientific functions.",
+      price: 9.99,
+      photoURL:
+        "https://target.scene7.com/is/image/Target/GUEST_2b9bbb1e-8747-40ad-9ce4-12703165e65c?wid=325&hei=325&qlt=80&fmt=pjpeg",
+    },
+
+    {
+      name: "Shameless Pets Blueberried Dog Treats 6oz",
+      desc: "Shameless Pets Blueberried Treasure Flavor Soft Baked Treat for Dogs will send your fuzzy first mate on a new adventure!",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/057/823/xlarge/42286-1.png?1618542138",
+    },
+
+    {
+      name: "Shameless Pets Duck Duck Beets Dog Treats 6oz",
+      desc: "Shameless Pets Duck, Duck, Beet Flavor Soft Baked Treat for Dogs will give your pet a taste of the good life!",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/057/825/xlarge/42284-1.png?1618542171",
+    },
+
+    {
+      name: "Milk Bones Small Dog Biscuits 24oz",
+      desc: "For the big dogs who bring us such big joy, these small dog biscuits are a snack worthy of their size.",
+      price: 9.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/021/037/xlarge/small-milk-bone.jpg?1538151110",
+    },
+
+    {
+      name: "Beggin' Strips Bacon Dog Treats 25oz",
+      desc: "Each Beggin' Strip gives him the savory, meaty goodness he deserves, since they're made with the mouthwatering taste of real bacon with real meat as their #1 ingredient.",
+      price: 19.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/836/xlarge/9406_1.png?1581436117",
+    },
+
+    {
+      name: "Redbarn Cheese & Bacon Filled Bone 3in 1ct",
+      desc: "Natural Beef femur bone, supports dental health, durable and long lasting",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/021/496/xlarge/bacon-cheddar-filled-bone-1.jpg?1539355357",
+    },
+
+    {
+      name: "Redbarn Bully Stick 7in",
+      desc: "Redbarn Braided Bully Stick supports dental health all natural and grain free bully sticks",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/026/087/xlarge/7in-bully-stick.jpg?1551196384",
+    },
+
+    {
+      name: "Dogsters Nutley Peanut Butter and Cheese Cups 4ct 3.5oz",
+      desc: "Treats for Dogs, Ice Cream Style, Nutly Peanut Butter and Cheese Flavor",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/021/875/xlarge/dogsters.jpg?1540834800",
+    },
+
+    {
+      name: "Purina Tidy Cats 24/7 Performance Clumping Cat Litter 14lb",
+      desc: "Put an end to overpowering odors in your home with Purina Tidy Cats Performance Clumping litter for multiple cats.",
+      price: 13.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/011/667/xlarge/TidyCats_Litter_Clay.jpg?1487628601",
+    },
+
+    {
+      name: "Purina Friskies Meaty Bits Chicken in Gravy Wet Cat Food 5.5oz",
+      desc: "Quench your curious cat's cravings for savory goodness when you serve Purina Friskies Meaty Bits Chicken Dinner in Gravy wet cat food.",
+      price: 1.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/024/156/xlarge/4119_0162.jpg?1544620533",
+    },
+
+    {
+      name: "Whiskas Temptations Tempting Tuna Flavor Cat Treats Mega Bag 6.3oz",
+      desc: "Cats can’t resist the delectable taste of TEMPTATIONS, so give your cat these purrfect TEMPTATIONS Classic Cat Treats.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/029/366/xlarge/12997_01.jpg?1559747063",
+    },
+
+    {
+      name: "Nutro Perfect Portions Trays Grain-Free Pate Real Chicken Recipe Wet Cat Food 2.6oz",
+      desc: "This NUTRO Pate recipe features chicken as the #1 ingredient and is a natural cat food plus vitamins, minerals, and other nutrients to help nourish your healthy cat. ",
+      price: 2.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/457/xlarge/13004.jpg?1580162910",
+    },
+
+    {
+      name: "Resolve Pet Stain & Odor Carpet Cleaner 22oz",
+      desc: "Resolve Pet Expert Stain Remover for Carpet is specially formulated to lift and remove tough ground-in dirt & messes left behind by pets.",
+      price: 7.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/020/460/xlarge/RESOLVE-STAIN-REMOVER.jpg?1535569784",
+    },
+
+    {
+      name: "WaterWipes Sensitive Baby Diaper Wipes 60ct",
+      desc: "Our fragrance-free baby wipes contain 99.9% purified water with a drop of fruit extract, suitable for eczema-prone skin and allergy sufferers.",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/063/882/xlarge/atwuzi1nzmgz9gilw3rb.png?1626734033",
+    },
+
+    {
+      name: "Seventh Generation Free & Clear Baby Wipes 64ct",
+      desc: "Smooth, soft, and clean - the way a baby's bottom should be. Seventh Generation Free & Clear sensitive Baby Wipes are made for baby's sensitive skin and contain 0% fragrance, alcohol, parabens, or phenoxyethanol.",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/018/737/xlarge/7th-gen-baby-wipes.jpg?1531155346",
+    },
+
+    {
+      name: "Huggies Pure Baby Wipes 56ct",
+      desc: "Huggies Natural Care Sensitive Baby Wipes are plant-based wipes, made with 99% purified water and 1% skin essential ingredients for a gentle clean.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/900/xlarge/2764_1.png?1581442385",
+    },
+
+    {
+      name: "Similac Advance Baby Powder Formula 12.4oz",
+      desc: "Similac Advance Infant Formula is a nutritionally complete milk-based and iron-fortified baby formula.",
+      price: 19.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/125/480/xlarge/nhbzwc87oyeg332gckk2.png?1644250150",
+    },
+
+    {
+      name: "Similac Sensitive Ready to Feed Infant Formula 32oz",
+      desc: "Similac Sensitive Infant Formula is an easy-to-digest, milk based formula designed for sensitive tummies.",
+      price: 9.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/128/389/xlarge/zfpq7n8sqijxaaqf0sba.png?1644594963",
+    },
+
+    {
+      name: "Happy Baby Organic Sweet Potato & Carrot Puffs 2.1oz",
+      desc: "Happy Baby Superfood Puffs are the perfect finger food for crawling babies, enriched with nutrients, made with whole grains and a yummy way to learn self-feeding.",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/028/782/xlarge/happybabypuffscarrot2.1oz_1.jpg?1557930180",
+    },
+
+    {
+      name: "Gerber 2nd Foods Banana Orange Medley Baby Food 4oz 2ct",
+      desc: "Continue your baby's love for fruits and vegetables with Gerber 2nd Foods. ",
+      price: 2.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/028/867/xlarge/gerber2ndfoodsbananaorange.jpg?1558104580",
+    },
+
+    {
+      name: "Sun Bum Foaming Baby Shampoo and Wash 12oz",
+      desc: "Ultra-Gentle Foaming Wash with Sea Minerals, Monoi Coconut Oil, Banana, Aloe and White Ginger Keeping squeaky clean is super fun with our foaming head to toe, tear-free Shampoo & Wash. ",
+      price: 9.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/039/992/xlarge/21470-1.png?1603148629",
+    },
+
+    {
+      name: "Johnson's Baby Oil 3oz",
+      desc: "Pure baby mineral oil forms a silky, protective moisturizing barrier to lock in up to 10x more moisture on wet skin than an ordinary lotion can on dry skin.",
+      price: 3.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/017/827/xlarge/baby_oil.jpg?1525214605",
+    },
+
+    {
+      name: "Lansinoh Lanolin Nipple Cream for Breastfeeding 1.41oz",
+      desc: "Lansinoh Lanolin is the #1 recommended nipple cream by moms and doctors in the US. Clinically tested. Lansinoh Lanolin soothes and protects sore nipples for breastfeeding moms.",
+      price: 10.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/064/780/xlarge/dgqfuf41sz8uxhm5pzhn.png?1628103357",
+    },
+
+    {
+      name: "Nuby Snack Keepers 2ct",
+      desc: "Holds 9 ounces of dry snacks that won't spill all over the floor. Protective bottom of Snack Keeper keeps tabletops scratch-free.",
+      price: 4.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/059/881/xlarge/26232_-_1.png?1621265334",
+    },
+
+    {
+      name: "Nuby No Spill Easy Grip Trainer Cup 2ct",
+      desc: "Nuby's No-Spill Soft Flex spout with Touch Flo Technology is perfect for beginner.",
+      price: 5.99,
+      photoURL:
+        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/059/886/xlarge/26270.png?1621265410",
+    },
   ];
   const categories = [
     {
@@ -1081,6 +1576,68 @@ async function seed() {
     snack108,
     snack109,
     snack110,
+    snack111,
+    snack112,
+    snack113,
+    snack114,
+    snack115,
+    snack116,
+    snack117,
+    snack118,
+    snack119,
+    snack120,
+    snack121,
+    snack122,
+    snack123,
+    snack124,
+    snack125,
+    snack126,
+    snack127,
+    snack128,
+    snack129,
+    snack130,
+    snack131,
+    snack132,
+    snack133,
+    snack134,
+    snack135,
+    snack136,
+    snack137,
+    snack138,
+    snack139,
+    snack140,
+    snack141,
+    snack142,
+    snack143,
+    snack144,
+    snack145,
+    snack146,
+    snack147,
+    snack148,
+    snack149,
+    snack150,
+    snack151,
+    snack152,
+    snack153,
+    snack154,
+    snack155,
+    snack156,
+    snack157,
+    snack158,
+    snack159,
+    snack160,
+    snack161,
+    snack162,
+    snack163,
+    snack164,
+    snack165,
+    snack166,
+    snack167,
+    snack168,
+    snack169,
+    snack170,
+    snack171,
+    snack172,
   ] = allProducts;
 
   await snack1.setCat(salty);
@@ -1202,6 +1759,73 @@ async function seed() {
   await snack108.setCat(quickmeals);
   await snack109.setCat(quickmeals);
   await snack110.setCat(quickmeals);
+
+  await snack111.setCat(bathandbeauty);
+  await snack112.setCat(bathandbeauty);
+  await snack113.setCat(bathandbeauty);
+  await snack114.setCat(bathandbeauty);
+  await snack115.setCat(bathandbeauty);
+  await snack116.setCat(bathandbeauty);
+  await snack117.setCat(bathandbeauty);
+  await snack118.setCat(bathandbeauty);
+  await snack119.setCat(bathandbeauty);
+  await snack120.setCat(bathandbeauty);
+  await snack121.setCat(bathandbeauty);
+  await snack122.setCat(bathandbeauty);
+
+  await snack123.setCat(healthproducts);
+  await snack124.setCat(healthproducts);
+  await snack125.setCat(healthproducts);
+  await snack126.setCat(healthproducts);
+  await snack127.setCat(healthproducts);
+  await snack128.setCat(healthproducts);
+  await snack129.setCat(healthproducts);
+  await snack130.setCat(healthproducts);
+  await snack131.setCat(healthproducts);
+  await snack132.setCat(healthproducts);
+  await snack133.setCat(healthproducts);
+  await snack134.setCat(healthproducts);
+
+  await snack135.setCat(homeandoffice);
+  await snack136.setCat(homeandoffice);
+  await snack137.setCat(homeandoffice);
+  await snack138.setCat(homeandoffice);
+  await snack139.setCat(homeandoffice);
+  await snack140.setCat(homeandoffice);
+  await snack141.setCat(homeandoffice);
+  await snack142.setCat(homeandoffice);
+  await snack143.setCat(homeandoffice);
+  await snack144.setCat(homeandoffice);
+  await snack145.setCat(homeandoffice);
+  await snack146.setCat(homeandoffice);
+  await snack147.setCat(homeandoffice);
+  await snack148.setCat(homeandoffice);
+
+  await snack149.setCat(pets);
+  await snack150.setCat(pets);
+  await snack151.setCat(pets);
+  await snack152.setCat(pets);
+  await snack153.setCat(pets);
+  await snack154.setCat(pets);
+  await snack155.setCat(pets);
+  await snack156.setCat(pets);
+  await snack157.setCat(pets);
+  await snack158.setCat(pets);
+  await snack159.setCat(pets);
+  await snack160.setCat(pets);
+
+  await snack161.setCat(baby);
+  await snack162.setCat(baby);
+  await snack163.setCat(baby);
+  await snack164.setCat(baby);
+  await snack165.setCat(baby);
+  await snack166.setCat(baby);
+  await snack167.setCat(baby);
+  await snack168.setCat(baby);
+  await snack169.setCat(baby);
+  await snack170.setCat(baby);
+  await snack171.setCat(baby);
+  await snack172.setCat(baby);
 
   // Creating shopping sessions for everyone
   const allShoppingSessions = await Promise.all(

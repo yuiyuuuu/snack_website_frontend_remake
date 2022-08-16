@@ -37,24 +37,24 @@ export const objects = [
   {
     "Bath and Beauty":
       "https://cdn.discordapp.com/attachments/775994350143930391/1007762128742129736/unknown.png",
-    a: "/allbathbeauty",
+    a: "/bath_beauty",
   },
   {
     Health:
       "https://cdn.discordapp.com/attachments/775994350143930391/1007762014300545024/unknown.png",
-    a: "/allhealth",
+    a: "/health",
   },
   {
     "Home and Office":
       "https://cdn.discordapp.com/attachments/775994350143930391/1007761885543800882/unknown.png",
-    a: "/allhomeoffice",
+    a: "/home_office",
   },
   {
     Pets: "https://cdn.discordapp.com/attachments/775994350143930391/1007762214150754415/unknown.png",
-    a: "/allpets",
+    a: "/pets",
   },
   {
     Baby: "https://cdn.discordapp.com/attachments/775994350143930391/1007762291665674372/unknown.png",
-    a: "/allbaby",
+    a: "/baby",
   },
 ];

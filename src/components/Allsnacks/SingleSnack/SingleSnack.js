@@ -9,6 +9,7 @@ import Navbar from "../../Navbar/Navbar.js";
 import { addToCart, updateCart, fetchCart } from "../../../store/cart";
 import { fetchAUser } from "../../../store";
 import { useHistory } from "react-router-dom";
+import BottomNav from "../../BottomNav/BottomNav";
 
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
@@ -166,7 +167,10 @@ const SingleSnack = (props) => {
   return (
     <div className='single-snack-container'>
       <Navbar />
-      <div className='single-snack-flex-container'>
+      <div
+        className='single-snack-flex-container'
+        style={{ marginBottom: "10vh" }}
+      >
         <div
           style={{
             height: "50px",
@@ -236,6 +240,41 @@ const SingleSnack = (props) => {
                 onClick={() => history.push("/quick_meals")}
               >
                 Quick Meals
+              </span>
+            ) : snack.cat.type === "Bath and Beauty" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/bath_beauty")}
+              >
+                Bath and Beauty
+              </span>
+            ) : snack.cat.type === "Health" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/health")}
+              >
+                Health
+              </span>
+            ) : snack.cat.type === "Home and Office" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/home_office")}
+              >
+                Home and Office
+              </span>
+            ) : snack.cat.type === "Pets" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/pets")}
+              >
+                Pets
+              </span>
+            ) : snack.cat.type === "Baby" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/baby")}
+              >
+                Baby
               </span>
             ) : null}
           </div>
@@ -382,6 +421,7 @@ const SingleSnack = (props) => {
           ))}
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 };

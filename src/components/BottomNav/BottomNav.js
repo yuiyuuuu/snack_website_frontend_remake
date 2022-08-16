@@ -6,7 +6,7 @@ const BottomNav = () => {
     <div
       style={{
         width: "100%",
-        height: " 320px",
+        height: " 300px",
         backgroundColor: "black",
         color: "white",
       }}
@@ -143,7 +143,6 @@ const BottomNav = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              marginBottom: "10px",
             }}
           >
             <img
