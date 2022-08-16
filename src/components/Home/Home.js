@@ -95,7 +95,7 @@ const Home = () => {
           style={{
             width: "50%",
             aspectRatio: "1.02",
-            backgroundColor: "aqua",
+            backgroundColor: "rgb(55, 113, 250)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -115,7 +115,7 @@ const Home = () => {
           >
             Tasty snacks delivered in minutes.
           </div>
-          <a href='/allsnacks'>
+          <a href='/bullseye'>
             {" "}
             <div className='shop-button-home animation-underline-home'>
               Shop Now
@@ -339,7 +339,7 @@ const Home = () => {
             }}
             className='start-shopping-home'
           >
-            <a href='/allsnacks' style={{ color: "rgb(23, 144, 243)" }}>
+            <a href='/bullseye' style={{ color: "rgb(23, 144, 243)" }}>
               Start Shopping
             </a>
 

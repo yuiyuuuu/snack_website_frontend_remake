@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
-import { fetchSingleSnack } from "../../../store/singleSnack";
+import { clearState, fetchSingleSnack } from "../../../store/singleSnack";
 import { fetchProducts } from "../../../store/Snacks";
 import SnackView from "../SnackView/SnackView";
 import "./SingleSnack.css";
@@ -9,6 +9,7 @@ import Navbar from "../../Navbar/Navbar.js";
 import { addToCart, updateCart, fetchCart } from "../../../store/cart";
 import { fetchAUser } from "../../../store";
 import { useHistory } from "react-router-dom";
+import BottomNav from "../../BottomNav/BottomNav";
 
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
@@ -103,7 +104,7 @@ const SingleSnack = (props) => {
     } catch (error) {
       console.error(error);
     }
-    history.push("/allsnacks");
+    history.push("/bullseye");
   };
 
   useEffect(() => {
@@ -133,6 +134,8 @@ const SingleSnack = (props) => {
   ]);
 
   useEffect(() => {
+    dispatch(clearState());
+    setLoading(true);
     dispatch(fetchSingleSnack(snackId));
     dispatch(fetchProducts());
     setLoading(false);
@@ -164,20 +167,117 @@ const SingleSnack = (props) => {
   return (
     <div className='single-snack-container'>
       <Navbar />
-      <div className='single-snack-flex-container'>
+      <div
+        className='single-snack-flex-container'
+        style={{ marginBottom: "10vh" }}
+      >
         <div
           style={{
             height: "50px",
             display: "flex",
             flexDirection: "column-reverse",
-            textDecoration: "underline",
             color: "black",
-            marginBottom: "18px",
-            width: "70px",
+            marginBottom: "35px",
           }}
           className='goback-single'
         >
-          <a href='/allsnacks'>Go back</a>
+          <div style={{ cursor: "pointer" }}>
+            <span
+              style={{ textDecoration: "underline" }}
+              onClick={() => history.push("/bullseye")}
+            >
+              Home
+            </span>{" "}
+            <span className='span-hi'>- </span>
+            {snack.cat.type === "Salty" ||
+            snack.cat.type === "Sweet" ||
+            snack.cat.type === "Healthy" ||
+            snack.cat.type === "Refrigerated/Frozen" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allsnacks")}
+              >
+                Snacks
+              </span>
+            ) : snack.cat.type === "Grocery" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allgrocery")}
+              >
+                Grocery
+              </span>
+            ) : snack.cat.type === "Drinks" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/alldrinks")}
+              >
+                Drinks
+              </span>
+            ) : snack.cat.type === "Alcohol" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allalcohol")}
+              >
+                Alcohol
+              </span>
+            ) : snack.cat.type === "Cleaning" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/allcleaning")}
+              >
+                Cleaning
+              </span>
+            ) : snack.cat.type === "Ice Cream" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/ice_cream")}
+              >
+                Ice Cream
+              </span>
+            ) : snack.cat.type === "Quick Meals" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/quick_meals")}
+              >
+                Quick Meals
+              </span>
+            ) : snack.cat.type === "Bath and Beauty" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/bath_beauty")}
+              >
+                Bath and Beauty
+              </span>
+            ) : snack.cat.type === "Health" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/health")}
+              >
+                Health
+              </span>
+            ) : snack.cat.type === "Home and Office" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/home_office")}
+              >
+                Home and Office
+              </span>
+            ) : snack.cat.type === "Pets" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/pets")}
+              >
+                Pets
+              </span>
+            ) : snack.cat.type === "Baby" ? (
+              <span
+                style={{ textDecoration: "underline" }}
+                onClick={() => history.push("/baby")}
+              >
+                Baby
+              </span>
+            ) : null}
+          </div>
         </div>
 
         <div className='single-snack-product-container'>
@@ -321,6 +421,7 @@ const SingleSnack = (props) => {
           ))}
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import SnackView from "./SnackView/SnackView";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
 import Navbar from "../Navbar/Navbar.js";
+import BottomNav from "../BottomNav/BottomNav";
 const left =
   "https://cdn.discordapp.com/attachments/515744333379665927/1002054686909665320/unknown.png";
 
@@ -19,22 +20,77 @@ const Allsnacks = () => {
 
   const { products } = useSelector((state) => state);
   const salty = products.filter(
-    (item) => item.productCategoryId === 1 && item.display
+    (item) => item.cat?.type === "Salty" && item.display
   );
   const sweet = products.filter(
-    (item) => item.productCategoryId === 3 && item.display
+    (item) => item.cat?.type === "Sweet" && item.display
   );
   const healthy = products.filter(
-    (item) => item.productCategoryId === 4 && item.display
+    (item) => item.cat?.type === "Healthy" && item.display
   );
   const frozen = products.filter(
-    (item) => item.productCategoryId === 2 && item.display
+    (item) => item.cat?.type === "Refrigerated/Frozen" && item.display
+  );
+
+  const grocery = products.filter(
+    (item) => item.cat?.type === "Grocery" && item.display
+  );
+
+  const drinks = products.filter(
+    (item) => item.cat?.type === "Drinks" && item.display
+  );
+
+  const alcohol = products.filter(
+    (item) => item.cat?.type === "Alcohol" && item.display
+  );
+
+  const cleaning = products.filter(
+    (item) => item.cat?.type === "Cleaning" && item.display
+  );
+
+  const icecream = products.filter(
+    (item) => item.cat?.type === "Ice Cream" && item.display
+  );
+
+  const quickmeals = products.filter(
+    (item) => item.cat?.type === "Quick Meals" && item.display
+  );
+
+  const bathBeauty = products.filter(
+    (item) => item.cat?.type === "Bath and Beauty" && item.display
+  );
+
+  const health = products.filter(
+    (item) => item.cat?.type === "Health" && item.display
+  );
+
+  const homeoffice = products.filter(
+    (item) => item.cat?.type === "Home and Office" && item.display
+  );
+
+  const pets = products.filter(
+    (item) => item.cat?.type === "Pets" && item.display
+  );
+
+  const baby = products.filter(
+    (item) => item.cat?.type === "Baby" && item.display
   );
 
   const sweetSnackRef = useRef(null);
   const healthySnackRef = useRef(null);
   const saltySnacksRef = useRef(null);
   const frozenSnacksRef = useRef(null);
+  const groceryRef = useRef(null);
+  const drinksRef = useRef(null);
+  const alcoholRef = useRef(null);
+  const cleaningRef = useRef(null);
+  const iceCreamRef = useRef(null);
+  const quickMealsRef = useRef(null);
+  const bathRef = useRef(null);
+  const healthRef = useRef(null);
+  const homeRef = useRef(null);
+  const petsRef = useRef(null);
+  const babyRef = useRef(null);
 
   const SnackCards = salty.map((item) => (
     <SnackView
@@ -80,6 +136,127 @@ const Allsnacks = () => {
     />
   ));
 
+  const Grocery = grocery.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Drinks = drinks.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Alcohol = alcohol.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Cleaning = cleaning.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const IceCream = icecream.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const QuickMeals = quickmeals.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const BathandBeauty = bathBeauty.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Health = health.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const HomeOffice = homeoffice.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Pets = pets.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
+  const Baby = baby.map((item) => (
+    <SnackView
+      key={item.name}
+      photoUrl={item.photoURL}
+      title={item.name}
+      description={item.desc}
+      price={item.price}
+      snack={item}
+    />
+  ));
+
   const leftScroll = (reference) => {
     reference.current.scrollLeft += -400;
   };
@@ -96,7 +273,7 @@ const Allsnacks = () => {
     <div style={{ display: "flex", flexDirection: "column" }}>
       <Navbar />
 
-      <div className='parent'>
+      <div className='parent' style={{ marginBottom: "10vh" }}>
         <div className='filters'>
           <div style={{ fontSize: 20, marginBottom: "20px" }}>Filters</div>
           <div>
@@ -137,6 +314,17 @@ const Allsnacks = () => {
               Sweet Snacks
               <div style={{ flexGrow: 1 }} />
               <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allsnacks'>View All</a>
+              </div>
+              <div
                 className='leftcircle'
                 onClick={() => {
                   leftScroll(sweetSnackRef);
@@ -174,6 +362,17 @@ const Allsnacks = () => {
               Healthy Snacks
               <div style={{ flexGrow: 1 }} />
               <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allsnacks'>View All</a>
+              </div>
+              <div
                 className='leftcircle'
                 onClick={() => leftScroll(healthySnackRef)}
               >
@@ -208,6 +407,17 @@ const Allsnacks = () => {
             >
               Salty Snacks
               <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allsnacks'>View All</a>
+              </div>
               <div
                 className='leftcircle'
                 onClick={() => leftScroll(saltySnacksRef)}
@@ -244,6 +454,17 @@ const Allsnacks = () => {
               Frozen Snacks
               <div style={{ flexGrow: 1 }} />
               <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allsnacks'>View All</a>
+              </div>
+              <div
                 className='leftcircle'
                 onClick={() => leftScroll(frozenSnacksRef)}
               >
@@ -267,30 +488,499 @@ const Allsnacks = () => {
               {FrozenSnacks}
             </div>
           </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Grocery
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allgrocery'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(groceryRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(groceryRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={groceryRef}>
+              {Grocery}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Drinks
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/alldrinks'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(drinksRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(drinksRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={drinksRef}>
+              {Drinks}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Alcohol
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allalcohol'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(alcoholRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(alcoholRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={alcoholRef}>
+              {Alcohol}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Cleaning
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/allcleaning'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(cleaningRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(cleaningRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={cleaningRef}>
+              {Cleaning}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Ice Cream
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/ice_cream'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(iceCreamRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(iceCreamRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={iceCreamRef}>
+              {IceCream}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Quick Meals
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/quick_meals'>View All</a>
+              </div>
+              <div
+                className='leftcircle'
+                onClick={() => leftScroll(quickMealsRef)}
+              >
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(quickMealsRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={quickMealsRef}>
+              {QuickMeals}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Bath and Beauty
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/bath_beauty'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(bathRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(bathRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={bathRef}>
+              {BathandBeauty}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Health
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/health'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(healthRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(healthRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={healthRef}>
+              {Health}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Home and Office
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/home_office'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(homeRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(homeRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={homeRef}>
+              {HomeOffice}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Pets
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/pets'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(petsRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(petsRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={petsRef}>
+              {Pets}
+            </div>
+          </div>
+
+          <div className='snack-title'>
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "row",
+                alignItems: "center",
+              }}
+            >
+              Baby
+              <div style={{ flexGrow: 1 }} />
+              <div
+                style={{
+                  textDecoration: "underline",
+                  cursor: "pointer",
+                  fontSize: "15px",
+                  fontWeight: "500",
+                  marginRight: "15px",
+                }}
+              >
+                <a href='/baby'>View All</a>
+              </div>
+              <div className='leftcircle' onClick={() => leftScroll(babyRef)}>
+                <img src={left} alt='leftarrow' className='leftandright' />
+              </div>
+              <div
+                className='leftcircle'
+                style={{ marginLeft: "10px" }}
+                onClick={() => rightScroll(babyRef)}
+              >
+                <img
+                  src={rightArrow}
+                  alt='rightarrow'
+                  className='leftandright'
+                />
+              </div>
+            </div>
+          </div>
+          <div>
+            <div className='container snap-inline' ref={babyRef}>
+              {Baby}
+            </div>
+          </div>
         </div>
       </div>
+      <BottomNav />
     </div>
   );
 };
 
 export default Allsnacks;
-
-/*
-
-
-
-
-
-
-
-        <div className='snack-title'>
-          Sweet Snacks
-          <div className='container'>
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-            <img src='https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg' />
-          </div>
-        </div>
-        */

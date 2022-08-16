@@ -55,7 +55,7 @@ const Navbar = () => {
             </div>
             <div>
               <a
-                href='/allsnacks'
+                href='/bullseye'
                 style={{ textDecoration: "none", color: "black" }}
               >
                 Shop Button
@@ -65,7 +65,7 @@ const Navbar = () => {
           </div>
 
           <div style={{ flexGrow: 1 }} />
-          <a href='/allsnacks'>
+          <a href='/bullseye'>
             <div
               style={{
                 marginLeft: "10px",

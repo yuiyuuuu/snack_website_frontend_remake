@@ -21,6 +21,7 @@
 .snackview--price {
   font-size: 12px;
   font-weight: 300;
+  margin-top: 5px;
 }
 
 .noDecoration {

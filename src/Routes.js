@@ -11,6 +11,19 @@ import Cart from "./components/Cart/Cart";
 import Login from "./Auth/login/Login";
 import Signup from "./Auth/signup/Signup";
 import AdminMain from "./components/AdminPages/AdminMain";
+import RealAllSnacks from "./components/Allsnacks/AllPages/RealAllSnacks";
+import AllGrocery from "./components/Allsnacks/AllPages/AllGrocery";
+import AllDrinks from "./components/Allsnacks/AllPages/AllDrinks";
+import AllAlcohol from "./components/Allsnacks/AllPages/AllAlcohol";
+import AllCleaning from "./components/Allsnacks/AllPages/AllCleaning";
+import IceCream from "./components/Allsnacks/AllPages/IceCream";
+import Credits from "./components/Credits";
+import QuickMeals from "./components/Allsnacks/AllPages/QuickMeals";
+import BathBeauty from "./components/Allsnacks/AllPages/BathBeauty";
+import Health from "./components/Allsnacks/AllPages/Health";
+import HomeOffice from "./components/Allsnacks/AllPages/HomeOffice";
+import Pets from "./components/Allsnacks/AllPages/Pets";
+import Baby from "./components/Allsnacks/AllPages/Baby";
 
 class Routes extends Component {
   componentDidMount() {
@@ -26,18 +39,31 @@ class Routes extends Component {
         {!isLoggedIn ? (
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/allsnacks' component={Allsnacks} />
+            <Route exact path='/bullseye' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
             <Route exact path='/cart' component={Cart} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
+            <Route exact path='/allsnacks' component={RealAllSnacks} />
+            <Route exact path='/allgrocery' component={AllGrocery} />
+            <Route exact path='/alldrinks' component={AllDrinks} />
+            <Route exact path='/allalcohol' component={AllAlcohol} />
+            <Route exact path='/allcleaning' component={AllCleaning} />
+            <Route exact path='/ice_cream' component={IceCream} />
+            <Route exact path='/credits' component={Credits} />
+            <Route exact path='/quick_meals' component={QuickMeals} />
+            <Route exact path='/bath_beauty' component={BathBeauty} />
+            <Route exact path='/health' component={Health} />
+            <Route exact path='/home_office' component={HomeOffice} />
+            <Route exact path='/pets' component={Pets} />
+            <Route exact path='/baby' component={Baby} />
           </Switch>
         ) : (
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/allsnacks' component={Allsnacks} />
+            <Route exact path='/bullseye' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
             <Route exact path='/allsnacks/:snackId' component={SingleSnack} />
@@ -45,6 +71,19 @@ class Routes extends Component {
             <Route exact path='/login' component={Login} />
             <Route exact path='/signup' component={Signup} />
             <Route exact path='/admin' component={AdminMain} />
+            <Route exact path='/allsnacks' component={RealAllSnacks} />
+            <Route exact path='/allgrocery' component={AllGrocery} />
+            <Route exact path='/alldrinks' component={AllDrinks} />
+            <Route exact path='/allalcohol' component={AllAlcohol} />
+            <Route exact path='/allcleaning' component={AllCleaning} />
+            <Route exact path='/ice_cream' component={IceCream} />
+            <Route exact path='/credits' component={Credits} />
+            <Route exact path='/quick_meals' component={QuickMeals} />
+            <Route exact path='/bath_beauty' component={BathBeauty} />
+            <Route exact path='/health' component={Health} />
+            <Route exact path='/home_office' component={HomeOffice} />
+            <Route exact path='/pets' component={Pets} />
+            <Route exact path='/baby' component={Baby} />
           </Switch>
         )}
       </div>

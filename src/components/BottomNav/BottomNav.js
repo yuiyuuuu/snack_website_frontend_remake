@@ -6,7 +6,7 @@ const BottomNav = () => {
     <div
       style={{
         width: "100%",
-        height: " 320px",
+        height: " 300px",
         backgroundColor: "black",
         color: "white",
       }}
@@ -48,6 +48,9 @@ const BottomNav = () => {
           </a>
           <a className='sub' href='/contact' style={{ color: "white" }}>
             Contact Us
+          </a>
+          <a className='sub' href='/credits' style={{ color: "white" }}>
+            Credits
           </a>
         </div>
         <div
@@ -140,7 +143,6 @@ const BottomNav = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              marginBottom: "10px",
             }}
           >
             <img
