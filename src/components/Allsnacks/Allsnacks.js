@@ -297,17 +297,6 @@ const Allsnacks = () => {
             width: "90%",
           }}
         >
-          {/* <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              position: "fixed",
-              backgroundColor: "white",
-            }}
-          >
-            <FilterIcons />
-          </div> */}
           <div className='snack-title'>
             <div
               style={{

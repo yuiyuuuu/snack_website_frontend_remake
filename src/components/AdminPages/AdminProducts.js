@@ -84,7 +84,29 @@ const AdminProducts = ({ products, edit, setEdit, setAdd }) => {
                   ? "Sweet"
                   : product.cat?.type === "Healthy"
                   ? "Healthy"
-                  : "Grocery"}
+                  : product.cat?.type === "Grocery"
+                  ? "Grocery"
+                  : product.cat?.type === "Drinks"
+                  ? "Drinks"
+                  : product.cat?.type === "Alcohol"
+                  ? "Alcohol"
+                  : product.cat?.type === "Cleaning"
+                  ? "Cleaning"
+                  : product.cat?.type === "Ice Cream"
+                  ? "Ice Cream"
+                  : product.cat?.type === "Quick Meals"
+                  ? "Quick Meals"
+                  : product.cat?.type === "Bath and Beauty"
+                  ? "Bath and Beauty"
+                  : product.cat?.type === "Health"
+                  ? "Health"
+                  : product.cat?.type === "Healthy"
+                  ? "Healthy"
+                  : product.cat?.type === "Home and Office"
+                  ? "Home and Office"
+                  : product.cat?.type === "Pets"
+                  ? "Pets"
+                  : "Baby"}
               </td>
               <td>
                 <div
