@@ -78,7 +78,7 @@ const Home = () => {
       } else {
         setTimeout(() => {
           scrollRef.current.scrollLeft += scrollRef2.current.offsetWidth / 6;
-          scrollRef3.current.scrollTop += imageref.current.offsetHeight;
+          scrollRef3.current.scrollTop += imageref.current.offsetHeight - 0.5;
           scrollRef5.current.scrollTop += -imageref.current.offsetHeight + 0.5;
           return scroll(num + 1);
         }, 2500);
