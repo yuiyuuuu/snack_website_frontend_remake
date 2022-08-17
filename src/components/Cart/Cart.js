@@ -197,7 +197,11 @@ const Cart = () => {
                     <div className='cart-addbut'>
                       <div
                         className='cart-plus'
-                        style={{ marginLeft: "3px", backgroundColor: "white" }}
+                        style={{
+                          marginLeft: "3px",
+                          backgroundColor: "white",
+                          userSelect: "none",
+                        }}
                         onClick={() => decrement(item)}
                       >
                         -
@@ -207,7 +211,11 @@ const Cart = () => {
 
                       <div
                         className='cart-plus'
-                        style={{ marginRight: "3px", backgroundColor: "aqua" }}
+                        style={{
+                          marginRight: "3px",
+                          backgroundColor: "aqua",
+                          userSelect: "none",
+                        }}
                         onClick={() => increment(item)}
                       >
                         +

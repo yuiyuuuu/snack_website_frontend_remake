@@ -1,7 +1,7 @@
 # Bullseye
 
 <em>Hey there! Thanks for checking out Bullseye.</em>
-<em>This project was originally built by a team of 4 including me. I decided to rebuild the frontend to strengthen my HTML and CSS skills and build a website that does not fully depend on a frontend library like MaterialUI. Please check out the video walkthrough below and I hope you enjoy the presentation!</em>
+<em>This project was originally built by a team of 4 including me. I decided to rebuild the frontend to strengthen my HTML and CSS skills and build a website that does not fully depend on a frontend library like MaterialUI. Please check out the deployed project below and I hope you enjoy the presentation!</em>
 
 <em>Original project repo: https://github.com/2204-Federation/federation-store</em>
 
@@ -14,9 +14,9 @@
 
 Bullseye is an eCommerce website for snacks and a clone of a very popular store. Shop around for snacks based on your current craving. Don't want to checkout right away? No problem! Create an account and add items to your cart. Sign in again later when you're ready to purchase!
 
-## Video Walkthrough :movie_camera:
+## Deployed Project
 
-insert video here
+https://snack-website2.herokuapp.com/
 
 ## Key Features :key:
 

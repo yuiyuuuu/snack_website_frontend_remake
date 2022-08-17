@@ -19,6 +19,8 @@ const Home = () => {
   const scrollRef5 = useRef(null);
   const scrollRef6 = useRef(null);
 
+  const imageref = useRef(null);
+
   const images = [
     "https://cdn.discordapp.com/attachments/775994350143930391/1007148225536479232/toothpaste.jpeg",
     "https://cdn.discordapp.com/attachments/775994350143930391/1007159809486901289/unknown.png",
@@ -72,14 +74,14 @@ const Home = () => {
             -scrollRef4.current.offsetHeight - 100;
           scrollRef.current.scrollLeft += -10000;
           return scroll(1);
-        }, 700);
+        }, 1000);
       } else {
         setTimeout(() => {
           scrollRef.current.scrollLeft += scrollRef2.current.offsetWidth / 6;
-          scrollRef3.current.scrollTop +=
-            scrollRef4.current.offsetHeight / 6 + 3;
-          scrollRef5.current.scrollTop +=
-            -scrollRef6.current.offsetHeight / 6 - 3;
+
+          scrollRef3.current.scrollTop += imageref.current.offsetHeight - 0.57;
+          scrollRef5.current.scrollTop += -imageref.current.offsetHeight + 0.5;
+
           return scroll(num + 1);
         }, 2500);
       }
@@ -198,7 +200,10 @@ const Home = () => {
                       resize: "inline",
                       userSelect: "none",
                     }}
-                    className="image-vertical"
+
+                    ref={imageref}
+                    className='image-vertical'
+
                   />
                 ))}
               </div>
@@ -335,7 +340,7 @@ const Home = () => {
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              width: "10%",
+              width: "8%",
             }}
             className="start-shopping-home"
           >
