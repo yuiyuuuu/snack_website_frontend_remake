@@ -22,7 +22,7 @@ const BottomNav = () => {
         >
           <img
             src='https://cdn.discordapp.com/attachments/779278654714675232/1001654225819934801/logocropped.png'
-            style={{ width: "175px", height: "160px" }}
+            style={{ width: "195px", height: "180px" }}
           />
         </div>
         <div

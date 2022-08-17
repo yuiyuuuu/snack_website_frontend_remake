@@ -172,7 +172,7 @@ const Cart = () => {
 
                 {cart.map((item) => (
                   <div className='cart-item-container' key={item.product.id}>
-                    <div>
+                    <div style={{ marginRight: "10px" }}>
                       <img
                         src={item.product.photoURL}
                         alt='cartitem'
@@ -180,12 +180,12 @@ const Cart = () => {
                       />
                     </div>
                     <div style={{ display: "flex", flexDirection: "column" }}>
-                      <div style={{ fontSize: "11px", fontWeight: "600" }}>
+                      <div style={{ fontSize: "13px", fontWeight: "600" }}>
                         {item.product.name}
                       </div>
                       <div
                         style={{
-                          fontSize: "10px",
+                          fontSize: "12px",
                           marginTop: "4px",
                           color: "darkgray",
                         }}

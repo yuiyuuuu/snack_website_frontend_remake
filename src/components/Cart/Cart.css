@@ -58,8 +58,8 @@
 }
 
 .cart-item-image {
-  height: 45px;
-  width: 45px;
+  height: 65px;
+  width: 65px;
 }
 
 .cart-addbut {
@@ -88,7 +88,7 @@
 .cart-want-container {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 23%;
+  grid-auto-columns: 240px;
   overflow-x: scroll;
   gap: 7px;
   scroll-behavior: smooth;
