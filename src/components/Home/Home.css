@@ -2,24 +2,10 @@
   width: 100%;
 }
 
-@keyframes backgroundcolor {
-  from {
-    background-color: red;
-  }
-  to {
-    background-color: yellow;
-  }
-}
-
 .image-parent-container {
   display: flex;
   flex-direction: row;
   width: 100%;
-}
-.example {
-  /* animation-name: backgroundcolor;
-    animation-duration: 1s;
-    animation-iteration-count: infinite; */
 }
 
 .shop-button-home {
