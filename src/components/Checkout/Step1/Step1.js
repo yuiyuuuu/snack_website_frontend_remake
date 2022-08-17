@@ -265,7 +265,7 @@ const Step1 = ({
             <div className='item-checkout' key={item.id}>
               <img
                 src={item.product.photoURL}
-                style={{ width: "75px", height: "75px" }}
+                style={{ width: "75px", height: "75px", marginRight: "12px" }}
               />
               <div style={{ width: "55%", marginRight: "5px" }}>
                 <div>{item.product.name}</div>

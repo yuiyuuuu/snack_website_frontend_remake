@@ -307,12 +307,13 @@ const SingleSnack = (props) => {
                 style={{
                   pointerEvents:
                     counter === 1 || snack.quantity === 0 ? "none" : "auto",
+                  userSelect: "none",
                 }}
                 onClick={() => setCounter(counter - 1)}
               >
                 -
               </div>
-              <div>{counter}</div>
+              <div style={{ userSelect: "none" }}>{counter}</div>
               <div
                 className='add-sub'
                 style={{
@@ -321,6 +322,7 @@ const SingleSnack = (props) => {
                     counter === snack.quantity || snack.quantity === 0
                       ? "none"
                       : "",
+                  userSelect: "none",
                 }}
                 onClick={() => setCounter(counter + 1)}
               >

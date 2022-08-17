@@ -90,6 +90,7 @@
   width: 30px;
   height: 30px;
   display: flex;
+  user-select: none;
 }
 
 .allsnacks-grid-container {

@@ -74,11 +74,11 @@ const Home = () => {
             -scrollRef4.current.offsetHeight - 100;
           scrollRef.current.scrollLeft += -10000;
           return scroll(1);
-        }, 900);
+        }, 1000);
       } else {
         setTimeout(() => {
           scrollRef.current.scrollLeft += scrollRef2.current.offsetWidth / 6;
-          scrollRef3.current.scrollTop += imageref.current.offsetHeight - 0.5;
+          scrollRef3.current.scrollTop += imageref.current.offsetHeight - 0.57;
           scrollRef5.current.scrollTop += -imageref.current.offsetHeight + 0.5;
           return scroll(num + 1);
         }, 2500);
@@ -336,7 +336,7 @@ const Home = () => {
               alignItems: "center",
               justifyContent: "center",
               cursor: "pointer",
-              width: "10%",
+              width: "8%",
             }}
             className='start-shopping-home'
           >

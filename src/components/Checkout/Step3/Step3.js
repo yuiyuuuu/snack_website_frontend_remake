@@ -61,7 +61,7 @@ const Step3 = ({
               </div>
             </div>
           </div>
-          <a href='/allsnacks'>
+          <a href='/bullseye'>
             <div
               style={{
                 width: "35%",
