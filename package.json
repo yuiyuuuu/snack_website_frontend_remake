@@ -58,7 +58,7 @@
     "start:dev2": "node server",
     "start-server": " JWT=shh nodemon server -e html,js,scss --ignore public --ignore client",
     "start:production": "npm run build & npm run start-server",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run start:dev3"
   },
   "eslintConfig": {
     "extends": [
