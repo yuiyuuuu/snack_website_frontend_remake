@@ -1,0 +1,148 @@
+.home {
+  width: 100%;
+}
+
+@keyframes backgroundcolor {
+  from {
+    background-color: red;
+  }
+  to {
+    background-color: yellow;
+  }
+}
+
+.image-parent-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.example {
+  /* animation-name: backgroundcolor;
+    animation-duration: 1s;
+    animation-iteration-count: infinite; */
+}
+
+.shop-button-home {
+  width: 150px;
+  height: 50px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 45px;
+  cursor: pointer;
+  text-decoration: none;
+  flex-direction: column;
+}
+
+.slider-inner {
+  width: 600%;
+}
+
+.snap {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  scroll-snap-type: x mandatory;
+  overflow: scroll;
+}
+
+.snap::-webkit-scrollbar {
+  display: none;
+}
+
+.vertical-container {
+  display: grid;
+  grid-auto-flow: row;
+  grid-auto-rows: 100%;
+  overflow: scroll;
+  gap: 0px;
+}
+
+.image-vertical {
+  margin-bottom: -4px !important;
+}
+
+.vertical-container::-webkit-scrollbar {
+  display: none;
+}
+
+.text-main-hook {
+  animation: slide-up 1.5s;
+}
+
+@keyframes slide-up {
+  from {
+    line-height: 200px;
+  }
+
+  to {
+    line-height: 92px;
+  }
+}
+
+.animation-underline-home::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 55%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  top: 22px;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.animation-underline-home:hover::before {
+  transform: scaleX(1);
+}
+
+.start-shopping-home:hover {
+  border-bottom: 1px solid rgb(23, 144, 243);
+}
+
+.start-shopping-home {
+  border-bottom: 1px solid rgba(192, 192, 192, 0);
+  -webkit-transition: border 500ms ease;
+  -moz-transition: border 500ms ease;
+  -ms-transition: border 500ms ease;
+  -o-transition: border 500ms ease;
+  transition: border 500ms ease;
+  border-bottom-width: 10%;
+}
+
+.category-grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));
+  gap: 2% 2%;
+  width: 100%;
+  margin-left: 11.5%;
+  margin-right: 11.5%;
+  margin-bottom: 50px;
+}
+
+.backgroundcolor {
+  background-color: whitesmoke;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  height: 160px;
+  font-family: Georgia;
+  border: 1px solid rgba(192, 192, 192, 0);
+  transition: border 300ms ease;
+  cursor: pointer;
+}
+
+.georgia-font {
+  font-family: georgia;
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.backgroundcolor:hover {
+  border: 2.5px solid rgb(0, 0, 0);
+}
