@@ -1,9 +1,10 @@
 import React from "react";
 import filter from "./filterObj";
+import "./Allsnacks.css";
 
 const FilterIcons = () => {
   return (
-    <div className='grid-container-filters'>
+    <div className="grid-container-filters">
       {filter.map((item) => (
         <a href={item.a}>
           <div
