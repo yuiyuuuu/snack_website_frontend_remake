@@ -49,7 +49,7 @@
   "scripts": {
     "build": "webpack",
     "start:dev": "npm run build:dev & npm run start-server",
-    "start:dev3": " npm run build & npm run start-server",
+    "start:dev3": " npm run build & npm run start-server & npm run seed",
     "build:dev": "npm run build -- --watch --mode=development",
     "start": "react-scripts start",
     "test": "react-scripts test",
