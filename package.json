@@ -49,7 +49,7 @@
   "scripts": {
     "build": "webpack",
     "start:dev": "npm run build:dev & npm run start-server",
-    "start:dev3": " npm run build:dev & nodemon server ",
+    "start:dev3": "npm run start-server",
     "build:dev": "npm run build -- --watch --mode=development",
     "start": "react-scripts start",
     "test": "react-scripts test",
@@ -58,7 +58,7 @@
     "start:dev2": "node server",
     "start-server": " JWT=shh nodemon server -e html,js,scss --ignore public --ignore client",
     "start:production": "npm run build & npm run start-server",
-    "heroku-postbuild": "npm run start:dev"
+    "heroku-postbuild": "npm run build"
   },
   "eslintConfig": {
     "extends": [

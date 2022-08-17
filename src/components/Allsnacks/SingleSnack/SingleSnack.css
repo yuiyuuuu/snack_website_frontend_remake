@@ -98,7 +98,7 @@
 .container-similar-products {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 22%;
+  grid-auto-columns: 240px;
   overflow-x: scroll;
   gap: 10px;
   scroll-behavior: smooth;

@@ -285,6 +285,7 @@ const Allsnacks = () => {
           top: "60px",
           zIndex: 10,
         }}
+        className='no-scroll'
       >
         <FilterIcons />
       </div>
