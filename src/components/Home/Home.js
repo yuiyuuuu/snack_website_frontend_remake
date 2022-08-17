@@ -78,8 +78,10 @@ const Home = () => {
       } else {
         setTimeout(() => {
           scrollRef.current.scrollLeft += scrollRef2.current.offsetWidth / 6;
+
           scrollRef3.current.scrollTop += imageref.current.offsetHeight - 0.57;
           scrollRef5.current.scrollTop += -imageref.current.offsetHeight + 0.5;
+
           return scroll(num + 1);
         }, 2500);
       }
@@ -88,9 +90,9 @@ const Home = () => {
   }, []);
 
   return (
-    <div className='home'>
+    <div className="home">
       <Navbar />
-      <div className='image-parent-container'>
+      <div className="image-parent-container">
         <div
           style={{
             width: "50%",
@@ -101,7 +103,7 @@ const Home = () => {
             alignItems: "center",
             flexDirection: "column",
           }}
-          className='example'
+          className="example"
         >
           <div
             style={{
@@ -111,13 +113,13 @@ const Home = () => {
               marginBottom: "30px",
               fontFamily: "Helvetica",
             }}
-            className='text-main-hook'
+            className="text-main-hook"
           >
             Tasty snacks delivered in minutes.
           </div>
-          <a href='/bullseye'>
+          <a href="/bullseye">
             {" "}
-            <div className='shop-button-home animation-underline-home'>
+            <div className="shop-button-home animation-underline-home">
               Shop Now
             </div>
           </a>
@@ -131,9 +133,9 @@ const Home = () => {
               pointerEvents: "none",
             }}
             ref={scrollRef}
-            className='snap'
+            className="snap"
           >
-            <div className='slider-inner' ref={scrollRef2}>
+            <div className="slider-inner" ref={scrollRef2}>
               {images.map((item) => (
                 <img
                   src={item}
@@ -160,7 +162,7 @@ const Home = () => {
                 scrollBehavior: smooth ? "smooth" : "auto",
                 pointerEvents: "none",
               }}
-              className='vertical-container'
+              className="vertical-container"
               ref={scrollRef3}
             >
               <div style={{ height: "600%" }} ref={scrollRef4}>
@@ -173,7 +175,7 @@ const Home = () => {
                       resize: "inline",
                       userSelect: "none",
                     }}
-                    className='image-vertical'
+                    className="image-vertical"
                   />
                 ))}
               </div>
@@ -185,7 +187,7 @@ const Home = () => {
                 scrollBehavior: smoothVertical ? "smooth" : "auto",
                 pointerEvents: "none",
               }}
-              className='vertical-container'
+              className="vertical-container"
               ref={scrollRef5}
             >
               <div style={{ height: "600%" }} ref={scrollRef6}>
@@ -198,8 +200,10 @@ const Home = () => {
                       resize: "inline",
                       userSelect: "none",
                     }}
+
                     ref={imageref}
                     className='image-vertical'
+
                   />
                 ))}
               </div>
@@ -233,7 +237,7 @@ const Home = () => {
             }}
           >
             <img
-              src='https://cdn.discordapp.com/attachments/775994350143930391/1007486148781813810/unknown.png'
+              src="https://cdn.discordapp.com/attachments/775994350143930391/1007486148781813810/unknown.png"
               style={{ width: "80px", height: "80px" }}
             />
             <div
@@ -258,7 +262,7 @@ const Home = () => {
             }}
           >
             <img
-              src='https://cdn.discordapp.com/attachments/775994350143930391/1007486170881601567/unknown.png'
+              src="https://cdn.discordapp.com/attachments/775994350143930391/1007486170881601567/unknown.png"
               style={{ width: "80px", height: "80px", marginRight: "11px" }}
             />
             <div
@@ -292,7 +296,7 @@ const Home = () => {
             }}
           >
             <img
-              src='https://cdn.discordapp.com/attachments/775994350143930391/1007486192029290556/unknown.png'
+              src="https://cdn.discordapp.com/attachments/775994350143930391/1007486192029290556/unknown.png"
               style={{ width: "80px", height: "80px" }}
             />
             <div
@@ -338,32 +342,32 @@ const Home = () => {
               cursor: "pointer",
               width: "8%",
             }}
-            className='start-shopping-home'
+            className="start-shopping-home"
           >
-            <a href='/bullseye' style={{ color: "rgb(23, 144, 243)" }}>
+            <a href="/bullseye" style={{ color: "rgb(23, 144, 243)" }}>
               Start Shopping
             </a>
 
             <svg
-              fill='none'
-              viewBox='0 0 20 20'
-              height='20'
-              width='20'
-              xmlns='http://www.w3.org/2000/svg'
+              fill="none"
+              viewBox="0 0 20 20"
+              height="20"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                xmlns='http://www.w3.org/2000/svg'
-                d='M3.125 10H16.875'
-                stroke='#00A4FF'
-                strokeWidth='2'
-                strokeLinejoin='round'
+                xmlns="http://www.w3.org/2000/svg"
+                d="M3.125 10H16.875"
+                stroke="#00A4FF"
+                strokeWidth="2"
+                strokeLinejoin="round"
               ></path>
               <path
-                xmlns='http://www.w3.org/2000/svg'
-                d='M11.25 4.375L16.875 10L11.25 15.625'
-                stroke='#00A4FF'
-                strokeWidth='2'
-                strokeLinejoin='round'
+                xmlns="http://www.w3.org/2000/svg"
+                d="M11.25 4.375L16.875 10L11.25 15.625"
+                stroke="#00A4FF"
+                strokeWidth="2"
+                strokeLinejoin="round"
               ></path>
             </svg>
           </div>
@@ -377,16 +381,16 @@ const Home = () => {
           marginTop: "25px",
         }}
       >
-        <div className='category-grid-container'>
+        <div className="category-grid-container">
           {objects.map((item) => (
             <a href={Object.values(item)[1]}>
-              <div className='backgroundcolor'>
+              <div className="backgroundcolor">
                 <span
                   style={{
                     marginTop: "15px",
                     marginBottom: "10px",
                   }}
-                  className='georgia-font'
+                  className="georgia-font"
                 >
                   {Object.keys(item)[0]}
                 </span>

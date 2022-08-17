@@ -112,6 +112,6 @@ html {
   margin-bottom: 7px;
 }
 
-.no-scroll::-webkit-scrollbar {
+.grid-container-filters::-webkit-scrollbar {
   display: none;
 }
