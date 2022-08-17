@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import "./home.css";
+import "./Home.css";
 import Navbar from "../Navbar/Navbar.js";
 import { objects } from "./objects";
 import BottomNav from "../BottomNav/BottomNav";
