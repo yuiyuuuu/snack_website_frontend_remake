@@ -74,12 +74,12 @@ const Home = () => {
             -scrollRef4.current.offsetHeight - 100;
           scrollRef.current.scrollLeft += -10000;
           return scroll(1);
-        }, 700);
+        }, 900);
       } else {
         setTimeout(() => {
           scrollRef.current.scrollLeft += scrollRef2.current.offsetWidth / 6;
           scrollRef3.current.scrollTop += imageref.current.offsetHeight;
-          scrollRef5.current.scrollTop += -imageref.current.offsetHeight;
+          scrollRef5.current.scrollTop += -imageref.current.offsetHeight + 0.5;
           return scroll(num + 1);
         }, 2500);
       }
