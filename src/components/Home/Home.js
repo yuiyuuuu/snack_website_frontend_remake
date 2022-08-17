@@ -19,6 +19,8 @@ const Home = () => {
   const scrollRef5 = useRef(null);
   const scrollRef6 = useRef(null);
 
+  const imageref = useRef(null);
+
   const images = [
     "https://cdn.discordapp.com/attachments/775994350143930391/1007148225536479232/toothpaste.jpeg",
     "https://cdn.discordapp.com/attachments/775994350143930391/1007159809486901289/unknown.png",
@@ -76,10 +78,8 @@ const Home = () => {
       } else {
         setTimeout(() => {
           scrollRef.current.scrollLeft += scrollRef2.current.offsetWidth / 6;
-          scrollRef3.current.scrollTop +=
-            scrollRef4.current.offsetHeight / 6 + 2.3;
-          scrollRef5.current.scrollTop +=
-            -scrollRef6.current.offsetHeight / 6 - 2.3;
+          scrollRef3.current.scrollTop += imageref.current.offsetHeight;
+          scrollRef5.current.scrollTop += -imageref.current.offsetHeight;
           return scroll(num + 1);
         }, 2500);
       }
@@ -198,6 +198,7 @@ const Home = () => {
                       resize: "inline",
                       userSelect: "none",
                     }}
+                    ref={imageref}
                     className='image-vertical'
                   />
                 ))}
