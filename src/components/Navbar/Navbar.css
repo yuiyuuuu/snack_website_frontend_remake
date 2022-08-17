@@ -1,0 +1,25 @@
+.Navbar {
+  background-color: white;
+  width: 100%;
+  height: auto;
+  top: 0%;
+  position: sticky;
+  z-index: 100;
+}
+
+.Navbar--Container {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  color: black;
+  margin: 15px 0px 15px 0px;
+}
+
+.Nav--Profile {
+  padding-right: 30px;
+}
+
+.Nav--Cart {
+  text-decoration: none;
+  color: black;
+}
