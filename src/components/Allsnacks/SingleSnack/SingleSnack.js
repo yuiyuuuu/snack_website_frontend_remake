@@ -134,8 +134,8 @@ const SingleSnack = (props) => {
   ]);
 
   useEffect(() => {
-    dispatch(clearState());
     setLoading(true);
+    dispatch(clearState());
     dispatch(fetchSingleSnack(snackId));
     dispatch(fetchProducts());
     setLoading(false);
@@ -146,7 +146,7 @@ const SingleSnack = (props) => {
   }, [products]);
 
   if (loading) return "loading";
-  if (!snack.display) {
+  if (!snack.display && snack?.id) {
     return (
       <div>
         <Navbar />
@@ -189,87 +189,87 @@ const SingleSnack = (props) => {
               Home
             </span>{" "}
             <span className='span-hi'>- </span>
-            {snack.cat.type === "Salty" ||
-            snack.cat.type === "Sweet" ||
-            snack.cat.type === "Healthy" ||
-            snack.cat.type === "Refrigerated/Frozen" ? (
+            {snack.cat?.type === "Salty" ||
+            snack.cat?.type === "Sweet" ||
+            snack.cat?.type === "Healthy" ||
+            snack.cat?.type === "Refrigerated/Frozen" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/allsnacks")}
               >
                 Snacks
               </span>
-            ) : snack.cat.type === "Grocery" ? (
+            ) : snack.cat?.type === "Grocery" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/allgrocery")}
               >
                 Grocery
               </span>
-            ) : snack.cat.type === "Drinks" ? (
+            ) : snack.cat?.type === "Drinks" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/alldrinks")}
               >
                 Drinks
               </span>
-            ) : snack.cat.type === "Alcohol" ? (
+            ) : snack.cat?.type === "Alcohol" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/allalcohol")}
               >
                 Alcohol
               </span>
-            ) : snack.cat.type === "Cleaning" ? (
+            ) : snack.cat?.type === "Cleaning" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/allcleaning")}
               >
                 Cleaning
               </span>
-            ) : snack.cat.type === "Ice Cream" ? (
+            ) : snack.cat?.type === "Ice Cream" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/ice_cream")}
               >
                 Ice Cream
               </span>
-            ) : snack.cat.type === "Quick Meals" ? (
+            ) : snack.cat?.type === "Quick Meals" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/quick_meals")}
               >
                 Quick Meals
               </span>
-            ) : snack.cat.type === "Bath and Beauty" ? (
+            ) : snack.cat?.type === "Bath and Beauty" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/bath_beauty")}
               >
                 Bath and Beauty
               </span>
-            ) : snack.cat.type === "Health" ? (
+            ) : snack.cat?.type === "Health" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/health")}
               >
                 Health
               </span>
-            ) : snack.cat.type === "Home and Office" ? (
+            ) : snack.cat?.type === "Home and Office" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/home_office")}
               >
                 Home and Office
               </span>
-            ) : snack.cat.type === "Pets" ? (
+            ) : snack.cat?.type === "Pets" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/pets")}
               >
                 Pets
               </span>
-            ) : snack.cat.type === "Baby" ? (
+            ) : snack.cat?.type === "Baby" ? (
               <span
                 style={{ textDecoration: "underline" }}
                 onClick={() => history.push("/baby")}

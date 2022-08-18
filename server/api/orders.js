@@ -39,7 +39,6 @@ router.delete("/:id/cancel", async (req, res, next) => {
 // create new orderDetail and add all orderItems (need userId)
 // POST /api/orders/:id
 router.post("/:id", async (req, res, next) => {
-  console.log("bodyyyyyyyy", req.body);
   try {
     const newOrder = await OrderDetails.create({
       userId: req.params.id,

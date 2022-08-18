@@ -1,7 +1,7 @@
 .Navbar {
   background-color: white;
   width: 100%;
-  height: auto;
+  height: 88px;
   top: 0%;
   position: sticky;
   z-index: 100;
@@ -22,4 +22,26 @@
 .Nav--Cart {
   text-decoration: none;
   color: black;
+}
+
+.input-nooutline-focus:focus,
+input:focus {
+  outline: none;
+}
+
+.input-nooutline-focus[type="text"] {
+  font-size: 18px;
+}
+
+.input-nooutline-focus::placeholder {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.search-common-results:hover {
+  background-color: whitesmoke;
+}
+
+.search-common-results {
+  padding-bottom: 10px;
 }

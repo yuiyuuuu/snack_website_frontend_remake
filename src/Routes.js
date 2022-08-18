@@ -38,7 +38,6 @@ class Routes extends Component {
       <div>
         {!isLoggedIn ? (
           <Switch>
-            <Route exact path='/' component={Home} />
             <Route exact path='/bullseye' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
@@ -59,10 +58,10 @@ class Routes extends Component {
             <Route exact path='/home_office' component={HomeOffice} />
             <Route exact path='/pets' component={Pets} />
             <Route exact path='/baby' component={Baby} />
+            <Route exact path='/' component={Home} />
           </Switch>
         ) : (
           <Switch>
-            <Route exact path='/' component={Home} />
             <Route exact path='/bullseye' component={Allsnacks} />
             <Route exact path='/myaccount' component={MyAccount} />
             <Route exact path='/checkout' component={Checkout} />
@@ -84,6 +83,7 @@ class Routes extends Component {
             <Route exact path='/home_office' component={HomeOffice} />
             <Route exact path='/pets' component={Pets} />
             <Route exact path='/baby' component={Baby} />
+            <Route exact path='/' component={Home} />
           </Switch>
         )}
       </div>
