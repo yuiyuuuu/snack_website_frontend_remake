@@ -111,6 +111,6 @@ html {
   gap: 25px;
 }
 
-.no-scroll::-webkit-scrollbar {
+.grid-container-filters::-webkit-scrollbar {
   display: none;
 }
