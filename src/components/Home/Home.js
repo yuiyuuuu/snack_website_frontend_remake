@@ -77,7 +77,7 @@ const Home = () => {
   }
 
   useEffect(() => {
-    const v = searchParams.getAll("search")[0];
+    const v = searchParams.getAll("search")[0].toLowerCase();
     const result = [];
 
     products.forEach((item) => {
@@ -461,11 +461,11 @@ const Home = () => {
             <div
               style={{
                 width: "100%",
-                height: "48vh",
                 justifyContent: "center",
                 display: "flex",
                 marginTop: "10vh",
                 marginBottom: "5vh",
+                marginBottom: "18vh",
               }}
             >
               <div
