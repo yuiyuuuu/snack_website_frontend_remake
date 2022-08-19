@@ -6,6 +6,7 @@ import BottomNav from "../BottomNav/BottomNav";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../store/Snacks";
 import SnackView from "../Allsnacks/SnackView/SnackView";
+import { categories } from "./objects";
 
 function getWindowDimensions() {
   const { innerWidth: width, innerHeight: height } = window;
@@ -80,15 +81,28 @@ const Home = () => {
     const v = searchParams.getAll("search")[0].toLowerCase();
     const result = [];
 
+    categories.forEach((item) => {
+      if (item.toLowerCase().includes(v)) {
+        const categoryArray = products.filter((i) =>
+          item === "Frozen" || item === "Refrigerated"
+            ? i.cat.type === "Refrigerated/Frozen"
+            : i.cat.type === item
+        );
+        result.push(...categoryArray);
+        console.log(products);
+      }
+    });
+
     products.forEach((item) => {
       if (item.name.toLowerCase().includes(v)) {
         result.push(item);
       }
     });
+    let uniqueItems = [...new Set(result)]; //returns unique items so we dont get duplicates from categories and the name
 
-    result.sort(sorting);
+    uniqueItems.sort(sorting);
 
-    setFilteredProducts(result);
+    setFilteredProducts(uniqueItems);
   }, [products, searchParams.getAll("search")[0]]);
 
   useEffect(() => {
@@ -133,8 +147,6 @@ const Home = () => {
     };
     scroll(1);
   }, []);
-
-  console.log(filteredProducts);
 
   return (
     <>

@@ -1,5 +1,4 @@
 const common = ["chips", "cookies", "ice cream", "lunchables", "soda"];
-const categories = ["sweet snacks", "salty snacks", "grocery", "healthy"];
 export const alphabet = [
   "a",
   "b",
