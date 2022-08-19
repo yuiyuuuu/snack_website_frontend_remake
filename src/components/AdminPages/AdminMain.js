@@ -90,8 +90,6 @@ const AdminMain = () => {
       return;
     }
 
-    console.log(allCategories.find((item) => item.type === productCategory));
-
     const product = {
       name: productName,
       desc: productDescription,
@@ -129,7 +127,6 @@ const AdminMain = () => {
     setAllCategories(data);
   }, []);
 
-  console.log(productCategory);
   return (
     <div>
       {/* beginning of add/edit products popup*/}

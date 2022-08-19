@@ -90,7 +90,6 @@ const Home = () => {
             : i.cat.type === item
         );
         result.push(...categoryArray);
-        console.log(products);
       }
     });
 
@@ -147,7 +146,7 @@ const Home = () => {
       }
     };
     scroll(1);
-  }, []);
+  }, [window.location.href]);
 
   return (
     <>

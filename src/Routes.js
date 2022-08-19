@@ -24,6 +24,8 @@ import Health from "./components/Allsnacks/AllPages/Health";
 import HomeOffice from "./components/Allsnacks/AllPages/HomeOffice";
 import Pets from "./components/Allsnacks/AllPages/Pets";
 import Baby from "./components/Allsnacks/AllPages/Baby";
+import AboutUs from "./AboutUs/AboutUs";
+import Contact from "./Contact/Contact";
 
 class Routes extends Component {
   componentDidMount() {
@@ -59,6 +61,8 @@ class Routes extends Component {
             <Route exact path='/pets' component={Pets} />
             <Route exact path='/baby' component={Baby} />
             <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={AboutUs} />
+            <Route exact path='/contact' component={Contact} />
           </Switch>
         ) : (
           <Switch>
@@ -84,6 +88,8 @@ class Routes extends Component {
             <Route exact path='/pets' component={Pets} />
             <Route exact path='/baby' component={Baby} />
             <Route exact path='/' component={Home} />
+            <Route exact path='/about' component={AboutUs} />
+            <Route exact path='/contact' component={Contact} />
           </Switch>
         )}
       </div>

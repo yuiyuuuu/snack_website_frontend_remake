@@ -103,7 +103,6 @@ const Step2 = ({
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
             setLoading(false);
             setStep(3);
           });

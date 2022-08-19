@@ -62,7 +62,6 @@ const Step1 = ({
       },
       ...arr,
     ]);
-    console.log(arr, "saveeeed");
   };
 
   const handleChangeSaved = (a) => {
@@ -82,7 +81,6 @@ const Step1 = ({
   useEffect(() => {
     fetchSavedAddress();
   }, [addresses]);
-  console.log(userId);
   return (
     <div
       style={{
