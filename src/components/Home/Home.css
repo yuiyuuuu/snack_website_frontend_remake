@@ -133,3 +133,10 @@
 .backgroundcolor:hover {
   border: 2.5px solid rgb(0, 0, 0);
 }
+
+.grid-container-search {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(22%, 1fr));
+  margin-top: 30px;
+  gap: 30px;
+}

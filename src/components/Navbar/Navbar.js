@@ -22,11 +22,6 @@ const Navbar = () => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const filteredProductsFour = filteredProducts.slice(0, 4);
 
-  let url = new URL(window.location.href);
-
-  const searchParams = new URLSearchParams(url.search);
-  console.log(searchParams.getAll("search"));
-
   //sort when the first letter matches, prioritze products matching first letter
   function sorting(a, b) {
     if (
@@ -78,6 +73,7 @@ const Navbar = () => {
     "keypress",
     function (e) {
       if (e.key === "Enter") {
+        if (searchValue === "") return;
         history.push(`/?search=${searchValue.split(" ").join("+")}`);
         setShowSearch(false);
       }
@@ -218,7 +214,7 @@ const Navbar = () => {
                   }}
                 >
                   <img
-                    src='https://cdn-icons.flaticon.com/png/128/859/premium/859415.png?token=exp=1660864379~hmac=4c1a2df2a908caa9a6c7f48ccc292e7e'
+                    src='https://cdn.discordapp.com/attachments/775994350143930391/1009964668049162320/unknown.png'
                     style={{
                       width: "24px",
                       width: "24px",
