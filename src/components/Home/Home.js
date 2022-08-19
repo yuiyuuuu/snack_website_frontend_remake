@@ -78,6 +78,7 @@ const Home = () => {
   }
 
   useEffect(() => {
+    if (!searchParams.getAll("search").length) return;
     const v = searchParams.getAll("search")[0].toLowerCase();
     const result = [];
 
