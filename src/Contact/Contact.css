@@ -1,0 +1,61 @@
+@import url("https://fonts.googleapis.com/css?family=Dosis");
+.Input-text-contact {
+  display: block;
+  margin: 0;
+  color: inherit;
+  font-family: inherit;
+  font-size: var(--inputFontSize);
+  font-weight: inherit;
+  height: 40px;
+  padding-left: 14px;
+}
+
+.message-contact {
+  border: none;
+  overflow-wrap: break-word;
+  overflow-x: wrap;
+  height: 100%;
+}
+
+textarea {
+  border: none;
+  overflow: auto;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  resize: none;
+}
+
+.submit-contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 150px;
+  background-color: black;
+  cursor: pointer;
+  color: white;
+  margin-top: 15px;
+  border-radius: 7px;
+  flex-direction: column;
+  text-decoration: none;
+}
+
+.animation-contact::before {
+  content: "";
+  position: relative;
+  display: block;
+  width: 30%;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  top: 22px;
+  background-color: white;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.animation-contact:hover::before {
+  transform: scaleX(1);
+}

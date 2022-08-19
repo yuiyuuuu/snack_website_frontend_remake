@@ -17,6 +17,15 @@ const Credits = () => {
           marginRight: "5%",
         }}
       >
+        <div style={{ marginBottom: "15px" }}>
+          <span style={{ textDecoration: "underline" }}>
+            <a href='/'>Home</a>
+          </span>{" "}
+          -{" "}
+          <span style={{ textDecoration: "underline" }}>
+            <a href='/credits'>Credits</a>
+          </span>
+        </div>
         <div style={{ fontSize: "35px", fontWeight: "600" }}>
           Special Thanks To:
         </div>
@@ -71,6 +80,9 @@ const Credits = () => {
           only. All transactions are tests and will not be charged and all
           orders will not be fulfilled. Please do not use your real card number.
           4242424242424242 is stripe test card, please use that instead.
+        </div>
+        <div style={{ marginTop: "20px", fontSize: "20px", marginTop: "20px" }}>
+          Source code: https://github.com/yuiyuuuu/snack_website_frontend_remake
         </div>
       </div>
       <BottomNav />

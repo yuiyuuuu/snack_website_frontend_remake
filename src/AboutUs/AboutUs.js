@@ -17,6 +17,15 @@ const AboutUs = () => {
       >
         <div style={{ width: "80%", display: "flex", flexDirection: "column" }}>
           <div style={{ fontSize: "100px", color: "skyblue" }}>About Us</div>
+          <div style={{ marginTop: "15px" }}>
+            <span style={{ textDecoration: "underline" }}>
+              <a href='/'>Home</a>
+            </span>{" "}
+            -{" "}
+            <span style={{ textDecoration: "underline" }}>
+              <a href='/about'>About Us</a>
+            </span>
+          </div>
           <div className='title-about'>
             You're busy, so we'll keep this quick
           </div>
