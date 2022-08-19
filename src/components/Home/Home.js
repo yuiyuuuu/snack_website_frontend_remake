@@ -461,7 +461,7 @@ const Home = () => {
             <div
               style={{
                 width: "100%",
-                height: "100%",
+                height: "48vh",
                 justifyContent: "center",
                 display: "flex",
                 marginTop: "10vh",
