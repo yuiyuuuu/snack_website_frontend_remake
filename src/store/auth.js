@@ -77,7 +77,6 @@ export const logout = () => {
 export const editEmail = (userid, email) => {
   return async (dispatch) => {
     try {
-      console.log(email, "emaillll");
       const { data } = await axios.put(`/api/users/${userid}/editemail`, {
         email: email,
       });

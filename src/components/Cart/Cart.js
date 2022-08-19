@@ -50,7 +50,6 @@ const Cart = () => {
   };
 
   const increment = (item) => {
-    console.log(item);
     const itemCart = {
       productId: item.product.id,
       quantity: item.quantity + 1,
