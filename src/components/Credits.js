@@ -56,6 +56,16 @@ const Credits = () => {
           <span style={{ fontSize: "20px" }}> - for logo images</span>
         </div>
 
+        <div style={{ marginTop: "20px" }}>
+          <a
+            style={{ textDecoration: "underline", fontSize: "20px" }}
+            href='https://www.flaticon.com/'
+          >
+            FlatIcon
+          </a>
+          <span style={{ fontSize: "20px" }}> - for icon images</span>
+        </div>
+
         <div style={{ marginTop: "20px", fontSize: "20px" }}>
           Note: this website is not monetized and for my educational purposes
           only. All transactions are tests and will not be charged and all

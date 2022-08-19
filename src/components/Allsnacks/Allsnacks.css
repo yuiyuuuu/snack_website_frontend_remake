@@ -109,7 +109,6 @@ html {
   grid-auto-flow: column;
   overflow: scroll;
   gap: 25px;
-  margin-bottom: 7px;
 }
 
 .grid-container-filters::-webkit-scrollbar {

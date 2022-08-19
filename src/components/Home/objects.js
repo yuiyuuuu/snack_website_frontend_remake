@@ -58,3 +58,22 @@ export const objects = [
     a: "/baby",
   },
 ];
+
+export const categories = [
+  "Sweet",
+  "Salty",
+  "Grocery",
+  "Healthy",
+  "Drinks",
+  "Baby",
+  "Home and Office",
+  "Health",
+  "Cleaning",
+  "Ice Cream",
+  "Refrigerated",
+  "Frozen",
+  "Alcohol",
+  "Quick Meals",
+  "Pets",
+  "Bath and Beauty",
+];

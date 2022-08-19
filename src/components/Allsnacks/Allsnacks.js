@@ -277,20 +277,25 @@ const Allsnacks = () => {
         style={{
           display: "flex",
           justifyContent: "center",
-          alignItems: "center",
+          alignItems: "flex-end",
           position: "sticky",
           backgroundColor: "white",
           width: "100%",
-          marginTop: "20px",
+          marginBottom: "20px",
+          paddingBottom: "10px",
           top: "60px",
           zIndex: 10,
+          height: "140px",
         }}
         className='no-scroll'
       >
         <FilterIcons />
       </div>
 
-      <div className='parent' style={{ marginBottom: "10vh" }}>
+      <div
+        className='parent'
+        style={{ marginBottom: "10vh", marginTop: "-15px" }}
+      >
         <div
           style={{
             display: "flex",
