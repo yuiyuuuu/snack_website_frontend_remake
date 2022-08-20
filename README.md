@@ -34,7 +34,7 @@ User:
 - Save addresses to autofill for quick checkouts.
 - Implementation of Stripe API for checkout.
 - Use the search bar to easily find a product or category
-- Send a message to admins in /contact to ask for support to ask a question
+- Send a message to admins in /contact to ask for support or ask a general question
 
 Admins:
 
