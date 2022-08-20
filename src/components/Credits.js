@@ -15,6 +15,7 @@ const Credits = () => {
           marginTop: "5%",
           height: "47vh",
           marginRight: "5%",
+          marginBottom: "10vh",
         }}
       >
         <div style={{ marginBottom: "15px" }}>

@@ -18,8 +18,9 @@ Have your daily essentials delivered right to you in minutes! Bullseye is an eco
 
 https://snack-website2.herokuapp.com/
 
-To check out admin features:
+To check out admin features:</br>
 Email: jack@gmail.com
+</br>
 Password: 123
 
 Have fun editing/adding/deleting.
@@ -33,12 +34,14 @@ User:
 - Save addresses to autofill for quick checkouts.
 - Implementation of Stripe API for checkout.
 - Use the search bar to easily find a product or category
+- Send a message to admins in /contact to ask for support to ask a question
 
 Admins:
 
 - Admins can see all orders, and users.
 - Admins can cancel orders, delete users, give other users admin.
 - Admins can create new products, delete products, and edit product quantities.
+- Admin can see support requests from users.
 
 ## Tech Stack :books:
 
