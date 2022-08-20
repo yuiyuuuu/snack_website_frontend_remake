@@ -167,8 +167,6 @@ const Home = () => {
             >
               <div
                 style={{
-                  width: "450px",
-                  fontSize: "80px",
                   fontWeight: "700",
                   marginBottom: "30px",
                   fontFamily: "Helvetica",
