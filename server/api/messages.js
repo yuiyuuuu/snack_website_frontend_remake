@@ -1,7 +1,9 @@
 const router = require("express").Router();
-const { ContactMessages } = require("../db");
+const {
+  models: { ContactMessages },
+} = require("../db");
 
-router.get("/messages", async (req, res, next) => {
+router.get("/", async (req, res, next) => {
   try {
     const messages = await ContactMessages.findAll();
     res.send(messages);
@@ -10,7 +12,7 @@ router.get("/messages", async (req, res, next) => {
   }
 });
 
-router.post("/messages", async (req, res, next) => {
+router.post("/", async (req, res, next) => {
   try {
     const messages = await ContactMessages.create(req.body);
     res.send(messages);
@@ -19,9 +21,9 @@ router.post("/messages", async (req, res, next) => {
   }
 });
 
-router.delete("/messages", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    const messages = await ContactMessages.findByPk(req.body);
+    const messages = await ContactMessages.findByPk(req.params.id);
     await messages.destroy();
     res.send(messages);
   } catch (error) {

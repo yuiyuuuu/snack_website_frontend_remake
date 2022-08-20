@@ -10,6 +10,10 @@ const ContactMessages = db.define("contact_messages", {
     type: Sequelize.STRING,
     allowNull: false,
   },
+  topic: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
   email: {
     type: Sequelize.TEXT,
     validate: {

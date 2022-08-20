@@ -7,6 +7,7 @@ import AdminOrders from "./AdminOrders";
 import AdminUsers from "./AdminUsers";
 import { fetchAllUsers } from "../../store";
 import AdminProducts from "./AdminProducts";
+import AdminMessages from "./AdminMessages";
 import { fetchProducts } from "../../store/Snacks";
 import { _updateProduct, _createProduct } from "../../store/Snacks";
 import axios from "axios";
@@ -500,6 +501,17 @@ const AdminMain = () => {
           >
             Products
           </div>
+
+          <div
+            className='tab-admin'
+            style={{
+              color: tab === 4 ? "black" : "gainsboro",
+              textDecoration: tab === 4 ? "underline" : "none",
+            }}
+            onClick={() => setTab(4)}
+          >
+            Messages
+          </div>
         </div>
         <div style={{ width: "95%", marginBottom: "50px" }}>
           {tab === 1 ? (
@@ -523,13 +535,15 @@ const AdminMain = () => {
               selectedOrder={selectedOrder}
               setSelectedOrder={setSelectedOrder}
             />
-          ) : (
+          ) : tab === 3 ? (
             <AdminProducts
               products={products}
               edit={edit}
               setEdit={setEdit}
               setAdd={setAdd}
             />
+          ) : (
+            <AdminMessages />
           )}
         </div>
       </div>

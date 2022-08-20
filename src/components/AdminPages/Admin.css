@@ -122,3 +122,15 @@ td {
   margin-right: 5%;
   margin-bottom: 15px;
 }
+
+.td-messages {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.message {
+  width: 60%;
+}

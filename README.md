@@ -18,6 +18,12 @@ Have your daily essentials delivered right to you in minutes! Bullseye is an eco
 
 https://snack-website2.herokuapp.com/
 
+To check out admin features:
+Email: jack@gmail.com
+Password: 123
+
+Have fun editing/adding/deleting.
+
 ## Key Features :key:
 
 User:

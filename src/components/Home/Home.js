@@ -157,14 +157,13 @@ const Home = () => {
             <div
               style={{
                 width: "50%",
-                aspectRatio: "1.02",
+                aspectRatio: "1.06",
                 backgroundColor: "rgb(55, 113, 250)",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
                 flexDirection: "column",
               }}
-              className='example'
             >
               <div
                 style={{

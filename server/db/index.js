@@ -9,6 +9,7 @@ const ProductCategory = require("./models/ProductCategory");
 const OrderItem = require("./models/OrderItem");
 const OrderDetails = require("./models/OrderDetails");
 const UserAddresses = require("./models/UserAddresses");
+const ContactMessages = require("./models/ContactMessages");
 
 //associations could go here!
 User.hasOne(ShoppingSession);
@@ -48,5 +49,6 @@ module.exports = {
     ProductCategory,
     OrderItem,
     OrderDetails,
+    ContactMessages,
   },
 };
