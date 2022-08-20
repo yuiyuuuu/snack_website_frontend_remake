@@ -9,7 +9,7 @@ import user from "./user";
 import singleSnack from "./singleSnack";
 import checkout from "./checkout";
 import { addressReducer } from "./useraddresses";
-import { MessagesReducer } from "./messages";
+import MessagesReducer from "./messages";
 
 import users from "./users";
 import orders from "./orders";

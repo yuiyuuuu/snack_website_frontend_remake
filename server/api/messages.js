@@ -14,7 +14,6 @@ router.get("/", async (req, res, next) => {
 
 router.post("/", async (req, res, next) => {
   try {
-    console.log(req.body);
     const messages = await ContactMessages.create(req.body);
     res.send(messages);
   } catch (error) {
@@ -22,9 +21,9 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/", async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
-    const messages = await ContactMessages.findByPk(req.body);
+    const messages = await ContactMessages.findByPk(req.params.id);
     await messages.destroy();
     res.send(messages);
   } catch (error) {

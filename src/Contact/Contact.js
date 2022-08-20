@@ -15,6 +15,7 @@ const Contact = () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
+  const [topic, setTopic] = useState("");
   const [message, setMessage] = useState("");
 
   const handleSubmit = () => {
@@ -23,6 +24,7 @@ const Contact = () => {
         addAMessage({
           firstName: firstName,
           lastName: lastName,
+          topic: topic,
           email: email,
           message: message,
         })
@@ -118,6 +120,16 @@ const Contact = () => {
                 onChange={(e) => setEmail(e.target.value)}
               />
 
+              <input
+                type='text'
+                id='input'
+                className='Input-text-contact'
+                placeholder='Subject'
+                size='20'
+                style={{ width: "100%", marginTop: "17px" }}
+                onChange={(e) => setTopic(e.target.value)}
+              />
+
               <div
                 style={{
                   width: "100%",
@@ -148,13 +160,15 @@ const Contact = () => {
                       pointerEvents:
                         email === "" ||
                         firstName === "" ||
-                        (lastName === "") | (message === "")
+                        (lastName === "") | (message === "") ||
+                        topic === ""
                           ? "none"
                           : "",
                       cursor:
                         email === "" ||
                         firstName === "" ||
-                        (lastName === "") | (message === "")
+                        (lastName === "") | (message === "") ||
+                        topic === ""
                           ? ""
                           : "pointer",
                     }}
