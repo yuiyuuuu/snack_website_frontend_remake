@@ -82,6 +82,12 @@ const Credits = () => {
           orders will not be fulfilled. Please do not use your real card number.
           4242424242424242 is stripe test card, please use that instead.
         </div>
+
+        <div style={{ marginTop: "20px", fontSize: "20px" }}>
+          For paypal checkout, please use these credentials:
+          <div>Email: sb-BUYER8br474317161919@personal.example.com</div>
+          <div>Password: {"]N1$<E$p"}</div>
+        </div>
         <div style={{ marginTop: "20px", fontSize: "20px", marginTop: "20px" }}>
           Source code: https://github.com/yuiyuuuu/snack_website_frontend_remake
         </div>

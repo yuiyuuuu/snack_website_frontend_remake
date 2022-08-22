@@ -211,6 +211,12 @@ const Step2 = ({
                 Or
               </div>
 
+              <div style={{ fontSize: "8px" }}>
+                <div>Use these credentials for paypal:</div>
+                <div>Email: sb-BUYER8br474317161919@personal.example.com</div>
+                <div>Password: {"]N1$<E$p"}</div>
+              </div>
+
               <div
                 style={{
                   width: "50%",
