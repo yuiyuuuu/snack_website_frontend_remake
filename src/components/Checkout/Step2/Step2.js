@@ -4,6 +4,8 @@ import { CardElement } from "@stripe/react-stripe-js";
 import { useElements } from "@stripe/react-stripe-js";
 import { useStripe } from "@stripe/react-stripe-js";
 import { fetchAUser } from "../../../store";
+import PaypalButtons from "./PaypalButtons";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import {
   _createOrderDetail,
@@ -76,10 +78,10 @@ const Step2 = ({
     });
 
     // delete shopping session
-    await dispatch(_deleteShoppingSession(user.shopping_session.id));
+    dispatch(_deleteShoppingSession(user.shopping_session.id));
 
     // // create shopping session
-    await dispatch(_createshoppingSession(userid.id));
+    dispatch(_createshoppingSession(userid.id));
   };
 
   const handleSubmit = async (e) => {
@@ -193,6 +195,46 @@ const Step2 = ({
                   </button>
                 </div>
               </form>
+
+              <div
+                style={{
+                  alignSelf: "center",
+                  marginTop: "30px",
+                  borderTop: "1px solid black",
+                  width: "82%",
+                  display: "flex",
+                  paddingTop: "10px",
+                  justifyContent: "center",
+                  fontSize: "19px",
+                }}
+              >
+                Or
+              </div>
+
+              <div
+                style={{
+                  width: "50%",
+                  marginRight: "30px",
+                  alignSelf: "center",
+                  marginTop: "30px",
+                }}
+              >
+                <PayPalScriptProvider
+                  options={{
+                    "client-id": "test",
+                    components: "buttons",
+                    currency: "USD",
+                  }}
+                >
+                  <PaypalButtons
+                    currency={"USD"}
+                    showSpinner={false}
+                    setStep={setStep}
+                    handleCheckout={handleCheckout}
+                    total={total}
+                  />
+                </PayPalScriptProvider>
+              </div>
             </div>
             <div style={{ backgroundColor: "gray", width: "1px" }} />
             <div className='right-step1'>
