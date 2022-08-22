@@ -30,6 +30,16 @@ const Cart = () => {
   const cart = useSelector((state) => state.cartReducer);
 
   const [loading, setLoading] = useState(true);
+  const [randomNum, setRandomNum] = useState(null);
+
+  function randomIntFromInterval(min, max) {
+    if (products.length === 0) return;
+    setRandomNum(Math.floor(Math.random() * (max - min + 1) + min));
+  }
+
+  const customerAlsoViewed = products
+    .filter((item) => item.display)
+    .slice(randomNum, randomNum + 10);
 
   const leftScroll = (reference) => {
     reference.current.scrollLeft += -200;
@@ -102,6 +112,10 @@ const Cart = () => {
     dispatch(fetchProducts());
   }, []);
 
+  useEffect(() => {
+    randomIntFromInterval(0, products.length - 10);
+  }, [products]);
+
   if (loading) return "loading";
   return (
     <div>
@@ -118,7 +132,7 @@ const Cart = () => {
               marginLeft: "20px",
             }}
           >
-            All Snacks
+            All Products
           </div>
         </a>
         <div
@@ -296,7 +310,7 @@ const Cart = () => {
                 fontFamily: "arial black",
               }}
             >
-              New on bullseye
+              Popular on Bullseye
             </div>
 
             <div style={{ flexGrow: 1 }} />
@@ -317,7 +331,7 @@ const Cart = () => {
           </div>
 
           <div className='cart-want-container' ref={newRef}>
-            {products.map((item) => (
+            {customerAlsoViewed.map((item) => (
               <SnackView
                 key={item.name}
                 photoUrl={item.photoURL}

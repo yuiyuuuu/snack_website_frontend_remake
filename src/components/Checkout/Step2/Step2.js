@@ -4,6 +4,8 @@ import { CardElement } from "@stripe/react-stripe-js";
 import { useElements } from "@stripe/react-stripe-js";
 import { useStripe } from "@stripe/react-stripe-js";
 import { fetchAUser } from "../../../store";
+import PaypalButtons from "./PaypalButtons";
+import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 
 import {
   _createOrderDetail,
@@ -37,7 +39,7 @@ const Step2 = ({
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
-    // create new order detail
+    // create new order detail and order items
     const detailTotal = {
       userId: userid.id,
       total: Number(total),
@@ -49,17 +51,17 @@ const Step2 = ({
       state: state,
       zip: zip,
     };
-    dispatch(_createOrderDetail(detailTotal));
 
-    // create new order items
-    await cart.map((item) => {
-      const obj = {
+    const itemArr = [];
+    await cart.map((item) =>
+      itemArr.push({
         itemId: item.product.id,
-        userId: userid.id,
         quantity: item.quantity,
-      };
-      dispatch(_createOrderItem(obj));
-    });
+      })
+    );
+
+    const t = [itemArr, detailTotal];
+    dispatch(_createOrderDetail(t));
 
     // update product quantities
     await cart.map((item) => {
@@ -76,10 +78,10 @@ const Step2 = ({
     });
 
     // delete shopping session
-    await dispatch(_deleteShoppingSession(user.shopping_session.id));
+    dispatch(_deleteShoppingSession(user.shopping_session.id));
 
     // // create shopping session
-    await dispatch(_createshoppingSession(userid.id));
+    dispatch(_createshoppingSession(userid.id));
   };
 
   const handleSubmit = async (e) => {
@@ -193,6 +195,52 @@ const Step2 = ({
                   </button>
                 </div>
               </form>
+
+              <div
+                style={{
+                  alignSelf: "center",
+                  marginTop: "30px",
+                  borderTop: "1px solid black",
+                  width: "82%",
+                  display: "flex",
+                  paddingTop: "10px",
+                  justifyContent: "center",
+                  fontSize: "19px",
+                }}
+              >
+                Or
+              </div>
+
+              <div style={{ fontSize: "8px" }}>
+                <div>Use these credentials for paypal:</div>
+                <div>Email: sb-BUYER8br474317161919@personal.example.com</div>
+                <div>Password: {"]N1$<E$p"}</div>
+              </div>
+
+              <div
+                style={{
+                  width: "50%",
+                  marginRight: "30px",
+                  alignSelf: "center",
+                  marginTop: "30px",
+                }}
+              >
+                <PayPalScriptProvider
+                  options={{
+                    "client-id": "test",
+                    components: "buttons",
+                    currency: "USD",
+                  }}
+                >
+                  <PaypalButtons
+                    currency={"USD"}
+                    showSpinner={false}
+                    setStep={setStep}
+                    handleCheckout={handleCheckout}
+                    total={total}
+                  />
+                </PayPalScriptProvider>
+              </div>
             </div>
             <div style={{ backgroundColor: "gray", width: "1px" }} />
             <div className='right-step1'>

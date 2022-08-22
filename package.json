@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "babel-loader": "8.1.0",
     "@babel/core": "^7.12.10",
     "@babel/preset-react": "^7.12.10",
     "@babel/register": "^7.12.10",
@@ -79,6 +78,7 @@
     ]
   },
   "devDependencies": {
+    "@paypal/react-paypal-js": "^7.8.1",
     "css-loader": "^6.7.1",
     "file-loader": "^6.2.0",
     "image-webpack-loader": "^8.1.0",

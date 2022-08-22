@@ -41,7 +41,7 @@ export const _createOrderDetail = (detailTotal) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        `/api/orders/${detailTotal.userId}`,
+        `/api/orders/${detailTotal[1].userId}`,
         detailTotal
       );
       dispatch(createOrderDetail(data));

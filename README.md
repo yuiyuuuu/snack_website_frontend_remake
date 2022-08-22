@@ -23,6 +23,11 @@ Email: jack@gmail.com
 </br>
 Password: 123
 
+For stripe checkout, please use 4242424242424242 as card to pay.</br>
+For paypal checkout, please use these credentials to log in:</br>
+Email: sb-BUYER8br474317161919@personal.example.com</br>
+Password: ]N1$<E$p
+
 Have fun editing/adding/deleting.
 
 ## Key Features :key:
@@ -32,7 +37,8 @@ User:
 - Create a user account your email.
 - Add to cart functionality with persistent shopping sessions to save cart contents for later.
 - Save addresses to autofill for quick checkouts.
-- Implementation of Stripe API for checkout.
+- Implementation of Stripe API, Paypal Checkout and Paypal Buttons for checkout.
+- View your previous orders and add/delete addresses in the accounts section.
 - Use the search bar to easily find a product or category
 - Send a message to admins in /contact to ask for support or ask a general question
 
