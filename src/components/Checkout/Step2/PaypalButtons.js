@@ -53,8 +53,8 @@ const PaypalButtons = ({
         }}
         onApprove={function (data, actions) {
           return actions.order.capture().then(function () {
-            setStep(3);
             handleCheckout();
+            setStep(3);
           });
         }}
       />

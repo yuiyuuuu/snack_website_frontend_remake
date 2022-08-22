@@ -39,7 +39,7 @@ const Step2 = ({
   const [loading, setLoading] = useState(false);
 
   const handleCheckout = async () => {
-    // create new order detail
+    // create new order detail and order items
     const detailTotal = {
       userId: userid.id,
       total: Number(total),
@@ -51,17 +51,17 @@ const Step2 = ({
       state: state,
       zip: zip,
     };
-    dispatch(_createOrderDetail(detailTotal));
 
-    // create new order items
-    await cart.map((item) => {
-      const obj = {
+    const itemArr = [];
+    await cart.map((item) =>
+      itemArr.push({
         itemId: item.product.id,
-        userId: userid.id,
         quantity: item.quantity,
-      };
-      dispatch(_createOrderItem(obj));
-    });
+      })
+    );
+
+    const t = [itemArr, detailTotal];
+    dispatch(_createOrderDetail(t));
 
     // update product quantities
     await cart.map((item) => {

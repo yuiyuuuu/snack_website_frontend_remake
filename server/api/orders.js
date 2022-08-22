@@ -42,15 +42,23 @@ router.post("/:id", async (req, res, next) => {
   try {
     const newOrder = await OrderDetails.create({
       userId: req.params.id,
-      total: req.body.total,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      address: req.body.address,
-      city: req.body.city,
-      state: req.body.state,
-      zip: req.body.zip,
+      total: req.body[1].total,
+      firstName: req.body[1].firstName,
+      lastName: req.body[1].lastName,
+      email: req.body[1].email,
+      address: req.body[1].address,
+      city: req.body[1].city,
+      state: req.body[1].state,
+      zip: req.body[1].zip,
     });
+
+    const orderItems = req.body[0].map((item) =>
+      OrderItem.create({
+        productId: item.itemId,
+        orderDetailId: newOrder.id,
+        quantity: item.quantity,
+      })
+    );
     res.json(newOrder);
   } catch (err) {
     next(err);
