@@ -8,6 +8,9 @@
 <em>Rebuild Dev: Yingson Yu</em><br/>
 <em>LinkedIn: https://www.linkedin.com/in/yingson-yu-3b0a581b9/</em>
 
+<em>Rebuild Dev: Junbeom Chun</em><br/>
+<em>LinkedIn: https://www.linkedin.com/in/junbeomchun/</em>
+
 ---
 
 ## About Bullseye
