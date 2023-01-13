@@ -33,7 +33,7 @@ const AllAlcohol = () => {
           marginTop: "70px",
         }}
       >
-        <a href='/bullseye'>
+        <a href='/bullseye' className='a-reo'>
           <div style={{ textDecoration: "underline", cursor: "pointer" }}>
             Home
           </div>
