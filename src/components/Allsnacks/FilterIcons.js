@@ -1,8 +1,30 @@
-import React from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import filter from "./filterObj";
 import "./Allsnacks.css";
 
+import $ from "jquery";
+
 const FilterIcons = () => {
+  // const [scrollPos, setScrollPos] = useState(0)
+
+  const handleScroll = useCallback(() => {
+    if (window.scrollY > 90) {
+      $(".allsnacks-p").css("box-shadow", "0 4px 3px gray");
+    }
+
+    if (window.scrollY < 90) {
+      $(".allsnacks-p").css("box-shadow", "none");
+    }
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className='grid-container-filters'>
       {filter.map((item) => (

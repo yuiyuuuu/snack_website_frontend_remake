@@ -109,8 +109,19 @@ html {
   grid-auto-flow: column;
   overflow: scroll;
   gap: 25px;
+  width: 1175px;
 }
 
 .grid-container-filters::-webkit-scrollbar {
   display: none;
+}
+
+.allsnacks-p {
+  /* box-shadow: 0 4px 3px gray; */
+  padding-bottom: 10px;
+  transition: all 0.3s ease;
+}
+
+.a-reo {
+  width: 100px;
 }

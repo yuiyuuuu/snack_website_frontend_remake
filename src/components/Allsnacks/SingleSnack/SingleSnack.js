@@ -134,6 +134,10 @@ const SingleSnack = (props) => {
   ]);
 
   useEffect(() => {
+    setCounter(1);
+  }, [snackId]);
+
+  useEffect(() => {
     setLoading(true);
     dispatch(clearState());
     dispatch(fetchSingleSnack(snackId));
