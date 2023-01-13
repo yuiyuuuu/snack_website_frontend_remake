@@ -16,6 +16,7 @@ function getWindowDimensions() {
 }
 
 const Home = () => {
+  const containerRef = useRef(null);
   const scrollRef = useRef(null);
   const scrollRef2 = useRef(null);
   const scrollRef3 = useRef(null);
@@ -107,6 +108,13 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchProducts());
+  }, []);
+
+  const [vpWidth, setVpWidth] = useState(0);
+
+  useEffect(() => {
+    const value = window.innerWidth;
+    setVpWidth(value);
   }, []);
 
   useEffect(() => {
@@ -269,6 +277,7 @@ const Home = () => {
               </div>
             </div>
           </div>
+
           <div
             style={{
               width: "100%",
@@ -398,7 +407,7 @@ const Home = () => {
                   alignItems: "center",
                   justifyContent: "center",
                   cursor: "pointer",
-                  width: "8%",
+                  width: "200px",
                 }}
                 className='start-shopping-home'
               >

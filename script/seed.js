@@ -22,437 +22,376 @@ async function seed() {
       name: "Tortilla Chips",
       desc: "Made from white corn for great taste ",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_681ec0d2-c746-43ad-bfc0-71ec4fc922fc?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty2/tortilla.jpeg",
     },
     {
       name: "Doritos : Nacho Chesse",
       desc: "Your favorite bold nacho cheese flavored tortilla chips",
       price: 5.99,
-      photoURL:
-        "https://images.heb.com/is/image/HEBGrocery/002092535?fit=constrain,1&wid=800&hei=800&fmt=jpg&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0",
+      photoURL: "/assets/snack-images/salty2/nachocheese.jpeg",
     },
     {
       name: "Lay's Potato Chips",
       desc: "Farm-grown potatoes seasoned with just the right amount of salt",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_dd894bfa-cafc-445e-9f8b-f5aa44b9a32d?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty2/laysoriginal.jpeg",
     },
     {
       name: "Cheddar Crackers",
       desc: "Packed with sharp cheddar flavor and a pinch of sea salt, these cheese crisps go great with everything",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_3c4401e1-9011-4ca9-a48e-eba0aa41f5ab?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty2/cheeseits.jpeg",
     },
     {
       name: "Triscuit Original Crackers",
       desc: "Baked kosher snacks feature a hearty, crunchy woven texture that easily holds all of your favorite toppings",
       price: 5.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_7b5abebc-9531-4560-8814-9c787f5a6a66?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty2/triscuit.jpeg",
     },
     {
       name: "Goldfish Baked Crackes",
       desc: "Flavor Blasted Cheddar and Sour Cream Goldfish crackers are a snack-time favorite, baked with big, bold flavor",
       price: 4.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_dcb1a682-2f1a-4e33-a91e-d2540265c113?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty2/goldfish.jpeg",
     },
     {
       name: "Spicy Queso Blanco",
       desc: "Packed with sharp cheddar flavor and a pinch of sea salt, these cheese crisps go great with everything",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_cb4df512-fdee-4a51-855b-6b71c5950d52?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty2/quesoblanco.jpeg",
     },
     {
       name: "Sabra Classic Hummus",
       desc: "Keep it simple with our classic hummus - a creamy, delicious blend of chickpeas, tahini (ground sesame seeds), oil and seasonings",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_e64eddaf-a1f1-41c0-92ef-829e9a3b299e?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty2/sabra.jpeg",
     },
     {
       name: "Homestyle Guacamole",
       desc: "Made with tomatoes, onions, garlic and cilantro for homestyle flavor",
       price: 7.99,
-      photoURL:
-        "https://i5.walmartimages.com/asr/67cbf04a-f964-432a-877a-2ca48205ce58_1.9aab8fdc7715f7e51d5d54bd23632f06.jpeg",
+      photoURL: "/assets/snack-images/salty2/guac.jpeg",
     },
     {
       name: "Tostitos Chunky Salsa",
       desc: "Tostitos salsas are made with real chunks of garden vegetables, and TOSTITOS dips are so creamy, you can't resist either",
       price: 4.99,
-      photoURL: "https://i5.peapod.com/c/6H/6H4QI.png",
+      photoURL: "/assets/snack-images/salty2/salsachunky.jpeg",
     },
     {
       name: "Frosted Sugar Cookies",
       desc: "Cotton Candy Frosted Sugar Cookies",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_a3c62ab4-48d0-430b-ab19-57675634a0fe?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/frostedcookies.jpeg",
     },
     {
       name: "Oreo Firework Cookies",
       desc: "OREO Firework Chocolate Sandwich Cookies with Popping Candy",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_2452cd4d-2004-429f-b215-0b8e073f6c4b?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/oreofirework.jpeg",
     },
     {
       name: "Keebler Coconut Dreams Cookies",
       desc: "A delightful anytime dessert snack; enjoy with an ice-cold glass of milk",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_2557d2d4-bc3a-4505-b9d1-dda3644cc336?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/keeblercoco.jpeg",
     },
     //
     {
       name: "M&M's Peanut Chocolate Candies",
       desc: "This colorful candy is made with real peanuts and milk chocolate and surrounded by a candy shell",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_aa66d26c-8e93-44bc-a564-225e40450d9d?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/mmpeanut.jpeg",
     },
     {
       name: "HARIBO Gold-Bears Gummi Candy",
       desc: "America's #1 Gummi Bear. Lemon, Orange, Pineapple, Raspberry, and Strawberry",
       price: 5.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_b2d54bec-3afd-4abc-9cb7-a021d79556d8?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/goldbears.jpeg",
     },
     {
       name: "Trolli Sour Brite Crawlers Original Gummy Candy",
       desc: "Trolli Sour Brite Crawler, these sour gummy worms pack a punch of tangy sweetness in weirdly-awesome fruity flavor combinations like orange-lime, cherry-lemon, & strawberry-grape",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_58dcfe4f-28eb-43f6-826e-dd2fc76d00b5?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/trolli.jpeg",
     },
     {
       name: "Ben & Jerry's Ice Cream Half Baked",
       desc: "Ben & Jerry's Chocolate & Vanilla Ice Creams with Gobs of Chocolate Chip Cookie Dough & Fudge Brownies",
       price: 4.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_5705f6d6-1ab4-45a5-9b6a-550883053c06?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/halfbaked.jpeg",
     },
     {
       name: "Noosa Frozen Yogurt Gelato Chocolate Fudge",
       desc: "Chocolate Fudge frozen yogurt gelato made with whole milk yogurt",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_7fea469d-24ca-4278-8d0c-1269f3cb2548?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/frozenyogurt.jpeg",
     },
     {
       name: "Triple Chocolate Truffle Ice Cream",
       desc: "Favorite Day Gourmet triple chocolate truffle ice cream makes for a delectable treat",
       price: 7.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_42ce3a0e-f2c8-46dc-9293-9a21fd9962c2?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/triplecho.jpeg",
     },
     {
       name: "Toll House Mini Ice Cream Sandwiches",
       desc: "These delicious treats are perfect for sharing with family, friends and a fun activity",
       price: 6.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_f825b284-7739-4fc3-9253-195907229f3e?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/sweet/tollhouse.jpeg",
     },
 
     {
       name: "S'mores Trail Mix",
       desc: "Blend of s'mores marshmallow bites, semi-sweet chocolate chunks, dried marshmallows, graham cookies and peanuts",
       price: 4.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_d07b29bc-dd7c-432b-aaa9-58128e3e8056?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/smores.jpeg",
     },
     {
       name: "Neapolitan Sundae Trail Mix",
       desc: "Blend of cashews, creme brulee almonds, dried sweetened strawberries, semi-sweet chocolate chips, white chocolate drops and strawberry drops",
       price: 4.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_ae3362eb-48bb-445a-bbe2-5767d10872ef?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/neap.jpeg",
     },
     {
       name: "Caramel Cashew Trail Mix",
       desc: "Delicious medley of milk chocolate caramel balls, cashews, M&M'S® milk chocolate candies and peanuts",
       price: 4.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_870ac6d5-f196-4993-9a2d-7d2fe632d945?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/crmel.jpeg",
     },
     {
       name: "Date and Nut Bars Chocolate Chip Cookie Dough",
       desc: "Chocolate chip cookie dough flavor offers rich taste. Made with dates, cashews, chocolate chips and sea salt for wholesome taste. Vegan and gluten-free certified to accommodate a variety of diets. 10pk for more value per bar",
       price: 5.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_16866722-a2fa-408e-af20-363daa557c52?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/datenut.jpeg",
     },
     {
       name: "Power Crunch Protein Energy Bars - Strawberry Creme",
       desc: "Smooth strawberry and velvet cream flavors. Our Power Crunch Original Strawberry Cream protein bar is sure to make snack time a success. This delicious cream-filled wafer energy bar delivers 13g of protein, 5 grams of sugar and contains no sugar alcohols",
       price: 7.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_1559f0ab-1a56-465c-9eae-8afcd75c30e3?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/strawberryprotein.jpeg",
     },
     {
       name: "MadeGood Chocolate Dipped Granola Bar Birthday Cake",
       desc: "A MadeGood Granola Bar drizzled and dipped in chocolate, that's what. Vegan, organic, and free from the most common allergens including dairy",
       price: 4.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_6680c6bf-ece9-4493-841d-451af9d63e32?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/madegoodg.jpeg",
     },
     {
       name: "Freeze Dried Strawberry Slices",
       desc: "Dried strawberry slices are perfect for yogurt parfaits, oatmeal, salads and more",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_2be08478-6638-415b-abce-5414a8dd0a5f?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/freezestraw.jpeg",
     },
     {
       name: "Organic Dried Unsweetened Mango Snacks",
       desc: "USDA organic mango snacks are sure to become a family favorite",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_15f82fc0-2051-49dd-9914-1514aa29fd80?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/goodmango.jpeg",
     },
     {
       name: "Organic Dried Unsweetened Pineapple Ring Snacks",
       desc: "USDA organic dried pineapple snacks are non-GMO with no added sulfites",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_a8b3c264-747b-4fef-8598-a7101215f1fe?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/goodpine.jpeg",
     },
     {
       name: "Dried Sweetened Cherries",
       desc: "This package of dried sweetened cherries has all the vibrant flavor you expect with just a touch of added sweetness, and it has no added sulfites, artificial flavors or artificial colors, making for an instant pantry staple",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_df92f11a-f3fc-40b6-a3bd-3bf9ce82f2a2?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/salty/goodcherry.jpeg",
     },
     {
       name: "Frozen Pork Bao Buns",
       desc: "These mini bao buns come stuffed with pork covered in sweet barbecue sauce flavored with onion and garlic for outstanding flavor, and the six-count pack lets you choose your portion size to suit your appetite",
       price: 5.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_fdd615c4-1bb9-46c0-bc96-14c23d9d5ebf?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/porkbao.jpeg",
     },
     {
       name: "Auntie Anne's Classic All Beef Frozen Pretzel Dogs",
       desc: "Warm, soft pretzel dough wrapped around a juicy hot dog",
       price: 5.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_57691966-b8d7-40d0-82e3-794248d1c183?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/pretzeldogs.jpeg",
     },
     {
       name: "Frozen Breaded Mozzarella Sticks",
       desc: "Whether it's game day, movie night or just time for a snack, frozen Mozzarella Cheese Sticks from market pantry™ are sure to hit the spot",
       price: 4.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_eb5b5822-948f-485b-b926-3216d10a49dd?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/cheesesticks.jpeg",
     },
     {
       name: "Vegetable Tray with Ranch Dip",
       desc: "This 18-ounce veggie tray contains an array of veggies that come washed, trimmed and ready to eat, saving you the time and effort of having to prep the veggies yourself",
       price: 5.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_d7689d9f-2ad2-4912-88e1-64e474e55abc?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/vegtray.jpeg",
     },
     {
       name: "Hormel Gatherings Pepperoni, Cheddar Cheese & Crackers Snack Tray",
       desc: "The complete party tray; Comes with meat, cheese, and crackers",
       price: 9.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_91dd6f4d-d647-4bc9-8990-2fb982bc9688?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/snacktray1.jpeg",
     },
     {
       name: "Sampler Pack Calabrese Salami, Prosciutto and Capocollo",
       desc: "Sliced meat sampler pack is great for sandwiches or charcuterie boards",
       price: 9.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_be969e59-6988-4235-8410-39a2e0174cca?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/snacktray2.jpeg",
     },
     {
       name: "Sargento Natural Mozzarella String Cheese",
       desc: "Sargento® String Cheese is a natural source of Calcium, each individual stick contains 20% DV Calcium and 80 Calories",
       price: 7.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_0466e7a8-bc3d-450c-971e-a4b0a830b4c7?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/cheese1.jpeg",
     },
     {
       name: "Mini Babybel Gouda Semisoft Cheeses",
       desc: "Mini Babybel® Gouda cheese has a creamy, nutty taste the whole family will love",
       price: 8.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_aa3f3bec-f843-4be9-961c-850ab8b2a445?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/cheesebag1.jpeg",
     },
     {
       name: "Mini Babybel Original Semisoft Cheeses",
       desc: "Mini Babybel® Gouda cheese has a creamy, nutty taste the whole family will love",
       price: 8.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_dbea2d1a-4342-46e6-9154-6374c9fdd042?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/cheesebag2.jpeg",
     },
     {
       name: "Mini Babybel Light Semisoft Cheeses",
       desc: "Mini Babybel® Gouda cheese has a creamy, nutty taste the whole family will love",
       price: 8.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_3d151f0e-d79d-4b82-bb3c-20cb2940c779?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/frozen/cheesebag3.jpeg",
     },
     {
       name: "Banana",
       desc: "Tasty on their own or added into smoothies, oatmeal or dessert",
       price: 0.19,
-      photoURL:
-        "https://cdn.discordapp.com/attachments/775994350143930391/1008128022391570543/unknown.png",
+      photoURL: "/assets/snack-images/grocery/banana.jpeg",
     },
     {
       name: "Strawberries- 1b Package",
       desc: "A great fruit to add to your child's lunchbox",
       price: 2.59,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_ce4ac41d-c124-49db-8f0f-2f472ee51815?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/strawberries.jpeg",
     },
     {
       name: "Organic Honeycrisp Apples - 2lb",
       desc: "A two-pound bag of Organic Honeycrisp Apples from Good & Gather™ makes it easy to stay stocked up on the perfect lunchtime side, grab-and-go snack or baking choice, all in one go!",
       price: 7.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_4d41e2f3-8e05-4eaf-a8dc-7b1e035649ab?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/apples.jpeg",
     },
     {
       name: "Red Grapefruit - 1 Count",
       desc: "Packed with essential nutrients and a great amount of Vitamin C, Red Grapefruits also make a refreshing, healthy treat any time of the day.",
       price: 0.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_c9cc2d3f-d31a-4e81-a99c-f7521195cd86?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/grapefruit.jpeg",
     },
     {
       name: "Driscoll's Raspberries - 6oz Package",
       desc: "For the finest in raspberries the world try Driscoll's.",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_16ebad26-b7b3-4dd0-80a9-92866fc98c41?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/raspberries.jpeg",
     },
     {
       name: "Mini Watermelon - 1 Count",
       desc: "Mini seedless watermelons have a deep red flesh that provides a crisp, juicy flavor.",
       price: 3.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_7dfb5982-541a-4c72-b731-ccd9b061da84?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/watermelon.jpeg",
     },
     {
       name: "Iceberg Lettuce Head - 1 Count",
       desc: "This Iceberg Lettuce from Green Giant® offers a variety of uses while being low in calories, making it an excellent component in your veggie drawer.",
       price: 1.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_f5e5b991-eeb5-4f39-a5b0-44016423f017?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/lettuce.jpeg",
     },
     {
       name: "Blueberries - 1pt",
       desc: "Fresh blueberries to add into your baking recepies.",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_31e44e71-4d8b-413c-b5bd-d5b36650098e?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/blueberries.jpeg",
     },
     {
       name: "Green Cabbage - 1 Count",
       desc: "Green cabbage is a winter vegetable and one of several cabbage varieties.",
       price: 1.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_3b0594d0-878b-4744-b9a8-32c45d2bf436?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/cabbage.jpeg",
     },
     {
       name: "Lemon - 1 Count",
       desc: "Lemons are a type of citrus fruit used in many ways as the flesh, juice and peel all have various uses.",
       price: 0.69,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_3d962311-4a0b-47f9-8146-28740dfa2d53?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/grocery/lemon.jpeg",
     },
     {
       name: "Coca-Cola - 12pk/12 fl oz Cans",
       desc: "12 cans of Coca-Cola Original Taste—the refreshing, crisp taste you know and love",
       price: 6.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_f2a6f540-4792-43f5-85a5-33b77626e7db?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/coke.jpeg",
     },
     {
       name: "Dr Pepper Soda - 12pk/12 fl oz Cans",
       desc: "The 23 signature flavors of Dr Pepper are blended to create one satisfyingly unique beverage.",
       price: 6.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_27a2e72f-7a3a-4f3c-8ee3-c41c1f9be91b?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/pepper.jpeg",
     },
     {
       name: "Canada Dry Ginger Ale Soda - 12pk/12 fl oz Cans",
       desc: "Relax Your Way with Canada Dry when you want, the way you want.",
       price: 6.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_ec795fc6-ade8-45f5-b962-0b43b150b036?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/ginger.jpeg",
     },
     {
       name: "A&W Root Beer Soda - 12pk/12 fl oz Cans",
       desc: "Treat yourself to the All-American classic flavor with A&W Root Beer.",
       price: 6.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_2ee850c0-8fd3-4f97-9a8d-1c6d63ebfa52?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/rootbeer.jpeg",
     },
     {
       name: "Sunkist Orange Soda - 12pk/12 fl oz Cans",
       desc: "Beaming with bold, orange flavor, Sunkist always satisfies your thirst.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_de22bbfb-395a-4084-8276-cdee9c7df71b?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/orangesoda.jpeg",
     },
     {
       name: "Sprite - 12pk/12 fl oz Cans",
       desc: "The OG Sprite, lemon-lime flavored soda for bold personalities.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_17187f3d-41bc-4471-8232-2fc084875814?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/sprite.jpeg",
     },
 
     {
       name: "Pepsi Cola Soda - 12pk/12 fl oz Cans",
       desc: "Enjoy an ice cold Pepsi, the bold, refreshing cola.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_363ec77f-3dd0-4eda-97bd-810c67a4eabe?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/pepsi.jpeg",
     },
     {
       name: "Mountain Dew Citrus Soda - 12pk/12 fl oz Cans",
       desc: "Charged for anything, keep on doing you with Mtn Dew.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_bba6faeb-f9d6-4ecc-b934-5dc95c189bfe?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/mtndew.jpeg",
     },
     {
       name: "Coca-Cola Cherry - 12pk/12 fl oz Cans",
       desc: "Delicious combination of Coca-Cola and cherry flavor.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_7d8cd148-a87f-4583-b3e3-5a7babc6ee79?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/cokecherry.jpeg",
     },
     {
       name: "Sprite - 2 L Bottle",
       desc: "The OG Sprite, lemon-lime flavored soda for bold personalities.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_7c23b7bd-d895-4b43-9ce8-3b21b5e5f3d5?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/sprite2l.jpeg",
     },
     {
       name: "Coca-Cola - 2 L Bottle",
       desc: "2L bottle of Coca-Cola Original Taste—the refreshing, crisp taste you know and love.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_583c4660-39f9-4456-8494-0d4c0be960b1?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/coke2l.jpeg",
     },
     {
       name: "Sunkist Orange Soda - 2 L Bottle",
       desc: "Beaming with bold, orange flavor, Sunkist always satisfies your thirst.",
       price: 6.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_cc5ff53f-8a33-483f-9bb4-31af87bb5e01?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/drinks/sunskit2l.jpeg",
     },
 
     {
@@ -546,24 +485,21 @@ async function seed() {
       name: "Bounty Full Sheet Paper Towels",
       desc: "Pack contains 4 Double Rolls of Bounty white Full Size paper towels.",
       price: 8.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_b898b9b9-5e62-4092-b2d4-0b14489c8ac5?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/cleaning/c1.jpeg",
     },
 
     {
       name: "Clorox Disinfecting Wipes Value Pack Bleach Free Cleaning Wipes - 75ct Each/3pk",
       desc: "Clorox® Disinfecting Wipes are proven to kill -19 Virus* in 15 seconds; cleans and kills 99.9% of viruses and bacteria with powerful, triple-layered wipe; Package may vary",
       price: 12.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_ee613317-8f45-417d-9c8a-dc81bb3198b9?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/cleaning/c2.jpeg",
     },
 
     {
       name: "Clorox Fresh Scent Disinfecting Wipes - Fresh",
       desc: "Clorox Disinfecting Wipes clean, disinfect, deodorize and remove allergens for 5x cleaning power* and leave a fresh scent.",
       price: 2.89,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_544827bb-df47-42ac-997b-b8577dee1e2c?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/cleaning/c3.jpeg",
     },
 
     {
@@ -666,8 +602,7 @@ async function seed() {
       name: "Ben & Jerry's Strawberry Cheesecake Ice Cream 16oz",
       desc: "Ben & Jerry's Strawberry Cheesecake Ice Cream tastes exactly like you'd expect: rich, creamy and utterly irresistible.",
       price: 6.99,
-      photoURL:
-        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/225/299/xlarge/nta0zqux1v3vn2kidlrv.png?1660141062",
+      photoURL: "/assets/snack-images/icecream/i1.jpeg",
     },
 
     {
@@ -705,8 +640,7 @@ async function seed() {
       name: "Ben & Jerry's The Tonight Dough Ice Cream 16oz",
       desc: "Curated with Tonight Show host Jimmy Fallon, Ben & Jerry's Tonight Dough has all the ingredients to cure those late night cravings.",
       price: 6.99,
-      photoURL:
-        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/032/704/xlarge/1247.jpg?1574268887",
+      photoURL: "/assets/snack-images/icecream/i2.jpeg",
     },
 
     {
@@ -745,8 +679,7 @@ async function seed() {
       name: "Lunchables Turkey & Cheddar with Crackers 3.2oz",
       desc: "Turkey and Cheddar Lunchables feature Kraft Cheddar cheese, Oscar Mayer lean turkey and crackers.",
       price: 3.99,
-      photoURL:
-        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/871/xlarge/7702_1.png?1581438211",
+      photoURL: "/assets/snack-images/quickmeals/q1.jpeg",
     },
 
     {
@@ -761,8 +694,7 @@ async function seed() {
       name: "Lunchables Ham & Cheddar with Crackers 3.2oz",
       desc: "Ham and cheese? It’s a match made in heaven. And with Lunchables Ham & Cheddar, it’s the perfect snack to sate cravings at home or on the go.",
       price: 3.79,
-      photoURL:
-        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/033/869/xlarge/7712_1.png?1581438157",
+      photoURL: "/assets/snack-images/quickmeals/q2.jpeg",
     },
 
     {
@@ -936,96 +868,84 @@ async function seed() {
       name: "Childrens Tylenol Pain + Fever Relief Liquid - Acetaminophen - 4 fl oz",
       desc: "Children's Tylenol Liquid Oral Suspension Medicine with acetaminophen for pain & fever relief.",
       price: 6.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_313ddf88-7b1e-447e-95f0-54a689f532b3?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h1.jpeg",
     },
 
     {
       name: "Tylenol Extra Strength Pain Reliever and Fever Reducer Caplets - Acetaminophen",
       desc: "Tylenol Extra Strength Caplets with acetaminophen to relieve minor aches & pains & reduce fever.",
       price: 6.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_f35f5453-90f2-4c01-9b83-94e3cd9a22dc?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h2.jpeg",
     },
 
     {
       name: "Vicks SpeedRead Digital Thermometer - White",
       desc: "Oral, underarm use and accurate readings within +/- 0.2F, 8 second readings",
       price: 9.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_87315e21-415f-41e3-87f0-e4234f5da990?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h3.jpeg",
     },
 
     {
       name: "FLTR No Contact Infrared Digital Forehead Thermometer",
       desc: "Non-Contact, One Second Instant Reading - Take your body temperature instantly from 1.2-2.0 inches away.",
       price: 39.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_6e1eb52f-939a-4fc5-9b71-275a21c3a095?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h4.jpeg",
     },
 
     {
       name: "Delsym Cough Relief Liquid - Grape",
       desc: "Controls & Suppresses Cough, advanced time-release formula that works immediately.",
       price: 13.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_4392f4c9-6296-49a3-a352-15b55fe3e2c9?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h5.jpeg",
     },
 
     {
       name: "Mucinex 12 Hour Maximum Strength Cough Suppressant Tablets - 14ct",
       desc: "MAXIMUM STRENGTH MUCINEX DM COUGH & CHEST CONGESTION MEDICINE: Clinically proven to last up to 12 hours to control cough and provide relief for your severe chest congestion.",
       price: 13.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_db7f019b-45ce-4790-9271-56532b6c7ed3?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h6.jpeg",
     },
 
     {
       name: "Robitussin Maximum Strength Cough and Chest Congestion Relief Syrup - Elderberry - 8.0 fl oz",
       desc: "8 fl oz bottle of Robitussin Elderberry Maximum Strength Chest Congestion Relief and Cough Medicine.",
       price: 10.49,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_6567bd37-29e4-4007-8087-498542c7eea2?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h7.jpeg",
     },
 
     {
       name: "Dramamine Nausea Long Lasting Tablets - 10ct",
       desc: "Dramamine Nausea Long Lasting relieves nausea, dizziness and vomiting for up to 24 hours.",
       price: 5.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_d9941d76-047e-406f-a5a8-2e5066a66cb5?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h8.jpeg",
     },
 
     {
       name: "Seaband Nausea Relief Acupressure Wristbands - 2ct",
       desc: "Natural nausea relief with no side effects",
       price: 8.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_2cf0d9ad-6df5-479d-81ac-f51b89b2be43?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h9.jpeg",
     },
 
     {
       name: "Bayer Headache Pain Reliever Coated Aspirin 500mg with Caffeine Tablets (NSAID) - 100ct",
       desc: "Bayer Aspirin Headache is designed to provide fast relief at first site of pain and starts working in minutes.",
       price: 9.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_68e4cf40-43be-4357-acd8-cd1222a2f70a?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h10.jpeg",
     },
 
     {
       name: "Vitafusion MultiVites Vitamin Gummies - Berry, Peach & Orange - 150ct",
       desc: "Delicious and Nutritious: Vitamins fused with delicious berry, peach and orange flavors for a taste you'll love!",
       price: 11.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_12e3d77d-246b-41ce-a140-674eb1d7bf3d?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h11.jpeg",
     },
 
     {
       name: "Nature's Truth B12 Vitamin 1000mcg | 100 Tablets",
       desc: "ESSENTIAL VITAMIN: Cyanocobalamin, is a beneficial nutrient in wellness",
       price: 11.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_b12b8f81-9583-4f8f-bdf9-710e7bcbfbd7?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/health/h12.jpeg",
     },
 
     {
@@ -1112,32 +1032,28 @@ async function seed() {
       name: "Duracell Coppertop AA Batteries - 20 Pack Alkaline Battery",
       desc: "Formulated with POWER BOOST™ ingredients which deliver lasting performance in your devices.",
       price: 17.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_c50b4767-bce3-4526-8040-70438815dfa4?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/office/o1.jpeg",
     },
 
     {
       name: "Paper Mate Write Bros. 20pk Ballpoint Pens 1.00mm Medium Tip Black",
       desc: "Ballpoint pen with sleek design at affordable price",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_2414c24d-5a8e-46bf-91e5-8f1ee6673b2f?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/office/o2.jpeg",
     },
 
     {
       name: "Ticonderoga #2 Pre-Sharpened Pencil, 18ct",
       desc: "Exclusive #2 graphite formula provides extra smooth performance",
       price: 2.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_45cd5680-2d8c-406a-babd-af02cb83f0a0?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/office/o3.jpeg",
     },
 
     {
       name: "Texas Instruments TI-30XIIS Scientific Calculator - Blue",
       desc: "Fundamental, two-line calculator combines statistics and advanced scientific functions.",
       price: 9.99,
-      photoURL:
-        "https://target.scene7.com/is/image/Target/GUEST_2b9bbb1e-8747-40ad-9ce4-12703165e65c?wid=325&hei=325&qlt=80&fmt=pjpeg",
+      photoURL: "/assets/snack-images/office/04.jpeg",
     },
 
     {
@@ -1240,8 +1156,7 @@ async function seed() {
       name: "WaterWipes Sensitive Baby Diaper Wipes 60ct",
       desc: "Our fragrance-free baby wipes contain 99.9% purified water with a drop of fruit extract, suitable for eczema-prone skin and allergy sufferers.",
       price: 5.99,
-      photoURL:
-        "https://d2aam04nmhpdf8.cloudfront.net/images/images/000/063/882/xlarge/atwuzi1nzmgz9gilw3rb.png?1626734033",
+      photoURL: "/assets/snack-images/baby/b1.jpeg",
     },
 
     {
