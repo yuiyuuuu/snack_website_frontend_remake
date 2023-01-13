@@ -16,24 +16,6 @@ const AdminMain = () => {
   const dispatch = useDispatch();
 
   const userId = useSelector((state) => state.auth);
-  if (!userId.isAdmin || !userId.id) {
-    return (
-      <>
-        <Navbar />
-        <div
-          style={{
-            width: "100%",
-            display: "flex",
-            justifyContent: "center",
-            height: "100vh",
-            alignItems: "center",
-          }}
-        >
-          Access Denied
-        </div>
-      </>
-    );
-  }
 
   const [tab, setTab] = useState(1);
   const [allCategories, setAllCategories] = useState([]);
@@ -127,6 +109,25 @@ const AdminMain = () => {
     const { data } = await axios.get("/api/products/productcategory");
     setAllCategories(data);
   }, []);
+
+  if (!userId.isAdmin || !userId.id) {
+    return (
+      <>
+        <Navbar />
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            justifyContent: "center",
+            height: "100vh",
+            alignItems: "center",
+          }}
+        >
+          Access Denied
+        </div>
+      </>
+    );
+  }
 
   return (
     <div>
@@ -333,7 +334,7 @@ const AdminMain = () => {
           className='Input-text-admin-edit'
           placeholder='Name'
           size='20'
-          value={productName}
+          value={productName ? productName : ""}
           style={{ width: "91%", marginBottom: "25px", marginTop: "15px" }}
           onChange={(e) => setProductName(e.target.value)}
         />
@@ -344,7 +345,7 @@ const AdminMain = () => {
           className='Input-text-admin-edit'
           placeholder='Image URL'
           size='20'
-          value={productImage}
+          value={productImage ? productImage : ""}
           style={{ width: "91%", marginBottom: "25px", marginTop: "15px" }}
           onChange={(e) => setProductImage(e.target.value)}
         />
@@ -355,7 +356,7 @@ const AdminMain = () => {
           className='Input-text-admin-edit'
           placeholder='Description'
           size='20'
-          value={productDescription}
+          value={productDescription ? productDescription : ""}
           style={{ width: "91%", marginBottom: "25px", marginTop: "15px" }}
           onChange={(e) => setProductDescription(e.target.value)}
         />
@@ -373,7 +374,7 @@ const AdminMain = () => {
             className='Input-text-admin-edit'
             placeholder='Quantity'
             size='20'
-            value={productQuantity}
+            value={productQuantity ? productQuantity : ""}
             style={{ width: "31%", marginBottom: "25px", marginTop: "15px" }}
             onChange={(e) => {
               setProductQuantity(Number(e.target.value));
@@ -386,7 +387,7 @@ const AdminMain = () => {
             className='Input-text-admin-edit'
             placeholder='Price'
             size='20'
-            value={productPrice}
+            value={productPrice ? productPrice : ""}
             style={{
               width: "31%",
               marginBottom: "25px",

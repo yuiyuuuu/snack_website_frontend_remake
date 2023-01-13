@@ -28,6 +28,7 @@ app.get("/", (req, res) =>
 
 // static file-serving middleware
 app.use(express.static(path.join(__dirname, "..", "public")));
+app.use("/assets", express.static(path.join(__dirname, "..", "assets")));
 
 app.post("/payment", async (req, res) => {
   const { id, items } = req.body;

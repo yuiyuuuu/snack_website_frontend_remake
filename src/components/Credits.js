@@ -80,7 +80,8 @@ const Credits = () => {
           Note: this website is not monetized and for my educational purposes
           only. All transactions are tests and will not be charged and all
           orders will not be fulfilled. Please do not use your real card number.
-          4242424242424242 is stripe test card, please use that instead.
+          4242424242424242 42/42 424 is stripe test card, please use that
+          instead.
         </div>
 
         <div style={{ marginTop: "20px", fontSize: "20px" }}>

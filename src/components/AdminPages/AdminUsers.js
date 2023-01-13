@@ -1,6 +1,5 @@
-import { getByDisplayValue } from "@testing-library/react";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { _deleteUser, _updateAdminUser } from "../../store/users";
 
 const AdminUsers = ({
@@ -44,6 +43,7 @@ const AdminUsers = ({
                 flexDirection: "row",
                 justifyContent: "space-between",
               }}
+              key={selectedUser.id}
               className='user-admin'
               onClick={() => setSelectedUser(user)}
             >

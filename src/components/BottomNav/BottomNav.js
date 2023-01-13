@@ -166,7 +166,11 @@ const BottomNav = () => {
             height: "38px",
           }}
         >
-          <a href='https://play.google.com'>
+          <a
+            href='https://play.google.com'
+            rel='noreferrer noopener'
+            target='_blank'
+          >
             <img
               src='https://cdn.discordapp.com/attachments/775994350143930391/1007797180624552017/unknown.png'
               style={{
@@ -178,7 +182,11 @@ const BottomNav = () => {
           </a>
         </div>
         <div style={{ marginTop: "30px", marginLeft: "20px" }}>
-          <a href='https://www.apple.com/app-store/'>
+          <a
+            href='https://www.apple.com/app-store/'
+            rel='noreferrer noopener'
+            target='_blank'
+          >
             <img
               src='https://cdn.discordapp.com/attachments/775994350143930391/1007797160626114600/unknown.png'
               style={{ width: "130px", height: "38px", cursor: "pointer" }}

@@ -6,7 +6,6 @@ import { fetchAUser } from "../../store";
 import { useHistory, useLocation } from "react-router";
 import common from "./commonSearches";
 import { fetchProducts } from "../../store/Snacks";
-import { alphabet } from "./commonSearches";
 
 const Navbar = () => {
   const dispatch = useDispatch();
@@ -113,7 +112,7 @@ const Navbar = () => {
       >
         {searchValue === "" ? (
           common.map((item) => (
-            <a href={`/?search=${item}`}>
+            <a href={`/?search=${item}`} key={item}>
               <div
                 className='search-common-results'
                 style={{
@@ -186,7 +185,7 @@ const Navbar = () => {
           </a>
         ) : (
           filteredProductsFour.map((item) => (
-            <a href={`/allsnacks/${item.id}`}>
+            <a href={`/allsnacks/${item.id}`} key={item.id}>
               <div
                 className='search-common-results'
                 style={{

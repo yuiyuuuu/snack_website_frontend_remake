@@ -4,7 +4,7 @@ import "./Allsnacks.css";
 
 const FilterIcons = () => {
   return (
-    <div className="grid-container-filters">
+    <div className='grid-container-filters'>
       {filter.map((item) => (
         <a href={item.a}>
           <div
@@ -15,7 +15,7 @@ const FilterIcons = () => {
               alignItems: "center",
             }}
           >
-            <img src={item.img} style={{ width: "65px", height: "65px" }} />
+            <img src={item.img} style={{ maxWidth: "65px", height: "65px" }} />
             <div
               style={{
                 textAlign: "center",
